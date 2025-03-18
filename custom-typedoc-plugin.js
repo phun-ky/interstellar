@@ -52,7 +52,7 @@ class MyMarkdownThemeContext extends MarkdownThemeContext {
   partials = {
     ...this.partials,
     header: () => {
-      return '';
+      return '<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>';
     }
   };
 }

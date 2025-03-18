@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 300">
+  <circle
+    cx="150"
+    cy="150"
+    r="60"
+    stroke="#47b8be"
+    stroke-width="4"
+    style="filter: drop-shadow(0 0 4px #47b8be)"
+  />
+  <ellipse
+    cx="150"
+    cy="150"
+    stroke="#47b8be"
+    stroke-width="2"
+    rx="120"
+    ry="40"
+  />
+  <circle cx="150" cy="150" r="80" stroke="#47b8be" stroke-dasharray="4 4" />
+  <circle cx="150" cy="150" r="110" stroke="#47b8be" stroke-dasharray="4 4" />
+  <circle cx="210" cy="150" r="5" fill="#47b8be" />
+  <circle cx="150" cy="90" r="5" fill="#47b8be" />
+  <circle cx="150" cy="210" r="4" fill="#47b8be" />
+</svg>
