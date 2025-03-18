@@ -6,7 +6,7 @@
 
 # features/ui/update-coordinates
 
-> Last updated 2025-03-18T13:17:24.399Z
+> Last updated 2025-03-18T13:45:43.062Z
 
 ## Table of Contents
 

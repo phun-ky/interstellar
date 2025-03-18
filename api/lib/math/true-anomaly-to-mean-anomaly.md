@@ -6,7 +6,7 @@
 
 # lib/math/true-anomaly-to-mean-anomaly
 
-> Last updated 2025-03-18T13:17:24.400Z
+> Last updated 2025-03-18T13:45:43.064Z
 
 ## Table of Contents
 

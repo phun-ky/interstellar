@@ -6,7 +6,7 @@
 
 # types/celestial-bodies
 
-> Last updated 2025-03-18T13:17:24.401Z
+> Last updated 2025-03-18T13:45:43.064Z
 
 ## Table of Contents
 

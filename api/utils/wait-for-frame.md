@@ -6,7 +6,7 @@
 
 # utils/wait-for-frame
 
-> Last updated 2025-03-18T13:17:24.410Z
+> Last updated 2025-03-18T13:45:43.072Z
 
 ## Table of Contents
 

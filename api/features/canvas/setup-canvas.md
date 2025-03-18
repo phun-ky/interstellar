@@ -6,7 +6,7 @@
 
 # features/canvas/setup-canvas
 
-> Last updated 2025-03-18T13:17:24.394Z
+> Last updated 2025-03-18T13:45:43.056Z
 
 ## Table of Contents
 

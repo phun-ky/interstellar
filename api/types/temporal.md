@@ -6,7 +6,7 @@
 
 # types/temporal
 
-> Last updated 2025-03-18T13:17:24.406Z
+> Last updated 2025-03-18T13:45:43.068Z
 
 ## Table of Contents
 

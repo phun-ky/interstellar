@@ -6,7 +6,7 @@
 
 # components/Label
 
-> Last updated 2025-03-18T13:17:24.387Z
+> Last updated 2025-03-18T13:45:43.049Z
 
 ## Table of Contents
 

@@ -6,7 +6,7 @@
 
 # types/stars
 
-> Last updated 2025-03-18T13:17:24.404Z
+> Last updated 2025-03-18T13:45:43.068Z
 
 ## Table of Contents
 

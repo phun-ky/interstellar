@@ -6,7 +6,7 @@
 
 # utils/distance/normalize-distance
 
-> Last updated 2025-03-18T13:17:24.407Z
+> Last updated 2025-03-18T13:45:43.069Z
 
 ## Table of Contents
 

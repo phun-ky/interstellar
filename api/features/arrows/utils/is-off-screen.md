@@ -6,7 +6,7 @@
 
 # features/arrows/utils/is-off-screen
 
-> Last updated 2025-03-18T13:17:24.393Z
+> Last updated 2025-03-18T13:45:43.055Z
 
 ## Table of Contents
 
