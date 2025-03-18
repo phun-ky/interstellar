@@ -1,0 +1,322 @@
+:root {
+  --int-font-family-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+  --int-font-family-serif:
+    ui-serif, DejaVu Serif, Free Serif, Palatino, 'Times New Roman', Times,
+    Noto Serif, serif;
+  --int-font-family-mono:
+    'Menlo for Powerline', 'Menlo Regular for Powerline', 'DejaVu Sans Mono',
+    Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+  --int-color-background: black;
+  --int-color-text-body: white;
+  --int-size-font: 16px;
+}
+
+*.int,
+*.int::after,
+*.int::before {
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialised;
+  font-family: var(--int-font-family-sans);
+}
+html {
+  font-family: var(--int-font-family-sans);
+}
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  font-family: var(--int-font-family-sans);
+  background-color: var(--int-color-background);
+  color: var(--int-color-text-body);
+  font-size: var(--int-size-font);
+  line-height: 1.5;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-image:
+    radial-gradient(at 31% 12%, rgb(7, 12, 39) 0px, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(at 2% 84%, rgb(12, 8, 43) 0px, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(at 49% 79%, rgb(13, 8, 38) 0px, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(at 78% 22%, rgb(5, 6, 21) 0px, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(at 97% 54%, rgb(7, 4, 27) 0px, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(at 49% 22%, rgb(6, 4, 21) 0px, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(at 49% 36%, rgb(1, 1, 9) 0px, rgba(0, 0, 0, 0) 50%);
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.int.controls {
+  position: fixed;
+  top: 2em;
+  left: 2em;
+}
+
+#music {
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+}
+
+#minimap {
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+  height: 150px;
+  width: 150px;
+}
+
+/*
+10070: (18.6432,44.1288,45.5457) #132C2E
+10503: (33.5994,50.9117,50.2972) #223332
+11347: (53.9741,106.847,107.596) #366B6C
+15123: (47.9681,80.6548,80.558) #305151
+2936: (74.5521,130.867,124.147) #4B837C
+29563: (11.6907,27.9801,37.4884) #0C1C25
+3372: (95.5269,162.722,165.048) #60A3A5
+4234: (66.1451,123.169,132.094) #427B84
+4252: (175.31,184.592,185.486) #AFB9B9
+430198: (5.73691,8.76672,8.55118) #060909
+5396: (80.69,140.672,141.749) #518D8E
+5442: (70.7323,183.781,189.697) #47B8BE
+7690: (72.9487,109.128,109.139) #496D6D
+8579: (34.8542,82.8923,88.992) #235359
+8880: (78.5949,94.9343,94.9745) #4F5F5F
+9615: (32.5203,62.7748,64.6467) #213F41
+#8dc5c9
+#4feff9
+
+#050A30 – A deep navy blue, often used to represent outer space.
+
+Other alternatives depending on the tone you want:
+
+    #000814 – Almost black with a hint of deep blue.
+    #0A0F29 – A darker, rich blue-black shade.
+    #1B1F3B – A slightly lighter deep space blue.
+
+
+
+*/
+.int.panel.info,
+.int.controls {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  padding: 0.75em 1.5em 1.5em;
+  width: 25em;
+  background-color: transparent;
+  filter: drop-shadow(0 0 10px rgb(71, 184, 190));
+}
+
+.int.panel.info .inner,
+.int.controls .inner {
+  height: 100%;
+  width: 100%;
+  background-color: #050807;
+}
+
+.int.panel.info .inner::before,
+.int.controls .inner::before {
+  background: #050807;
+  clip-path: polygon(
+    0 0,
+    0 0,
+    100% 0,
+    100% calc(100% - 40px),
+    calc(100% - 40px) 100%,
+    0 100%
+  );
+  content: '';
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.int.panel.info .inner::after,
+.int.controls .inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #47b8be;
+  pointer-events: none;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 40px),
+    calc(100% - 40px) 100%,
+    0 100%,
+    0 0,
+    3px 3px,
+    3px calc(100% - 3px),
+    calc(100% - 40px - 1.24px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 40px - 1.24px),
+    calc(100% - 3px) 3px,
+    3px 3px
+  );
+}
+.int.panel.info h2.int,
+.int.controls h2.int {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.int.panel.info dl.int {
+  display: grid;
+  grid-template-columns: calc(50% - 0.75em) calc(50% - 0.75em);
+  grid-gap: 0.25em 1.5em;
+  margin-bottom: 1em;
+}
+
+.int.panel.info dl.int.horizontal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 0.5em;
+}
+
+.int.panel.info dt.int {
+  color: white;
+  text-transform: uppercase;
+}
+.int.panel.info dd.int {
+  color: #47b8be;
+}
+
+fieldset.int {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+legend.int {
+  display: table;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 1em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--int-color-text-body);
+}
+legend.int + * {
+  clear: both;
+}
+label.int {
+  font-family: var(--int-font-family-sans);
+  line-height: 1.333;
+  font-weight: 500;
+  margin-bottom: 0.25em;
+  color: var(--int-color-text-body);
+  text-transform: uppercase;
+}
+.int.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important
+ /* 1 */
+ ;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important
+ /* 2 */
+ ;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important
+ /* 3 */
+ ;
+}
+
+select.int {
+  height: 3em;
+  border-radius: 6px;
+  border: 2pt solid #47b8be;
+  font-size: 1em;
+  line-height: 3em;
+  background-color: rgba(71, 184, 190, 0.1);
+  padding: 0 0.5em;
+  text-transform: uppercase;
+  color: white;
+  text-align: left;
+  width: 100%;
+}
+
+.int.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 1em;
+}
+
+hr.int {
+  margin: 2em auto;
+  padding: 0;
+  height: 2pt;
+  background: radial-gradient(
+    circle,
+    rgba(71, 184, 190, 0.6) 56%,
+    rgba(71, 184, 190, 0.1) 100%
+  );
+  width: 90%;
+  border: none;
+}
+
+.int.pause-button {
+  height: 48px;
+  width: 48px;
+  border: none;
+  background-color: transparent;
+}
+
+.int.pause-button svg.play {
+  display: none;
+}
+
+.int.pause-button.is-active svg.play {
+  display: block;
+}
+
+.int.pause-button.is-active svg.pause {
+  display: none;
+}
+
+.int.pause-button svg {
+  filter: drop-shadow(0 0 4px rgb(71, 184, 190));
+  height: 48px;
+  width: 48px;
+  color: #47b8be;
+  pointer-events: none;
+}
+
+.int.pause-button:hover svg {
+  filter: drop-shadow(0 0 10px rgb(71, 184, 190));
+  color: rgba(71, 184, 190, 0.6);
+}
