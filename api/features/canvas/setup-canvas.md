@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/canvas/setup-canvas
 
 # features/canvas/setup-canvas
 
-> Last updated 2025-03-18T11:22:37.503Z
+> Last updated 2025-03-18T13:17:24.394Z
 
 ## Table of Contents
 
@@ -20,7 +24,8 @@ function setupCanvas(): {
 };
 ```
 
-Defined in: features/canvas/setup-canvas.ts:25
+Defined in:
+[features/canvas/setup-canvas.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/setup-canvas.ts#L25)
 
 Initializes and configures a full-screen canvas with a 2D rendering context.
 
@@ -45,10 +50,10 @@ This function:
 
 An object containing the initialized canvas and its 2D rendering context.
 
-| Name     | Type                                                                                              | Defined in                         |
-| -------- | ------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| `canvas` | [`HTMLCanvasElement`](https://developer.mozilla.org/docs/Web/API/HTMLCanvasElement)               | features/canvas/setup-canvas.ts:26 |
-| `space`  | [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D) | features/canvas/setup-canvas.ts:27 |
+| Name     | Type                                                                                              | Defined in                                                                                                                      |
+| -------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `canvas` | [`HTMLCanvasElement`](https://developer.mozilla.org/docs/Web/API/HTMLCanvasElement)               | [features/canvas/setup-canvas.ts:26](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/setup-canvas.ts#L26) |
+| `space`  | [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D) | [features/canvas/setup-canvas.ts:27](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/setup-canvas.ts#L27) |
 
 #### Throws
 

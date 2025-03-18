@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/celestial-bodies/orbits/compute
 
 # features/celestial-bodies/orbits/compute
 
-> Last updated 2025-03-18T11:22:37.504Z
+> Last updated 2025-03-18T13:17:24.396Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function computeOrbits(celestialBodies): void;
 ```
 
-Defined in: features/celestial-bodies/orbits/compute.ts:77
+Defined in:
+[features/celestial-bodies/orbits/compute.ts:77](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/compute.ts#L77)
 
 Computes the **orbital paths** for celestial bodies orbiting around a central
 mass (e.g., a black hole).

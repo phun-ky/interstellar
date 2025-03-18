@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / lib/math/compute-angle
 
 # lib/math/compute-angle
 
-> Last updated 2025-03-18T11:22:37.509Z
+> Last updated 2025-03-18T13:17:24.400Z
 
 ## Table of Contents
 
@@ -23,7 +27,8 @@
 function computeAngle(body, timeStep): number;
 ```
 
-Defined in: lib/math/compute-angle.ts:62
+Defined in:
+[lib/math/compute-angle.ts:62](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/compute-angle.ts#L62)
 
 Computes the orbital angle (true anomaly, $ν$) of a celestial body for a given
 date and time step.

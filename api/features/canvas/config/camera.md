@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/canvas/config/camera
 
 # features/canvas/config/camera
 
-> Last updated 2025-03-18T11:22:37.502Z
+> Last updated 2025-03-18T13:17:24.393Z
 
 ## Table of Contents
 
@@ -20,7 +24,8 @@
 const offsetCacheX: ValueInterface;
 ```
 
-Defined in: features/canvas/config/camera/index.ts:20
+Defined in:
+[features/canvas/config/camera/index.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/camera/index.ts#L20)
 
 Cached horizontal offset to preserve stable positioning.
 
@@ -32,7 +37,8 @@ Cached horizontal offset to preserve stable positioning.
 const offsetCacheY: ValueInterface;
 ```
 
-Defined in: features/canvas/config/camera/index.ts:23
+Defined in:
+[features/canvas/config/camera/index.ts:23](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/camera/index.ts#L23)
 
 Cached vertical offset to preserve stable positioning.
 
@@ -44,7 +50,8 @@ Cached vertical offset to preserve stable positioning.
 const offsetX: ValueInterface;
 ```
 
-Defined in: features/canvas/config/camera/index.ts:14
+Defined in:
+[features/canvas/config/camera/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/camera/index.ts#L14)
 
 The horizontal offset value for the reference position.
 
@@ -56,7 +63,8 @@ The horizontal offset value for the reference position.
 const offsetY: ValueInterface;
 ```
 
-Defined in: features/canvas/config/camera/index.ts:17
+Defined in:
+[features/canvas/config/camera/index.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/camera/index.ts#L17)
 
 The vertical offset value for the reference position.
 

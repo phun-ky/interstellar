@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / types/options
 
 # types/options
 
-> Last updated 2025-03-18T11:22:37.512Z
+> Last updated 2025-03-18T13:17:24.404Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 
 ### TemporalOptionsInterface
 
-Defined in: types/options.ts:66
+Defined in:
+[types/options.ts:66](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L66)
 
 Configuration for time step settings in the simulation.
 
@@ -33,15 +38,16 @@ const temporalSettings: TemporalOptionsInterface = {
 
 #### Properties
 
-| Property               | Type                                      | Description                  | Defined in          |
-| ---------------------- | ----------------------------------------- | ---------------------------- | ------------------- |
-| <a id="mode" /> `mode` | [`TimeStepMode`](options.md#timestepmode) | The selected time step mode. | types/options.ts:68 |
+| Property               | Type                                      | Description                  | Defined in                                                                                        |
+| ---------------------- | ----------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
+| <a id="mode" /> `mode` | [`TimeStepMode`](options.md#timestepmode) | The selected time step mode. | [types/options.ts:68](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L68) |
 
 ---
 
 ### UIOptionsInterface
 
-Defined in: types/options.ts:27
+Defined in:
+[types/options.ts:27](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L27)
 
 Defines user interface options for toggling different visualization elements.
 
@@ -71,14 +77,14 @@ const uiOptions: UIOptionsInterface = {
 
 #### Properties
 
-| Property                                 | Type      | Description                                      | Defined in          |
-| ---------------------------------------- | --------- | ------------------------------------------------ | ------------------- |
-| <a id="arrowheads" /> `arrowHeads`       | `boolean` | Display directional arrowheads for trajectories. | types/options.ts:29 |
-| <a id="asteroidbelts" /> `asteroidBelts` | `boolean` | Render asteroid belts in the visualization.      | types/options.ts:39 |
-| <a id="comets" /> `comets`               | `boolean` | Show or hide comets.                             | types/options.ts:35 |
-| <a id="labels" /> `labels`               | `boolean` | Display names of celestial objects.              | types/options.ts:37 |
-| <a id="moons" /> `moons`                 | `boolean` | Show or hide planetary moons.                    | types/options.ts:33 |
-| <a id="trajectory" /> `trajectory`       | `boolean` | Toggle visibility of object trajectories.        | types/options.ts:31 |
+| Property                                 | Type      | Description                                      | Defined in                                                                                        |
+| ---------------------------------------- | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| <a id="arrowheads" /> `arrowHeads`       | `boolean` | Display directional arrowheads for trajectories. | [types/options.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L29) |
+| <a id="asteroidbelts" /> `asteroidBelts` | `boolean` | Render asteroid belts in the visualization.      | [types/options.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L39) |
+| <a id="comets" /> `comets`               | `boolean` | Show or hide comets.                             | [types/options.ts:35](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L35) |
+| <a id="labels" /> `labels`               | `boolean` | Display names of celestial objects.              | [types/options.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L37) |
+| <a id="moons" /> `moons`                 | `boolean` | Show or hide planetary moons.                    | [types/options.ts:33](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L33) |
+| <a id="trajectory" /> `trajectory`       | `boolean` | Toggle visibility of object trajectories.        | [types/options.ts:31](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L31) |
 
 ## Type Aliases
 
@@ -88,7 +94,8 @@ const uiOptions: UIOptionsInterface = {
 type TimeStepMode = 'framePerDay' | 'spedUp' | 'realTime';
 ```
 
-Defined in: types/options.ts:51
+Defined in:
+[types/options.ts:51](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L51)
 
 Defines available time step modes for controlling simulation speed.
 

@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / config/set-UI-options
 
 # config/set-UI-options
 
-> Last updated 2025-03-18T11:22:37.498Z
+> Last updated 2025-03-18T13:17:24.389Z
 
 ## Table of Contents
 
@@ -26,7 +30,8 @@ type SetUIOptionsPropsType = {
 };
 ```
 
-Defined in: config/set-UI-options.ts:7
+Defined in:
+[config/set-UI-options.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L7)
 
 Represents the properties for setting UI options in the simulation.
 
@@ -57,7 +62,7 @@ Represents the properties for setting UI options in the simulation.
       </td>
 
       <td>
-        config/set-UI-options.ts:19
+        [config/set-UI-options.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L19)
       </td>
     </tr>
 
@@ -75,7 +80,7 @@ Represents the properties for setting UI options in the simulation.
       </td>
 
       <td>
-        config/set-UI-options.ts:17
+        [config/set-UI-options.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L17)
       </td>
     </tr>
 
@@ -93,7 +98,7 @@ Represents the properties for setting UI options in the simulation.
       </td>
 
       <td>
-        config/set-UI-options.ts:11
+        [config/set-UI-options.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L11)
       </td>
     </tr>
 
@@ -111,7 +116,7 @@ Represents the properties for setting UI options in the simulation.
       </td>
 
       <td>
-        config/set-UI-options.ts:13
+        [config/set-UI-options.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L13)
       </td>
     </tr>
 
@@ -129,7 +134,7 @@ Represents the properties for setting UI options in the simulation.
       </td>
 
       <td>
-        config/set-UI-options.ts:15
+        [config/set-UI-options.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L15)
       </td>
     </tr>
 
@@ -147,7 +152,7 @@ Represents the properties for setting UI options in the simulation.
       </td>
 
       <td>
-        config/set-UI-options.ts:9
+        [config/set-UI-options.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L9)
       </td>
     </tr>
 
@@ -162,7 +167,8 @@ Represents the properties for setting UI options in the simulation.
 function setUIOptions(props): void;
 ```
 
-Defined in: config/set-UI-options.ts:42
+Defined in:
+[config/set-UI-options.ts:42](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L42)
 
 Updates the UI options based on the provided checkbox elements.
 

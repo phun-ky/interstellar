@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/ui/update-coordinates
 
 # features/ui/update-coordinates
 
-> Last updated 2025-03-18T11:22:37.508Z
+> Last updated 2025-03-18T13:17:24.399Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function updateCoordinates(scale, offsetX, offsetY): void;
 ```
 
-Defined in: features/ui/update-coordinates.ts:5
+Defined in:
+[features/ui/update-coordinates.ts:5](https://github.com/phun-ky/interstellar/blob/main/src/features/ui/update-coordinates.ts#L5)
 
 #### Parameters
 

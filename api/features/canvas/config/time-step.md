@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/canvas/config/time-step
 
 # features/canvas/config/time-step
 
-> Last updated 2025-03-18T11:22:37.503Z
+> Last updated 2025-03-18T13:17:24.394Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 const lastTimestamp: TemporalInterface;
 ```
 
-Defined in: features/canvas/config/time-step/index.ts:19
+Defined in:
+[features/canvas/config/time-step/index.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/index.ts#L19)
 
 Last recorded timestamp for time calculations, in milliseconds.
 
@@ -30,7 +35,8 @@ Last recorded timestamp for time calculations, in milliseconds.
 const timeStep: TimeStepInterface;
 ```
 
-Defined in: features/canvas/config/time-step/index.ts:25
+Defined in:
+[features/canvas/config/time-step/index.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/index.ts#L25)
 
 Defines the simulation time step, initially set to 0 days.
 

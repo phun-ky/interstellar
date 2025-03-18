@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / lib/math/wrap-angle
 
 # lib/math/wrap-angle
 
-> Last updated 2025-03-18T11:22:37.509Z
+> Last updated 2025-03-18T13:17:24.400Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function wrapAngle(x): number;
 ```
 
-Defined in: lib/math/wrap-angle.ts:25
+Defined in:
+[lib/math/wrap-angle.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/wrap-angle.ts#L25)
 
 Wraps an angle to the range $[0, 2\pi)$.
 

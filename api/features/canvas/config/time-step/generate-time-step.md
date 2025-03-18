@@ -1,9 +1,13 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../../README.md) /
 features/canvas/config/time-step/generate-time-step
 
 # features/canvas/config/time-step/generate-time-step
 
-> Last updated 2025-03-18T11:22:37.503Z
+> Last updated 2025-03-18T13:17:24.394Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@ features/canvas/config/time-step/generate-time-step
 function generateTimeStep(): void;
 ```
 
-Defined in: features/canvas/config/time-step/generate-time-step.ts:29
+Defined in:
+[features/canvas/config/time-step/generate-time-step.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/generate-time-step.ts#L29)
 
 Generates a time step value based on the selected speed mode.
 

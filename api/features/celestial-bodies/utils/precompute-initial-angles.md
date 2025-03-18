@@ -1,9 +1,13 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) /
 features/celestial-bodies/utils/precompute-initial-angles
 
 # features/celestial-bodies/utils/precompute-initial-angles
 
-> Last updated 2025-03-18T11:22:37.505Z
+> Last updated 2025-03-18T13:17:24.397Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@ features/celestial-bodies/utils/precompute-initial-angles
 function precomputeInitialAngles(bodies, date): void;
 ```
 
-Defined in: features/celestial-bodies/utils/precompute-initial-angles.ts:39
+Defined in:
+[features/celestial-bodies/utils/precompute-initial-angles.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/precompute-initial-angles.ts#L39)
 
 Precomputes the initial **orbital angles** for celestial bodies relative to the
 J2000 epoch.

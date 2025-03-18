@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/draw
 
 # utils/draw
 
-> Last updated 2025-03-18T11:22:37.515Z
+> Last updated 2025-03-18T13:17:24.407Z
 
 ## Table of Contents
 
@@ -35,7 +39,8 @@ type DrawPropsType = {
 };
 ```
 
-Defined in: utils/draw\.ts:37
+Defined in:
+[utils/draw.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L37)
 
 #### Type declaration
 
@@ -59,7 +64,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:48
+        [utils/draw.ts:48](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L48)
       </td>
     </tr>
 
@@ -73,7 +78,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:47
+        [utils/draw.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L47)
       </td>
     </tr>
 
@@ -87,7 +92,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:43
+        [utils/draw.ts:43](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L43)
       </td>
     </tr>
 
@@ -101,7 +106,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:41
+        [utils/draw.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L41)
       </td>
     </tr>
 
@@ -115,7 +120,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:40
+        [utils/draw.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L40)
       </td>
     </tr>
 
@@ -129,7 +134,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:49
+        [utils/draw.ts:49](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L49)
       </td>
     </tr>
 
@@ -143,7 +148,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:50
+        [utils/draw.ts:50](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L50)
       </td>
     </tr>
 
@@ -157,7 +162,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:42
+        [utils/draw.ts:42](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L42)
       </td>
     </tr>
 
@@ -171,7 +176,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:45
+        [utils/draw.ts:45](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L45)
       </td>
     </tr>
 
@@ -185,7 +190,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:46
+        [utils/draw.ts:46](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L46)
       </td>
     </tr>
 
@@ -199,7 +204,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:44
+        [utils/draw.ts:44](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L44)
       </td>
     </tr>
 
@@ -213,7 +218,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:38
+        [utils/draw.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L38)
       </td>
     </tr>
 
@@ -227,7 +232,7 @@ Defined in: utils/draw\.ts:37
       </td>
 
       <td>
-        utils/draw\.ts:39
+        [utils/draw.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L39)
       </td>
     </tr>
 
@@ -242,7 +247,8 @@ Defined in: utils/draw\.ts:37
 function draw(props): Promise<void>;
 ```
 
-Defined in: utils/draw\.ts:93
+Defined in:
+[utils/draw.ts:93](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L93)
 
 **Draws the entire celestial simulation** onto the canvas.
 

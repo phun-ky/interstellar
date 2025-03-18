@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/event-handlers
 
 # utils/event-handlers
 
-> Last updated 2025-03-18T11:22:37.516Z
+> Last updated 2025-03-18T13:17:24.408Z
 
 ## Table of Contents
 
@@ -24,7 +28,8 @@ type AttachEventHandlersPropsType = {
 };
 ```
 
-Defined in: utils/event-handlers.ts:37
+Defined in:
+[utils/event-handlers.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L37)
 
 #### Type declaration
 
@@ -48,7 +53,7 @@ Defined in: utils/event-handlers.ts:37
       </td>
 
       <td>
-        utils/event-handlers.ts:39
+        [utils/event-handlers.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L39)
       </td>
     </tr>
 
@@ -62,7 +67,7 @@ Defined in: utils/event-handlers.ts:37
       </td>
 
       <td>
-        utils/event-handlers.ts:38
+        [utils/event-handlers.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L38)
       </td>
     </tr>
 
@@ -76,7 +81,7 @@ Defined in: utils/event-handlers.ts:37
       </td>
 
       <td>
-        utils/event-handlers.ts:40
+        [utils/event-handlers.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L40)
       </td>
     </tr>
 
@@ -90,7 +95,7 @@ Defined in: utils/event-handlers.ts:37
       </td>
 
       <td>
-        utils/event-handlers.ts:41
+        [utils/event-handlers.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L41)
       </td>
     </tr>
 
@@ -105,7 +110,8 @@ Defined in: utils/event-handlers.ts:37
 function attachEventHandlers(props): void;
 ```
 
-Defined in: utils/event-handlers.ts:51
+Defined in:
+[utils/event-handlers.ts:51](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L51)
 
 #### Parameters
 

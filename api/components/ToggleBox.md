@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / components/ToggleBox
 
 # components/ToggleBox
 
-> Last updated 2025-03-18T11:22:37.497Z
+> Last updated 2025-03-18T13:17:24.388Z
 
 ## Table of Contents
 
@@ -25,7 +29,8 @@ type InterstellarToggleBoxPropsType = {
 };
 ```
 
-Defined in: components/ToggleBox/index.ts:12
+Defined in:
+[components/ToggleBox/index.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L12)
 
 Represents the properties for the Interstellar ToggleBox component.
 
@@ -56,7 +61,7 @@ Represents the properties for the Interstellar ToggleBox component.
       </td>
 
       <td>
-        components/ToggleBox/index.ts:14
+        [components/ToggleBox/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L14)
       </td>
     </tr>
 
@@ -74,7 +79,7 @@ Represents the properties for the Interstellar ToggleBox component.
       </td>
 
       <td>
-        components/ToggleBox/index.ts:20
+        [components/ToggleBox/index.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L20)
       </td>
     </tr>
 
@@ -92,7 +97,7 @@ Represents the properties for the Interstellar ToggleBox component.
       </td>
 
       <td>
-        components/ToggleBox/index.ts:18
+        [components/ToggleBox/index.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L18)
       </td>
     </tr>
 
@@ -110,7 +115,7 @@ Represents the properties for the Interstellar ToggleBox component.
       </td>
 
       <td>
-        components/ToggleBox/index.ts:22
+        [components/ToggleBox/index.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L22)
       </td>
     </tr>
 
@@ -128,7 +133,7 @@ Represents the properties for the Interstellar ToggleBox component.
       </td>
 
       <td>
-        components/ToggleBox/index.ts:16
+        [components/ToggleBox/index.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L16)
       </td>
     </tr>
 
@@ -143,7 +148,8 @@ Represents the properties for the Interstellar ToggleBox component.
 function ToggleBox(props): string;
 ```
 
-Defined in: components/ToggleBox/index.ts:47
+Defined in:
+[components/ToggleBox/index.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L47)
 
 Renders an Interstellar ToggleBox component.
 

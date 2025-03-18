@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / lib/math/solve-kepler
 
 # lib/math/solve-kepler
 
-> Last updated 2025-03-18T11:22:37.509Z
+> Last updated 2025-03-18T13:17:24.400Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function solveKepler(M, e, maxIter, tolerance): number;
 ```
 
-Defined in: lib/math/solve-kepler.ts:59
+Defined in:
+[lib/math/solve-kepler.ts:59](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/solve-kepler.ts#L59)
 
 #### Parameters
 

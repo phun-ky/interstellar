@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / utils/temporal/convert-temporal-unit
 
 # utils/temporal/convert-temporal-unit
 
-> Last updated 2025-03-18T11:22:37.516Z
+> Last updated 2025-03-18T13:17:24.409Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function convertTemporalUnit(time, targetUnit): TemporalInterface;
 ```
 
-Defined in: utils/temporal/convert-temporal-unit.ts:27
+Defined in:
+[utils/temporal/convert-temporal-unit.ts:27](https://github.com/phun-ky/interstellar/blob/main/src/utils/temporal/convert-temporal-unit.ts#L27)
 
 Converts a **temporal measurement** between **days, years, and million years
 (Myr)**.

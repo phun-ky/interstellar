@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/arrows/utils/get-angle-to-viewport
 
 # features/arrows/utils/get-angle-to-viewport
 
-> Last updated 2025-03-18T11:22:37.502Z
+> Last updated 2025-03-18T13:17:24.393Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function getAngleToViewport(xPX, yPX, referenceX, referenceY): number;
 ```
 
-Defined in: features/arrows/utils/get-angle-to-viewport.ts:28
+Defined in:
+[features/arrows/utils/get-angle-to-viewport.ts:28](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/utils/get-angle-to-viewport.ts#L28)
 
 Computes the angle from a reference point to a given point in the viewport.
 

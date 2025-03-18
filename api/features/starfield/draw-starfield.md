@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/starfield/draw-starfield
 
 # features/starfield/draw-starfield
 
-> Last updated 2025-03-18T11:22:37.507Z
+> Last updated 2025-03-18T13:17:24.398Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function drawStarfield(space, canvasWidth, canvasHeight): void;
 ```
 
-Defined in: features/starfield/draw-starfield.ts:18
+Defined in:
+[features/starfield/draw-starfield.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/draw-starfield.ts#L18)
 
 Renders the pre-generated starfield onto the canvas.
 

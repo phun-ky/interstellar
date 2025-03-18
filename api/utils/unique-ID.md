@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/unique-ID
 
 # utils/unique-ID
 
-> Last updated 2025-03-18T11:22:37.517Z
+> Last updated 2025-03-18T13:17:24.409Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function uniqueID(): string;
 ```
 
-Defined in: utils/unique-ID.ts:18
+Defined in:
+[utils/unique-ID.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/utils/unique-ID.ts#L18)
 
 Generates a unique identifier using a random alphanumeric string.
 

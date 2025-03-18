@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / utils/distance/pixels-to-distance
 
 # utils/distance/pixels-to-distance
 
-> Last updated 2025-03-18T11:22:37.515Z
+> Last updated 2025-03-18T13:17:24.407Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function pixelsToDistance(pixels, scale): DistanceInterface;
 ```
 
-Defined in: utils/distance/pixels-to-distance.ts:25
+Defined in:
+[utils/distance/pixels-to-distance.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/utils/distance/pixels-to-distance.ts#L25)
 
 Converts a **pixel-based distance** back into **Astronomical Units (AU)**.
 

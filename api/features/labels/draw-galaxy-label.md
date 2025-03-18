@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/labels/draw-galaxy-label
 
 # features/labels/draw-galaxy-label
 
-> Last updated 2025-03-18T11:22:37.506Z
+> Last updated 2025-03-18T13:17:24.398Z
 
 ## Table of Contents
 
@@ -26,7 +30,8 @@ type DrawGalaxyLabelPropsType = {
 };
 ```
 
-Defined in: features/labels/draw-galaxy-label.ts:8
+Defined in:
+[features/labels/draw-galaxy-label.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L8)
 
 #### Type declaration
 
@@ -50,7 +55,7 @@ Defined in: features/labels/draw-galaxy-label.ts:8
       </td>
 
       <td>
-        features/labels/draw-galaxy-label.ts:12
+        [features/labels/draw-galaxy-label.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L12)
       </td>
     </tr>
 
@@ -64,7 +69,7 @@ Defined in: features/labels/draw-galaxy-label.ts:8
       </td>
 
       <td>
-        features/labels/draw-galaxy-label.ts:10
+        [features/labels/draw-galaxy-label.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L10)
       </td>
     </tr>
 
@@ -78,7 +83,7 @@ Defined in: features/labels/draw-galaxy-label.ts:8
       </td>
 
       <td>
-        features/labels/draw-galaxy-label.ts:11
+        [features/labels/draw-galaxy-label.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L11)
       </td>
     </tr>
 
@@ -92,7 +97,7 @@ Defined in: features/labels/draw-galaxy-label.ts:8
       </td>
 
       <td>
-        features/labels/draw-galaxy-label.ts:13
+        [features/labels/draw-galaxy-label.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L13)
       </td>
     </tr>
 
@@ -106,7 +111,7 @@ Defined in: features/labels/draw-galaxy-label.ts:8
       </td>
 
       <td>
-        features/labels/draw-galaxy-label.ts:9
+        [features/labels/draw-galaxy-label.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L9)
       </td>
     </tr>
 
@@ -121,7 +126,8 @@ Defined in: features/labels/draw-galaxy-label.ts:8
 function drawGalaxyLabel(props): void;
 ```
 
-Defined in: features/labels/draw-galaxy-label.ts:57
+Defined in:
+[features/labels/draw-galaxy-label.ts:57](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L57)
 
 Renders the name of a galaxy and its central black hole onto a 2D canvas.
 

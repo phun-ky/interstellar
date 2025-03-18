@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / types/asteroid-belts
 
 # types/asteroid-belts
 
-> Last updated 2025-03-18T11:22:37.510Z
+> Last updated 2025-03-18T13:17:24.401Z
 
 ## Table of Contents
 
@@ -16,7 +20,8 @@
 
 ### AsteroidBeltInterface
 
-Defined in: types/asteroid-belts.ts:15
+Defined in:
+[types/asteroid-belts.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L15)
 
 Represents an asteroid belt within the solar system simulation.
 
@@ -32,15 +37,15 @@ AsteroidBeltInterface
 
 #### Properties
 
-| Property                             | Type                                                             | Description                                                | Defined in                 |
-| ------------------------------------ | ---------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------- |
-| <a id="color" /> `color`             | `string`                                                         | Belt color for visualization.                              | types/asteroid-belts.ts:23 |
-| <a id="density" /> `density`         | `number`                                                         | Density factor affecting how many asteroids are simulated. | types/asteroid-belts.ts:27 |
-| <a id="innerradius" /> `innerRadius` | `number`                                                         | Inner radius of the belt in Astronomical Units (AU).       | types/asteroid-belts.ts:19 |
-| <a id="name" /> `name`               | `string`                                                         | Name of the asteroid belt.                                 | types/asteroid-belts.ts:17 |
-| <a id="opacity" /> `opacity`         | `number`                                                         | Transparency level (0 = fully transparent, 1 = solid).     | types/asteroid-belts.ts:25 |
-| <a id="orbitpath" /> `orbitPath?`    | [`Coordinates2DInterface`](planets.md#coordinates2dinterface)\[] | Optional: Orbit path for finer asteroid positioning.       | types/asteroid-belts.ts:29 |
-| <a id="outerradius" /> `outerRadius` | `number`                                                         | Outer radius of the belt in Astronomical Units (AU).       | types/asteroid-belts.ts:21 |
+| Property                             | Type                                                             | Description                                                | Defined in                                                                                                      |
+| ------------------------------------ | ---------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| <a id="color" /> `color`             | `string`                                                         | Belt color for visualization.                              | [types/asteroid-belts.ts:23](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L23) |
+| <a id="density" /> `density`         | `number`                                                         | Density factor affecting how many asteroids are simulated. | [types/asteroid-belts.ts:27](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L27) |
+| <a id="innerradius" /> `innerRadius` | `number`                                                         | Inner radius of the belt in Astronomical Units (AU).       | [types/asteroid-belts.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L19) |
+| <a id="name" /> `name`               | `string`                                                         | Name of the asteroid belt.                                 | [types/asteroid-belts.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L17) |
+| <a id="opacity" /> `opacity`         | `number`                                                         | Transparency level (0 = fully transparent, 1 = solid).     | [types/asteroid-belts.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L25) |
+| <a id="orbitpath" /> `orbitPath?`    | [`Coordinates2DInterface`](planets.md#coordinates2dinterface)\[] | Optional: Orbit path for finer asteroid positioning.       | [types/asteroid-belts.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L29) |
+| <a id="outerradius" /> `outerRadius` | `number`                                                         | Outer radius of the belt in Astronomical Units (AU).       | [types/asteroid-belts.ts:21](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L21) |
 
 ## Type Aliases
 
@@ -50,7 +55,8 @@ AsteroidBeltInterface
 type AsteroidBeltsType = AsteroidBeltInterface[];
 ```
 
-Defined in: types/asteroid-belts.ts:48
+Defined in:
+[types/asteroid-belts.ts:48](https://github.com/phun-ky/interstellar/blob/main/src/types/asteroid-belts.ts#L48)
 
 Type alias for a collection of asteroid belts.
 

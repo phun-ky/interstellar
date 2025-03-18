@@ -1,9 +1,13 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) /
 features/celestial-bodies/utils/update-positions
 
 # features/celestial-bodies/utils/update-positions
 
-> Last updated 2025-03-18T11:22:37.506Z
+> Last updated 2025-03-18T13:17:24.397Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@ features/celestial-bodies/utils/update-positions
 function updatePositions(celestialBodies, timeStep): void;
 ```
 
-Defined in: features/celestial-bodies/utils/update-positions.ts:38
+Defined in:
+[features/celestial-bodies/utils/update-positions.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/update-positions.ts#L38)
 
 Updates the **orbital positions** of all celestial bodies based on the given
 time step.

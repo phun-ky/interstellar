@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / components/Checkbox
 
 # components/Checkbox
 
-> Last updated 2025-03-18T11:22:37.496Z
+> Last updated 2025-03-18T13:17:24.387Z
 
 ## Table of Contents
 
@@ -24,7 +28,8 @@ type InterstellarCheckboxPropsType = {
 };
 ```
 
-Defined in: components/Checkbox/index.ts:9
+Defined in:
+[components/Checkbox/index.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L9)
 
 Represents the properties for the Interstellar Checkbox component.
 
@@ -55,7 +60,7 @@ Represents the properties for the Interstellar Checkbox component.
       </td>
 
       <td>
-        components/Checkbox/index.ts:11
+        [components/Checkbox/index.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L11)
       </td>
     </tr>
 
@@ -73,7 +78,7 @@ Represents the properties for the Interstellar Checkbox component.
       </td>
 
       <td>
-        components/Checkbox/index.ts:17
+        [components/Checkbox/index.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L17)
       </td>
     </tr>
 
@@ -91,7 +96,7 @@ Represents the properties for the Interstellar Checkbox component.
       </td>
 
       <td>
-        components/Checkbox/index.ts:15
+        [components/Checkbox/index.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L15)
       </td>
     </tr>
 
@@ -109,7 +114,7 @@ Represents the properties for the Interstellar Checkbox component.
       </td>
 
       <td>
-        components/Checkbox/index.ts:13
+        [components/Checkbox/index.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L13)
       </td>
     </tr>
 
@@ -124,7 +129,8 @@ Represents the properties for the Interstellar Checkbox component.
 function Checkbox(props): string;
 ```
 
-Defined in: components/Checkbox/index.ts:41
+Defined in:
+[components/Checkbox/index.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L41)
 
 Renders an Interstellar Checkbox component.
 

@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/debounce
 
 # utils/debounce
 
-> Last updated 2025-03-18T11:22:37.514Z
+> Last updated 2025-03-18T13:17:24.406Z
 
 ## Table of Contents
 
@@ -20,7 +24,8 @@
 function debounce(func, wait, immediate?): DebounceAnyFunctionType;
 ```
 
-Defined in: utils/debounce.ts:28
+Defined in:
+[utils/debounce.ts:28](https://github.com/phun-ky/interstellar/blob/main/src/utils/debounce.ts#L28)
 
 Creates a **debounced function** that delays execution until a specified time
 has passed since the last invocation.
@@ -64,7 +69,8 @@ debouncedFn('World'); // Resets timer, will execute 500ms after last call
 function debounceAsync<T>(callback, delay): (...args) => Promise<ReturnType<T>>;
 ```
 
-Defined in: utils/debounce.ts:72
+Defined in:
+[utils/debounce.ts:72](https://github.com/phun-ky/interstellar/blob/main/src/utils/debounce.ts#L72)
 
 Creates a **debounced asynchronous function** that ensures the last invocation
 is resolved.

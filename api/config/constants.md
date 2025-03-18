@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / config/constants
 
 # config/constants
 
-> Last updated 2025-03-18T11:22:37.497Z
+> Last updated 2025-03-18T13:17:24.388Z
 
 ## Table of Contents
 
@@ -49,7 +53,8 @@
 const AU_IN_KM: 149597870.7 = 149597870.7;
 ```
 
-Defined in: config/constants.ts:13
+Defined in:
+[config/constants.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L13)
 
 1 Astronomical Unit (AU) in kilometres.
 
@@ -61,7 +66,8 @@ Defined in: config/constants.ts:13
 const AU_IN_LY: number;
 ```
 
-Defined in: config/constants.ts:25
+Defined in:
+[config/constants.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L25)
 
 1 AU in Light-Years.
 
@@ -73,7 +79,8 @@ Defined in: config/constants.ts:25
 const AU_IN_PX: 960 = 960;
 ```
 
-Defined in: config/constants.ts:16
+Defined in:
+[config/constants.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L16)
 
 1 AU in pixels at the default scale.
 
@@ -85,7 +92,8 @@ Defined in: config/constants.ts:16
 const EARTH_PERIOD: 365.256 = 365.256;
 ```
 
-Defined in: config/constants.ts:36
+Defined in:
+[config/constants.ts:36](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L36)
 
 Earth's orbital period in days.
 
@@ -97,7 +105,8 @@ Earth's orbital period in days.
 const INITIAL_SCALE: 2.389618154589582e-10 = 2.389618154589582e-10;
 ```
 
-Defined in: config/constants.ts:84
+Defined in:
+[config/constants.ts:84](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L84)
 
 Initial scale factor for the simulation.
 
@@ -109,7 +118,8 @@ Initial scale factor for the simulation.
 const J2000: Date;
 ```
 
-Defined in: config/constants.ts:87
+Defined in:
+[config/constants.ts:87](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L87)
 
 Julian Date reference for J2000 epoch (January 1, 2000, 12:00 TT).
 
@@ -121,7 +131,8 @@ Julian Date reference for J2000 epoch (January 1, 2000, 12:00 TT).
 const KM_IN_PX: number;
 ```
 
-Defined in: config/constants.ts:19
+Defined in:
+[config/constants.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L19)
 
 1 Kilometre in pixels at the default scale.
 
@@ -133,7 +144,8 @@ Defined in: config/constants.ts:19
 const LY_IN_AU: 63241.077088066 = 63241.077088066;
 ```
 
-Defined in: config/constants.ts:10
+Defined in:
+[config/constants.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L10)
 
 1 Light-Year (LY) in Astronomical Units (AU).
 
@@ -145,7 +157,8 @@ Defined in: config/constants.ts:10
 const LY_IN_PX: number;
 ```
 
-Defined in: config/constants.ts:22
+Defined in:
+[config/constants.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L22)
 
 1 Light-Year in pixels at the default scale.
 
@@ -157,7 +170,8 @@ Defined in: config/constants.ts:22
 const MAX_CELESTIAL_BODY_SIZE: 10 = 10;
 ```
 
-Defined in: config/constants.ts:63
+Defined in:
+[config/constants.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L63)
 
 Maximum allowed celestial body size in the visualization.
 
@@ -169,7 +183,8 @@ Maximum allowed celestial body size in the visualization.
 const MAX_MOON_SIZE: 2 = 2;
 ```
 
-Defined in: config/constants.ts:54
+Defined in:
+[config/constants.ts:54](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L54)
 
 ---
 
@@ -179,7 +194,8 @@ Defined in: config/constants.ts:54
 const MAX_PLANET_SIZE: 4 = 4;
 ```
 
-Defined in: config/constants.ts:44
+Defined in:
+[config/constants.ts:44](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L44)
 
 ---
 
@@ -189,7 +205,8 @@ Defined in: config/constants.ts:44
 const MAX_SCALE: 100000000000000000000 = 1e20;
 ```
 
-Defined in: config/constants.ts:33
+Defined in:
+[config/constants.ts:33](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L33)
 
 ---
 
@@ -199,7 +216,8 @@ Defined in: config/constants.ts:33
 const MAX_STAR_SIZE: 10 = 10;
 ```
 
-Defined in: config/constants.ts:49
+Defined in:
+[config/constants.ts:49](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L49)
 
 ---
 
@@ -209,7 +227,8 @@ Defined in: config/constants.ts:49
 const MIN_COMET_SIZE: 2 = 2;
 ```
 
-Defined in: config/constants.ts:57
+Defined in:
+[config/constants.ts:57](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L57)
 
 Minimum and maximum sizes for comets in the visualization.
 
@@ -221,7 +240,8 @@ Minimum and maximum sizes for comets in the visualization.
 const MIN_MOON_SIZE: 1 = 1;
 ```
 
-Defined in: config/constants.ts:52
+Defined in:
+[config/constants.ts:52](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L52)
 
 Minimum and maximum sizes for moons in the visualization.
 
@@ -233,7 +253,8 @@ Minimum and maximum sizes for moons in the visualization.
 const MIN_PLANET_SIZE: 2 = 2;
 ```
 
-Defined in: config/constants.ts:42
+Defined in:
+[config/constants.ts:42](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L42)
 
 Minimum and maximum sizes for planets in the visualization.
 
@@ -245,7 +266,8 @@ Minimum and maximum sizes for planets in the visualization.
 const MIN_SCALE: 1e-20 = 1e-20;
 ```
 
-Defined in: config/constants.ts:31
+Defined in:
+[config/constants.ts:31](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L31)
 
 Minimum and maximum allowed scale factors.
 
@@ -257,7 +279,8 @@ Minimum and maximum allowed scale factors.
 const MIN_STAR_SIZE: 5 = 5;
 ```
 
-Defined in: config/constants.ts:47
+Defined in:
+[config/constants.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L47)
 
 Minimum and maximum sizes for stars in the visualization.
 
@@ -269,7 +292,8 @@ Minimum and maximum sizes for stars in the visualization.
 const MS_1_DAY: 86400000 = 86400000;
 ```
 
-Defined in: config/constants.ts:77
+Defined in:
+[config/constants.ts:77](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L77)
 
 Time-related constants.
 
@@ -281,7 +305,8 @@ Time-related constants.
 const MS_1_SECOND: 1000 = 1000;
 ```
 
-Defined in: config/constants.ts:79
+Defined in:
+[config/constants.ts:79](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L79)
 
 ---
 
@@ -293,7 +318,8 @@ const SCALE: {
 };
 ```
 
-Defined in: config/constants.ts:90
+Defined in:
+[config/constants.ts:90](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L90)
 
 Global scale object to manage dynamic scaling.
 
@@ -324,7 +350,7 @@ Global scale object to manage dynamic scaling.
       </td>
 
       <td>
-        config/constants.ts:90
+        [config/constants.ts:90](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L90)
       </td>
     </tr>
 
@@ -339,7 +365,8 @@ Global scale object to manage dynamic scaling.
 const SECONDS_1_DAY: 86400 = 86400;
 ```
 
-Defined in: config/constants.ts:81
+Defined in:
+[config/constants.ts:81](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L81)
 
 ---
 
@@ -349,7 +376,8 @@ Defined in: config/constants.ts:81
 const SIMULATION_DATE: Date;
 ```
 
-Defined in: config/constants.ts:96
+Defined in:
+[config/constants.ts:96](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L96)
 
 Stores the simulation's current date.
 
@@ -361,7 +389,8 @@ Stores the simulation's current date.
 const SUN_RADIUS_KM: 696340 = 696340;
 ```
 
-Defined in: config/constants.ts:60
+Defined in:
+[config/constants.ts:60](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L60)
 
 Radius of the Sun in kilometres.
 
@@ -373,7 +402,8 @@ Radius of the Sun in kilometres.
 const THRESHOLD_ASTEROID_BELT_RENDER: 0.0007533210080944772 = 0.0007533210080944772;
 ```
 
-Defined in: config/constants.ts:74
+Defined in:
+[config/constants.ts:74](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L74)
 
 ---
 
@@ -383,7 +413,8 @@ Defined in: config/constants.ts:74
 const THRESHOLD_COMET_LABEL: 0.0007533210080944772 = 0.0007533210080944772;
 ```
 
-Defined in: config/constants.ts:68
+Defined in:
+[config/constants.ts:68](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L68)
 
 ---
 
@@ -393,7 +424,8 @@ Defined in: config/constants.ts:68
 const THRESHOLD_COMET_RENDER: 0.0007533210080944772 = 0.0007533210080944772;
 ```
 
-Defined in: config/constants.ts:72
+Defined in:
+[config/constants.ts:72](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L72)
 
 ---
 
@@ -403,7 +435,8 @@ Defined in: config/constants.ts:72
 const THRESHOLD_MOON_RENDER: 12.561281983793059 = 12.561281983793059;
 ```
 
-Defined in: config/constants.ts:39
+Defined in:
+[config/constants.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L39)
 
 Threshold for rendering moons (dependent on zoom level).
 
@@ -415,7 +448,8 @@ Threshold for rendering moons (dependent on zoom level).
 const THRESHOLD_PLANET_LABEL: 0.002600668431442156 = 0.002600668431442156;
 ```
 
-Defined in: config/constants.ts:66
+Defined in:
+[config/constants.ts:66](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L66)
 
 Thresholds for rendering and labeling celestial objects.
 
@@ -427,7 +461,8 @@ Thresholds for rendering and labeling celestial objects.
 const THRESHOLD_PLANET_RENDER: 0.0007533210080944772 = 0.0007533210080944772;
 ```
 
-Defined in: config/constants.ts:70
+Defined in:
+[config/constants.ts:70](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L70)
 
 ---
 
@@ -437,7 +472,8 @@ Defined in: config/constants.ts:70
 const TRAIL_SCALING_FACTOR: 0.5 = 0.5;
 ```
 
-Defined in: config/constants.ts:93
+Defined in:
+[config/constants.ts:93](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L93)
 
 Scaling factor for rendering orbital trails.
 
@@ -449,7 +485,8 @@ Scaling factor for rendering orbital trails.
 const ZOOM_FACTOR: 1.1 = 1.1;
 ```
 
-Defined in: config/constants.ts:28
+Defined in:
+[config/constants.ts:28](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L28)
 
 Zooming factor for scaling operations.
 

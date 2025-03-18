@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / types/debounce
 
 # types/debounce
 
-> Last updated 2025-03-18T11:22:37.510Z
+> Last updated 2025-03-18T13:17:24.402Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 type DebounceAnyFunctionType = (...args) => void;
 ```
 
-Defined in: types/debounce.ts:17
+Defined in:
+[types/debounce.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/types/debounce.ts#L17)
 
 Type definition for a debounced function that accepts any arguments.
 

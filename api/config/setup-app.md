@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / config/setup-app
 
 # config/setup-app
 
-> Last updated 2025-03-18T11:22:37.499Z
+> Last updated 2025-03-18T13:17:24.390Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function setupApp(canvas): void;
 ```
 
-Defined in: config/setup-app.ts:37
+Defined in:
+[config/setup-app.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/config/setup-app.ts#L37)
 
 Initializes and configures the space visualization application.
 

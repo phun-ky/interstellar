@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/arrows/utils/is-off-screen
 
 # features/arrows/utils/is-off-screen
 
-> Last updated 2025-03-18T11:22:37.502Z
+> Last updated 2025-03-18T13:17:24.393Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function isOffScreen(xPX, yPX, canvasWidth, canvasHeight): boolean;
 ```
 
-Defined in: features/arrows/utils/is-off-screen.ts:22
+Defined in:
+[features/arrows/utils/is-off-screen.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/utils/is-off-screen.ts#L22)
 
 Determines whether a given point is outside the visible canvas area.
 

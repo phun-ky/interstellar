@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / lib/math/eccentric-to-true-anomaly
 
 # lib/math/eccentric-to-true-anomaly
 
-> Last updated 2025-03-18T11:22:37.509Z
+> Last updated 2025-03-18T13:17:24.400Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function eccentricToTrueAnomaly(E, e): number;
 ```
 
-Defined in: lib/math/eccentric-to-true-anomaly.ts:39
+Defined in:
+[lib/math/eccentric-to-true-anomaly.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/eccentric-to-true-anomaly.ts#L39)
 
 Converts **Eccentric Anomaly** ($E$) to **True Anomaly** ($V$) for an orbit.
 

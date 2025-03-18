@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / types/comets
 
 # types/comets
 
-> Last updated 2025-03-18T11:22:37.510Z
+> Last updated 2025-03-18T13:17:24.401Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 
 ### CometInterface
 
-Defined in: types/comets.ts:23
+Defined in:
+[types/comets.ts:23](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L23)
 
 Represents a **comet** in the solar system simulation.
 
@@ -45,29 +50,29 @@ CometInterface
 
 #### Properties
 
-| Property                          | Type                                                                       | Description                                                           | Defined in         |
-| --------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------ |
-| <a id="a" /> `a`                  | [`MeasureInterface`](distance.md#measureinterface)                         | Semi-major axis of the orbit in AU.                                   | types/comets.ts:33 |
-| <a id="angle" /> `angle`          | `number`                                                                   | Mean anomaly at epoch in degrees.                                     | types/comets.ts:43 |
-| <a id="category" /> `category`    | `"halley-type comet"` \| `"long-period comet"` \| `"jupiter-family comet"` | Category classification of the comet.                                 | types/comets.ts:29 |
-| <a id="color" /> `color`          | `string`                                                                   | Visual representation color.                                          | types/comets.ts:63 |
-| <a id="e" /> `e`                  | `number`                                                                   | Orbital eccentricity (0 = circular, closer to 1 = highly elliptical). | types/comets.ts:35 |
-| <a id="focus_x" /> `focus_x?`     | `number`                                                                   | X-offset for the ellipse focus (accounts for eccentricity).           | types/comets.ts:57 |
-| <a id="i" /> `i`                  | `number`                                                                   | Orbital inclination in degrees.                                       | types/comets.ts:37 |
-| <a id="mia" /> `miA?`             | `number`                                                                   | Semi-minor axis converted to pixels (calculated from `a` and `e`).    | types/comets.ts:55 |
-| <a id="name" /> `name`            | `string`                                                                   | Name of the comet (e.g., "Halley", "Hale-Bopp").                      | types/comets.ts:25 |
-| <a id="om" /> `om`                | `number`                                                                   | Longitude of the ascending node in degrees.                           | types/comets.ts:41 |
-| <a id="orbitpath" /> `orbitPath?` | [`Coordinates2DInterface`](planets.md#coordinates2dinterface)\[]           | Precomputed orbital path points for visualization (optional).         | types/comets.ts:61 |
-| <a id="period" /> `period`        | [`TemporalInterface`](temporal.md#temporalinterface)                       | Orbital period in Earth days.                                         | types/comets.ts:45 |
-| <a id="q" /> `q`                  | `number`                                                                   | Perihelion distance in AU.                                            | types/comets.ts:47 |
-| <a id="radius" /> `radius`        | [`DistanceInterface`](distance.md#distanceinterface)                       | Radius of the comet (for visualization purposes).                     | types/comets.ts:59 |
-| <a id="size" /> `size`            | `number`                                                                   | Scaled size for visualization (not actual physical size).             | types/comets.ts:65 |
-| <a id="system" /> `system`        | `string`                                                                   | The star system where the comet is located.                           | types/comets.ts:31 |
-| <a id="type" /> `type`            | `"periodic comet"` \| `"oort cloud comet"` \| `"short-period comet"`       | Type of comet based on its orbital characteristics.                   | types/comets.ts:27 |
-| <a id="w" /> `w`                  | `number`                                                                   | Argument of perihelion in degrees.                                    | types/comets.ts:39 |
-| <a id="x" /> `x?`                 | [`DistanceInterface`](distance.md#distanceinterface)                       | X-coordinate in a distance-based system (optional).                   | types/comets.ts:49 |
-| <a id="y" /> `y?`                 | [`DistanceInterface`](distance.md#distanceinterface)                       | Y-coordinate in a distance-based system (optional).                   | types/comets.ts:51 |
-| <a id="z" /> `z?`                 | [`DistanceInterface`](distance.md#distanceinterface)                       | Z-coordinate in a distance-based system (optional).                   | types/comets.ts:53 |
+| Property                          | Type                                                                       | Description                                                           | Defined in                                                                                      |
+| --------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| <a id="a" /> `a`                  | [`MeasureInterface`](distance.md#measureinterface)                         | Semi-major axis of the orbit in AU.                                   | [types/comets.ts:33](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L33) |
+| <a id="angle" /> `angle`          | `number`                                                                   | Mean anomaly at epoch in degrees.                                     | [types/comets.ts:43](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L43) |
+| <a id="category" /> `category`    | `"halley-type comet"` \| `"long-period comet"` \| `"jupiter-family comet"` | Category classification of the comet.                                 | [types/comets.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L29) |
+| <a id="color" /> `color`          | `string`                                                                   | Visual representation color.                                          | [types/comets.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L63) |
+| <a id="e" /> `e`                  | `number`                                                                   | Orbital eccentricity (0 = circular, closer to 1 = highly elliptical). | [types/comets.ts:35](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L35) |
+| <a id="focus_x" /> `focus_x?`     | `number`                                                                   | X-offset for the ellipse focus (accounts for eccentricity).           | [types/comets.ts:57](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L57) |
+| <a id="i" /> `i`                  | `number`                                                                   | Orbital inclination in degrees.                                       | [types/comets.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L37) |
+| <a id="mia" /> `miA?`             | `number`                                                                   | Semi-minor axis converted to pixels (calculated from `a` and `e`).    | [types/comets.ts:55](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L55) |
+| <a id="name" /> `name`            | `string`                                                                   | Name of the comet (e.g., "Halley", "Hale-Bopp").                      | [types/comets.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L25) |
+| <a id="om" /> `om`                | `number`                                                                   | Longitude of the ascending node in degrees.                           | [types/comets.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L41) |
+| <a id="orbitpath" /> `orbitPath?` | [`Coordinates2DInterface`](planets.md#coordinates2dinterface)\[]           | Precomputed orbital path points for visualization (optional).         | [types/comets.ts:61](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L61) |
+| <a id="period" /> `period`        | [`TemporalInterface`](temporal.md#temporalinterface)                       | Orbital period in Earth days.                                         | [types/comets.ts:45](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L45) |
+| <a id="q" /> `q`                  | `number`                                                                   | Perihelion distance in AU.                                            | [types/comets.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L47) |
+| <a id="radius" /> `radius`        | [`DistanceInterface`](distance.md#distanceinterface)                       | Radius of the comet (for visualization purposes).                     | [types/comets.ts:59](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L59) |
+| <a id="size" /> `size`            | `number`                                                                   | Scaled size for visualization (not actual physical size).             | [types/comets.ts:65](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L65) |
+| <a id="system" /> `system`        | `string`                                                                   | The star system where the comet is located.                           | [types/comets.ts:31](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L31) |
+| <a id="type" /> `type`            | `"periodic comet"` \| `"oort cloud comet"` \| `"short-period comet"`       | Type of comet based on its orbital characteristics.                   | [types/comets.ts:27](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L27) |
+| <a id="w" /> `w`                  | `number`                                                                   | Argument of perihelion in degrees.                                    | [types/comets.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L39) |
+| <a id="x" /> `x?`                 | [`DistanceInterface`](distance.md#distanceinterface)                       | X-coordinate in a distance-based system (optional).                   | [types/comets.ts:49](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L49) |
+| <a id="y" /> `y?`                 | [`DistanceInterface`](distance.md#distanceinterface)                       | Y-coordinate in a distance-based system (optional).                   | [types/comets.ts:51](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L51) |
+| <a id="z" /> `z?`                 | [`DistanceInterface`](distance.md#distanceinterface)                       | Z-coordinate in a distance-based system (optional).                   | [types/comets.ts:53](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L53) |
 
 ## Type Aliases
 
@@ -77,7 +82,8 @@ CometInterface
 type CometsType = CometInterface[];
 ```
 
-Defined in: types/comets.ts:93
+Defined in:
+[types/comets.ts:93](https://github.com/phun-ky/interstellar/blob/main/src/types/comets.ts#L93)
 
 Type alias for an array of **comets**.
 

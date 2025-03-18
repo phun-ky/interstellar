@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/starfield/generate-star-field
 
 # features/starfield/generate-star-field
 
-> Last updated 2025-03-18T11:22:37.507Z
+> Last updated 2025-03-18T13:17:24.398Z
 
 ## Table of Contents
 
@@ -16,17 +20,18 @@
 
 ### StarfieldStarInterface
 
-Defined in: features/starfield/generate-star-field.ts:3
+Defined in:
+[features/starfield/generate-star-field.ts:3](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L3)
 
 #### Properties
 
-| Property                                   | Type     | Defined in                                  |
-| ------------------------------------------ | -------- | ------------------------------------------- |
-| <a id="brightness" /> `brightness`         | `number` | features/starfield/generate-star-field.ts:6 |
-| <a id="parallaxfactor" /> `parallaxFactor` | `number` | features/starfield/generate-star-field.ts:8 |
-| <a id="size" /> `size`                     | `number` | features/starfield/generate-star-field.ts:7 |
-| <a id="x" /> `x`                           | `number` | features/starfield/generate-star-field.ts:4 |
-| <a id="y" /> `y`                           | `number` | features/starfield/generate-star-field.ts:5 |
+| Property                                   | Type     | Defined in                                                                                                                                        |
+| ------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="brightness" /> `brightness`         | `number` | [features/starfield/generate-star-field.ts:6](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L6) |
+| <a id="parallaxfactor" /> `parallaxFactor` | `number` | [features/starfield/generate-star-field.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L8) |
+| <a id="size" /> `size`                     | `number` | [features/starfield/generate-star-field.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L7) |
+| <a id="x" /> `x`                           | `number` | [features/starfield/generate-star-field.ts:4](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L4) |
+| <a id="y" /> `y`                           | `number` | [features/starfield/generate-star-field.ts:5](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L5) |
 
 ## Functions
 
@@ -36,7 +41,8 @@ Defined in: features/starfield/generate-star-field.ts:3
 function generateStarfield(canvasWidth, canvasHeight): void;
 ```
 
-Defined in: features/starfield/generate-star-field.ts:47
+Defined in:
+[features/starfield/generate-star-field.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L47)
 
 Generates a starfield dynamically based on the canvas size, maintaining
 proportional star density.

@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/ui/setup-UI
 
 # features/ui/setup-UI
 
-> Last updated 2025-03-18T11:22:37.508Z
+> Last updated 2025-03-18T13:17:24.399Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function setupUI(): void;
 ```
 
-Defined in: features/ui/setup-UI.ts:6
+Defined in:
+[features/ui/setup-UI.ts:6](https://github.com/phun-ky/interstellar/blob/main/src/features/ui/setup-UI.ts#L6)
 
 #### Returns
 

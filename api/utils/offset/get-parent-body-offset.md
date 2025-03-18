@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / utils/offset/get-parent-body-offset
 
 # utils/offset/get-parent-body-offset
 
-> Last updated 2025-03-18T11:22:37.516Z
+> Last updated 2025-03-18T13:17:24.408Z
 
 ## Table of Contents
 
@@ -27,7 +31,8 @@ function getParentBodyOffset(
 };
 ```
 
-Defined in: utils/offset/get-parent-body-offset.ts:32
+Defined in:
+[utils/offset/get-parent-body-offset.ts:32](https://github.com/phun-ky/interstellar/blob/main/src/utils/offset/get-parent-body-offset.ts#L32)
 
 Computes the **parent body's offset** in pixels for celestial objects.
 
@@ -66,10 +71,10 @@ Computes the **parent body's offset** in pixels for celestial objects.
 
 The computed **x** and **y** offsets for the parent body in pixels.
 
-| Name            | Type     | Defined in                                |
-| --------------- | -------- | ----------------------------------------- |
-| `parentOffsetX` | `number` | utils/offset/get-parent-body-offset.ts:38 |
-| `parentOffsetY` | `number` | utils/offset/get-parent-body-offset.ts:39 |
+| Name            | Type     | Defined in                                                                                                                                    |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `parentOffsetX` | `number` | [utils/offset/get-parent-body-offset.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/utils/offset/get-parent-body-offset.ts#L38) |
+| `parentOffsetY` | `number` | [utils/offset/get-parent-body-offset.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/utils/offset/get-parent-body-offset.ts#L39) |
 
 #### Example
 

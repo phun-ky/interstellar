@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/celestial-bodies/orbits/draw
 
 # features/celestial-bodies/orbits/draw
 
-> Last updated 2025-03-18T11:22:37.505Z
+> Last updated 2025-03-18T13:17:24.396Z
 
 ## Table of Contents
 
@@ -27,7 +31,8 @@ type DrawOrbitsPropsType = {
 };
 ```
 
-Defined in: features/celestial-bodies/orbits/draw\.ts:13
+Defined in:
+[features/celestial-bodies/orbits/draw.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L13)
 
 #### Type declaration
 
@@ -51,7 +56,7 @@ Defined in: features/celestial-bodies/orbits/draw\.ts:13
       </td>
 
       <td>
-        features/celestial-bodies/orbits/draw\.ts:14
+        [features/celestial-bodies/orbits/draw.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L14)
       </td>
     </tr>
 
@@ -65,7 +70,7 @@ Defined in: features/celestial-bodies/orbits/draw\.ts:13
       </td>
 
       <td>
-        features/celestial-bodies/orbits/draw\.ts:17
+        [features/celestial-bodies/orbits/draw.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L17)
       </td>
     </tr>
 
@@ -79,7 +84,7 @@ Defined in: features/celestial-bodies/orbits/draw\.ts:13
       </td>
 
       <td>
-        features/celestial-bodies/orbits/draw\.ts:18
+        [features/celestial-bodies/orbits/draw.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L18)
       </td>
     </tr>
 
@@ -93,7 +98,7 @@ Defined in: features/celestial-bodies/orbits/draw\.ts:13
       </td>
 
       <td>
-        features/celestial-bodies/orbits/draw\.ts:19
+        [features/celestial-bodies/orbits/draw.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L19)
       </td>
     </tr>
 
@@ -107,7 +112,7 @@ Defined in: features/celestial-bodies/orbits/draw\.ts:13
       </td>
 
       <td>
-        features/celestial-bodies/orbits/draw\.ts:16
+        [features/celestial-bodies/orbits/draw.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L16)
       </td>
     </tr>
 
@@ -121,7 +126,7 @@ Defined in: features/celestial-bodies/orbits/draw\.ts:13
       </td>
 
       <td>
-        features/celestial-bodies/orbits/draw\.ts:15
+        [features/celestial-bodies/orbits/draw.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L15)
       </td>
     </tr>
 
@@ -136,7 +141,8 @@ Defined in: features/celestial-bodies/orbits/draw\.ts:13
 function drawOrbits(props): void;
 ```
 
-Defined in: features/celestial-bodies/orbits/draw\.ts:60
+Defined in:
+[features/celestial-bodies/orbits/draw.ts:60](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L60)
 
 Renders the **orbital paths** of celestial bodies around a galactic center onto
 a 2D canvas.

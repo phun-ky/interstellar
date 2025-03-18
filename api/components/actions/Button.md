@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / components/actions/Button
 
 # components/actions/Button
 
-> Last updated 2025-03-18T11:22:37.493Z
+> Last updated 2025-03-18T13:17:24.385Z
 
 ## Table of Contents
 
@@ -26,7 +30,8 @@ type InterstellarButtonPropsType = {
 };
 ```
 
-Defined in: components/actions/Button/index.ts:12
+Defined in:
+[components/actions/Button/index.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L12)
 
 Represents the properties for the Interstellar Button component.
 
@@ -57,7 +62,7 @@ Represents the properties for the Interstellar Button component.
       </td>
 
       <td>
-        components/actions/Button/index.ts:14
+        [components/actions/Button/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L14)
       </td>
     </tr>
 
@@ -75,7 +80,7 @@ Represents the properties for the Interstellar Button component.
       </td>
 
       <td>
-        components/actions/Button/index.ts:16
+        [components/actions/Button/index.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L16)
       </td>
     </tr>
 
@@ -93,7 +98,7 @@ Represents the properties for the Interstellar Button component.
       </td>
 
       <td>
-        components/actions/Button/index.ts:18
+        [components/actions/Button/index.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L18)
       </td>
     </tr>
 
@@ -111,7 +116,7 @@ Represents the properties for the Interstellar Button component.
       </td>
 
       <td>
-        components/actions/Button/index.ts:20
+        [components/actions/Button/index.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L20)
       </td>
     </tr>
 
@@ -129,7 +134,7 @@ Represents the properties for the Interstellar Button component.
       </td>
 
       <td>
-        components/actions/Button/index.ts:22
+        [components/actions/Button/index.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L22)
       </td>
     </tr>
 
@@ -147,7 +152,7 @@ Represents the properties for the Interstellar Button component.
       </td>
 
       <td>
-        components/actions/Button/index.ts:24
+        [components/actions/Button/index.ts:24](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L24)
       </td>
     </tr>
 
@@ -162,7 +167,8 @@ Represents the properties for the Interstellar Button component.
 function Button(props): string;
 ```
 
-Defined in: components/actions/Button/index.ts:50
+Defined in:
+[components/actions/Button/index.ts:50](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L50)
 
 Renders an Interstellar Button component.
 

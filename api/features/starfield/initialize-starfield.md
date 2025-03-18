@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/starfield/initialize-starfield
 
 # features/starfield/initialize-starfield
 
-> Last updated 2025-03-18T11:22:37.508Z
+> Last updated 2025-03-18T13:17:24.399Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function initializeStarfield(canvasWidth, canvasHeight, scale): Promise<void>;
 ```
 
-Defined in: features/starfield/initialize-starfield.ts:27
+Defined in:
+[features/starfield/initialize-starfield.ts:27](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/initialize-starfield.ts#L27)
 
 Initializes or updates the starfield when the window resizes.
 

@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / types/temporal
 
 # types/temporal
 
-> Last updated 2025-03-18T11:22:37.513Z
+> Last updated 2025-03-18T13:17:24.406Z
 
 ## Table of Contents
 
@@ -16,7 +20,8 @@
 
 ### TemporalInterface
 
-Defined in: types/temporal.ts:39
+Defined in:
+[types/temporal.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/types/temporal.ts#L39)
 
 Represents a **temporal measurement** with a numeric value and unit.
 
@@ -34,16 +39,17 @@ const orbitPeriod: TemporalInterface = { value: 365.25, unit: 'days' };
 
 #### Properties
 
-| Property                 | Type                                               | Description                           | Inherited from                                                                | Defined in           |
-| ------------------------ | -------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | -------------------- |
-| <a id="unit" /> `unit`   | [`TemporalUnitType`](temporal.md#temporalunittype) | The unit of temporal measurement.     | -                                                                             | types/temporal.ts:40 |
-| <a id="value" /> `value` | `number`                                           | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | types/distance.ts:41 |
+| Property                 | Type                                               | Description                           | Inherited from                                                                | Defined in                                                                                          |
+| ------------------------ | -------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="unit" /> `unit`   | [`TemporalUnitType`](temporal.md#temporalunittype) | The unit of temporal measurement.     | -                                                                             | [types/temporal.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/types/temporal.ts#L40) |
+| <a id="value" /> `value` | `number`                                           | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
 
 ---
 
 ### TimeStepInterface
 
-Defined in: types/temporal.ts:55
+Defined in:
+[types/temporal.ts:55](https://github.com/phun-ky/interstellar/blob/main/src/types/temporal.ts#L55)
 
 Represents a **time step measurement** in simulation, restricted to days.
 
@@ -61,10 +67,10 @@ const timeStep: TimeStepInterface = { value: 1, unit: 'day' };
 
 #### Properties
 
-| Property                   | Type     | Description                           | Inherited from                                                                | Defined in           |
-| -------------------------- | -------- | ------------------------------------- | ----------------------------------------------------------------------------- | -------------------- |
-| <a id="unit-1" /> `unit`   | `"day"`  | The unit is always **days**.          | -                                                                             | types/temporal.ts:56 |
-| <a id="value-1" /> `value` | `number` | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | types/distance.ts:41 |
+| Property                   | Type     | Description                           | Inherited from                                                                | Defined in                                                                                          |
+| -------------------------- | -------- | ------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="unit-1" /> `unit`   | `"day"`  | The unit is always **days**.          | -                                                                             | [types/temporal.ts:56](https://github.com/phun-ky/interstellar/blob/main/src/types/temporal.ts#L56) |
+| <a id="value-1" /> `value` | `number` | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
 
 ## Type Aliases
 
@@ -84,7 +90,8 @@ type TemporalUnitType =
   | 'Myrs';
 ```
 
-Defined in: types/temporal.ts:15
+Defined in:
+[types/temporal.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/types/temporal.ts#L15)
 
 Defines possible **temporal units** used for measuring time.
 

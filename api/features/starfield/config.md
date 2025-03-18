@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/starfield/config
 
 # features/starfield/config
 
-> Last updated 2025-03-18T11:22:37.507Z
+> Last updated 2025-03-18T13:17:24.398Z
 
 ## Table of Contents
 
@@ -20,7 +24,8 @@ const starfield: {
 };
 ```
 
-Defined in: features/starfield/config/index.ts:19
+Defined in:
+[features/starfield/config/index.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/config/index.ts#L19)
 
 Represents a global store for dynamically generated stars in the starfield.
 
@@ -52,7 +57,7 @@ Represents a global store for dynamically generated stars in the starfield.
       </td>
 
       <td>
-        features/starfield/config/index.ts:19
+        [features/starfield/config/index.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/config/index.ts#L19)
       </td>
     </tr>
 

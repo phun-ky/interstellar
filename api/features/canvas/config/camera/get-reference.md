@@ -1,9 +1,13 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../../README.md) /
 features/canvas/config/camera/get-reference
 
 # features/canvas/config/camera/get-reference
 
-> Last updated 2025-03-18T11:22:37.502Z
+> Last updated 2025-03-18T13:17:24.394Z
 
 ## Table of Contents
 
@@ -21,7 +25,8 @@ function getReference(canvas): {
 };
 ```
 
-Defined in: features/canvas/config/camera/get-reference.ts:26
+Defined in:
+[features/canvas/config/camera/get-reference.ts:26](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/camera/get-reference.ts#L26)
 
 Computes the reference point at the center of the canvas, adjusted by offsets.
 
@@ -50,10 +55,10 @@ $\text{referenceY} = \frac{\text{canvas height}}{2} + \text{offsetY}$
 
 The computed reference coordinates.
 
-| Name         | Type     | Defined in                                        |
-| ------------ | -------- | ------------------------------------------------- |
-| `referenceX` | `number` | features/canvas/config/camera/get-reference.ts:28 |
-| `referenceY` | `number` | features/canvas/config/camera/get-reference.ts:28 |
+| Name         | Type     | Defined in                                                                                                                                                    |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `referenceX` | `number` | [features/canvas/config/camera/get-reference.ts:28](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/camera/get-reference.ts#L28) |
+| `referenceY` | `number` | [features/canvas/config/camera/get-reference.ts:28](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/camera/get-reference.ts#L28) |
 
 #### Example
 

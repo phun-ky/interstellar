@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / types/native
 
 # types/native
 
-> Last updated 2025-03-18T11:22:37.512Z
+> Last updated 2025-03-18T13:17:24.403Z
 
 ## Table of Contents
 
@@ -27,7 +31,8 @@ type EventType<T> = Event & {
 };
 ```
 
-Defined in: types/native.ts:35
+Defined in:
+[types/native.ts:35](https://github.com/phun-ky/interstellar/blob/main/src/types/native.ts#L35)
 
 Represents the event object for an element, extending the base `Event` type.
 
@@ -67,7 +72,7 @@ DOM elements.
       </td>
 
       <td>
-        types/native.ts:41
+        [types/native.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/native.ts#L41)
       </td>
     </tr>
 
@@ -86,7 +91,7 @@ DOM elements.
       </td>
 
       <td>
-        types/native.ts:36
+        [types/native.ts:36](https://github.com/phun-ky/interstellar/blob/main/src/types/native.ts#L36)
       </td>
     </tr>
 

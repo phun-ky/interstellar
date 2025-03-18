@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / types/celestial-bodies
 
 # types/celestial-bodies
 
-> Last updated 2025-03-18T11:22:37.510Z
+> Last updated 2025-03-18T13:17:24.401Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 type CelestialBodiesType = StarsType | PlanetsType | MoonsType | CometsType;
 ```
 
-Defined in: types/celestial-bodies.ts:25
+Defined in:
+[types/celestial-bodies.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/types/celestial-bodies.ts#L25)
 
 Type alias representing a collection of celestial bodies.
 
@@ -51,7 +56,8 @@ type CelestialBodyType =
   | CometInterface;
 ```
 
-Defined in: types/celestial-bodies.ts:47
+Defined in:
+[types/celestial-bodies.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/types/celestial-bodies.ts#L47)
 
 Type alias representing a single celestial body.
 
@@ -80,7 +86,8 @@ const earth: CelestialBodyType = {
 type Radian = number;
 ```
 
-Defined in: types/celestial-bodies.ts:63
+Defined in:
+[types/celestial-bodies.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/types/celestial-bodies.ts#L63)
 
 Type alias representing an angle in **radians**.
 

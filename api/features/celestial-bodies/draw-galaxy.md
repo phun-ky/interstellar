@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/celestial-bodies/draw-galaxy
 
 # features/celestial-bodies/draw-galaxy
 
-> Last updated 2025-03-18T11:22:37.504Z
+> Last updated 2025-03-18T13:17:24.395Z
 
 ## Table of Contents
 
@@ -27,7 +31,8 @@ type DrawGalaxyPropsType = {
 };
 ```
 
-Defined in: features/celestial-bodies/draw-galaxy.ts:7
+Defined in:
+[features/celestial-bodies/draw-galaxy.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L7)
 
 #### Type declaration
 
@@ -51,7 +56,7 @@ Defined in: features/celestial-bodies/draw-galaxy.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/draw-galaxy.ts:12
+        [features/celestial-bodies/draw-galaxy.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L12)
       </td>
     </tr>
 
@@ -65,7 +70,7 @@ Defined in: features/celestial-bodies/draw-galaxy.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/draw-galaxy.ts:13
+        [features/celestial-bodies/draw-galaxy.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L13)
       </td>
     </tr>
 
@@ -79,7 +84,7 @@ Defined in: features/celestial-bodies/draw-galaxy.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/draw-galaxy.ts:9
+        [features/celestial-bodies/draw-galaxy.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L9)
       </td>
     </tr>
 
@@ -93,7 +98,7 @@ Defined in: features/celestial-bodies/draw-galaxy.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/draw-galaxy.ts:10
+        [features/celestial-bodies/draw-galaxy.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L10)
       </td>
     </tr>
 
@@ -107,7 +112,7 @@ Defined in: features/celestial-bodies/draw-galaxy.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/draw-galaxy.ts:11
+        [features/celestial-bodies/draw-galaxy.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L11)
       </td>
     </tr>
 
@@ -121,7 +126,7 @@ Defined in: features/celestial-bodies/draw-galaxy.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/draw-galaxy.ts:8
+        [features/celestial-bodies/draw-galaxy.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L8)
       </td>
     </tr>
 
@@ -136,7 +141,8 @@ Defined in: features/celestial-bodies/draw-galaxy.ts:7
 function drawGalaxy(props): void;
 ```
 
-Defined in: features/celestial-bodies/draw-galaxy.ts:55
+Defined in:
+[features/celestial-bodies/draw-galaxy.ts:55](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-galaxy.ts#L55)
 
 Renders a galaxy onto a 2D canvas by representing its central supermassive black
 hole.

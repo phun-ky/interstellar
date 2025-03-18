@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/starfield/generate-starfield-bitmap
 
 # features/starfield/generate-starfield-bitmap
 
-> Last updated 2025-03-18T11:22:37.507Z
+> Last updated 2025-03-18T13:17:24.399Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function generateStarfieldBitmap(width, height, scale): Promise<void>;
 ```
 
-Defined in: features/starfield/generate-starfield-bitmap.ts:38
+Defined in:
+[features/starfield/generate-starfield-bitmap.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-starfield-bitmap.ts#L38)
 
 Generates an offscreen canvas containing a starfield and converts it into an
 `ImageBitmap`.

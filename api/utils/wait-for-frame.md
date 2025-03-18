@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/wait-for-frame
 
 # utils/wait-for-frame
 
-> Last updated 2025-03-18T11:22:37.517Z
+> Last updated 2025-03-18T13:17:24.410Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function waitForFrame(): Promise<number>;
 ```
 
-Defined in: utils/wait-for-frame.ts:26
+Defined in:
+[utils/wait-for-frame.ts:26](https://github.com/phun-ky/interstellar/blob/main/src/utils/wait-for-frame.ts#L26)
 
 Waits for the next animation frame using `requestAnimationFrame`.
 

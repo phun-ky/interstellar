@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / utils/distance/distance-to-pixels
 
 # utils/distance/distance-to-pixels
 
-> Last updated 2025-03-18T11:22:37.515Z
+> Last updated 2025-03-18T13:17:24.407Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function distanceToPixels(distance, scale): number;
 ```
 
-Defined in: utils/distance/distance-to-pixels.ts:29
+Defined in:
+[utils/distance/distance-to-pixels.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/utils/distance/distance-to-pixels.ts#L29)
 
 Converts a **distance measurement** to **pixels** based on a given scale.
 

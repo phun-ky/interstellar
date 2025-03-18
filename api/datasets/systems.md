@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / datasets/systems
 
 # datasets/systems
 
-> Last updated 2025-03-18T11:22:37.500Z
+> Last updated 2025-03-18T13:17:24.392Z
 
 ## Table of Contents
 
@@ -17,17 +21,18 @@
 
 ### SystemInterface
 
-Defined in: datasets/systems.ts:5
+Defined in:
+[datasets/systems.ts:5](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L5)
 
 Represents a star system within the space visualization.
 
 #### Properties
 
-| Property                       | Type        | Description                           | Defined in             |
-| ------------------------------ | ----------- | ------------------------------------- | ---------------------- |
-| <a id="distance" /> `distance` | `number`    | Distance from the Sun in light-years. | datasets/systems.ts:11 |
-| <a id="name" /> `name`         | `string`    | Name of the star system.              | datasets/systems.ts:7  |
-| <a id="stars" /> `stars`       | `string`\[] | List of star names in the system.     | datasets/systems.ts:9  |
+| Property                       | Type        | Description                           | Defined in                                                                                              |
+| ------------------------------ | ----------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| <a id="distance" /> `distance` | `number`    | Distance from the Sun in light-years. | [datasets/systems.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L11) |
+| <a id="name" /> `name`         | `string`    | Name of the star system.              | [datasets/systems.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L7)   |
+| <a id="stars" /> `stars`       | `string`\[] | List of star names in the system.     | [datasets/systems.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L9)   |
 
 ## Type Aliases
 
@@ -37,7 +42,8 @@ Represents a star system within the space visualization.
 type SystemsType = SystemInterface[];
 ```
 
-Defined in: datasets/systems.ts:17
+Defined in:
+[datasets/systems.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L17)
 
 Type alias for a collection of star systems.
 
@@ -49,7 +55,8 @@ Type alias for a collection of star systems.
 const SYSTEMS: SystemsType;
 ```
 
-Defined in: datasets/systems.ts:29
+Defined in:
+[datasets/systems.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L29)
 
 Predefined star systems in the galaxy.
 

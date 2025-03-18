@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / datasets/galaxies
 
 # datasets/galaxies
 
-> Last updated 2025-03-18T11:22:37.500Z
+> Last updated 2025-03-18T13:17:24.391Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 const GALAXIES: GalaxiesType;
 ```
 
-Defined in: datasets/galaxies.ts:9
+Defined in:
+[datasets/galaxies.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/datasets/galaxies.ts#L9)
 
 Represents a collection of galaxies within the space visualization.
 

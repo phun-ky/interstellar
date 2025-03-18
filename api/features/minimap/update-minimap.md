@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/minimap/update-minimap
 
 # features/minimap/update-minimap
 
-> Last updated 2025-03-18T11:22:37.507Z
+> Last updated 2025-03-18T13:17:24.398Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function updateMinimap(stars, scale, offsetX, offsetY): void;
 ```
 
-Defined in: features/minimap/update-minimap.ts:39
+Defined in:
+[features/minimap/update-minimap.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/features/minimap/update-minimap.ts#L39)
 
 Updates the minimap by rendering Sagittarius A\* and nearby stars, positioning
 them relative to the viewport center.

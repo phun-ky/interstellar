@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/cx
 
 # utils/cx
 
-> Last updated 2025-03-18T11:22:37.514Z
+> Last updated 2025-03-18T13:17:24.406Z
 
 ## Table of Contents
 
@@ -22,7 +26,8 @@
 type CXFirstArgType = string | CXSecondArgType;
 ```
 
-Defined in: utils/cx.ts:15
+Defined in:
+[utils/cx.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/utils/cx.ts#L15)
 
 Type for the first argument of the cx function, which can be either a string or
 an object.
@@ -35,7 +40,8 @@ an object.
 type CXSecondArgType = undefined | Record<string, boolean>;
 ```
 
-Defined in: utils/cx.ts:8
+Defined in:
+[utils/cx.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/utils/cx.ts#L8)
 
 Type for the optional properties object with boolean values.
 
@@ -47,7 +53,8 @@ Type for the optional properties object with boolean values.
 function cx(cls, cls_obj?): string;
 ```
 
-Defined in: utils/cx.ts:47
+Defined in:
+[utils/cx.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/utils/cx.ts#L47)
 
 Combines class names and an optional object of conditional class names into a
 single class string.

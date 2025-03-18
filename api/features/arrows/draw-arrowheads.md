@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/arrows/draw-arrowheads
 
 # features/arrows/draw-arrowheads
 
-> Last updated 2025-03-18T11:22:37.501Z
+> Last updated 2025-03-18T13:17:24.392Z
 
 ## Table of Contents
 
@@ -27,7 +31,8 @@ type DrawDirectionalArrowsPropsType = {
 };
 ```
 
-Defined in: features/arrows/draw-arrowheads.ts:6
+Defined in:
+[features/arrows/draw-arrowheads.ts:6](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L6)
 
 #### Type declaration
 
@@ -51,7 +56,7 @@ Defined in: features/arrows/draw-arrowheads.ts:6
       </td>
 
       <td>
-        features/arrows/draw-arrowheads.ts:9
+        [features/arrows/draw-arrowheads.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L9)
       </td>
     </tr>
 
@@ -65,7 +70,7 @@ Defined in: features/arrows/draw-arrowheads.ts:6
       </td>
 
       <td>
-        features/arrows/draw-arrowheads.ts:8
+        [features/arrows/draw-arrowheads.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L8)
       </td>
     </tr>
 
@@ -79,7 +84,7 @@ Defined in: features/arrows/draw-arrowheads.ts:6
       </td>
 
       <td>
-        features/arrows/draw-arrowheads.ts:10
+        [features/arrows/draw-arrowheads.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L10)
       </td>
     </tr>
 
@@ -93,7 +98,7 @@ Defined in: features/arrows/draw-arrowheads.ts:6
       </td>
 
       <td>
-        features/arrows/draw-arrowheads.ts:11
+        [features/arrows/draw-arrowheads.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L11)
       </td>
     </tr>
 
@@ -107,7 +112,7 @@ Defined in: features/arrows/draw-arrowheads.ts:6
       </td>
 
       <td>
-        features/arrows/draw-arrowheads.ts:7
+        [features/arrows/draw-arrowheads.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L7)
       </td>
     </tr>
 
@@ -121,7 +126,7 @@ Defined in: features/arrows/draw-arrowheads.ts:6
       </td>
 
       <td>
-        features/arrows/draw-arrowheads.ts:13
+        [features/arrows/draw-arrowheads.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L13)
       </td>
     </tr>
 
@@ -135,7 +140,7 @@ Defined in: features/arrows/draw-arrowheads.ts:6
       </td>
 
       <td>
-        features/arrows/draw-arrowheads.ts:12
+        [features/arrows/draw-arrowheads.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L12)
       </td>
     </tr>
 
@@ -150,7 +155,8 @@ Defined in: features/arrows/draw-arrowheads.ts:6
 function drawDirectionalArrows(props): void;
 ```
 
-Defined in: features/arrows/draw-arrowheads.ts:47
+Defined in:
+[features/arrows/draw-arrowheads.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L47)
 
 Draws directional arrows for celestial bodies that are off-screen.
 

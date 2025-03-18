@@ -1,8 +1,12 @@
-[interstellar](../../README.md) / utils/\_\_tests\_\_/distance-to-pixels.spec
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
 
-# utils/\_\_tests\_\_/distance-to-pixels.spec
+[interstellar](../../README.md) / lib/math/compute-angle-backup
 
-> Last updated 2025-03-18T11:22:37.514Z
+# lib/math/compute-angle-backup
+
+> Last updated 2025-03-18T13:17:24.400Z
 
 ---
 

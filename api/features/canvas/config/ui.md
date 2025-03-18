@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/canvas/config/ui
 
 # features/canvas/config/ui
 
-> Last updated 2025-03-18T11:22:37.503Z
+> Last updated 2025-03-18T13:17:24.394Z
 
 ## Table of Contents
 
@@ -20,7 +24,8 @@ const CANVAS_ARROW_FONT: '1em ui-sans-serif, system-ui, -apple-system, BlinkMacS
   '1em ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif';
 ```
 
-Defined in: features/canvas/config/ui/index.ts:14
+Defined in:
+[features/canvas/config/ui/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/ui/index.ts#L14)
 
 Font style for directional arrow labels.
 
@@ -33,7 +38,8 @@ const CANVAS_GALAXY_FONT: '2em ui-sans-serif, system-ui, -apple-system, BlinkMac
   '2em ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif';
 ```
 
-Defined in: features/canvas/config/ui/index.ts:18
+Defined in:
+[features/canvas/config/ui/index.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/ui/index.ts#L18)
 
 Font style for galaxy names displayed in the visualization.
 
@@ -46,7 +52,8 @@ const CANVAS_LABEL_FONT: '1.25em ui-sans-serif, system-ui, -apple-system, BlinkM
   '1.25em ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif';
 ```
 
-Defined in: features/canvas/config/ui/index.ts:10
+Defined in:
+[features/canvas/config/ui/index.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/ui/index.ts#L10)
 
 Font style for general labels displayed on the canvas.
 

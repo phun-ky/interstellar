@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / datasets/asteroid-belts
 
 # datasets/asteroid-belts
 
-> Last updated 2025-03-18T11:22:37.499Z
+> Last updated 2025-03-18T13:17:24.390Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 const ASTEROID_BELTS: AsteroidBeltsType;
 ```
 
-Defined in: datasets/asteroid-belts.ts:14
+Defined in:
+[datasets/asteroid-belts.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/datasets/asteroid-belts.ts#L14)
 
 Predefined asteroid belts in the solar system visualization.
 

@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / utils/scale/calculate-scale
 
 # utils/scale/calculate-scale
 
-> Last updated 2025-03-18T11:22:37.516Z
+> Last updated 2025-03-18T13:17:24.409Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function calculateScale(event, scale): number;
 ```
 
-Defined in: utils/scale/calculate-scale.ts:25
+Defined in:
+[utils/scale/calculate-scale.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/utils/scale/calculate-scale.ts#L25)
 
 Calculates the **new scale factor** based on a zoom event.
 

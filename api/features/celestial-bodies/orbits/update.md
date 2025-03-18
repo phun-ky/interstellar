@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/celestial-bodies/orbits/update
 
 # features/celestial-bodies/orbits/update
 
-> Last updated 2025-03-18T11:22:37.505Z
+> Last updated 2025-03-18T13:17:24.396Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function updateOrbits(stars, planets, moons, comets): void;
 ```
 
-Defined in: features/celestial-bodies/orbits/update.ts:30
+Defined in:
+[features/celestial-bodies/orbits/update.ts:30](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/update.ts#L30)
 
 Updates the **orbital paths** for all celestial bodies in the simulation.
 

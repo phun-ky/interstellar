@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/labels/draw
 
 # features/labels/draw
 
-> Last updated 2025-03-18T11:22:37.506Z
+> Last updated 2025-03-18T13:17:24.397Z
 
 ## Table of Contents
 
@@ -26,7 +30,8 @@ type DrawLabelsPropsType = {
 };
 ```
 
-Defined in: features/labels/draw\.ts:11
+Defined in:
+[features/labels/draw.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L11)
 
 #### Type declaration
 
@@ -50,7 +55,7 @@ Defined in: features/labels/draw\.ts:11
       </td>
 
       <td>
-        features/labels/draw\.ts:15
+        [features/labels/draw.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L15)
       </td>
     </tr>
 
@@ -64,7 +69,7 @@ Defined in: features/labels/draw\.ts:11
       </td>
 
       <td>
-        features/labels/draw\.ts:13
+        [features/labels/draw.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L13)
       </td>
     </tr>
 
@@ -78,7 +83,7 @@ Defined in: features/labels/draw\.ts:11
       </td>
 
       <td>
-        features/labels/draw\.ts:14
+        [features/labels/draw.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L14)
       </td>
     </tr>
 
@@ -92,7 +97,7 @@ Defined in: features/labels/draw\.ts:11
       </td>
 
       <td>
-        features/labels/draw\.ts:16
+        [features/labels/draw.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L16)
       </td>
     </tr>
 
@@ -106,7 +111,7 @@ Defined in: features/labels/draw\.ts:11
       </td>
 
       <td>
-        features/labels/draw\.ts:12
+        [features/labels/draw.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L12)
       </td>
     </tr>
 
@@ -121,7 +126,8 @@ Defined in: features/labels/draw\.ts:11
 function drawLabels(props): void;
 ```
 
-Defined in: features/labels/draw\.ts:84
+Defined in:
+[features/labels/draw.ts:84](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L84)
 
 Renders text labels for celestial bodies onto a 2D canvas.
 

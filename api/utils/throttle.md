@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/throttle
 
 # utils/throttle
 
-> Last updated 2025-03-18T11:22:37.517Z
+> Last updated 2025-03-18T13:17:24.409Z
 
 ## Table of Contents
 
@@ -20,7 +24,8 @@
 function throttle(callback): () => void;
 ```
 
-Defined in: utils/throttle.ts:17
+Defined in:
+[utils/throttle.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/utils/throttle.ts#L17)
 
 Creates a **throttled function** that ensures the callback executes **at most
 once per animation frame**.
@@ -63,7 +68,8 @@ window.addEventListener('scroll', throttledFn);
 function throttleAsync<T>(callback): (...args) => Promise<void>;
 ```
 
-Defined in: utils/throttle.ts:54
+Defined in:
+[utils/throttle.ts:54](https://github.com/phun-ky/interstellar/blob/main/src/utils/throttle.ts#L54)
 
 Creates a **throttled asynchronous function** that ensures the callback executes
 **at most once per animation frame**.

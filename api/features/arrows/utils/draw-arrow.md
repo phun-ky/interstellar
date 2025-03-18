@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/arrows/utils/draw-arrow
 
 # features/arrows/utils/draw-arrow
 
-> Last updated 2025-03-18T11:22:37.501Z
+> Last updated 2025-03-18T13:17:24.392Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function drawArrow(space, angle, canvasWidth, canvasHeight, name): void;
 ```
 
-Defined in: features/arrows/utils/draw-arrow\.ts:27
+Defined in:
+[features/arrows/utils/draw-arrow.ts:27](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/utils/draw-arrow.ts#L27)
 
 Draws an arrow pointing in a specified direction at the edge of the viewport,
 along with a label placed near the arrow.

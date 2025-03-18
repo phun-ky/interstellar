@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / components/Label
 
 # components/Label
 
-> Last updated 2025-03-18T11:22:37.496Z
+> Last updated 2025-03-18T13:17:24.387Z
 
 ## Table of Contents
 
@@ -24,7 +28,8 @@ type InterstellarLabelPropsType = {
 };
 ```
 
-Defined in: components/Label.ts:7
+Defined in:
+[components/Label.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L7)
 
 Represents the properties for the Interstellar Label component.
 
@@ -55,7 +60,7 @@ Represents the properties for the Interstellar Label component.
       </td>
 
       <td>
-        components/Label.ts:13
+        [components/Label.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L13)
       </td>
     </tr>
 
@@ -73,7 +78,7 @@ Represents the properties for the Interstellar Label component.
       </td>
 
       <td>
-        components/Label.ts:15
+        [components/Label.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L15)
       </td>
     </tr>
 
@@ -91,7 +96,7 @@ Represents the properties for the Interstellar Label component.
       </td>
 
       <td>
-        components/Label.ts:11
+        [components/Label.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L11)
       </td>
     </tr>
 
@@ -109,7 +114,7 @@ Represents the properties for the Interstellar Label component.
       </td>
 
       <td>
-        components/Label.ts:9
+        [components/Label.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L9)
       </td>
     </tr>
 
@@ -124,7 +129,8 @@ Represents the properties for the Interstellar Label component.
 function Label(props): string;
 ```
 
-Defined in: components/Label.ts:39
+Defined in:
+[components/Label.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L39)
 
 Renders an Interstellar Label component.
 

@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](README.md) / App
 
 # App
 
-> Last updated 2025-03-18T11:22:37.492Z
+> Last updated 2025-03-18T13:17:24.383Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function App(): Promise<void>;
 ```
 
-Defined in: App.ts:49
+Defined in:
+[App.ts:49](https://github.com/phun-ky/interstellar/blob/main/src/App.ts#L49)
 
 **Main application entry point** for initializing and running the simulation.
 

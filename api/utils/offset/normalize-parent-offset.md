@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / utils/offset/normalize-parent-offset
 
 # utils/offset/normalize-parent-offset
 
-> Last updated 2025-03-18T11:22:37.516Z
+> Last updated 2025-03-18T13:17:24.408Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function normalizeParentOffset(px, parentOffset, modifier?): number;
 ```
 
-Defined in: utils/offset/normalize-parent-offset.ts:24
+Defined in:
+[utils/offset/normalize-parent-offset.ts:24](https://github.com/phun-ky/interstellar/blob/main/src/utils/offset/normalize-parent-offset.ts#L24)
 
 Normalizes the **parent body's offset** to ensure consistent positional
 adjustments.

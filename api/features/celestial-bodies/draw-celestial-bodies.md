@@ -1,9 +1,13 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) /
 features/celestial-bodies/draw-celestial-bodies
 
 # features/celestial-bodies/draw-celestial-bodies
 
-> Last updated 2025-03-18T11:22:37.504Z
+> Last updated 2025-03-18T13:17:24.395Z
 
 ## Table of Contents
 
@@ -28,7 +32,8 @@ type DrawCelestialBodiesPropsType = {
 };
 ```
 
-Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
+Defined in:
+[features/celestial-bodies/draw-celestial-bodies.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L12)
 
 #### Type declaration
 
@@ -52,7 +57,7 @@ Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
       </td>
 
       <td>
-        features/celestial-bodies/draw-celestial-bodies.ts:17
+        [features/celestial-bodies/draw-celestial-bodies.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L17)
       </td>
     </tr>
 
@@ -66,7 +71,7 @@ Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
       </td>
 
       <td>
-        features/celestial-bodies/draw-celestial-bodies.ts:18
+        [features/celestial-bodies/draw-celestial-bodies.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L18)
       </td>
     </tr>
 
@@ -80,7 +85,7 @@ Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
       </td>
 
       <td>
-        features/celestial-bodies/draw-celestial-bodies.ts:14
+        [features/celestial-bodies/draw-celestial-bodies.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L14)
       </td>
     </tr>
 
@@ -94,7 +99,7 @@ Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
       </td>
 
       <td>
-        features/celestial-bodies/draw-celestial-bodies.ts:15
+        [features/celestial-bodies/draw-celestial-bodies.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L15)
       </td>
     </tr>
 
@@ -108,7 +113,7 @@ Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
       </td>
 
       <td>
-        features/celestial-bodies/draw-celestial-bodies.ts:16
+        [features/celestial-bodies/draw-celestial-bodies.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L16)
       </td>
     </tr>
 
@@ -122,7 +127,7 @@ Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
       </td>
 
       <td>
-        features/celestial-bodies/draw-celestial-bodies.ts:13
+        [features/celestial-bodies/draw-celestial-bodies.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L13)
       </td>
     </tr>
 
@@ -137,7 +142,8 @@ Defined in: features/celestial-bodies/draw-celestial-bodies.ts:12
 function drawCelestialBodies(props): void;
 ```
 
-Defined in: features/celestial-bodies/draw-celestial-bodies.ts:80
+Defined in:
+[features/celestial-bodies/draw-celestial-bodies.ts:80](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L80)
 
 Renders celestial bodies onto a 2D canvas based on their orbital parameters.
 

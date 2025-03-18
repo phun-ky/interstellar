@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / lib/math/true-anomaly-to-mean-anomaly
 
 # lib/math/true-anomaly-to-mean-anomaly
 
-> Last updated 2025-03-18T11:22:37.509Z
+> Last updated 2025-03-18T13:17:24.400Z
 
 ## Table of Contents
 
@@ -20,7 +24,8 @@
 function trueAnomalyToMeanAnomaly(V, e): number;
 ```
 
-Defined in: lib/math/true-anomaly-to-mean-anomaly.ts:45
+Defined in:
+[lib/math/true-anomaly-to-mean-anomaly.ts:45](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/true-anomaly-to-mean-anomaly.ts#L45)
 
 Converts true anomaly ($\nu$) to mean anomaly ($M$) using Kepler's equation.
 

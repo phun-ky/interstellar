@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / utils/wait-for
 
 # utils/wait-for
 
-> Last updated 2025-03-18T11:22:37.517Z
+> Last updated 2025-03-18T13:17:24.410Z
 
 ## Table of Contents
 
@@ -19,7 +23,8 @@
 function waitFor(ms): Promise<void>;
 ```
 
-Defined in: utils/wait-for.ts:22
+Defined in:
+[utils/wait-for.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/utils/wait-for.ts#L22)
 
 Delays execution for the specified time using `setTimeout`.
 

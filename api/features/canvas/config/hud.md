@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / features/canvas/config/hud
 
 # features/canvas/config/hud
 
-> Last updated 2025-03-18T11:22:37.503Z
+> Last updated 2025-03-18T13:17:24.394Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 const OPTIONS_UI: UIOptionsInterface;
 ```
 
-Defined in: features/canvas/config/hud/index.ts:15
+Defined in:
+[features/canvas/config/hud/index.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/hud/index.ts#L15)
 
 UI configuration options for toggling visual elements in the space
 visualization.

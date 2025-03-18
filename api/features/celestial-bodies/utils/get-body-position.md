@@ -1,9 +1,13 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) /
 features/celestial-bodies/utils/get-body-position
 
 # features/celestial-bodies/utils/get-body-position
 
-> Last updated 2025-03-18T11:22:37.505Z
+> Last updated 2025-03-18T13:17:24.396Z
 
 ## Table of Contents
 
@@ -23,7 +27,8 @@ type GetBodyPositionReturnType = {
 };
 ```
 
-Defined in: features/celestial-bodies/utils/get-body-position.ts:7
+Defined in:
+[features/celestial-bodies/utils/get-body-position.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/get-body-position.ts#L7)
 
 #### Type declaration
 
@@ -48,7 +53,7 @@ Defined in: features/celestial-bodies/utils/get-body-position.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/utils/get-body-position.ts:8
+        [features/celestial-bodies/utils/get-body-position.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/get-body-position.ts#L8)
       </td>
     </tr>
 
@@ -63,7 +68,7 @@ Defined in: features/celestial-bodies/utils/get-body-position.ts:7
       </td>
 
       <td>
-        features/celestial-bodies/utils/get-body-position.ts:9
+        [features/celestial-bodies/utils/get-body-position.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/get-body-position.ts#L9)
       </td>
     </tr>
 
@@ -78,7 +83,8 @@ Defined in: features/celestial-bodies/utils/get-body-position.ts:7
 function getBodyPosition(body): GetBodyPositionReturnType;
 ```
 
-Defined in: features/celestial-bodies/utils/get-body-position.ts:50
+Defined in:
+[features/celestial-bodies/utils/get-body-position.ts:50](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/get-body-position.ts#L50)
 
 Computes the **current position** of a celestial body in real-world units.
 

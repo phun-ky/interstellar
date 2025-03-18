@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 # Interstellar API documentation
 
 ---
 
-> Last updated 2025-03-18T11:22:37.490Z
+> Last updated 2025-03-18T13:17:24.381Z
 
 ## Modules
 
@@ -56,12 +60,8 @@
 - [features/ui/update-scale-display](features/ui/update-scale-display.md)
 - [features/ui/update-simulation-date](features/ui/update-simulation-date.md)
 - [features/ui/update-zoom](features/ui/update-zoom.md)
-- [lib/math/\_\_tests\_\_/compute-angle.int.spec](lib/math/__tests__/compute-angle.int.md)
-- [lib/math/\_\_tests\_\_/compute-mean-anomaly.int.spec](lib/math/__tests__/compute-mean-anomaly.int.md)
-- [lib/math/\_\_tests\_\_/eccentric-to-true-anomaly.spec](lib/math/__tests__/eccentric-to-true-anomaly.md)
-- [lib/math/\_\_tests\_\_/solve-kepler.spec](lib/math/__tests__/solve-kepler.md)
-- [lib/math/\_\_tests\_\_/true-anomaly-to-mean-anomaly.spec](lib/math/__tests__/true-anomaly-to-mean-anomaly.md)
 - [lib/math/compute-angle](lib/math/compute-angle.md)
+- [lib/math/compute-angle-backup](lib/math/compute-angle-backup.md)
 - [lib/math/compute-mean-anomaly](lib/math/compute-mean-anomaly.md)
 - [lib/math/eccentric-to-true-anomaly](lib/math/eccentric-to-true-anomaly.md)
 - [lib/math/solve-kepler](lib/math/solve-kepler.md)
@@ -81,8 +81,6 @@
 - [types/planets](types/planets.md)
 - [types/stars](types/stars.md)
 - [types/temporal](types/temporal.md)
-- [utils/\_\_tests\_\_/convert-distance.int.spec](utils/__tests__/convert-distance.int.md)
-- [utils/\_\_tests\_\_/distance-to-pixels.spec](utils/__tests__/distance-to-pixels.md)
 - [utils/cx](utils/cx.md)
 - [utils/debounce](utils/debounce.md)
 - [utils/distance/convert-distance](utils/distance/convert-distance.md)

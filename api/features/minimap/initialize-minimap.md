@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../README.md) / features/minimap/initialize-minimap
 
 # features/minimap/initialize-minimap
 
-> Last updated 2025-03-18T11:22:37.507Z
+> Last updated 2025-03-18T13:17:24.398Z
 
 ## Table of Contents
 
@@ -18,7 +22,8 @@
 function initializeMinimap(): void;
 ```
 
-Defined in: features/minimap/initialize-minimap.ts:18
+Defined in:
+[features/minimap/initialize-minimap.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/minimap/initialize-minimap.ts#L18)
 
 Initializes a circular minimap element on the webpage if it does not already
 exist.

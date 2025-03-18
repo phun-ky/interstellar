@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../../../README.md) / lib/spa/utils/dom-content-loaded
 
 # lib/spa/utils/dom-content-loaded
 
-> Last updated 2025-03-18T11:22:37.509Z
+> Last updated 2025-03-18T13:17:24.400Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 function DOMContentLoaded(): Promise<void>;
 ```
 
-Defined in: lib/spa/utils/dom-content-loaded.ts:4
+Defined in:
+[lib/spa/utils/dom-content-loaded.ts:4](https://github.com/phun-ky/interstellar/blob/main/src/lib/spa/utils/dom-content-loaded.ts#L4)
 
 #### Returns
 

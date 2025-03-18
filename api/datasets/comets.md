@@ -1,8 +1,12 @@
+<div>
+  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
+</div>
+
 [interstellar](../README.md) / datasets/comets
 
 # datasets/comets
 
-> Last updated 2025-03-18T11:22:37.500Z
+> Last updated 2025-03-18T13:17:24.391Z
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 const COMETS: CometsType;
 ```
 
-Defined in: datasets/comets.ts:8
+Defined in:
+[datasets/comets.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/datasets/comets.ts#L8)
 
 Represents a collection of well-known comets within the solar system simulation.
 
