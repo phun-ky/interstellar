@@ -90,7 +90,6 @@
     "@types/node": "^22.13.1",
     "cobertura": "^1.0.1",
     "cssnano": "^7.0.6",
-    "dts-bundle-generator": "^9.5.1",
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^3.7.0",
