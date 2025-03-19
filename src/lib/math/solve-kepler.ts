@@ -118,6 +118,10 @@ export const solveKepler = (
 ): number => {
   let E: number;
 
+  if (e < 0 || e >= 1) {
+    throw new RangeError(`Invalid eccentricity: ${e}. Must be in range [0,1).`);
+  }
+
   // Smart initial guess based on eccentricity
   if (e < 0.8) {
     E = M;
