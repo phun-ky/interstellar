@@ -56,9 +56,6 @@ import { wrapAngle } from './wrap-angle';
  * @see [Newton-Raphson Method (Wikipedia)](https://en.wikipedia.org/wiki/Newton%27s_method)
  * @see [Eccentric Anomaly (Wikipedia)](https://en.wikipedia.org/wiki/Mean_anomaly#Eccentric_anomaly)
  */
-
-import { wrapAngle } from './wrap-angle';
-
 export const solveKepler = (
   M: number,
   e: number,
