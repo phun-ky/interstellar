@@ -32,10 +32,7 @@ import { lastTimestamp, SPEED_MODE, timeStep } from '.';
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
  */
 export const generateTimeStep = (): void => {
-  const speedModeElement = document.getElementById(
-    'speedMode'
-  ) as HTMLSelectElement;
-  const mode = speedModeElement.value;
+  const mode = SPEED_MODE.value;
   const now = performance.now();
   // Compute elapsed time in milliseconds
   const deltaTime = now - lastTimestamp.value;

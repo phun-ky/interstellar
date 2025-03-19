@@ -10,6 +10,7 @@ import {
   offsetX,
   offsetY
 } from '../features/canvas/config/camera';
+import { SPEED_MODE } from '../features/canvas/config/time-step';
 import { setupCanvas } from '../features/canvas/setup-canvas';
 import { getBodyPosition } from '../features/celestial-bodies/utils/get-body-position';
 import { updateMinimap } from '../features/minimap/update-minimap';
@@ -360,5 +361,24 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
         asteroidBeltsCheckboxElement
       });
     });
+  });
+
+  const speedModeElement = document.getElementById(
+    'speedMode'
+  ) as HTMLSelectElement;
+
+  speedModeElement.addEventListener('change', () => {
+    const mode = speedModeElement.value;
+    const speedModeEvent = new CustomEvent('SpeedModeChanged', {
+      detail: { mode }
+    });
+
+    document.dispatchEvent(speedModeEvent);
+  });
+
+  document.addEventListener('SpeedModeChanged', (event: Event) => {
+    const { mode } = (event as CustomEvent).detail;
+
+    SPEED_MODE.value = mode;
   });
 };
