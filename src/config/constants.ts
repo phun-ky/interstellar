@@ -36,7 +36,7 @@ export const MAX_SCALE = 1e20;
 export const EARTH_PERIOD = 365.256;
 
 /** Threshold for rendering moons (dependent on zoom level). */
-export const THRESHOLD_MOON_RENDER = 12.561281983793059;
+export const THRESHOLD_MOON_RENDER = 4;
 
 /** Minimum and maximum sizes for planets in the visualization. */
 export const MIN_PLANET_SIZE = 2;
