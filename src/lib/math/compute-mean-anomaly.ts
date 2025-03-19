@@ -1,3 +1,4 @@
+import { TWO_PI } from '../../config/constants';
 import { CelestialBodyType } from '../../types/celestial-bodies';
 import { TemporalInterface } from '../../types/temporal';
 import { convertTemporalUnit } from '../../utils/temporal/convert-temporal-unit';
@@ -59,7 +60,7 @@ export const computeMeanAnomaly = (
 
   // Convert period to days and compute mean motion
   const periodInDays = convertTemporalUnit(period, 'day').value;
-  const meanMotion = (2 * Math.PI) / periodInDays;
+  const meanMotion = TWO_PI / periodInDays;
   // Convert true anomaly (V) to mean anomaly (M0) if necessary
   const M0 = e === 0 ? angle : trueAnomalyToMeanAnomaly(angle, e);
   // Clamping deltaT to avoid excessive jumps

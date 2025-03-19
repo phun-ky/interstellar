@@ -1,3 +1,4 @@
+import { TWO_PI } from '../../config/constants';
 import { ValueInterface } from '../../types/distance';
 
 import { starfield } from './config';
@@ -64,7 +65,7 @@ export const generateStarfieldBitmap = async (
     }
 
     space.beginPath();
-    space.arc(star.x, star.y, starSize, 0, Math.PI * 2);
+    space.arc(star.x, star.y, starSize, 0, TWO_PI);
     space.fill();
   }
 

@@ -1,3 +1,4 @@
+import { TWO_PI } from '../../../config/constants';
 import { AsteroidBeltsType } from '../../../types/asteroid-belts';
 import { distanceToPixels } from '../../../utils/distance/distance-to-pixels';
 import { OPTIONS_UI } from '../../canvas/config/hud';
@@ -71,7 +72,7 @@ export const drawBelts = (props: DrawBeltsPropsType) => {
       centerY,
       distanceToPixels({ value: belt.outerRadius, unit: 'AU' }, scale),
       0,
-      Math.PI * 2
+      TWO_PI
     );
 
     // Inner boundary (cutout effect)
@@ -80,7 +81,7 @@ export const drawBelts = (props: DrawBeltsPropsType) => {
       centerY,
       distanceToPixels({ value: belt.innerRadius, unit: 'AU' }, scale),
       0,
-      Math.PI * 2,
+      TWO_PI,
       true
     );
 

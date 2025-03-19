@@ -1,3 +1,4 @@
+import { TWO_PI } from '../../../config/constants';
 import {
   CelestialBodiesType,
   CelestialBodyType
@@ -95,9 +96,9 @@ export const computeOrbits = (celestialBodies: CelestialBodiesType): void => {
       baseSteps,
       Math.floor(baseSteps * eccentricityFactor)
     );
-    const step = (2 * Math.PI) / scaledSteps;
+    const step = TWO_PI / scaledSteps;
 
-    for (let theta = 0; theta < 2 * Math.PI; theta += step) {
+    for (let theta = 0; theta < TWO_PI; theta += step) {
       // Parametric equations for the elliptical orbit (in real-world units)
       const x = normalizedA.value * Math.cos(theta) - body.focus_x;
       const y = body.miA * Math.sin(theta);

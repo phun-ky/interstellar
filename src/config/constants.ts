@@ -94,3 +94,5 @@ export const TRAIL_SCALING_FACTOR = 0.5;
 
 /** Stores the simulation's current date. */
 export const SIMULATION_DATE = new Date();
+
+export const TWO_PI = 2 * Math.PI;

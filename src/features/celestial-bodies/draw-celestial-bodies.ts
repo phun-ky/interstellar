@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable import/no-unused-modules */
-import { MAX_CELESTIAL_BODY_SIZE } from '../../config/constants';
+import { MAX_CELESTIAL_BODY_SIZE, TWO_PI } from '../../config/constants';
 import {
   CelestialBodiesType,
   CelestialBodyType
@@ -126,7 +126,7 @@ export const drawCelestialBodies = (
       yPX,
       Math.max(distanceToPixels(radius, scale), maxSize),
       0,
-      Math.PI * 2
+      TWO_PI
     );
     space.fill();
   });
