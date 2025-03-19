@@ -47,7 +47,7 @@ export type InterstellarButtonPropsType = {
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
  */
-export const Button = (props: InterstellarButtonPropsType) => {
+export const Button = (props: InterstellarButtonPropsType): string => {
   const { children, className, isActive, style, ...rest } = props;
 
   let { id } = props;
