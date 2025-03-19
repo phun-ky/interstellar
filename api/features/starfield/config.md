@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/starfield/config
 
 # features/starfield/config
 
-> Last updated 2025-03-18T13:45:43.061Z
+> Last updated 2025-03-19T08:29:08.336Z
 
 ## Table of Contents
 
 - [Variables](#variables)
   - [starfield](#starfield)
-- [**Starfield Data Structure:**](#starfield-data-structure)
 
 ## Variables
 
@@ -29,7 +26,7 @@ Defined in:
 
 Represents a global store for dynamically generated stars in the starfield.
 
-## **Starfield Data Structure:**
+**Starfield Data Structure:**
 
 - `value` contains an array of `StarfieldStarInterface` objects.
 - The array holds dynamically generated stars for rendering.
@@ -38,30 +35,32 @@ Represents a global store for dynamically generated stars in the starfield.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="value" /> `value`
-      </td>
+<a id="value"></a> `value`
 
-      <td>
-        [`StarfieldStarInterface`](generate-star-field.md#starfieldstarinterface)\[]
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/starfield/config/index.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/config/index.ts#L19)
-      </td>
-    </tr>
+[`StarfieldStarInterface`](generate-star-field.md#starfieldstarinterface)\[]
 
-  </tbody>
+</td>
+<td>
+
+[features/starfield/config/index.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/config/index.ts#L19)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 #### Example

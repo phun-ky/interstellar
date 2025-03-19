@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/distance/convert-distance
 
 # utils/distance/convert-distance
 
-> Last updated 2025-03-18T13:45:43.069Z
+> Last updated 2025-03-19T08:29:08.347Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [convertDistance()](#convertdistance)
-- [**Conversion Logic:**](#conversion-logic)
-- [**Supported Conversions:**](#supported-conversions)
 
 ## Functions
 
@@ -29,13 +25,13 @@ Defined in:
 Converts a distance measurement between **Astronomical Units (AU), kilometres
 (km), meters (m),** and **light-years (ly)**.
 
-## **Conversion Logic:**
+**Conversion Logic:**
 
 1. Converts the input distance to **Astronomical Units (AU)** as an intermediate
    step.
 2. Converts the AU value to the **target unit**.
 
-## **Supported Conversions:**
+**Supported Conversions:**
 
 - **AU ↔ km ↔ m**
 - **AU ↔ light-years (ly)**

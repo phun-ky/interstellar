@@ -1,20 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/debounce
 
 # utils/debounce
 
-> Last updated 2025-03-18T13:45:43.068Z
+> Last updated 2025-03-19T08:29:08.346Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [debounce()](#debounce)
-- [**Functionality:**](#functionality)
   - [debounceAsync()](#debounceasync)
-- [**Functionality:**](#functionality-1)
 
 ## Functions
 
@@ -30,7 +26,7 @@ Defined in:
 Creates a **debounced function** that delays execution until a specified time
 has passed since the last invocation.
 
-## **Functionality:**
+**Functionality:**
 
 - **Delays function execution** until `wait` milliseconds have passed since the
   last call.
@@ -75,16 +71,16 @@ Defined in:
 Creates a **debounced asynchronous function** that ensures the last invocation
 is resolved.
 
-## **Functionality:**
+**Functionality:**
 
 - Cancels previous calls **if invoked within the debounce delay**.
 - Ensures the last call **always resolves**.
 
 #### Type Parameters
 
-| Type Parameter                                                                                                                       | Description                       |
-| ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
-| `T` _extends_ (...`args`) => [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`any`> | A function returning a `Promise`. |
+| Type Parameter                                                                                                                      | Description                       |
+| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `T` _extends_ (...`args`) => [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`any`> | A function returning a `Promise`. |
 
 #### Parameters
 
@@ -101,13 +97,13 @@ is resolved.
 
 ##### Parameters
 
-| Parameter | Type                                                                                                 |
-| --------- | ---------------------------------------------------------------------------------------------------- |
-| ...`args` | [`Parameters`](https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype)\<`T`> |
+| Parameter | Type                                                                                                |
+| --------- | --------------------------------------------------------------------------------------------------- |
+| ...`args` | [`Parameters`](https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype)<`T`> |
 
 ##### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`ReturnType`](https://www.typescriptlang.org/docs/handbook/utility-types.html#returntypetype)\<`T`>>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[`ReturnType`](https://www.typescriptlang.org/docs/handbook/utility-types.html#returntypetype)<`T`>>
 
 #### Example
 

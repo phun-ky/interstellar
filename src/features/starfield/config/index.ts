@@ -3,7 +3,7 @@ import { StarfieldStarInterface } from '../generate-star-field';
 /**
  * Represents a global store for dynamically generated stars in the starfield.
  *
- * ## **Starfield Data Structure:**
+ * **Starfield Data Structure:**
  * - `value` contains an array of `StarfieldStarInterface` objects.
  * - The array holds dynamically generated stars for rendering.
  * - The object is **mutable**, allowing updates to the starfield in real-time.

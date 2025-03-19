@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) / features/canvas/config/hud
 
 # features/canvas/config/hud
 
-> Last updated 2025-03-18T13:45:43.056Z
+> Last updated 2025-03-19T08:29:08.331Z
 
 ## Table of Contents
 
@@ -35,7 +33,7 @@ specific feature in the visualization.
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+<https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API>
 
 ---
 

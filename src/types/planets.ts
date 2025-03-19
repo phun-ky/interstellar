@@ -21,13 +21,13 @@ export interface Coordinates2DInterface {
 /**
  * Represents a **planet** in the solar system simulation.
  *
- * ## **Orbital Properties:**
+ * **Orbital Properties:**
  * - **Semi-major axis (`a`)**: Defines the planet’s orbit size in **Astronomical Units (AU)**.
  * - **Orbital eccentricity (`e`)**: Determines how elliptical the orbit is ($0 =$ circular, closer to $1 =$ highly elliptical).
  * - **Orbital period (`period`)**: Time taken for one full orbit in **Earth days**.
  * - **True anomaly (`angle`)**: The planet’s current position in its orbit (in **radians**).
  *
- * ## **Classification & Visualization:**
+ * **Classification & Visualization:**
  * - **Type (`type`)**: Scientific classification of the planet (e.g., **terrestrial, gas giant, ice planet**).
  * - **Category (`category`)**: Defines whether the object is a **planet** or a **planetoid**.
  * - **Color (`color`)**: Used for visual representation in simulations.

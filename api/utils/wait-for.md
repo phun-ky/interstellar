@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/wait-for
 
 # utils/wait-for
 
-> Last updated 2025-03-18T13:45:43.072Z
+> Last updated 2025-03-19T08:29:08.350Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [waitFor()](#waitfor)
-- [**Functionality:**](#functionality)
-- [**Usage in Async Operations:**](#usage-in-async-operations)
 
 ## Functions
 
@@ -28,14 +24,14 @@ Defined in:
 
 Delays execution for the specified time using `setTimeout`.
 
-## **Functionality:**
+**Functionality:**
 
 - Returns a **Promise** that resolves **after** the specified time (in
   milliseconds).
 - Useful for **delaying execution**, creating **timeouts**, or **simulating wait
   periods**.
 
-## **Usage in Async Operations:**
+**Usage in Async Operations:**
 
 - Used in **animations**, **API polling**, or **delayed UI updates**.
 - Prevents blocking the main thread by utilizing asynchronous execution.
@@ -48,7 +44,7 @@ Delays execution for the specified time using `setTimeout`.
 
 #### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`void`>
 
 A Promise that resolves after the specified time.
 

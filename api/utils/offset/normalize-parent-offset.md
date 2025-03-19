@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/offset/normalize-parent-offset
 
 # utils/offset/normalize-parent-offset
 
-> Last updated 2025-03-18T13:45:43.071Z
+> Last updated 2025-03-19T08:29:08.348Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [normalizeParentOffset()](#normalizeparentoffset)
-- [**Calculation Logic:**](#calculation-logic)
-- [**Usage in Orbit Calculations:**](#usage-in-orbit-calculations)
 
 ## Functions
 
@@ -29,7 +25,7 @@ Defined in:
 Normalizes the **parent body's offset** to ensure consistent positional
 adjustments.
 
-## **Calculation Logic:**
+**Calculation Logic:**
 
 - If the **parent offset is `0`**, the function simply **multiplies `px` by
   `modifier`**.
@@ -37,7 +33,7 @@ adjustments.
   **modifier**:
   $\text{normalized} = \text{modifier} \times (\text{parentOffset} + \text{px} \mid\mid \text{px})$
 
-## **Usage in Orbit Calculations:**
+**Usage in Orbit Calculations:**
 
 - Ensures **correct relative positioning** of moons, planets, and other
   celestial bodies.

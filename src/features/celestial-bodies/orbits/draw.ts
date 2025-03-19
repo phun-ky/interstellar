@@ -22,7 +22,8 @@ export type DrawOrbitsPropsType = {
 /**
  * Renders the **orbital paths** of celestial bodies around a galactic center onto a 2D canvas.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * A celestial body follows an **elliptical orbit** with the galactic center at one of its foci.
  * The **orbit path** consists of discrete points $(x, y)$, which are calculated as:
  * $$
@@ -55,7 +56,7 @@ export type DrawOrbitsPropsType = {
  * });
  * ```
  *
- * @see [Elliptical Orbits](https://en.wikipedia.org/wiki/Ellipse)
+ * @see https://en.wikipedia.org/wiki/Ellipse
  */
 export const drawOrbits = (props: DrawOrbitsPropsType): void => {
   const { celestialBodies, toggled, space, referenceX, referenceY, scale } =
@@ -133,7 +134,7 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
       const bodyX = referenceX + xPX;
       const bodyY = referenceY + yPX;
 
-      // **Trajectory Trails Mode**
+      // Trajectory Trails Mode
       if (!globalThis.TRAJECTORY_TRAILS[name]) {
         globalThis.TRAJECTORY_TRAILS[name] = [];
       }

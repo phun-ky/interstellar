@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/distance/pixels-to-distance
 
 # utils/distance/pixels-to-distance
 
-> Last updated 2025-03-18T13:45:43.070Z
+> Last updated 2025-03-19T08:29:08.347Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [pixelsToDistance()](#pixelstodistance)
-- [**Conversion Logic:**](#conversion-logic)
-- [**Usage in Visualization:**](#usage-in-visualization)
 
 ## Functions
 
@@ -28,12 +24,12 @@ Defined in:
 
 Converts a **pixel-based distance** back into **Astronomical Units (AU)**.
 
-## **Conversion Logic:**
+**Conversion Logic:**
 
 1. Divides the pixel distance by **AU_IN_PX** (pixels per AU).
 2. Adjusts the result based on the **scale factor**.
 
-## **Usage in Visualization:**
+**Usage in Visualization:**
 
 - Used to map **rendered pixel distances** back into **real-world AU
   measurements**.

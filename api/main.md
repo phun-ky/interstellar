@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](README.md) / main
 
 # main
 
-> Last updated 2025-03-18T13:45:43.064Z
+> Last updated 2025-03-19T08:29:08.341Z
 
 ---
 

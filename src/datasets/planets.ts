@@ -5,8 +5,20 @@ import { PlanetsType } from '../types/planets';
  *
  * Each planet entry includes its orbital elements, physical characteristics,
  * and a visual representation color for rendering.
+ *
+ * Uses {@link PlanetsType}.
+ *
+ * **Example item in dataset:**
+ *
+ * {@includeCode ../datasets/planets.ts#datasetPlanets}
+ *
+ * @example
+ * ```ts
+ * console.log(PLANETS[0].name); // "Mercury"
+ * ```
  */
 export const PLANETS: PlanetsType = [
+  // #region datasetPlanets
   {
     name: 'Mercury',
     type: 'silicate planet',
@@ -29,6 +41,7 @@ export const PLANETS: PlanetsType = [
     y: { value: 0.024, unit: 'AU' },
     z: { value: 0.001, unit: 'AU' }
   },
+  // #endregion datasetPlanets
   {
     name: 'Venus',
     type: 'silicate planet',

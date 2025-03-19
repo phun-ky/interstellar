@@ -1,12 +1,12 @@
 /**
  * Normalizes the **parent body's offset** to ensure consistent positional adjustments.
  *
- * ## **Calculation Logic:**
+ * **Calculation Logic:**
  * - If the **parent offset is `0`**, the function simply **multiplies `px` by `modifier`**.
  * - Otherwise, it **adds the parent offset to `px`** before applying the **modifier**:
  *   $$ \text{normalized} = \text{modifier} \times (\text{parentOffset} + \text{px} \mid\mid \text{px}) $$
  *
- * ## **Usage in Orbit Calculations:**
+ * **Usage in Orbit Calculations:**
  * - Ensures **correct relative positioning** of moons, planets, and other celestial bodies.
  * - Helps maintain **smooth transitions** in simulations with nested orbits.
  *

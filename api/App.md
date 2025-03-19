@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](README.md) / App
 
 # App
 
-> Last updated 2025-03-18T13:45:43.044Z
+> Last updated 2025-03-19T08:29:08.320Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [App()](#app-1)
-- [**Initialization Steps:**](#initialization-steps)
-- [**Simulation Loop:**](#simulation-loop)
 
 ## Functions
 
@@ -28,7 +24,7 @@ Defined in:
 
 **Main application entry point** for initializing and running the simulation.
 
-## **Initialization Steps:**
+**Initialization Steps:**
 
 1. **Set up the UI** elements.
 2. **Create and configure the canvas**.
@@ -36,7 +32,7 @@ Defined in:
 4. **Attach event handlers** for interaction.
 5. **Start the simulation loop**.
 
-## **Simulation Loop:**
+**Simulation Loop:**
 
 - Updates **planetary positions** based on time step.
 - Advances **simulation time**.
@@ -45,7 +41,7 @@ Defined in:
 
 #### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`void`>
 
 Asynchronous function to initialize and start the simulation.
 

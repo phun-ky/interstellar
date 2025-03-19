@@ -6,14 +6,14 @@ import { distanceToPixels } from '../distance/distance-to-pixels';
 /**
  * Computes the **parent body's offset** in pixels for celestial objects.
  *
- * ## **Offset Calculation Logic:**
+ * **Offset Calculation Logic:**
  * - **Stars**: Use the **galactic center** as their reference, so their offset is `(0,0)`.
  * - **Planets, Moons, and Comets**:
  *   1. Finds the **parent body** (e.g., planet for a moon, star for a planet).
  *   2. Retrieves the **parent body's position**.
  *   3. Converts the **position into pixels** using `distanceToPixels`.
  *
- * ## **Usage in Visualization:**
+ * **Usage in Visualization:**
  * - Ensures **moons orbit their planets** correctly by applying the parent's offset.
  * - Allows **nested orbital structures** (e.g., exomoons orbiting exoplanets).
  *

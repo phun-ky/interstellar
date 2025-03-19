@@ -11,7 +11,8 @@ import {
  * The function determines the number of days elapsed since **J2000 (January 1, 2000, 12:00 TT)**
  * and uses this to compute the **initial orbital angles** ($\theta_0$) of celestial bodies.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * The elapsed time $\Delta T$ is calculated as:
  * $$
  * \Delta T = \frac{t - t_{J2000}}{1\text{ day}}

@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/minimap/update-minimap
 
 # features/minimap/update-minimap
 
-> Last updated 2025-03-18T13:45:43.061Z
+> Last updated 2025-03-19T08:29:08.336Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [updateMinimap()](#updateminimap)
-- [**Rendering Details:**](#rendering-details)
 
 ## Functions
 
@@ -28,7 +25,7 @@ Defined in:
 Updates the minimap by rendering Sagittarius A\* and nearby stars, positioning
 them relative to the viewport center.
 
-## **Rendering Details:**
+**Rendering Details:**
 
 - The **minimap size** is fixed at `150px`.
 - **Sagittarius A**\* is marked with a red dot and moves relative to the

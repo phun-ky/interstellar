@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/starfield/generate-star-field
 
 # features/starfield/generate-star-field
 
-> Last updated 2025-03-18T13:45:43.062Z
+> Last updated 2025-03-19T08:29:08.336Z
 
 ## Table of Contents
 
@@ -14,7 +12,6 @@
   - [StarfieldStarInterface](#starfieldstarinterface)
 - [Functions](#functions)
   - [generateStarfield()](#generatestarfield)
-- [**Star Distribution Calculation:**](#star-distribution-calculation)
 
 ## Interfaces
 
@@ -25,13 +22,13 @@ Defined in:
 
 #### Properties
 
-| Property                                   | Type     | Defined in                                                                                                                                        |
-| ------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="brightness" /> `brightness`         | `number` | [features/starfield/generate-star-field.ts:6](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L6) |
-| <a id="parallaxfactor" /> `parallaxFactor` | `number` | [features/starfield/generate-star-field.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L8) |
-| <a id="size" /> `size`                     | `number` | [features/starfield/generate-star-field.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L7) |
-| <a id="x" /> `x`                           | `number` | [features/starfield/generate-star-field.ts:4](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L4) |
-| <a id="y" /> `y`                           | `number` | [features/starfield/generate-star-field.ts:5](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L5) |
+| Property                                     | Type     | Defined in                                                                                                                                        |
+| -------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="brightness"></a> `brightness`         | `number` | [features/starfield/generate-star-field.ts:6](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L6) |
+| <a id="parallaxfactor"></a> `parallaxFactor` | `number` | [features/starfield/generate-star-field.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L8) |
+| <a id="size"></a> `size`                     | `number` | [features/starfield/generate-star-field.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L7) |
+| <a id="x"></a> `x`                           | `number` | [features/starfield/generate-star-field.ts:4](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L4) |
+| <a id="y"></a> `y`                           | `number` | [features/starfield/generate-star-field.ts:5](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-star-field.ts#L5) |
 
 ## Functions
 
@@ -47,10 +44,8 @@ Defined in:
 Generates a starfield dynamically based on the canvas size, maintaining
 proportional star density.
 
-## **Star Distribution Calculation:**
-
-The number of stars is scaled relative to a base resolution
-($1920 \times 1080$):
+**Star Distribution Calculation:** The number of stars is scaled relative to a
+base resolution ($1920 \times 1080$):
 
 $$
 N = \left( \frac{\text{screenArea}}{\text{BASE\_AREA}} \right) \times \text{BASE\_NUM\_STARS}
@@ -117,5 +112,5 @@ we're all part of :)
 ---
 
 This project created by [Alexander Vassbotn Røyne-Helgesen](http://phun-ky.net)
-is licensed under a [GPL-3.0
-License](https://choosealicense.com/licenses/gpl-3.0/).
+is licensed under a
+[GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/).

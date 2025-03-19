@@ -1,50 +1,45 @@
 <div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
-[interstellar](../README.md) / types/debounce
+[interstellar](../README.md) / types/systems
 
-# types/debounce
+# types/systems
 
-> Last updated 2025-03-19T08:29:08.342Z
+> Last updated 2025-03-19T08:29:08.345Z
 
 ## Table of Contents
 
+- [Interfaces](#interfaces)
+  - [SystemInterface](#systeminterface)
 - [Type Aliases](#type-aliases)
-  - [DebounceAnyFunctionType()](#debounceanyfunctiontype)
+  - [SystemsType](#systemstype)
+
+## Interfaces
+
+### SystemInterface
+
+Defined in: types/systems.ts:5
+
+Represents a star system within the space visualization.
+
+#### Properties
+
+| Property                         | Type        | Description                           | Defined in          |
+| -------------------------------- | ----------- | ------------------------------------- | ------------------- |
+| <a id="distance"></a> `distance` | `number`    | Distance from the Sun in light-years. | types/systems.ts:11 |
+| <a id="name"></a> `name`         | `string`    | Name of the star system.              | types/systems.ts:7  |
+| <a id="stars"></a> `stars`       | `string`\[] | List of star names in the system.     | types/systems.ts:9  |
 
 ## Type Aliases
 
-### DebounceAnyFunctionType()
+### SystemsType
 
 ```ts
-type DebounceAnyFunctionType = (...args) => void;
+type SystemsType = SystemInterface[];
 ```
 
-Defined in:
-[types/debounce.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/types/debounce.ts#L17)
+Defined in: types/systems.ts:17
 
-Type definition for a debounced function that accepts any arguments.
-
-This type represents a function that takes an arbitrary number of arguments of
-any type and does not return a value. Typically used in debounce implementations
-to delay function execution.
-
-#### Parameters
-
-| Parameter | Type     |
-| --------- | -------- |
-| ...`args` | `any`\[] |
-
-#### Returns
-
-`void`
-
-#### Example
-
-```ts
-const debouncedLogger: DebounceAnyFunctionType = (...args) => {
-  console.log('Debounced call with:', args);
-};
-```
+Type alias for a collection of star systems.
 
 ---
 

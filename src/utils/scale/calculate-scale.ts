@@ -4,11 +4,11 @@ import { ValueInterface } from '../../types/distance';
 /**
  * Calculates the **new scale factor** based on a zoom event.
  *
- * ## **Zoom Logic:**
+ * **Zoom Logic:**
  * - **Scroll Up (`deltaY < 0`)** → Zoom **in** by multiplying by `ZOOM_FACTOR`.
  * - **Scroll Down (`deltaY > 0`)** → Zoom **out** by dividing by `ZOOM_FACTOR`.
  *
- * ## **Usage in Visualization:**
+ * **Usage in Visualization:**
  * - Adjusts the **scale of celestial objects and distances** dynamically.
  * - Ensures smooth **zooming interactions** in canvas-based simulations.
  *

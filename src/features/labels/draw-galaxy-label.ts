@@ -16,7 +16,7 @@ export type DrawGalaxyLabelPropsType = {
 /**
  * Renders the name of a galaxy and its central black hole onto a 2D canvas.
  *
- * ## **Rendering Details:**
+ * **Rendering Details:**
  * - The **galaxy name** is displayed above the black hole.
  * - The **black hole name** is displayed slightly lower.
  * - Labels are centered relative to the reference coordinates.

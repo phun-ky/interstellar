@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/draw
 
 # utils/draw
 
-> Last updated 2025-03-18T13:45:43.070Z
+> Last updated 2025-03-19T08:29:08.347Z
 
 ## Table of Contents
 
@@ -14,8 +12,6 @@
   - [DrawPropsType](#drawpropstype)
 - [Functions](#functions)
   - [draw()](#draw)
-- [**Functionality:**](#functionality)
-- [**Render Layers (Ordered):**](#render-layers-ordered)
 
 ## Type Aliases
 
@@ -45,198 +41,236 @@ Defined in:
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="canvasheight" /> `canvasHeight`
-      </td>
+<a id="canvasheight"></a> `canvasHeight`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/draw.ts:48](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L48)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="canvaswidth" /> `canvasWidth`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[utils/draw.ts:48](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L48)
 
-      <td>
-        [utils/draw.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L47)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="comets" /> `comets`
-      </td>
+<a id="canvaswidth"></a> `canvasWidth`
 
-      <td>
-        [`CometsType`](../types/comets.md#cometstype)
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/draw.ts:43](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L43)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="galaxies" /> `galaxies`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`GalaxiesType`](../types/galaxies.md#galaxiestype)
-      </td>
+[utils/draw.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L47)
 
-      <td>
-        [utils/draw.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L41)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="moons" /> `moons`
-      </td>
+<a id="comets"></a> `comets`
 
-      <td>
-        [`MoonsType`](../types/moons.md#moonstype)
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/draw.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L40)
-      </td>
-    </tr>
+[`CometsType`](../types/comets.md#cometstype)
 
-    <tr>
-      <td>
-        <a id="offsetx" /> `offsetX`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`ValueInterface`](../types/distance.md#valueinterface)
-      </td>
+[utils/draw.ts:43](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L43)
 
-      <td>
-        [utils/draw.ts:49](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L49)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="offsety" /> `offsetY`
-      </td>
+<a id="galaxies"></a> `galaxies`
 
-      <td>
-        [`ValueInterface`](../types/distance.md#valueinterface)
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/draw.ts:50](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L50)
-      </td>
-    </tr>
+[`GalaxiesType`](../types/galaxies.md#galaxiestype)
 
-    <tr>
-      <td>
-        <a id="planets" /> `planets`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`PlanetsType`](../types/planets.md#planetstype)
-      </td>
+[utils/draw.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L41)
 
-      <td>
-        [utils/draw.ts:42](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L42)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="referencex" /> `referenceX`
-      </td>
+<a id="moons"></a> `moons`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/draw.ts:45](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L45)
-      </td>
-    </tr>
+[`MoonsType`](../types/moons.md#moonstype)
 
-    <tr>
-      <td>
-        <a id="referencey" /> `referenceY`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[utils/draw.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L40)
 
-      <td>
-        [utils/draw.ts:46](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L46)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="scale" /> `scale`
-      </td>
+<a id="offsetx"></a> `offsetX`
 
-      <td>
-        [`ValueInterface`](../types/distance.md#valueinterface)
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/draw.ts:44](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L44)
-      </td>
-    </tr>
+[`ValueInterface`](../types/distance.md#valueinterface)
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+[utils/draw.ts:49](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L49)
 
-      <td>
-        [utils/draw.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L38)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="stars" /> `stars`
-      </td>
+<a id="offsety"></a> `offsetY`
 
-      <td>
-        [`StarsType`](../types/stars.md#starstype)
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/draw.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L39)
-      </td>
-    </tr>
+[`ValueInterface`](../types/distance.md#valueinterface)
 
-  </tbody>
+</td>
+<td>
+
+[utils/draw.ts:50](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L50)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="planets"></a> `planets`
+
+</td>
+<td>
+
+[`PlanetsType`](../types/planets.md#planetstype)
+
+</td>
+<td>
+
+[utils/draw.ts:42](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L42)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="referencex"></a> `referenceX`
+
+</td>
+<td>
+
+`number`
+
+</td>
+<td>
+
+[utils/draw.ts:45](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L45)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="referencey"></a> `referenceY`
+
+</td>
+<td>
+
+`number`
+
+</td>
+<td>
+
+[utils/draw.ts:46](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L46)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="scale"></a> `scale`
+
+</td>
+<td>
+
+[`ValueInterface`](../types/distance.md#valueinterface)
+
+</td>
+<td>
+
+[utils/draw.ts:44](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L44)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="space"></a> `space`
+
+</td>
+<td>
+
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
+
+</td>
+<td>
+
+[utils/draw.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L38)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="stars"></a> `stars`
+
+</td>
+<td>
+
+[`StarsType`](../types/stars.md#starstype)
+
+</td>
+<td>
+
+[utils/draw.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/utils/draw.ts#L39)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -252,7 +286,7 @@ Defined in:
 
 **Draws the entire celestial simulation** onto the canvas.
 
-## **Functionality:**
+**Functionality:**
 
 - Clears the canvas and renders the **background**.
 - Initializes and draws the **starfield**.
@@ -261,7 +295,7 @@ Defined in:
   level.
 - Dynamically toggles **orbits, labels, and directional arrows**.
 
-## **Render Layers (Ordered):**
+**Render Layers (Ordered):**
 
 1. **Background & Starfield**
 2. **Galaxy & Labels**
@@ -278,7 +312,7 @@ Defined in:
 
 #### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`void`>
 
 Asynchronous function to handle initialization.
 

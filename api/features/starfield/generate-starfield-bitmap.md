@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/starfield/generate-starfield-bitmap
 
 # features/starfield/generate-starfield-bitmap
 
-> Last updated 2025-03-18T13:45:43.062Z
+> Last updated 2025-03-19T08:29:08.337Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [generateStarfieldBitmap()](#generatestarfieldbitmap)
-- [**Rendering Process:**](#rendering-process)
-- [**Star Color Mapping:**](#star-color-mapping)
 
 ## Functions
 
@@ -29,14 +25,14 @@ Defined in:
 Generates an offscreen canvas containing a starfield and converts it into an
 `ImageBitmap`.
 
-## **Rendering Process:**
+**Rendering Process:**
 
 - Uses an **OffscreenCanvas** to improve performance.
 - Iterates through the `starfield` array and renders each star based on:
   - **Size**: Proportional to `scale.value`, ensuring a minimum visible size.
   - **Parallax Factor**: Determines star brightness and color.
 
-## **Star Color Mapping:**
+**Star Color Mapping:**
 
 - Stars are coloured based on their **parallax factor**, simulating depth
   perception:
@@ -59,7 +55,7 @@ rendering.
 
 #### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`void`>
 
 A promise that resolves once the `ImageBitmap` is created.
 

@@ -4,7 +4,7 @@
  * This type allows specifying a generic `target` element with additional properties,
  * making it useful for event handling involving file inputs or dynamic DOM elements.
  *
- * ## **Extended Properties:**
+ * **Extended Properties:**
  * - **`target.files`**: Supports `FileList` (for input elements of type `file`).
  * - **`target.id`**: Stores the element's unique identifier.
  * - **`target.parentElement`**: Provides access to the parent element.

@@ -5,7 +5,7 @@ import { TemporalInterface } from './temporal';
 /**
  * Represents a **comet** in the solar system simulation.
  *
- * ## **Cometary Orbital Parameters:**
+ * **Cometary Orbital Parameters:**
  * - **Semi-major axis (`a`)**: Defines the **size** of the comet’s orbit in **Astronomical Units (AU)**.
  * - **Orbital eccentricity (`e`)**: Determines how **elliptical** the orbit is ($0 = $ circular, closer to $1$ = highly elliptical).
  * - **Inclination (`i`)**: The tilt of the orbit relative to the **ecliptic plane**, measured in **degrees**.
@@ -13,7 +13,7 @@ import { TemporalInterface } from './temporal';
  * - **Longitude of the ascending node (`om`)**: Defines where the orbit crosses the ecliptic.
  * - **Perihelion distance (`q`)**: The closest approach to the Sun in **AU**.
  *
- * ## **Visualization Parameters:**
+ * **Visualization Parameters:**
  * - **Orbit Path (`orbitPath`)**: Precomputed trajectory for rendering.
  * - **Color (`color`)**: Used for visual representation.
  * - **Size (`size`)**: Scaled size for display (not the actual physical size).

@@ -1,20 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / types/galaxies
 
 # types/galaxies
 
-> Last updated 2025-03-18T13:45:43.066Z
+> Last updated 2025-03-19T08:29:08.343Z
 
 ## Table of Contents
 
 - [Interfaces](#interfaces)
   - [BlackHoleInterface](#blackholeinterface)
-- [**Black Hole Properties:**](#black-hole-properties)
   - [GalaxyInterface](#galaxyinterface)
-- [**Galaxy Properties:**](#galaxy-properties)
 - [Type Aliases](#type-aliases)
   - [BlackHolesType](#blackholestype)
   - [GalaxiesType](#galaxiestype)
@@ -28,7 +24,7 @@ Defined in:
 
 Represents a **black hole** at the center of a galaxy.
 
-## **Black Hole Properties:**
+**Black Hole Properties:**
 
 - **Mass (`mass`)**: Measured in **solar masses** ($M_\odot$).
 - **Schwarzschild radius (`radius`)**: Defined in **Astronomical Units (AU)**.
@@ -50,13 +46,13 @@ const sagittariusA: BlackHoleInterface = {
 
 #### Properties
 
-| Property                   | Type                                                 | Description                                       | Defined in                                                                                          |
-| -------------------------- | ---------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| <a id="mass" /> `mass`     | `number`                                             | Mass of the black hole in solar masses.           | [types/galaxies.ts:28](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L28) |
-| <a id="name" /> `name`     | `string`                                             | Name of the central black hole.                   | [types/galaxies.ts:26](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L26) |
-| <a id="radius" /> `radius` | [`DistanceInterface`](distance.md#distanceinterface) | Schwarzschild radius of the black hole in AU.     | [types/galaxies.ts:30](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L30) |
-| <a id="x" /> `x`           | [`DistanceInterface`](distance.md#distanceinterface) | X-coordinate relative to the galaxy center in AU. | [types/galaxies.ts:32](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L32) |
-| <a id="y" /> `y`           | [`DistanceInterface`](distance.md#distanceinterface) | Y-coordinate relative to the galaxy center in AU. | [types/galaxies.ts:34](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L34) |
+| Property                     | Type                                                 | Description                                       | Defined in                                                                                          |
+| ---------------------------- | ---------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="mass"></a> `mass`     | `number`                                             | Mass of the black hole in solar masses.           | [types/galaxies.ts:28](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L28) |
+| <a id="name"></a> `name`     | `string`                                             | Name of the central black hole.                   | [types/galaxies.ts:26](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L26) |
+| <a id="radius"></a> `radius` | [`DistanceInterface`](distance.md#distanceinterface) | Schwarzschild radius of the black hole in AU.     | [types/galaxies.ts:30](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L30) |
+| <a id="x"></a> `x`           | [`DistanceInterface`](distance.md#distanceinterface) | X-coordinate relative to the galaxy center in AU. | [types/galaxies.ts:32](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L32) |
+| <a id="y"></a> `y`           | [`DistanceInterface`](distance.md#distanceinterface) | Y-coordinate relative to the galaxy center in AU. | [types/galaxies.ts:34](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L34) |
 
 ---
 
@@ -67,7 +63,7 @@ Defined in:
 
 Represents a **galaxy** in the universe simulation.
 
-## **Galaxy Properties:**
+**Galaxy Properties:**
 
 - **Name (`name`)**: The galaxy's official designation.
 - **Type (`type`)**: The morphological classification (e.g., Spiral,
@@ -93,13 +89,13 @@ const milkyWay: GalaxyInterface = {
 
 #### Properties
 
-| Property                         | Type                                                   | Description                                 | Defined in                                                                                          |
-| -------------------------------- | ------------------------------------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| <a id="blackhole" /> `blackHole` | [`BlackHoleInterface`](galaxies.md#blackholeinterface) | Central black hole of the galaxy.           | [types/galaxies.ts:69](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L69) |
-| <a id="diameter" /> `diameter`   | [`DistanceInterface`](distance.md#distanceinterface)   | Diameter of the galaxy in light-years.      | [types/galaxies.ts:65](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L65) |
-| <a id="distance" /> `distance`   | [`DistanceInterface`](distance.md#distanceinterface)   | Distance from the Milky Way in light-years. | [types/galaxies.ts:67](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L67) |
-| <a id="name-1" /> `name`         | `string`                                               | Name of the galaxy.                         | [types/galaxies.ts:61](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L61) |
-| <a id="type" /> `type`           | `string`                                               | Morphological classification of the galaxy. | [types/galaxies.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L63) |
+| Property                           | Type                                                   | Description                                 | Defined in                                                                                          |
+| ---------------------------------- | ------------------------------------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="blackhole"></a> `blackHole` | [`BlackHoleInterface`](galaxies.md#blackholeinterface) | Central black hole of the galaxy.           | [types/galaxies.ts:69](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L69) |
+| <a id="diameter"></a> `diameter`   | [`DistanceInterface`](distance.md#distanceinterface)   | Diameter of the galaxy in light-years.      | [types/galaxies.ts:65](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L65) |
+| <a id="distance"></a> `distance`   | [`DistanceInterface`](distance.md#distanceinterface)   | Distance from the Milky Way in light-years. | [types/galaxies.ts:67](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L67) |
+| <a id="name-1"></a> `name`         | `string`                                               | Name of the galaxy.                         | [types/galaxies.ts:61](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L61) |
+| <a id="type"></a> `type`           | `string`                                               | Morphological classification of the galaxy. | [types/galaxies.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/types/galaxies.ts#L63) |
 
 ## Type Aliases
 
@@ -151,5 +147,5 @@ we're all part of :)
 ---
 
 This project created by [Alexander Vassbotn Røyne-Helgesen](http://phun-ky.net)
-is licensed under a [GPL-3.0
-License](https://choosealicense.com/licenses/gpl-3.0/).
+is licensed under a
+[GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/).

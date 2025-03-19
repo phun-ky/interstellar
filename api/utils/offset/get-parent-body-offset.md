@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/offset/get-parent-body-offset
 
 # utils/offset/get-parent-body-offset
 
-> Last updated 2025-03-18T13:45:43.070Z
+> Last updated 2025-03-19T08:29:08.348Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [getParentBodyOffset()](#getparentbodyoffset)
-- [**Offset Calculation Logic:**](#offset-calculation-logic)
-- [**Usage in Visualization:**](#usage-in-visualization)
 
 ## Functions
 
@@ -36,7 +32,7 @@ Defined in:
 
 Computes the **parent body's offset** in pixels for celestial objects.
 
-## **Offset Calculation Logic:**
+**Offset Calculation Logic:**
 
 - **Stars**: Use the **galactic center** as their reference, so their offset is
   `(0,0)`.
@@ -45,7 +41,7 @@ Computes the **parent body's offset** in pixels for celestial objects.
   2. Retrieves the **parent body's position**.
   3. Converts the **position into pixels** using `distanceToPixels`.
 
-## **Usage in Visualization:**
+**Usage in Visualization:**
 
 - Ensures **moons orbit their planets** correctly by applying the parent's
   offset.

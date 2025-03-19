@@ -6,7 +6,7 @@ import { getBodyPosition } from '../celestial-bodies/utils/get-body-position';
 /**
  * Updates the minimap by rendering Sagittarius A* and nearby stars, positioning them relative to the viewport center.
  *
- * ## **Rendering Details:**
+ * **Rendering Details:**
  * - The **minimap size** is fixed at `150px`.
  * - **Sagittarius A*** is marked with a red dot and moves relative to the viewport center.
  * - **Stars** are rendered as coloured dots based on their real positions, adjusted to fit the minimap.

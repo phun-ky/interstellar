@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/distance/distance-to-pixels
 
 # utils/distance/distance-to-pixels
 
-> Last updated 2025-03-18T13:45:43.069Z
+> Last updated 2025-03-19T08:29:08.347Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [distanceToPixels()](#distancetopixels)
-- [**Conversion Logic:**](#conversion-logic)
-- [**Usage in Visualization:**](#usage-in-visualization)
 
 ## Functions
 
@@ -28,13 +24,13 @@ Defined in:
 
 Converts a **distance measurement** to **pixels** based on a given scale.
 
-## **Conversion Logic:**
+**Conversion Logic:**
 
 1. Converts the input distance to **Astronomical Units (AU)**.
 2. Multiplies the AU value by **AU_IN_PX** (pixels per AU) and the provided
    **scale**.
 
-## **Usage in Visualization:**
+**Usage in Visualization:**
 
 - Used to map **real-world distances** into **pixel-based rendering**.
 - Supports unit conversions before scaling.

@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/starfield/initialize-starfield
 
 # features/starfield/initialize-starfield
 
-> Last updated 2025-03-18T13:45:43.062Z
+> Last updated 2025-03-19T08:29:08.337Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [initializeStarfield()](#initializestarfield)
-- [**Initialization Logic:**](#initialization-logic)
 
 ## Functions
 
@@ -27,7 +24,7 @@ Defined in:
 
 Initializes or updates the starfield when the window resizes.
 
-## **Initialization Logic:**
+**Initialization Logic:**
 
 - If `globalThis.STARFIELD_BITMAP` **does not exist**, a new starfield is
   generated.
@@ -45,7 +42,7 @@ Initializes or updates the starfield when the window resizes.
 
 #### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`void`>
 
 A promise that resolves once the starfield bitmap is created.
 

@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/unique-ID
 
 # utils/unique-ID
 
-> Last updated 2025-03-18T13:45:43.072Z
+> Last updated 2025-03-19T08:29:08.349Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [uniqueID()](#uniqueid)
-- [**Generation Logic:**](#generation-logic)
 
 ## Functions
 
@@ -27,7 +24,7 @@ Defined in:
 
 Generates a unique identifier using a random alphanumeric string.
 
-## **Generation Logic:**
+**Generation Logic:**
 
 - Uses `Math.random()` to create a random number.
 - Converts it to **base-36** (digits + lowercase letters).

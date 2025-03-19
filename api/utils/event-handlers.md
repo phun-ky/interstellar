@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/event-handlers
 
 # utils/event-handlers
 
-> Last updated 2025-03-18T13:45:43.070Z
+> Last updated 2025-03-19T08:29:08.348Z
 
 ## Table of Contents
 
@@ -29,77 +27,88 @@ type AttachEventHandlersPropsType = {
 ```
 
 Defined in:
-[utils/event-handlers.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L37)
+[utils/event-handlers.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L38)
 
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="canvas" /> `canvas`
-      </td>
+<a id="canvas"></a> `canvas`
 
-      <td>
-        [`HTMLCanvasElement`](https://developer.mozilla.org/docs/Web/API/HTMLCanvasElement)
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/event-handlers.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L39)
-      </td>
-    </tr>
+[`HTMLCanvasElement`](https://developer.mozilla.org/docs/Web/API/HTMLCanvasElement)
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+[utils/event-handlers.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L40)
 
-      <td>
-        [utils/event-handlers.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L38)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="update" /> `update`
-      </td>
+<a id="space"></a> `space`
 
-      <td>
-        () => `void`
-      </td>
+</td>
+<td>
 
-      <td>
-        [utils/event-handlers.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L40)
-      </td>
-    </tr>
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
 
-    <tr>
-      <td>
-        <a id="updateorbits" /> `updateOrbits`
-      </td>
+</td>
+<td>
 
-      <td>
-        (`stars`, `planets`, `moons`, `comets`) => `void`
-      </td>
+[utils/event-handlers.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L39)
 
-      <td>
-        [utils/event-handlers.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L41)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="update"></a> `update`
+
+</td>
+<td>
+
+() => `void`
+
+</td>
+<td>
+
+[utils/event-handlers.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L41)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="updateorbits"></a> `updateOrbits`
+
+</td>
+<td>
+
+(`stars`, `planets`, `moons`, `comets`) => `void`
+
+</td>
+<td>
+
+[utils/event-handlers.ts:42](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L42)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -111,7 +120,7 @@ function attachEventHandlers(props): void;
 ```
 
 Defined in:
-[utils/event-handlers.ts:51](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L51)
+[utils/event-handlers.ts:52](https://github.com/phun-ky/interstellar/blob/main/src/utils/event-handlers.ts#L52)
 
 #### Parameters
 

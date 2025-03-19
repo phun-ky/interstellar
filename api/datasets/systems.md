@@ -1,51 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / datasets/systems
 
 # datasets/systems
 
-> Last updated 2025-03-18T13:45:43.053Z
+> Last updated 2025-03-19T08:29:08.329Z
 
 ## Table of Contents
 
-- [Interfaces](#interfaces)
-  - [SystemInterface](#systeminterface)
-- [Type Aliases](#type-aliases)
-  - [SystemsType](#systemstype)
 - [Variables](#variables)
   - [SYSTEMS](#systems)
-
-## Interfaces
-
-### SystemInterface
-
-Defined in:
-[datasets/systems.ts:5](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L5)
-
-Represents a star system within the space visualization.
-
-#### Properties
-
-| Property                       | Type        | Description                           | Defined in                                                                                              |
-| ------------------------------ | ----------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| <a id="distance" /> `distance` | `number`    | Distance from the Sun in light-years. | [datasets/systems.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L11) |
-| <a id="name" /> `name`         | `string`    | Name of the star system.              | [datasets/systems.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L7)   |
-| <a id="stars" /> `stars`       | `string`\[] | List of star names in the system.     | [datasets/systems.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L9)   |
-
-## Type Aliases
-
-### SystemsType
-
-```ts
-type SystemsType = SystemInterface[];
-```
-
-Defined in:
-[datasets/systems.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L17)
-
-Type alias for a collection of star systems.
 
 ## Variables
 
@@ -56,9 +20,26 @@ const SYSTEMS: SystemsType;
 ```
 
 Defined in:
-[datasets/systems.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L29)
+[datasets/systems.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/datasets/systems.ts#L19)
 
 Predefined star systems in the galaxy.
+
+Uses [SystemsType](../types/systems.md#systemstype).
+
+```ts
+export const SYSTEMS: SystemsType = [
+  {
+    name: 'Solar System',
+    stars: ['Sun'],
+    distance: 0
+  },
+  {
+    name: 'Alpha Centauri',
+    stars: ['Alpha Centauri A', 'Alpha Centauri B', 'Proxima Centauri'],
+    distance: 4.37
+  }
+];
+```
 
 #### Example
 
@@ -68,7 +49,7 @@ console.log(SYSTEMS[0].name); // "Solar System"
 
 #### See
 
-[https://en.wikipedia.org/wiki/Alpha_Centauri](https://en.wikipedia.org/wiki/Alpha_Centauri)
+<https://en.wikipedia.org/wiki/Alpha_Centauri>
 
 ---
 
@@ -94,5 +75,5 @@ we're all part of :)
 ---
 
 This project created by [Alexander Vassbotn Røyne-Helgesen](http://phun-ky.net)
-is licensed under a [GPL-3.0
-License](https://choosealicense.com/licenses/gpl-3.0/).
+is licensed under a
+[GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/).

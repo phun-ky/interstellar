@@ -1,19 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) /
 features/celestial-bodies/utils/precompute-initial-angles
 
 # features/celestial-bodies/utils/precompute-initial-angles
 
-> Last updated 2025-03-18T13:45:43.058Z
+> Last updated 2025-03-19T08:29:08.334Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [precomputeInitialAngles()](#precomputeinitialangles)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Functions
 
@@ -24,7 +21,7 @@ function precomputeInitialAngles(bodies, date): void;
 ```
 
 Defined in:
-[features/celestial-bodies/utils/precompute-initial-angles.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/precompute-initial-angles.ts#L39)
+[features/celestial-bodies/utils/precompute-initial-angles.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/precompute-initial-angles.ts#L40)
 
 Precomputes the initial **orbital angles** for celestial bodies relative to the
 J2000 epoch.
@@ -33,7 +30,7 @@ The function determines the number of days elapsed since **J2000 (January 1,
 2000, 12:00 TT)** and uses this to compute the **initial orbital angles**
 ($\theta_0$) of celestial bodies.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 The elapsed time $\Delta T$ is calculated as:
 

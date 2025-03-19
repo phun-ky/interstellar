@@ -5,7 +5,17 @@ import { GalaxiesType } from '../types/galaxies';
  *
  * Each galaxy entry includes physical properties, distance measurements, and details
  * about its central supermassive black hole.
+ *
+ * Uses {@link GalaxiesType}.
+ *
+ * {@includeCode ../datasets/galaxies.ts#datasetGalaxies}
+ *
+ * @example
+ * ```ts
+ * console.log(GALAXIES[0].name); // "Milky Way"
+ * ```
  */
+// #region datasetGalaxies
 export const GALAXIES: GalaxiesType = [
   {
     name: 'Milky Way',
@@ -53,3 +63,4 @@ export const GALAXIES: GalaxiesType = [
     }
   }
 ];
+// #endregion datasetGalaxies

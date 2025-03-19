@@ -1,13 +1,11 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) /
 features/celestial-bodies/draw-celestial-bodies
 
 # features/celestial-bodies/draw-celestial-bodies
 
-> Last updated 2025-03-18T13:45:43.057Z
+> Last updated 2025-03-19T08:29:08.333Z
 
 ## Table of Contents
 
@@ -15,7 +13,6 @@ features/celestial-bodies/draw-celestial-bodies
   - [DrawCelestialBodiesPropsType](#drawcelestialbodiespropstype)
 - [Functions](#functions)
   - [drawCelestialBodies()](#drawcelestialbodies)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Type Aliases
 
@@ -38,100 +35,117 @@ Defined in:
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="celestialbodies" /> `celestialBodies`
-      </td>
+<a id="celestialbodies"></a> `celestialBodies`
 
-      <td>
-        [`CelestialBodiesType`](../../types/celestial-bodies.md#celestialbodiestype)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/draw-celestial-bodies.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L17)
-      </td>
-    </tr>
+[`CelestialBodiesType`](../../types/celestial-bodies.md#celestialbodiestype)
 
-    <tr>
-      <td>
-        <a id="maxsize" /> `maxSize`?
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/celestial-bodies/draw-celestial-bodies.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L17)
 
-      <td>
-        [features/celestial-bodies/draw-celestial-bodies.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L18)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="referencex" /> `referenceX`
-      </td>
+<a id="maxsize"></a> `maxSize`?
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/draw-celestial-bodies.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L14)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="referencey" /> `referenceY`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/celestial-bodies/draw-celestial-bodies.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L18)
 
-      <td>
-        [features/celestial-bodies/draw-celestial-bodies.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L15)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="scale" /> `scale`
-      </td>
+<a id="referencex"></a> `referenceX`
 
-      <td>
-        [`ValueInterface`](../../types/distance.md#valueinterface)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/draw-celestial-bodies.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L16)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+[features/celestial-bodies/draw-celestial-bodies.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L14)
 
-      <td>
-        [features/celestial-bodies/draw-celestial-bodies.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L13)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="referencey"></a> `referenceY`
+
+</td>
+<td>
+
+`number`
+
+</td>
+<td>
+
+[features/celestial-bodies/draw-celestial-bodies.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L15)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="scale"></a> `scale`
+
+</td>
+<td>
+
+[`ValueInterface`](../../types/distance.md#valueinterface)
+
+</td>
+<td>
+
+[features/celestial-bodies/draw-celestial-bodies.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L16)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="space"></a> `space`
+
+</td>
+<td>
+
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
+
+</td>
+<td>
+
+[features/celestial-bodies/draw-celestial-bodies.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L13)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -143,11 +157,11 @@ function drawCelestialBodies(props): void;
 ```
 
 Defined in:
-[features/celestial-bodies/draw-celestial-bodies.ts:80](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L80)
+[features/celestial-bodies/draw-celestial-bodies.ts:81](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/draw-celestial-bodies.ts#L81)
 
 Renders celestial bodies onto a 2D canvas based on their orbital parameters.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 Celestial bodies follow **elliptical orbits** with positions computed as:
 

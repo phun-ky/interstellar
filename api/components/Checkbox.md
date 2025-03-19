@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / components/Checkbox
 
 # components/Checkbox
 
-> Last updated 2025-03-18T13:45:43.048Z
+> Last updated 2025-03-19T08:29:08.324Z
 
 ## Table of Contents
 
@@ -36,89 +34,104 @@ Represents the properties for the Interstellar Checkbox component.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="checked" /> `checked`?
-      </td>
+<a id="checked"></a> `checked`?
 
-      <td>
-        `boolean`
-      </td>
+</td>
+<td>
 
-      <td>
-        Whether the checkbox is checked by default. Defaults to false.
-      </td>
+`boolean`
 
-      <td>
-        [components/Checkbox/index.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L11)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="classname" /> `className`?
-      </td>
+Whether the checkbox is checked by default. Defaults to false.
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        Additional CSS classes for styling the checkbox. Defaults to 'int'.
-      </td>
+[components/Checkbox/index.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L11)
 
-      <td>
-        [components/Checkbox/index.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L17)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="id" /> `id`
-      </td>
+<a id="classname"></a> `className`?
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The unique ID of the checkbox.
-      </td>
+`string`
 
-      <td>
-        [components/Checkbox/index.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L15)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="name" /> `name`
-      </td>
+Additional CSS classes for styling the checkbox. Defaults to 'int'.
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The name attribute for the checkbox.
-      </td>
+[components/Checkbox/index.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L17)
 
-      <td>
-        [components/Checkbox/index.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L13)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="id"></a> `id`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+The unique ID of the checkbox.
+
+</td>
+<td>
+
+[components/Checkbox/index.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L15)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="name"></a> `name`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+The name attribute for the checkbox.
+
+</td>
+<td>
+
+[components/Checkbox/index.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/components/Checkbox/index.ts#L13)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -162,7 +175,7 @@ console.log(checkboxHtml);
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
+<https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox>
 
 ---
 

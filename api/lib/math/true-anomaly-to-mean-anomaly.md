@@ -1,20 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / lib/math/true-anomaly-to-mean-anomaly
 
 # lib/math/true-anomaly-to-mean-anomaly
 
-> Last updated 2025-03-18T13:45:43.064Z
+> Last updated 2025-03-19T08:29:08.340Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [trueAnomalyToMeanAnomaly()](#trueanomalytomeananomaly)
-- [**Mathematical Explanation:**](#mathematical-explanation)
-  - [**Step 1: Convert True Anomaly ($\nu$) to Eccentric Anomaly ($E$)**](#step-1-convert-true-anomaly-nu-to-eccentric-anomaly-e)
-  - [**Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)**](#step-2-convert-eccentric-anomaly-e-to-mean-anomaly-m)
 
 ## Functions
 
@@ -25,24 +20,23 @@ function trueAnomalyToMeanAnomaly(V, e): number;
 ```
 
 Defined in:
-[lib/math/true-anomaly-to-mean-anomaly.ts:45](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/true-anomaly-to-mean-anomaly.ts#L45)
+[lib/math/true-anomaly-to-mean-anomaly.ts:46](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/true-anomaly-to-mean-anomaly.ts#L46)
 
 Converts true anomaly ($\nu$) to mean anomaly ($M$) using Kepler's equation.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 In orbital mechanics, the **true anomaly** ($\nu$), the **eccentric anomaly**
 ($E$), and the **mean anomaly** ($M$) are related through Kepler's equation.
 
-### **Step 1: Convert True Anomaly ($\nu$) to Eccentric Anomaly ($E$)**
+**Step 1: Convert True Anomaly ($\nu$) to Eccentric Anomaly ($E$)**
 
 $$
 E = 2 \tan^{-1} \left( \sqrt{\frac{1 - e}{1 + e}} \tan\left(\frac{\nu}{2}\right) \right)
 $$
 
-### **Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)**
-
-Kepler’s equation states:
+**Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)** Kepler’s
+equation states:
 
 $$
 M = E - e \sin(E)

@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / types/native
 
 # types/native
 
-> Last updated 2025-03-18T13:45:43.066Z
+> Last updated 2025-03-19T08:29:08.344Z
 
 ## Table of Contents
 
 - [Type Aliases](#type-aliases)
   - [EventType\<T>](#eventtypet)
-- [**Extended Properties:**](#extended-properties)
 
 ## Type Aliases
 
@@ -40,7 +37,7 @@ This type allows specifying a generic `target` element with additional
 properties, making it useful for event handling involving file inputs or dynamic
 DOM elements.
 
-## **Extended Properties:**
+**Extended Properties:**
 
 - **`target.files`**: Supports `FileList` (for input elements of type `file`).
 - **`target.id`**: Stores the element's unique identifier.
@@ -51,51 +48,54 @@ DOM elements.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        `currentTarget`
-      </td>
+`currentTarget`
 
-      <td>
-        [`HTMLElement`](https://developer.mozilla.org/docs/Web/API/HTMLElement) & \{
-        `documentElement`: [`HTMLElement`](https://developer.mozilla.org/docs/Web/API/HTMLElement);
-        }
-      </td>
+</td>
+<td>
 
-      <td>
-        [types/native.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/native.ts#L41)
-      </td>
-    </tr>
+[`HTMLElement`](https://developer.mozilla.org/docs/Web/API/HTMLElement) & {
+`documentElement`:
+[`HTMLElement`](https://developer.mozilla.org/docs/Web/API/HTMLElement); }
 
-    <tr>
-      <td>
-        `target`
-      </td>
+</td>
+<td>
 
-      <td>
-        `T` & \{
-        `files`:   | [`FileList`](https://developer.mozilla.org/docs/Web/API/FileList)
-        \| `null`;
-        `id`: `string`;
-        `parentElement`: [`Element`](https://developer.mozilla.org/docs/Web/API/Element) | `null`;
-        }
-      </td>
+[types/native.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/native.ts#L41)
 
-      <td>
-        [types/native.ts:36](https://github.com/phun-ky/interstellar/blob/main/src/types/native.ts#L36)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+`target`
+
+</td>
+<td>
+
+`T` & { `files`: |
+[`FileList`](https://developer.mozilla.org/docs/Web/API/FileList) \| `null`;
+`id`: `string`; `parentElement`:
+[`Element`](https://developer.mozilla.org/docs/Web/API/Element) | `null`; }
+
+</td>
+<td>
+
+[types/native.ts:36](https://github.com/phun-ky/interstellar/blob/main/src/types/native.ts#L36)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 #### Type Parameters

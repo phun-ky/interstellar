@@ -1,19 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) /
 features/celestial-bodies/utils/update-positions
 
 # features/celestial-bodies/utils/update-positions
 
-> Last updated 2025-03-18T13:45:43.060Z
+> Last updated 2025-03-19T08:29:08.335Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [updatePositions()](#updatepositions)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Functions
 
@@ -24,12 +21,12 @@ function updatePositions(celestialBodies, timeStep): void;
 ```
 
 Defined in:
-[features/celestial-bodies/utils/update-positions.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/update-positions.ts#L38)
+[features/celestial-bodies/utils/update-positions.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/update-positions.ts#L39)
 
 Updates the **orbital positions** of all celestial bodies based on the given
 time step.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 Each celestial body follows an **elliptical orbit** with its position evolving
 over time according to:

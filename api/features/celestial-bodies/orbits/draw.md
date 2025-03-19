@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) / features/celestial-bodies/orbits/draw
 
 # features/celestial-bodies/orbits/draw
 
-> Last updated 2025-03-18T13:45:43.058Z
+> Last updated 2025-03-19T08:29:08.333Z
 
 ## Table of Contents
 
@@ -14,7 +12,6 @@
   - [DrawOrbitsPropsType](#draworbitspropstype)
 - [Functions](#functions)
   - [drawOrbits()](#draworbits)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Type Aliases
 
@@ -37,100 +34,117 @@ Defined in:
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="celestialbodies" /> `celestialBodies`
-      </td>
+<a id="celestialbodies"></a> `celestialBodies`
 
-      <td>
-        [`CelestialBodiesType`](../../../types/celestial-bodies.md#celestialbodiestype)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/orbits/draw.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L14)
-      </td>
-    </tr>
+[`CelestialBodiesType`](../../../types/celestial-bodies.md#celestialbodiestype)
 
-    <tr>
-      <td>
-        <a id="referencex" /> `referenceX`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/celestial-bodies/orbits/draw.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L14)
 
-      <td>
-        [features/celestial-bodies/orbits/draw.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L17)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="referencey" /> `referenceY`
-      </td>
+<a id="referencex"></a> `referenceX`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/orbits/draw.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L18)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="scale" /> `scale`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`ValueInterface`](../../../types/distance.md#valueinterface)
-      </td>
+[features/celestial-bodies/orbits/draw.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L17)
 
-      <td>
-        [features/celestial-bodies/orbits/draw.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L19)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+<a id="referencey"></a> `referenceY`
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/orbits/draw.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L16)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="toggled" /> `toggled`
-      </td>
+</td>
+<td>
 
-      <td>
-        `boolean`
-      </td>
+[features/celestial-bodies/orbits/draw.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L18)
 
-      <td>
-        [features/celestial-bodies/orbits/draw.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L15)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="scale"></a> `scale`
+
+</td>
+<td>
+
+[`ValueInterface`](../../../types/distance.md#valueinterface)
+
+</td>
+<td>
+
+[features/celestial-bodies/orbits/draw.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L19)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="space"></a> `space`
+
+</td>
+<td>
+
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
+
+</td>
+<td>
+
+[features/celestial-bodies/orbits/draw.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L16)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="toggled"></a> `toggled`
+
+</td>
+<td>
+
+`boolean`
+
+</td>
+<td>
+
+[features/celestial-bodies/orbits/draw.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L15)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -142,12 +156,12 @@ function drawOrbits(props): void;
 ```
 
 Defined in:
-[features/celestial-bodies/orbits/draw.ts:60](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L60)
+[features/celestial-bodies/orbits/draw.ts:61](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/draw.ts#L61)
 
 Renders the **orbital paths** of celestial bodies around a galactic center onto
 a 2D canvas.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 A celestial body follows an **elliptical orbit** with the galactic center at one
 of its foci. The **orbit path** consists of discrete points $(x, y)$, which are
@@ -202,7 +216,7 @@ drawOrbits({
 
 #### See
 
-[Elliptical Orbits](https://en.wikipedia.org/wiki/Ellipse)
+<https://en.wikipedia.org/wiki/Ellipse>
 
 ---
 

@@ -1,7 +1,7 @@
 /**
  * Renders the pre-generated starfield onto the canvas.
  *
- * ## **Rendering Process:**
+ * **Rendering Process:**
  * - If `globalThis.STARFIELD_BITMAP` exists, it is drawn onto the canvas.
  * - The bitmap is stretched to fit the entire canvas area.
  *

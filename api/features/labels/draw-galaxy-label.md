@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/labels/draw-galaxy-label
 
 # features/labels/draw-galaxy-label
 
-> Last updated 2025-03-18T13:45:43.061Z
+> Last updated 2025-03-19T08:29:08.335Z
 
 ## Table of Contents
 
@@ -14,7 +12,6 @@
   - [DrawGalaxyLabelPropsType](#drawgalaxylabelpropstype)
 - [Functions](#functions)
   - [drawGalaxyLabel()](#drawgalaxylabel)
-- [**Rendering Details:**](#rendering-details)
 
 ## Type Aliases
 
@@ -36,86 +33,100 @@ Defined in:
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="galaxy" /> `galaxy`
-      </td>
+<a id="galaxy"></a> `galaxy`
 
-      <td>
-        [`GalaxyInterface`](../../types/galaxies.md#galaxyinterface)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/labels/draw-galaxy-label.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L12)
-      </td>
-    </tr>
+[`GalaxyInterface`](../../types/galaxies.md#galaxyinterface)
 
-    <tr>
-      <td>
-        <a id="referencex" /> `referenceX`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/labels/draw-galaxy-label.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L12)
 
-      <td>
-        [features/labels/draw-galaxy-label.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L10)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="referencey" /> `referenceY`
-      </td>
+<a id="referencex"></a> `referenceX`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/labels/draw-galaxy-label.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L11)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="scale" /> `scale`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`ValueInterface`](../../types/distance.md#valueinterface)
-      </td>
+[features/labels/draw-galaxy-label.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L10)
 
-      <td>
-        [features/labels/draw-galaxy-label.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L13)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+<a id="referencey"></a> `referenceY`
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/labels/draw-galaxy-label.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L9)
-      </td>
-    </tr>
+`number`
 
-  </tbody>
+</td>
+<td>
+
+[features/labels/draw-galaxy-label.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L11)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="scale"></a> `scale`
+
+</td>
+<td>
+
+[`ValueInterface`](../../types/distance.md#valueinterface)
+
+</td>
+<td>
+
+[features/labels/draw-galaxy-label.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L13)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="space"></a> `space`
+
+</td>
+<td>
+
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
+
+</td>
+<td>
+
+[features/labels/draw-galaxy-label.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw-galaxy-label.ts#L9)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -131,7 +142,7 @@ Defined in:
 
 Renders the name of a galaxy and its central black hole onto a 2D canvas.
 
-## **Rendering Details:**
+**Rendering Details:**
 
 - The **galaxy name** is displayed above the black hole.
 - The **black hole name** is displayed slightly lower.

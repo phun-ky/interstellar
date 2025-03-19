@@ -1,13 +1,11 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../../README.md) /
 features/canvas/config/time-step/generate-time-step
 
 # features/canvas/config/time-step/generate-time-step
 
-> Last updated 2025-03-18T13:45:43.056Z
+> Last updated 2025-03-19T08:29:08.331Z
 
 ## Table of Contents
 
@@ -23,21 +21,29 @@ function generateTimeStep(): void;
 ```
 
 Defined in:
-[features/canvas/config/time-step/generate-time-step.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/generate-time-step.ts#L29)
+[features/canvas/config/time-step/generate-time-step.ts:34](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/generate-time-step.ts#L34)
 
-Generates a time step value based on the selected speed mode.
+Generates a time step value based on the selected speed mode while accounting
+for different monitor refresh rates.
 
 This function updates `timeStep.value` and `timeStep.unit` to adjust the
-simulation speed. The speed mode is determined by the `speedMode` dropdown. If
-no mode is explicitly set, the function calculates the time step based on
-real-time elapsed milliseconds (`deltaTime`) divided by one day in milliseconds.
+simulation speed. The speed mode is determined by the `SPEED_MODE` value. If no
+mode is explicitly set, the function calculates the time step based on real-time
+elapsed milliseconds (`deltaTime`), normalized to account for variations in
+frame rates (e.g., 60Hz vs. 144Hz) to ensure consistent simulation speed across
+different monitors.
 
 The function supports the following modes:
 
 - `'framePerDay'`: Each frame corresponds to 1 day.
 - `'spedUp'`: Each frame corresponds to 10 days.
 - `'insane'`: Each frame corresponds to 1000 days.
-- Default: Uses real-time elapsed time for smooth scaling.
+- Default: Uses real-time elapsed time for smooth scaling, normalized for FPS
+  variations.
+
+**Frame Rate Normalization:** The default mode scales `deltaTime` using an
+expected frame duration (assumed 60 FPS) to prevent higher refresh rate monitors
+(e.g., 144Hz) from running the simulation too fast.
 
 #### Returns
 
@@ -52,7 +58,7 @@ console.log(timeStep.value, timeStep.unit);
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/API/Performance/now](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now)
+<https://developer.mozilla.org/en-US/docs/Web/API/Performance/now>
 
 ---
 

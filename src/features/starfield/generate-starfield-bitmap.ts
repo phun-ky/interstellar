@@ -5,13 +5,13 @@ import { starfield } from './config';
 /**
  * Generates an offscreen canvas containing a starfield and converts it into an `ImageBitmap`.
  *
- * ## **Rendering Process:**
+ * **Rendering Process:**
  * - Uses an **OffscreenCanvas** to improve performance.
  * - Iterates through the `starfield` array and renders each star based on:
  *   - **Size**: Proportional to `scale.value`, ensuring a minimum visible size.
  *   - **Parallax Factor**: Determines star brightness and color.
  *
- * ## **Star Color Mapping:**
+ * **Star Color Mapping:**
  * - Stars are coloured based on their **parallax factor**, simulating depth perception:
  *   - $> 4.51$ → **Bright white** (`rgb(255,255,255)`).
  *   - $> 3.51$ → **Slightly bluish-white** (`rgb(220,220,255)`).

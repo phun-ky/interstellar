@@ -2,11 +2,11 @@
 /**
  * Waits for the next animation frame using `requestAnimationFrame`.
  *
- * ## **Functionality:**
+ * **Functionality:**
  * - Returns a **Promise** that resolves with the **timestamp** of the next animation frame.
  * - Allows synchronization of animations and UI updates with the browser's **rendering cycle**.
  *
- * ## **Usage in Animations & Rendering:**
+ * **Usage in Animations & Rendering:**
  * - Ensures DOM updates occur before measuring elements (`getBoundingClientRect`).
  * - Helps synchronize animations with smooth transitions.
  *

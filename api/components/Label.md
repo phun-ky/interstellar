@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / components/Label
 
 # components/Label
 
-> Last updated 2025-03-18T13:45:43.049Z
+> Last updated 2025-03-19T08:29:08.324Z
 
 ## Table of Contents
 
@@ -36,89 +34,104 @@ Represents the properties for the Interstellar Label component.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="classname" /> `className`?
-      </td>
+<a id="classname"></a> `className`?
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        Additional CSS classes for styling the label. Defaults to 'int'.
-      </td>
+`string`
 
-      <td>
-        [components/Label.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L13)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="hidden" /> `hidden`
-      </td>
+Additional CSS classes for styling the label. Defaults to 'int'.
 
-      <td>
-        `boolean`
-      </td>
+</td>
+<td>
 
-      <td>
-        Determines if the label should be visually hidden (for screen readers only).
-      </td>
+[components/Label.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L13)
 
-      <td>
-        [components/Label.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L15)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="label" /> `label`
-      </td>
+<a id="hidden"></a> `hidden`
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The text content of the label.
-      </td>
+`boolean`
 
-      <td>
-        [components/Label.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L11)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="labelfor" /> `labelFor`
-      </td>
+Determines if the label should be visually hidden (for screen readers only).
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The ID of the form element this label is associated with.
-      </td>
+[components/Label.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L15)
 
-      <td>
-        [components/Label.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L9)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="label"></a> `label`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+The text content of the label.
+
+</td>
+<td>
+
+[components/Label.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L11)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="labelfor"></a> `labelFor`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+The ID of the form element this label is associated with.
+
+</td>
+<td>
+
+[components/Label.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/components/Label.ts#L9)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -162,7 +175,7 @@ console.log(labelHtml);
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+<https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label>
 
 ---
 

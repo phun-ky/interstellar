@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/starfield/draw-starfield
 
 # features/starfield/draw-starfield
 
-> Last updated 2025-03-18T13:45:43.062Z
+> Last updated 2025-03-19T08:29:08.336Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [drawStarfield()](#drawstarfield)
-- [**Rendering Process:**](#rendering-process)
 
 ## Functions
 
@@ -27,7 +24,7 @@ Defined in:
 
 Renders the pre-generated starfield onto the canvas.
 
-## **Rendering Process:**
+**Rendering Process:**
 
 - If `globalThis.STARFIELD_BITMAP` exists, it is drawn onto the canvas.
 - The bitmap is stretched to fit the entire canvas area.

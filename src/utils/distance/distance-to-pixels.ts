@@ -6,11 +6,11 @@ import { convertDistance } from './convert-distance';
 /**
  * Converts a **distance measurement** to **pixels** based on a given scale.
  *
- * ## **Conversion Logic:**
+ * **Conversion Logic:**
  * 1. Converts the input distance to **Astronomical Units (AU)**.
  * 2. Multiplies the AU value by **AU_IN_PX** (pixels per AU) and the provided **scale**.
  *
- * ## **Usage in Visualization:**
+ * **Usage in Visualization:**
  * - Used to map **real-world distances** into **pixel-based rendering**.
  * - Supports unit conversions before scaling.
  *

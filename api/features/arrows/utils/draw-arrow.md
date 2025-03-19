@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) / features/arrows/utils/draw-arrow
 
 # features/arrows/utils/draw-arrow
 
-> Last updated 2025-03-18T13:45:43.054Z
+> Last updated 2025-03-19T08:29:08.330Z
 
 ## Table of Contents
 
@@ -56,7 +54,7 @@ if (ctx) {
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
+<https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D>
 
 ---
 

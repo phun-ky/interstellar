@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/temporal/convert-temporal-unit
 
 # utils/temporal/convert-temporal-unit
 
-> Last updated 2025-03-18T13:45:43.071Z
+> Last updated 2025-03-19T08:29:08.349Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [convertTemporalUnit()](#converttemporalunit)
-- [**Conversion Logic:**](#conversion-logic)
-- [**Supported Conversions:**](#supported-conversions)
 
 ## Functions
 
@@ -29,12 +25,12 @@ Defined in:
 Converts a **temporal measurement** between **days, years, and million years
 (Myr)**.
 
-## **Conversion Logic:**
+**Conversion Logic:**
 
 1. Converts the input time to **years** as an intermediate step.
 2. Converts the **years value** into the **target unit**.
 
-## **Supported Conversions:**
+**Supported Conversions:**
 
 - **Days ↔ Years** (Uses Earth's orbital period `EARTH_PERIOD`).
 - **Years ↔ Million Years (Myr)**.

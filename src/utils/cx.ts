@@ -17,7 +17,7 @@ export type CXFirstArgType = string | CXSecondArgType;
 /**
  * Combines class names and an optional object of conditional class names into a single class string.
  *
- * ## **Usage & Functionality:**
+ * **Usage & Functionality:**
  * - **First Argument (`cls`)**:
  *   - Can be a **string** containing predefined class names.
  *   - Can be an **object** where keys represent class names and values (`true | false`) determine inclusion.
@@ -26,7 +26,7 @@ export type CXFirstArgType = string | CXSecondArgType;
  *   - An object with class names as keys and boolean values indicating conditional inclusion.
  *   - Allows adding additional class names dynamically.
  *
- * ## **Examples:**
+ * **Examples:**
  *
  * @example
  * ```ts

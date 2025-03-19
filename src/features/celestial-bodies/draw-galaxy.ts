@@ -16,7 +16,8 @@ export type DrawGalaxyPropsType = {
 /**
  * Renders a galaxy onto a 2D canvas by representing its central supermassive black hole.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * The **radius** of the black hole in pixels is determined using:
  * $$
  * r_{px} = \max(\text{scaled radius}, \text{maxSize})

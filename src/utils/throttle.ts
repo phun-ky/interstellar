@@ -1,7 +1,7 @@
 /**
  * Creates a **throttled function** that ensures the callback executes **at most once per animation frame**.
  *
- * ## **Functionality:**
+ * **Functionality:**
  * - Prevents excessive function calls by ensuring execution **only once per frame**.
  * - Uses `requestAnimationFrame` to sync execution with **browser rendering cycles**.
  *
@@ -33,7 +33,7 @@ export const throttle = (callback: () => void): (() => void) => {
 /**
  * Creates a **throttled asynchronous function** that ensures the callback executes **at most once per animation frame**.
  *
- * ## **Functionality:**
+ * **Functionality:**
  * - Similar to `throttle`, but supports **async functions**.
  * - Ensures that only **one async operation runs per frame**, preventing race conditions.
  *

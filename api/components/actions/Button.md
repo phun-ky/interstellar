@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / components/actions/Button
 
 # components/actions/Button
 
-> Last updated 2025-03-18T13:45:43.046Z
+> Last updated 2025-03-19T08:29:08.322Z
 
 ## Table of Contents
 
@@ -38,125 +36,148 @@ Represents the properties for the Interstellar Button component.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="children" /> `children`
-      </td>
+<a id="children"></a> `children`
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The content inside the button.
-      </td>
+`string`
 
-      <td>
-        [components/actions/Button/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L14)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="classname" /> `className`?
-      </td>
+The content inside the button.
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        Additional CSS classes for styling the button.
-      </td>
+[components/actions/Button/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L14)
 
-      <td>
-        [components/actions/Button/index.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L16)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="id" /> `id`?
-      </td>
+<a id="classname"></a> `className`?
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The unique ID of the button. If not provided, a unique ID will be generated.
-      </td>
+`string`
 
-      <td>
-        [components/actions/Button/index.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L18)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="isactive" /> `isActive`?
-      </td>
+Additional CSS classes for styling the button.
 
-      <td>
-        `boolean`
-      </td>
+</td>
+<td>
 
-      <td>
-        Determines whether the button is in an active state.
-      </td>
+[components/actions/Button/index.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L16)
 
-      <td>
-        [components/actions/Button/index.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L20)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="style" /> `style`?
-      </td>
+<a id="id"></a> `id`?
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        Inline styles to apply to the button.
-      </td>
+`string`
 
-      <td>
-        [components/actions/Button/index.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L22)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="type" /> `type`?
-      </td>
+The unique ID of the button. If not provided, a unique ID will be generated.
 
-      <td>
-        `"button"` | `"submit"` | `"reset"`
-      </td>
+</td>
+<td>
 
-      <td>
-        Type attribute for the button (e.g., 'button', 'submit', 'reset').
-      </td>
+[components/actions/Button/index.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L18)
 
-      <td>
-        [components/actions/Button/index.ts:24](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L24)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="isactive"></a> `isActive`?
+
+</td>
+<td>
+
+`boolean`
+
+</td>
+<td>
+
+Determines whether the button is in an active state.
+
+</td>
+<td>
+
+[components/actions/Button/index.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L20)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="style"></a> `style`?
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+Inline styles to apply to the button.
+
+</td>
+<td>
+
+[components/actions/Button/index.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L22)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="type"></a> `type`?
+
+</td>
+<td>
+
+`"button"` | `"submit"` | `"reset"`
+
+</td>
+<td>
+
+Type attribute for the button (e.g., 'button', 'submit', 'reset').
+
+</td>
+<td>
+
+[components/actions/Button/index.ts:24](https://github.com/phun-ky/interstellar/blob/main/src/components/actions/Button/index.ts#L24)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -202,7 +223,7 @@ console.log(buttonHtml);
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
+<https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button>
 
 ---
 

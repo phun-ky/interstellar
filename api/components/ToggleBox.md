@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / components/ToggleBox
 
 # components/ToggleBox
 
-> Last updated 2025-03-18T13:45:43.049Z
+> Last updated 2025-03-19T08:29:08.325Z
 
 ## Table of Contents
 
@@ -37,107 +35,126 @@ Represents the properties for the Interstellar ToggleBox component.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="checked" /> `checked`?
-      </td>
+<a id="checked"></a> `checked`?
 
-      <td>
-        `boolean`
-      </td>
+</td>
+<td>
 
-      <td>
-        Whether the toggle box is checked by default. Defaults to false.
-      </td>
+`boolean`
 
-      <td>
-        [components/ToggleBox/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L14)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="classname" /> `className`?
-      </td>
+Whether the toggle box is checked by default. Defaults to false.
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        Additional CSS classes for styling the toggle box. Defaults to an empty string.
-      </td>
+[components/ToggleBox/index.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L14)
 
-      <td>
-        [components/ToggleBox/index.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L20)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="id" /> `id`
-      </td>
+<a id="classname"></a> `className`?
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The unique ID of the toggle box.
-      </td>
+`string`
 
-      <td>
-        [components/ToggleBox/index.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L18)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="label" /> `label`
-      </td>
+Additional CSS classes for styling the toggle box. Defaults to an empty string.
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The label text displayed alongside the toggle box.
-      </td>
+[components/ToggleBox/index.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L20)
 
-      <td>
-        [components/ToggleBox/index.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L22)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="name" /> `name`
-      </td>
+<a id="id"></a> `id`
 
-      <td>
-        `string`
-      </td>
+</td>
+<td>
 
-      <td>
-        The name attribute for the toggle box.
-      </td>
+`string`
 
-      <td>
-        [components/ToggleBox/index.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L16)
-      </td>
-    </tr>
+</td>
+<td>
 
-  </tbody>
+The unique ID of the toggle box.
+
+</td>
+<td>
+
+[components/ToggleBox/index.ts:18](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L18)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="label"></a> `label`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+The label text displayed alongside the toggle box.
+
+</td>
+<td>
+
+[components/ToggleBox/index.ts:22](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L22)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="name"></a> `name`
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+The name attribute for the toggle box.
+
+</td>
+<td>
+
+[components/ToggleBox/index.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/components/ToggleBox/index.ts#L16)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -182,7 +199,7 @@ console.log(toggleBoxHtml);
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
+<https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox>
 
 ---
 

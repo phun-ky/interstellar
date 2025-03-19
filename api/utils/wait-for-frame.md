@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/wait-for-frame
 
 # utils/wait-for-frame
 
-> Last updated 2025-03-18T13:45:43.072Z
+> Last updated 2025-03-19T08:29:08.350Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [waitForFrame()](#waitforframe)
-- [**Functionality:**](#functionality)
-- [**Usage in Animations & Rendering:**](#usage-in-animations--rendering)
 
 ## Functions
 
@@ -28,21 +24,21 @@ Defined in:
 
 Waits for the next animation frame using `requestAnimationFrame`.
 
-## **Functionality:**
+**Functionality:**
 
 - Returns a **Promise** that resolves with the **timestamp** of the next
   animation frame.
 - Allows synchronization of animations and UI updates with the browser's
   **rendering cycle**.
 
-## **Usage in Animations & Rendering:**
+**Usage in Animations & Rendering:**
 
 - Ensures DOM updates occur before measuring elements (`getBoundingClientRect`).
 - Helps synchronize animations with smooth transitions.
 
 #### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`number`>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`number`>
 
 - A Promise that resolves with the timestamp of the next animation frame.
 

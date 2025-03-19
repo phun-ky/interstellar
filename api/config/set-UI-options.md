@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / config/set-UI-options
 
 # config/set-UI-options
 
-> Last updated 2025-03-18T13:45:43.051Z
+> Last updated 2025-03-19T08:29:08.327Z
 
 ## Table of Contents
 
@@ -38,125 +36,148 @@ Represents the properties for setting UI options in the simulation.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="asteroidbeltscheckboxelement" /> `asteroidBeltsCheckboxElement`
-      </td>
+<a id="asteroidbeltscheckboxelement"></a> `asteroidBeltsCheckboxElement`
 
-      <td>
-        [`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
-      </td>
+</td>
+<td>
 
-      <td>
-        Checkbox element for toggling asteroid belts visibility.
-      </td>
+[`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
 
-      <td>
-        [config/set-UI-options.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L19)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="cometscheckboxelement" /> `cometsCheckboxElement`
-      </td>
+Checkbox element for toggling asteroid belts visibility.
 
-      <td>
-        [`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
-      </td>
+</td>
+<td>
 
-      <td>
-        Checkbox element for toggling comets visibility.
-      </td>
+[config/set-UI-options.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L19)
 
-      <td>
-        [config/set-UI-options.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L17)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="labelcheckboxelement" /> `labelCheckboxElement`
-      </td>
+<a id="cometscheckboxelement"></a> `cometsCheckboxElement`
 
-      <td>
-        [`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
-      </td>
+</td>
+<td>
 
-      <td>
-        Checkbox element for toggling labels visibility.
-      </td>
+[`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
 
-      <td>
-        [config/set-UI-options.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L11)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="moonscheckboxelement" /> `moonsCheckboxElement`
-      </td>
+Checkbox element for toggling comets visibility.
 
-      <td>
-        [`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
-      </td>
+</td>
+<td>
 
-      <td>
-        Checkbox element for toggling moons visibility.
-      </td>
+[config/set-UI-options.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L17)
 
-      <td>
-        [config/set-UI-options.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L13)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="togglearrowheadselement" /> `toggleArrowheadsElement`
-      </td>
+<a id="labelcheckboxelement"></a> `labelCheckboxElement`
 
-      <td>
-        [`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
-      </td>
+</td>
+<td>
 
-      <td>
-        Checkbox element for toggling arrowheads visibility.
-      </td>
+[`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
 
-      <td>
-        [config/set-UI-options.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L15)
-      </td>
-    </tr>
+</td>
+<td>
 
-    <tr>
-      <td>
-        <a id="trajectorycheckboxelement" /> `trajectoryCheckboxElement`
-      </td>
+Checkbox element for toggling labels visibility.
 
-      <td>
-        [`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
-      </td>
+</td>
+<td>
 
-      <td>
-        Checkbox element for toggling trajectory visibility.
-      </td>
+[config/set-UI-options.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L11)
 
-      <td>
-        [config/set-UI-options.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L9)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="moonscheckboxelement"></a> `moonsCheckboxElement`
+
+</td>
+<td>
+
+[`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
+
+</td>
+<td>
+
+Checkbox element for toggling moons visibility.
+
+</td>
+<td>
+
+[config/set-UI-options.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L13)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="togglearrowheadselement"></a> `toggleArrowheadsElement`
+
+</td>
+<td>
+
+[`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
+
+</td>
+<td>
+
+Checkbox element for toggling arrowheads visibility.
+
+</td>
+<td>
+
+[config/set-UI-options.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L15)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="trajectorycheckboxelement"></a> `trajectoryCheckboxElement`
+
+</td>
+<td>
+
+[`HTMLInputElement`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
+
+</td>
+<td>
+
+Checkbox element for toggling trajectory visibility.
+
+</td>
+<td>
+
+[config/set-UI-options.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/config/set-UI-options.ts#L9)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions

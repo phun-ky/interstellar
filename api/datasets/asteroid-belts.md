@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / datasets/asteroid-belts
 
 # datasets/asteroid-belts
 
-> Last updated 2025-03-18T13:45:43.052Z
+> Last updated 2025-03-19T08:29:08.328Z
 
 ## Table of Contents
 
@@ -22,9 +20,32 @@ const ASTEROID_BELTS: AsteroidBeltsType;
 ```
 
 Defined in:
-[datasets/asteroid-belts.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/datasets/asteroid-belts.ts#L14)
+[datasets/asteroid-belts.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/datasets/asteroid-belts.ts#L19)
 
 Predefined asteroid belts in the solar system visualization.
+
+Uses [AsteroidBeltsType](../types/asteroid-belts.md#asteroidbeltstype).
+
+```ts
+export const ASTEROID_BELTS: AsteroidBeltsType = [
+  {
+    name: 'Main Asteroid Belt',
+    innerRadius: 2.1,
+    outerRadius: 3.3,
+    color: '#C4C4C4', // Light gray (rocky bodies)
+    opacity: 0.3,
+    density: 0.8
+  },
+  {
+    name: 'Kuiper Belt',
+    innerRadius: 30,
+    outerRadius: 50,
+    color: '#88CCEE', // Light blue (icy bodies)
+    opacity: 0.2,
+    density: 0.5
+  }
+];
+```
 
 #### Example
 
@@ -34,8 +55,8 @@ console.log(ASTEROID_BELTS[0].name); // "Main Asteroid Belt"
 
 #### See
 
-- [https://en.wikipedia.org/wiki/Asteroid_belt](https://en.wikipedia.org/wiki/Asteroid_belt)
-- [https://en.wikipedia.org/wiki/Kuiper_belt](https://en.wikipedia.org/wiki/Kuiper_belt)
+- <https://en.wikipedia.org/wiki/Asteroid_belt>
+- <https://en.wikipedia.org/wiki/Kuiper_belt>
 
 ---
 

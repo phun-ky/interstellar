@@ -3,7 +3,7 @@ import { Coordinates2DInterface } from './planets';
 /**
  * Represents an asteroid belt within the solar system simulation.
  *
- * ## **Asteroid Belt Properties:**
+ * **Asteroid Belt Properties:**
  * - **Inner and Outer Radius**: Defines the spatial boundaries of the belt in **Astronomical Units (AU)**.
  * - **Density**: Determines the number of simulated asteroids within the belt.
  * - **Color and Opacity**: Used for visualization.

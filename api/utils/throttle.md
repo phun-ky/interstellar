@@ -1,20 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/throttle
 
 # utils/throttle
 
-> Last updated 2025-03-18T13:45:43.071Z
+> Last updated 2025-03-19T08:29:08.349Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [throttle()](#throttle)
-- [**Functionality:**](#functionality)
   - [throttleAsync()](#throttleasync)
-- [**Functionality:**](#functionality-1)
 
 ## Functions
 
@@ -30,7 +26,7 @@ Defined in:
 Creates a **throttled function** that ensures the callback executes **at most
 once per animation frame**.
 
-## **Functionality:**
+**Functionality:**
 
 - Prevents excessive function calls by ensuring execution **only once per
   frame**.
@@ -74,7 +70,7 @@ Defined in:
 Creates a **throttled asynchronous function** that ensures the callback executes
 **at most once per animation frame**.
 
-## **Functionality:**
+**Functionality:**
 
 - Similar to `throttle`, but supports **async functions**.
 - Ensures that only **one async operation runs per frame**, preventing race
@@ -82,9 +78,9 @@ Creates a **throttled asynchronous function** that ensures the callback executes
 
 #### Type Parameters
 
-| Type Parameter                                                                                                                           | Description                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| `T` _extends_ (...`args`) => [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`unknown`> | A function returning a `Promise`. |
+| Type Parameter                                                                                                                          | Description                       |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `T` _extends_ (...`args`) => [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`unknown`> | A function returning a `Promise`. |
 
 #### Parameters
 
@@ -100,13 +96,13 @@ Creates a **throttled asynchronous function** that ensures the callback executes
 
 ##### Parameters
 
-| Parameter | Type                                                                                                 |
-| --------- | ---------------------------------------------------------------------------------------------------- |
-| ...`args` | [`Parameters`](https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype)\<`T`> |
+| Parameter | Type                                                                                                |
+| --------- | --------------------------------------------------------------------------------------------------- |
+| ...`args` | [`Parameters`](https://www.typescriptlang.org/docs/handbook/utility-types.html#parameterstype)<`T`> |
 
 ##### Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<`void`>
 
 #### Example
 

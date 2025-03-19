@@ -1,19 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / types/options
 
 # types/options
 
-> Last updated 2025-03-18T13:45:43.067Z
+> Last updated 2025-03-19T08:29:08.344Z
 
 ## Table of Contents
 
 - [Interfaces](#interfaces)
   - [TemporalOptionsInterface](#temporaloptionsinterface)
   - [UIOptionsInterface](#uioptionsinterface)
-- [**Available UI Options:**](#available-ui-options)
 - [Type Aliases](#type-aliases)
   - [TimeStepMode](#timestepmode)
 
@@ -38,9 +35,9 @@ const temporalSettings: TemporalOptionsInterface = {
 
 #### Properties
 
-| Property               | Type                                      | Description                  | Defined in                                                                                        |
-| ---------------------- | ----------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
-| <a id="mode" /> `mode` | [`TimeStepMode`](options.md#timestepmode) | The selected time step mode. | [types/options.ts:68](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L68) |
+| Property                 | Type                                      | Description                  | Defined in                                                                                        |
+| ------------------------ | ----------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
+| <a id="mode"></a> `mode` | [`TimeStepMode`](options.md#timestepmode) | The selected time step mode. | [types/options.ts:68](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L68) |
 
 ---
 
@@ -51,7 +48,7 @@ Defined in:
 
 Defines user interface options for toggling different visualization elements.
 
-## **Available UI Options:**
+**Available UI Options:**
 
 - **`arrowHeads`**: Display directional arrowheads for trajectories.
 - **`trajectory`**: Toggle visibility of object trajectories.
@@ -77,14 +74,14 @@ const uiOptions: UIOptionsInterface = {
 
 #### Properties
 
-| Property                                 | Type      | Description                                      | Defined in                                                                                        |
-| ---------------------------------------- | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| <a id="arrowheads" /> `arrowHeads`       | `boolean` | Display directional arrowheads for trajectories. | [types/options.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L29) |
-| <a id="asteroidbelts" /> `asteroidBelts` | `boolean` | Render asteroid belts in the visualization.      | [types/options.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L39) |
-| <a id="comets" /> `comets`               | `boolean` | Show or hide comets.                             | [types/options.ts:35](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L35) |
-| <a id="labels" /> `labels`               | `boolean` | Display names of celestial objects.              | [types/options.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L37) |
-| <a id="moons" /> `moons`                 | `boolean` | Show or hide planetary moons.                    | [types/options.ts:33](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L33) |
-| <a id="trajectory" /> `trajectory`       | `boolean` | Toggle visibility of object trajectories.        | [types/options.ts:31](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L31) |
+| Property                                   | Type      | Description                                      | Defined in                                                                                        |
+| ------------------------------------------ | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| <a id="arrowheads"></a> `arrowHeads`       | `boolean` | Display directional arrowheads for trajectories. | [types/options.ts:29](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L29) |
+| <a id="asteroidbelts"></a> `asteroidBelts` | `boolean` | Render asteroid belts in the visualization.      | [types/options.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L39) |
+| <a id="comets"></a> `comets`               | `boolean` | Show or hide comets.                             | [types/options.ts:35](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L35) |
+| <a id="labels"></a> `labels`               | `boolean` | Display names of celestial objects.              | [types/options.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L37) |
+| <a id="moons"></a> `moons`                 | `boolean` | Show or hide planetary moons.                    | [types/options.ts:33](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L33) |
+| <a id="trajectory"></a> `trajectory`       | `boolean` | Toggle visibility of object trajectories.        | [types/options.ts:31](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L31) |
 
 ## Type Aliases
 
@@ -127,5 +124,5 @@ we're all part of :)
 ---
 
 This project created by [Alexander Vassbotn Røyne-Helgesen](http://phun-ky.net)
-is licensed under a [GPL-3.0
-License](https://choosealicense.com/licenses/gpl-3.0/).
+is licensed under a
+[GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/).

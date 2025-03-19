@@ -16,7 +16,7 @@ const BASE_NUM_STARS = 10000; // Star count at reference resolution
 /**
  * Generates a starfield dynamically based on the canvas size, maintaining proportional star density.
  *
- * ## **Star Distribution Calculation:**
+ * **Star Distribution Calculation:**
  * The number of stars is scaled relative to a base resolution ($1920 \times 1080$):
  * $$
  * N = \left( \frac{\text{screenArea}}{\text{BASE\_AREA}} \right) \times \text{BASE\_NUM\_STARS}

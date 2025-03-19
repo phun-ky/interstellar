@@ -1,7 +1,8 @@
 /**
  * Wraps an angle to the range $[0, 2\pi)$.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * This function ensures that an angle $x$ is always in the standard range:
  * $$
  * 0 \leq x < 2\pi
@@ -14,7 +15,7 @@
  * This is useful in orbital mechanics and trigonometry, where angles should remain within one full revolution.
  *
  * @param {number} x - The input angle in radians.
- * @returns {number} The angle wrapped into the range $[0, 2\pi)$.
+ * @returns {number} The angle wrapped into the range $[0, 2\pi]$.
  *
  * @example
  * ```ts

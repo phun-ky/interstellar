@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) / features/celestial-bodies/orbits/compute
 
 # features/celestial-bodies/orbits/compute
 
-> Last updated 2025-03-18T13:45:43.057Z
+> Last updated 2025-03-19T08:29:08.333Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [computeOrbits()](#computeorbits)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Functions
 
@@ -23,12 +20,12 @@ function computeOrbits(celestialBodies): void;
 ```
 
 Defined in:
-[features/celestial-bodies/orbits/compute.ts:77](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/compute.ts#L77)
+[features/celestial-bodies/orbits/compute.ts:78](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/compute.ts#L78)
 
 Computes the **orbital paths** for celestial bodies orbiting around a central
 mass (e.g., a black hole).
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 In an elliptical orbit, the **semi-major axis** ($a$) and **eccentricity** ($e$)
 define the shape of the orbit. The **semi-minor axis** ($b$) is calculated as:

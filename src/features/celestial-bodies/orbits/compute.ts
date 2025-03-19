@@ -7,7 +7,8 @@ import { convertDistance } from '../../../utils/distance/convert-distance';
 /**
  * Computes the **orbital paths** for celestial bodies orbiting around a central mass (e.g., a black hole).
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * In an elliptical orbit, the **semi-major axis** ($a$) and **eccentricity** ($e$) define the shape of the orbit.
  * The **semi-minor axis** ($b$) is calculated as:
  * $$

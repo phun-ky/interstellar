@@ -6,7 +6,8 @@ import { TimeStepInterface } from '../../../types/temporal';
 /**
  * Updates the **orbital position** (angle) of a celestial body based on the given time step.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * The **true anomaly** ($V$), which determines a celestial body's position in its orbit,
  * changes over time according to **Kepler’s Laws**. The new angle is computed as:
  * $$

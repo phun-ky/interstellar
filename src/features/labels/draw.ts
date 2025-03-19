@@ -19,7 +19,8 @@ export type DrawLabelsPropsType = {
 /**
  * Renders text labels for celestial bodies onto a 2D canvas.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * The **position of each label** is computed using:
  * $$
  * x = a \cos(\theta) - f

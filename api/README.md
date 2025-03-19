@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 # Interstellar API documentation
 
 ---
 
-> Last updated 2025-03-18T13:45:43.043Z
+> Last updated 2025-03-19T08:29:08.318Z
 
 ## Modules
 
@@ -61,7 +59,6 @@
 - [features/ui/update-simulation-date](features/ui/update-simulation-date.md)
 - [features/ui/update-zoom](features/ui/update-zoom.md)
 - [lib/math/compute-angle](lib/math/compute-angle.md)
-- [lib/math/compute-angle-backup](lib/math/compute-angle-backup.md)
 - [lib/math/compute-mean-anomaly](lib/math/compute-mean-anomaly.md)
 - [lib/math/eccentric-to-true-anomaly](lib/math/eccentric-to-true-anomaly.md)
 - [lib/math/solve-kepler](lib/math/solve-kepler.md)
@@ -80,6 +77,7 @@
 - [types/options](types/options.md)
 - [types/planets](types/planets.md)
 - [types/stars](types/stars.md)
+- [types/systems](types/systems.md)
 - [types/temporal](types/temporal.md)
 - [utils/cx](utils/cx.md)
 - [utils/debounce](utils/debounce.md)

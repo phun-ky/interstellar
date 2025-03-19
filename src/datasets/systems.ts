@@ -1,23 +1,12 @@
 /* eslint-disable import/no-unused-modules */
-/**
- * Represents a star system within the space visualization.
- */
-export interface SystemInterface {
-  /** Name of the star system. */
-  name: string;
-  /** List of star names in the system. */
-  stars: string[];
-  /** Distance from the Sun in light-years. */
-  distance: number;
-}
-
-/**
- * Type alias for a collection of star systems.
- */
-export type SystemsType = SystemInterface[];
+import { SystemsType } from '../types/systems';
 
 /**
  * Predefined star systems in the galaxy.
+ *
+ * Uses {@link SystemsType}.
+ *
+ * {@includeCode ../datasets/systems.ts#datasetSystems}
  *
  * @example
  * ```ts
@@ -26,6 +15,7 @@ export type SystemsType = SystemInterface[];
  *
  * @see https://en.wikipedia.org/wiki/Alpha_Centauri
  */
+// #region datasetSystems
 export const SYSTEMS: SystemsType = [
   {
     name: 'Solar System',
@@ -38,3 +28,4 @@ export const SYSTEMS: SystemsType = [
     distance: 4.37
   }
 ];
+// #endregion datasetSystems

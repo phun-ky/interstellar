@@ -3,7 +3,7 @@
 /**
  * Defines user interface options for toggling different visualization elements.
  *
- * ## **Available UI Options:**
+ * **Available UI Options:**
  * - **`arrowHeads`**: Display directional arrowheads for trajectories.
  * - **`trajectory`**: Toggle visibility of object trajectories.
  * - **`moons`**: Show or hide planetary moons.

@@ -6,7 +6,8 @@ import { updatePosition } from './update-position';
 /**
  * Updates the **orbital positions** of all celestial bodies based on the given time step.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * Each celestial body follows an **elliptical orbit** with its position evolving over time according to:
  * $$
  * V(t) = V_0 + \Delta V

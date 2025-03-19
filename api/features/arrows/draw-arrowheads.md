@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/arrows/draw-arrowheads
 
 # features/arrows/draw-arrowheads
 
-> Last updated 2025-03-18T13:45:43.054Z
+> Last updated 2025-03-19T08:29:08.329Z
 
 ## Table of Contents
 
@@ -37,114 +35,134 @@ Defined in:
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="canvasheight" /> `canvasHeight`
-      </td>
+<a id="canvasheight"></a> `canvasHeight`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/arrows/draw-arrowheads.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L9)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="canvaswidth" /> `canvasWidth`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/arrows/draw-arrowheads.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L9)
 
-      <td>
-        [features/arrows/draw-arrowheads.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L8)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="referencex" /> `referenceX`
-      </td>
+<a id="canvaswidth"></a> `canvasWidth`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/arrows/draw-arrowheads.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L10)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="referencey" /> `referenceY`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/arrows/draw-arrowheads.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L8)
 
-      <td>
-        [features/arrows/draw-arrowheads.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L11)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+<a id="referencex"></a> `referenceX`
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/arrows/draw-arrowheads.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L7)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="system" /> `system`?
-      </td>
+</td>
+<td>
 
-      <td>
-        `string`
-      </td>
+[features/arrows/draw-arrowheads.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L10)
 
-      <td>
-        [features/arrows/draw-arrowheads.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L13)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="type" /> `type`?
-      </td>
+<a id="referencey"></a> `referenceY`
 
-      <td>
-        `"stars"` | `"planets"` | `"moons"` | `"comets"`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/arrows/draw-arrowheads.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L12)
-      </td>
-    </tr>
+`number`
 
-  </tbody>
+</td>
+<td>
+
+[features/arrows/draw-arrowheads.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L11)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="space"></a> `space`
+
+</td>
+<td>
+
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
+
+</td>
+<td>
+
+[features/arrows/draw-arrowheads.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L7)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="system"></a> `system`?
+
+</td>
+<td>
+
+`string`
+
+</td>
+<td>
+
+[features/arrows/draw-arrowheads.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L13)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="type"></a> `type`?
+
+</td>
+<td>
+
+`"stars"` | `"planets"` | `"moons"` | `"comets"`
+
+</td>
+<td>
+
+[features/arrows/draw-arrowheads.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/arrows/draw-arrowheads.ts#L12)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -197,7 +215,7 @@ if (ctx) {
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
+<https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D>
 
 ---
 

@@ -1,13 +1,11 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) /
 features/celestial-bodies/asteroids/draw-belts
 
 # features/celestial-bodies/asteroids/draw-belts
 
-> Last updated 2025-03-18T13:45:43.056Z
+> Last updated 2025-03-19T08:29:08.332Z
 
 ## Table of Contents
 
@@ -38,102 +36,117 @@ Defined in:
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="asteroidbelts" /> `asteroidBelts`
-      </td>
+<a id="asteroidbelts"></a> `asteroidBelts`
 
-      <td>
-        [`AsteroidBeltsType`](../../../types/asteroid-belts.md#asteroidbeltstype)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/asteroids/draw-belts.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L12)
-      </td>
-    </tr>
+[`AsteroidBeltsType`](../../../types/asteroid-belts.md#asteroidbeltstype)
 
-    <tr>
-      <td>
-        <a id="centerx" /> `centerX`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/celestial-bodies/asteroids/draw-belts.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L12)
 
-      <td>
-        [features/celestial-bodies/asteroids/draw-belts.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L9)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="centery" /> `centerY`
-      </td>
+<a id="centerx"></a> `centerX`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/asteroids/draw-belts.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L10)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="scale" /> `scale`
-      </td>
+</td>
+<td>
 
-      <td>
-        \{
-        `value`: `number`;
-        }
-      </td>
+[features/celestial-bodies/asteroids/draw-belts.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L9)
 
-      <td>
-        [features/celestial-bodies/asteroids/draw-belts.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L11)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        `scale.value`
-      </td>
+<a id="centery"></a> `centerY`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/celestial-bodies/asteroids/draw-belts.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L11)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+[features/celestial-bodies/asteroids/draw-belts.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L10)
 
-      <td>
-        [features/celestial-bodies/asteroids/draw-belts.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L8)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-  </tbody>
+<a id="scale"></a> `scale`
+
+</td>
+<td>
+
+{ `value`: `number`; }
+
+</td>
+<td>
+
+[features/celestial-bodies/asteroids/draw-belts.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L11)
+
+</td>
+</tr>
+<tr>
+<td>
+
+`scale.value`
+
+</td>
+<td>
+
+`number`
+
+</td>
+<td>
+
+[features/celestial-bodies/asteroids/draw-belts.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L11)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="space"></a> `space`
+
+</td>
+<td>
+
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
+
+</td>
+<td>
+
+[features/celestial-bodies/asteroids/draw-belts.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L8)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -191,7 +204,7 @@ drawBelts({
 
 #### See
 
-[https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
+<https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D>
 
 ---
 

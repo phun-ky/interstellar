@@ -5,11 +5,11 @@ import { DistanceInterface, DistanceUnitType } from '../../types/distance';
  * Converts a distance measurement between **Astronomical Units (AU), kilometres (km), meters (m),**
  * and **light-years (ly)**.
  *
- * ## **Conversion Logic:**
+ * **Conversion Logic:**
  * 1. Converts the input distance to **Astronomical Units (AU)** as an intermediate step.
  * 2. Converts the AU value to the **target unit**.
  *
- * ## **Supported Conversions:**
+ * **Supported Conversions:**
  * - **AU ↔ km ↔ m**
  * - **AU ↔ light-years (ly)**
  *

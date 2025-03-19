@@ -53,14 +53,14 @@ export type DrawPropsType = {
 /**
  * **Draws the entire celestial simulation** onto the canvas.
  *
- * ## **Functionality:**
+ * **Functionality:**
  * - Clears the canvas and renders the **background**.
  * - Initializes and draws the **starfield**.
  * - Centers the viewport on a locked celestial body (if any).
  * - Draws **galaxies, stars, planets, moons, asteroids, and comets** based on zoom level.
  * - Dynamically toggles **orbits, labels, and directional arrows**.
  *
- * ## **Render Layers (Ordered):**
+ * **Render Layers (Ordered):**
  * 1. **Background & Starfield**
  * 2. **Galaxy & Labels**
  * 3. **Stars & Orbits**

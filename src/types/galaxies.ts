@@ -4,7 +4,7 @@ import { DistanceInterface } from './distance';
 /**
  * Represents a **black hole** at the center of a galaxy.
  *
- * ## **Black Hole Properties:**
+ * **Black Hole Properties:**
  * - **Mass (`mass`)**: Measured in **solar masses** ($M_\odot$).
  * - **Schwarzschild radius (`radius`)**: Defined in **Astronomical Units (AU)**.
  * - **Position (`x`, `y`)**: Coordinates relative to the galaxy center in **AU**.
@@ -37,7 +37,7 @@ export interface BlackHoleInterface {
 /**
  * Represents a **galaxy** in the universe simulation.
  *
- * ## **Galaxy Properties:**
+ * **Galaxy Properties:**
  * - **Name (`name`)**: The galaxy's official designation.
  * - **Type (`type`)**: The morphological classification (e.g., Spiral, Elliptical).
  * - **Diameter (`diameter`)**: Measured in **light-years**.

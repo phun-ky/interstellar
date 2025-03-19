@@ -4,7 +4,7 @@ import { DistanceInterface, DistanceUnitType } from '../../types/distance';
 /**
  * Normalizes a distance measurement to the most **readable unit**.
  *
- * ## **Conversion Logic:**
+ * **Conversion Logic:**
  * 1. Converts the input distance to **Astronomical Units (AU)** as an intermediate step.
  * 2. Selects the **most appropriate unit** based on magnitude:
  *    - **km** for values < 1 AU
@@ -13,7 +13,7 @@ import { DistanceInterface, DistanceUnitType } from '../../types/distance';
  *    - **kly** for values above 1000 light-years
  * 3. Preserves the **original sign** of the input value.
  *
- * ## **Supported Units:**
+ * **Supported Units:**
  * - **AU ↔ km ↔ ly ↔ kly** (Kilolight-years)
  *
  * @param {DistanceInterface} distance - The input distance value and its unit.

@@ -1,7 +1,10 @@
+import { wrapAngle } from './wrap-angle';
+
 /**
  * Solves **Kepler's Equation** for the **Eccentric Anomaly** ($E$) using the **Newton-Raphson method**.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * Kepler's equation relates the **mean anomaly** ($M$), the **eccentric anomaly** ($E$),
  * and the **orbital eccentricity** ($e$) as:
  * $$
@@ -9,17 +12,17 @@
  * $$
  * Since this equation **cannot be solved algebraically**, we use **iterative numerical methods** to approximate $E$.
  *
- * ### **Step 1: Handle Special Cases**
+ * **Step 1: Handle Special Cases**
  * - If the orbit is **circular** ($e = 0$), then $E = M$ directly.
  * - If the orbit is **parabolic** ($e = 1$), Kepler's equation is **not valid**.
  *
- * ### **Step 2: Initial Approximation**
+ * **Step 2: Initial Approximation**
  * A **first-order approximation** provides a good starting point for iteration:
  * $$
  * E_0 \approx M + e \sin(M)
  * $$
  *
- * ### **Step 3: Newton-Raphson Iteration**
+ * **Step 3: Newton-Raphson Iteration**
  * The Newton-Raphson method refines $E$ iteratively using:
  * $$
  * E_{n+1} = E_n - \frac{f(E_n)}{f'(E_n)}
@@ -39,8 +42,8 @@
  * @param {number} [tolerance=1e-9] - Convergence criterion for stopping the iteration.
  * @returns {number} Eccentric anomaly ($E$) in radians.
  *
- * @throws {Error} If the orbit is **parabolic** ($e = 1$) or Newton-Raphson fails due to a near-zero derivative.
- * @throws {RangeError} If the eccentricity is out of range. Must be between [0,1].
+ * @throws {@link Error} If the orbit is **parabolic** ($e = 1$) or Newton-Raphson fails due to a near-zero derivative.
+ * @throws {@link RangeError} If the eccentricity is out of range. Must be between [0,1].
  *
  * @example
  * ```ts

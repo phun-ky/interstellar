@@ -1,7 +1,8 @@
 /**
  * Converts **Eccentric Anomaly** ($E$) to **True Anomaly** ($V$) for an orbit.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * The **eccentric anomaly** ($E$) and the **true anomaly** ($V$) are related through:
  * $$
  * \tan \frac{V}{2} = \sqrt{\frac{1+e}{1-e}} \tan \frac{E}{2}

@@ -25,14 +25,14 @@ import { waitFor } from './utils/wait-for';
 /**
  * **Main application entry point** for initializing and running the simulation.
  *
- * ## **Initialization Steps:**
+ * **Initialization Steps:**
  * 1. **Set up the UI** elements.
  * 2. **Create and configure the canvas**.
  * 3. **Initialize global settings**.
  * 4. **Attach event handlers** for interaction.
  * 5. **Start the simulation loop**.
  *
- * ## **Simulation Loop:**
+ * **Simulation Loop:**
  * - Updates **planetary positions** based on time step.
  * - Advances **simulation time**.
  * - Updates **UI components** like coordinates, zoom, and minimap.

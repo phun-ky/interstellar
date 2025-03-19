@@ -1,17 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) / features/canvas/config/time-step
 
 # features/canvas/config/time-step
 
-> Last updated 2025-03-18T13:45:43.056Z
+> Last updated 2025-03-19T08:29:08.331Z
 
 ## Table of Contents
 
 - [Variables](#variables)
   - [lastTimestamp](#lasttimestamp)
+  - [SPEED_MODE](#speed_mode)
   - [timeStep](#timestep)
 
 ## Variables
@@ -26,6 +25,50 @@ Defined in:
 [features/canvas/config/time-step/index.ts:19](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/index.ts#L19)
 
 Last recorded timestamp for time calculations, in milliseconds.
+
+---
+
+### SPEED_MODE
+
+```ts
+const SPEED_MODE: {
+  value: 'realTime' | 'framePerDay' | 'spedUp' | 'insane';
+};
+```
+
+Defined in:
+[features/canvas/config/time-step/index.ts:30](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/index.ts#L30)
+
+#### Type declaration
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+<a id="value"></a> `value`
+
+</td>
+<td>
+
+`"realTime"` | `"framePerDay"` | `"spedUp"` | `"insane"`
+
+</td>
+<td>
+
+[features/canvas/config/time-step/index.ts:31](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/index.ts#L31)
+
+</td>
+</tr>
+</tbody>
+</table>
 
 ---
 

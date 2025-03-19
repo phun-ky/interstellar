@@ -3,6 +3,10 @@ import { AsteroidBeltsType } from '../types/asteroid-belts';
 /**
  * Predefined asteroid belts in the solar system visualization.
  *
+ * Uses {@link AsteroidBeltsType}.
+ *
+ * {@includeCode ../datasets/asteroid-belts.ts#datasetAsteroids}
+ *
  * @example
  * ```ts
  * console.log(ASTEROID_BELTS[0].name); // "Main Asteroid Belt"
@@ -11,6 +15,7 @@ import { AsteroidBeltsType } from '../types/asteroid-belts';
  * @see https://en.wikipedia.org/wiki/Asteroid_belt
  * @see https://en.wikipedia.org/wiki/Kuiper_belt
  */
+// #region datasetAsteroids
 export const ASTEROID_BELTS: AsteroidBeltsType = [
   {
     name: 'Main Asteroid Belt',
@@ -29,3 +34,4 @@ export const ASTEROID_BELTS: AsteroidBeltsType = [
     density: 0.5
   }
 ];
+// #endregion datasetAsteroids

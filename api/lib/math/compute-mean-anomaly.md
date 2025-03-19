@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / lib/math/compute-mean-anomaly
 
 # lib/math/compute-mean-anomaly
 
-> Last updated 2025-03-18T13:45:43.063Z
+> Last updated 2025-03-19T08:29:08.340Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [computeMeanAnomaly()](#computemeananomaly)
-- [**Mathematical Explanation:**](#mathematical-explanation)
-  - [**Handling Extreme Time Steps**](#handling-extreme-time-steps)
 
 ## Functions
 
@@ -24,12 +20,12 @@ function computeMeanAnomaly(body, timeStep): number;
 ```
 
 Defined in:
-[lib/math/compute-mean-anomaly.ts:47](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/compute-mean-anomaly.ts#L47)
+[lib/math/compute-mean-anomaly.ts:48](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/compute-mean-anomaly.ts#L48)
 
 Computes the **Mean Anomaly** ($M$) for a celestial body after a given time
 interval $\Delta t$.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 The **mean anomaly** ($M$) is related to the **true anomaly** ($V$) and
 **eccentric anomaly** ($E$). The mean anomaly progresses uniformly over time,
@@ -52,7 +48,7 @@ where:
 Since anomalies are periodic ($0 \leq M < 2\pi$), a **custom modulo function**
 is used to wrap values within this range.
 
-### **Handling Extreme Time Steps**
+**Handling Extreme Time Steps**
 
 - The function **caps the time step** to **10 full orbits** to prevent excessive
   jumps.

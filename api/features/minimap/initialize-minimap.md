@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/minimap/initialize-minimap
 
 # features/minimap/initialize-minimap
 
-> Last updated 2025-03-18T13:45:43.061Z
+> Last updated 2025-03-19T08:29:08.336Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [initializeMinimap()](#initializeminimap)
-- [**Minimap Properties:**](#minimap-properties)
 
 ## Functions
 
@@ -28,7 +25,7 @@ Defined in:
 Initializes a circular minimap element on the webpage if it does not already
 exist.
 
-## **Minimap Properties:**
+**Minimap Properties:**
 
 - Positioned at the **bottom-right** corner of the viewport.
 - **Circular shape** achieved using `borderRadius: 50%`.

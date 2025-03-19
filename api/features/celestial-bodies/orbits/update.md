@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) / features/celestial-bodies/orbits/update
 
 # features/celestial-bodies/orbits/update
 
-> Last updated 2025-03-18T13:45:43.058Z
+> Last updated 2025-03-19T08:29:08.334Z
 
 ## Table of Contents
 

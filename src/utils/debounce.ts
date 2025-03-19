@@ -6,7 +6,7 @@ import { DebounceAnyFunctionType } from '../types/debounce';
  * Creates a **debounced function** that delays execution until a specified time has passed
  * since the last invocation.
  *
- * ## **Functionality:**
+ * **Functionality:**
  * - **Delays function execution** until `wait` milliseconds have passed since the last call.
  * - If `immediate = true`, the function is executed immediately on the first call.
  *
@@ -51,7 +51,7 @@ export const debounce = (
 /**
  * Creates a **debounced asynchronous function** that ensures the last invocation is resolved.
  *
- * ## **Functionality:**
+ * **Functionality:**
  * - Cancels previous calls **if invoked within the debounce delay**.
  * - Ensures the last call **always resolves**.
  *

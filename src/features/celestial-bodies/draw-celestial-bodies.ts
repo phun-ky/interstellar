@@ -21,7 +21,8 @@ export type DrawCelestialBodiesPropsType = {
 /**
  * Renders celestial bodies onto a 2D canvas based on their orbital parameters.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * Celestial bodies follow **elliptical orbits** with positions computed as:
  * $$
  * x = a \cos(\theta) - f

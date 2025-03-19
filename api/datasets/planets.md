@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / datasets/planets
 
 # datasets/planets
 
-> Last updated 2025-03-18T13:45:43.053Z
+> Last updated 2025-03-19T08:29:08.329Z
 
 ## Table of Contents
 
@@ -22,12 +20,47 @@ const PLANETS: PlanetsType;
 ```
 
 Defined in:
-[datasets/planets.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/datasets/planets.ts#L9)
+[datasets/planets.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/datasets/planets.ts#L20)
 
 Represents a dataset of planets and planetoids in the solar system.
 
 Each planet entry includes its orbital elements, physical characteristics, and a
 visual representation color for rendering.
+
+Uses [PlanetsType](../types/planets.md#planetstype).
+
+**Example item in dataset:**
+
+```ts
+{
+  name: 'Mercury',
+  type: 'silicate planet',
+  category: 'planet',
+  system: 'Sun',
+  /** Semi-major axis in AU */
+  a: { value: 0.387, unit: 'AU' },
+  /** Orbital eccentricity */
+  e: 0.2056,
+  /** Radius in km */
+  radius: { value: 2440, unit: 'km' },
+  /** Visual representation color */
+  color: '#8B8B8B',
+  /** Initial angle in orbit at J2000 */
+  angle: 0.843,
+  /** Orbital period in days */
+  period: { value: 87.969, unit: 'days' },
+  /** Initial position coordinates in AU */
+  x: { value: 0.387, unit: 'AU' },
+  y: { value: 0.024, unit: 'AU' },
+  z: { value: 0.001, unit: 'AU' }
+},
+```
+
+#### Example
+
+```ts
+console.log(PLANETS[0].name); // "Mercury"
+```
 
 ---
 

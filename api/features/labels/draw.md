@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / features/labels/draw
 
 # features/labels/draw
 
-> Last updated 2025-03-18T13:45:43.061Z
+> Last updated 2025-03-19T08:29:08.335Z
 
 ## Table of Contents
 
@@ -14,7 +12,6 @@
   - [DrawLabelsPropsType](#drawlabelspropstype)
 - [Functions](#functions)
   - [drawLabels()](#drawlabels)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Type Aliases
 
@@ -36,86 +33,100 @@ Defined in:
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="celestialbodies" /> `celestialBodies`
-      </td>
+<a id="celestialbodies"></a> `celestialBodies`
 
-      <td>
-        [`CelestialBodiesType`](../../types/celestial-bodies.md#celestialbodiestype)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/labels/draw.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L15)
-      </td>
-    </tr>
+[`CelestialBodiesType`](../../types/celestial-bodies.md#celestialbodiestype)
 
-    <tr>
-      <td>
-        <a id="referencex" /> `referenceX`
-      </td>
+</td>
+<td>
 
-      <td>
-        `number`
-      </td>
+[features/labels/draw.ts:15](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L15)
 
-      <td>
-        [features/labels/draw.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L13)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="referencey" /> `referenceY`
-      </td>
+<a id="referencex"></a> `referenceX`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/labels/draw.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L14)
-      </td>
-    </tr>
+`number`
 
-    <tr>
-      <td>
-        <a id="scale" /> `scale`
-      </td>
+</td>
+<td>
 
-      <td>
-        [`ValueInterface`](../../types/distance.md#valueinterface)
-      </td>
+[features/labels/draw.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L13)
 
-      <td>
-        [features/labels/draw.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L16)
-      </td>
-    </tr>
+</td>
+</tr>
+<tr>
+<td>
 
-    <tr>
-      <td>
-        <a id="space" /> `space`
-      </td>
+<a id="referencey"></a> `referenceY`
 
-      <td>
-        [`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
-      </td>
+</td>
+<td>
 
-      <td>
-        [features/labels/draw.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L12)
-      </td>
-    </tr>
+`number`
 
-  </tbody>
+</td>
+<td>
+
+[features/labels/draw.ts:14](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L14)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="scale"></a> `scale`
+
+</td>
+<td>
+
+[`ValueInterface`](../../types/distance.md#valueinterface)
+
+</td>
+<td>
+
+[features/labels/draw.ts:16](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L16)
+
+</td>
+</tr>
+<tr>
+<td>
+
+<a id="space"></a> `space`
+
+</td>
+<td>
+
+[`CanvasRenderingContext2D`](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
+
+</td>
+<td>
+
+[features/labels/draw.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L12)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ## Functions
@@ -127,11 +138,11 @@ function drawLabels(props): void;
 ```
 
 Defined in:
-[features/labels/draw.ts:84](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L84)
+[features/labels/draw.ts:85](https://github.com/phun-ky/interstellar/blob/main/src/features/labels/draw.ts#L85)
 
 Renders text labels for celestial bodies onto a 2D canvas.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 The **position of each label** is computed using:
 

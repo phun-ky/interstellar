@@ -1,19 +1,16 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../../README.md) /
 features/celestial-bodies/utils/update-position
 
 # features/celestial-bodies/utils/update-position
 
-> Last updated 2025-03-18T13:45:43.060Z
+> Last updated 2025-03-19T08:29:08.334Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [updatePosition()](#updateposition)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Functions
 
@@ -24,12 +21,12 @@ function updatePosition(timeStep): (body) => void;
 ```
 
 Defined in:
-[features/celestial-bodies/utils/update-position.ts:36](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/update-position.ts#L36)
+[features/celestial-bodies/utils/update-position.ts:37](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/utils/update-position.ts#L37)
 
 Updates the **orbital position** (angle) of a celestial body based on the given
 time step.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 The **true anomaly** ($V$), which determines a celestial body's position in its
 orbit, changes over time according to **Kepler’s Laws**. The new angle is

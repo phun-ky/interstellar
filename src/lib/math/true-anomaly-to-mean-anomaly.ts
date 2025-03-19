@@ -1,16 +1,17 @@
 /**
  * Converts true anomaly ($\nu$) to mean anomaly ($M$) using Kepler's equation.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * In orbital mechanics, the **true anomaly** ($\nu$), the **eccentric anomaly** ($E$),
  * and the **mean anomaly** ($M$) are related through Kepler's equation.
  *
- * ### **Step 1: Convert True Anomaly ($\nu$) to Eccentric Anomaly ($E$)**
+ * **Step 1: Convert True Anomaly ($\nu$) to Eccentric Anomaly ($E$)**
  * $$
  * E = 2 \tan^{-1} \left( \sqrt{\frac{1 - e}{1 + e}} \tan\left(\frac{\nu}{2}\right) \right)
  * $$
  *
- * ### **Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)**
+ * **Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)**
  * Kepler’s equation states:
  * $$
  * M = E - e \sin(E)

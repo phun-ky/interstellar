@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / datasets/stars
 
 # datasets/stars
 
-> Last updated 2025-03-18T13:45:43.053Z
+> Last updated 2025-03-19T08:29:08.329Z
 
 ## Table of Contents
 
@@ -22,12 +20,47 @@ const STARS: StarsType;
 ```
 
 Defined in:
-[datasets/stars.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/datasets/stars.ts#L9)
+[datasets/stars.ts:20](https://github.com/phun-ky/interstellar/blob/main/src/datasets/stars.ts#L20)
 
 Represents a dataset of well-known stars within the Milky Way.
 
 Each star entry includes spectral classification, orbital parameters, position
 relative to the Milky Way, and a visual representation color.
+
+Uses [StarsType](../types/stars.md#starstype).
+
+**Example item in dataset:**
+
+```ts
+{
+  name: 'Sun',
+  type: 'G2V', // Yellow Dwarf, Main Sequence
+  category: 'star',
+  system: { name: 'Solar System', type: 'planetary system' },
+  /** Radius in km */
+  radius: { value: 696340, unit: 'km' },
+  /** Visual representation color */
+  color: '#fff5f1',
+  /** Galactic position in light-years (relative to Milky Way center) */
+  x: { value: 0, unit: 'ly' },
+  y: { value: 27000, unit: 'ly' },
+  z: { value: 20, unit: 'ly' },
+  /** Semi-major axis in light-years */
+  a: { value: 27000, unit: 'ly' },
+  /** Orbital eccentricity */
+  e: 0.07,
+  /** Initial angle in orbit */
+  angle: 1.5707963267948966,
+  /** Orbital period in million years (Myr) */
+  period: { value: 230, unit: 'Myr' }
+},
+```
+
+#### Example
+
+```ts
+console.log(STARS[0].name); // "Sun"
+```
 
 ---
 

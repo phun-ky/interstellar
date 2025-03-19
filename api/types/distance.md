@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / types/distance
 
 # types/distance
 
-> Last updated 2025-03-18T13:45:43.065Z
+> Last updated 2025-03-19T08:29:08.342Z
 
 ## Table of Contents
 
@@ -44,10 +42,10 @@ const distanceToAlphaCentauri: DistanceInterface = {
 
 #### Properties
 
-| Property                 | Type                               | Description                           | Inherited from                                                                | Defined in                                                                                          |
-| ------------------------ | ---------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| <a id="unit" /> `unit`   | [`UnitType`](distance.md#unittype) | The unit of distance measurement.     | -                                                                             | [types/distance.ts:73](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L73) |
-| <a id="value" /> `value` | `number`                           | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
+| Property                   | Type                               | Description                           | Inherited from                                                                | Defined in                                                                                          |
+| -------------------------- | ---------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="unit"></a> `unit`   | [`UnitType`](distance.md#unittype) | The unit of distance measurement.     | -                                                                             | [types/distance.ts:73](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L73) |
+| <a id="value"></a> `value` | `number`                           | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
 
 ---
 
@@ -72,10 +70,10 @@ const planetRadius: MeasureInterface = { value: 6371, unit: 'km' };
 
 #### Properties
 
-| Property                   | Type                               | Description                           | Inherited from                                                                | Defined in                                                                                          |
-| -------------------------- | ---------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| <a id="unit-1" /> `unit`   | [`UnitType`](distance.md#unittype) | The unit of measurement.              | -                                                                             | [types/distance.ts:57](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L57) |
-| <a id="value-1" /> `value` | `number`                           | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
+| Property                     | Type                               | Description                           | Inherited from                                                                | Defined in                                                                                          |
+| ---------------------------- | ---------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="unit-1"></a> `unit`   | [`UnitType`](distance.md#unittype) | The unit of measurement.              | -                                                                             | [types/distance.ts:57](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L57) |
+| <a id="value-1"></a> `value` | `number`                           | The numeric value of the measurement. | [`ValueInterface`](distance.md#valueinterface).[`value`](distance.md#value-2) | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
 
 ---
 
@@ -103,9 +101,9 @@ const distance: ValueInterface = { value: 100 };
 
 #### Properties
 
-| Property                   | Type     | Description                           | Defined in                                                                                          |
-| -------------------------- | -------- | ------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| <a id="value-2" /> `value` | `number` | The numeric value of the measurement. | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
+| Property                     | Type     | Description                           | Defined in                                                                                          |
+| ---------------------------- | -------- | ------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| <a id="value-2"></a> `value` | `number` | The numeric value of the measurement. | [types/distance.ts:41](https://github.com/phun-ky/interstellar/blob/main/src/types/distance.ts#L41) |
 
 ## Type Aliases
 
@@ -172,5 +170,5 @@ we're all part of :)
 ---
 
 This project created by [Alexander Vassbotn Røyne-Helgesen](http://phun-ky.net)
-is licensed under a [GPL-3.0
-License](https://choosealicense.com/licenses/gpl-3.0/).
+is licensed under a
+[GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/).

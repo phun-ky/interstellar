@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / utils/cx
 
 # utils/cx
 
-> Last updated 2025-03-18T13:45:43.068Z
+> Last updated 2025-03-19T08:29:08.346Z
 
 ## Table of Contents
 
@@ -15,8 +13,6 @@
   - [CXSecondArgType](#cxsecondargtype)
 - [Functions](#functions)
   - [cx()](#cx)
-- [**Usage & Functionality:**](#usage--functionality)
-- [**Examples:**](#examples)
 
 ## Type Aliases
 
@@ -59,7 +55,7 @@ Defined in:
 Combines class names and an optional object of conditional class names into a
 single class string.
 
-## **Usage & Functionality:**
+**Usage & Functionality:**
 
 - **First Argument (`cls`)**:
 
@@ -72,7 +68,7 @@ single class string.
     inclusion.
   - Allows adding additional class names dynamically.
 
-## **Examples:**
+**Examples:**
 
 #### Parameters
 

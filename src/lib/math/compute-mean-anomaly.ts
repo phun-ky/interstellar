@@ -8,7 +8,8 @@ import { wrapAngle } from './wrap-angle';
 /**
  * Computes the **Mean Anomaly** ($M$) for a celestial body after a given time interval $\Delta t$.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * The **mean anomaly** ($M$) is related to the **true anomaly** ($V$) and **eccentric anomaly** ($E$).
  * The mean anomaly progresses uniformly over time, defined as:
  * $$
@@ -25,7 +26,7 @@ import { wrapAngle } from './wrap-angle';
  *
  * Since anomalies are periodic ($0 \leq M < 2\pi$), a **custom modulo function** is used to wrap values within this range.
  *
- * ### **Handling Extreme Time Steps**
+ * **Handling Extreme Time Steps**
  * - The function **caps the time step** to **10 full orbits** to prevent excessive jumps.
  * - This ensures numerical stability and prevents unrealistic position updates.
  *

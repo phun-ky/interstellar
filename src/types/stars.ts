@@ -26,14 +26,14 @@ export interface StarSystemInterface {
 /**
  * Represents a **star** in a planetary or stellar system.
  *
- * ## **Orbital & Physical Properties:**
+ * **Orbital & Physical Properties:**
  * - **Semi-major axis (`a`)**: Defines the star’s orbit size (AU or light-years).
  * - **Orbital eccentricity (`e`)**: Determines how elliptical the orbit is.
  * - **Orbital period (`period`)**: Time taken for one full orbit.
  * - **True anomaly (`angle`)**: The star’s current position in its orbit (in **radians**).
  * - **Radius (`radius`)**: Physical size of the star.
  *
- * ## **Classification & Visualization:**
+ * **Classification & Visualization:**
  * - **Type (`type`)**: Classification of the star (e.g., **main-sequence star, white dwarf**).
  * - **Category (`category`)**: Defined as `'star'`.
  * - **Color (`color`)**: Used for visual representation.

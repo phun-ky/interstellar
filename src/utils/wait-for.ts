@@ -1,11 +1,11 @@
 /**
  * Delays execution for the specified time using `setTimeout`.
  *
- * ## **Functionality:**
+ * **Functionality:**
  * - Returns a **Promise** that resolves **after** the specified time (in milliseconds).
  * - Useful for **delaying execution**, creating **timeouts**, or **simulating wait periods**.
  *
- * ## **Usage in Async Operations:**
+ * **Usage in Async Operations:**
  * - Used in **animations**, **API polling**, or **delayed UI updates**.
  * - Prevents blocking the main thread by utilizing asynchronous execution.
  *

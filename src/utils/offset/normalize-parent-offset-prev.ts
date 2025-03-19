@@ -1,12 +1,12 @@
 /**
  * Normalizes the **parent body's previous offset** for smooth positional transitions.
  *
- * ## **Calculation Logic:**
+ * **Calculation Logic:**
  * - If the **parent offset is `0`**, the function **returns `prev - next`** directly.
  * - Otherwise, it **adjusts the offset** by computing:
  *   $$ \text{normalized} = (\text{parentOffset} + \text{prev} \mid\mid \text{prev}) - (\text{parentOffset} + \text{prev} \mid\mid \text{next}) $$
  *
- * ## **Usage in Orbit Calculations:**
+ * **Usage in Orbit Calculations:**
  * - Ensures **smooth position tracking** for moons, planets, or other celestial bodies.
  * - Avoids abrupt jumps in **parent-relative motion**.
  *

@@ -5,8 +5,20 @@ import { StarsType } from '../types/stars';
  *
  * Each star entry includes spectral classification, orbital parameters,
  * position relative to the Milky Way, and a visual representation color.
+ *
+ * Uses {@link StarsType}.
+ *
+ * **Example item in dataset:**
+ *
+ * {@includeCode ../datasets/stars.ts#datasetStars}
+ *
+ * @example
+ * ```ts
+ * console.log(STARS[0].name); // "Sun"
+ * ```
  */
 export const STARS: StarsType = [
+  // #region datasetStars
   {
     name: 'Sun',
     type: 'G2V', // Yellow Dwarf, Main Sequence
@@ -29,6 +41,7 @@ export const STARS: StarsType = [
     /** Orbital period in million years (Myr) */
     period: { value: 230, unit: 'Myr' }
   },
+  // #endregion datasetStars
   {
     name: 'Vega',
     type: 'A0V', // White-Blue Main Sequence

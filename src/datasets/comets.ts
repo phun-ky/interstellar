@@ -4,7 +4,17 @@ import { CometsType } from '../types/comets';
  * Represents a collection of well-known comets within the solar system simulation.
  *
  * This dataset includes orbital elements and physical characteristics of comets.
+ *
+ * Uses {@link CometsType}.
+ *
+ * {@includeCode ../datasets/comets.ts#datasetComets}
+ *
+ * @example
+ * ```ts
+ * console.log(COMETS[0].name); // "Halley's Comet"
+ * ```
  */
+// #region datasetComets
 export const COMETS: CometsType = [
   {
     // eslint-disable-next-line @stylistic/quotes
@@ -70,3 +80,4 @@ export const COMETS: CometsType = [
     radius: { value: 4.8, unit: 'km' }
   }
 ];
+// #endregion datasetComets

@@ -1,7 +1,7 @@
 /**
  * Initializes a circular minimap element on the webpage if it does not already exist.
  *
- * ## **Minimap Properties:**
+ * **Minimap Properties:**
  * - Positioned at the **bottom-right** corner of the viewport.
  * - **Circular shape** achieved using `borderRadius: 50%`.
  * - **Fixed size** of `200px x 200px`.

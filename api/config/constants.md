@@ -1,12 +1,10 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../README.md) / config/constants
 
 # config/constants
 
-> Last updated 2025-03-18T13:45:43.050Z
+> Last updated 2025-03-19T08:29:08.326Z
 
 ## Table of Contents
 
@@ -326,35 +324,38 @@ Global scale object to manage dynamic scaling.
 #### Type declaration
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default value</th>
-      <th>Defined in</th>
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default value</th>
+<th>Defined in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
 
-  <tbody>
-    <tr>
-      <td>
-        <a id="value" /> `value`
-      </td>
+<a id="value"></a> `value`
 
-      <td>
-        `number`
-      </td>
+</td>
+<td>
 
-      <td>
-        INITIAL\_SCALE
-      </td>
+`number`
 
-      <td>
-        [config/constants.ts:90](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L90)
-      </td>
-    </tr>
+</td>
+<td>
 
-  </tbody>
+INITIAL_SCALE
+
+</td>
+<td>
+
+[config/constants.ts:90](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L90)
+
+</td>
+</tr>
+</tbody>
 </table>
 
 ---

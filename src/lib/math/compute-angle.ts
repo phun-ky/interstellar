@@ -8,19 +8,20 @@ import { solveKepler } from './solve-kepler';
 /**
  * Computes the orbital angle (true anomaly, $ν$) of a celestial body for a given date and time step.
  *
- * ## **Mathematical Explanation:**
+ * **Mathematical Explanation:**
+ *
  * This function determines the **true anomaly** ($ν$) based on the time elapsed since the
  * **J2000 epoch** (January 1, 2000) and the provided time step. The calculation follows these steps:
  *
- * ### **Step 1: Compute Time Elapsed Since J2000**
+ * **Step 1: Compute Time Elapsed Since J2000**
  * The number of days since **J2000** is computed as:
- * $$ \Delta T = \frac{t - t_{J2000}}{\text{MS\\_1\\_DAY}} $$
+ * $$ \Delta T = \frac{t - t_{J2000}}{\text{MS\_1\_DAY}} $$
  * where:
  * - $t$ is the current date in milliseconds.
  * - $t_{J2000}$ is **J2000** (2000-01-01T00:00:00Z).
  * - **MS_1_DAY** is the number of milliseconds in one day.
  *
- * ### **Step 2: Compute the Mean Anomaly ($M$)**
+ * **Step 2: Compute the Mean Anomaly ($M$)**
  * The **mean anomaly** is calculated as:
  * $$ M = M_0 + n \cdot (\Delta T + \text{timeStep}) $$
  * where:
@@ -28,16 +29,16 @@ import { solveKepler } from './solve-kepler';
  * - $n$ is the mean motion (orbital angular velocity).
  * - $\text{timeStep}$ is the time step in days.
  *
- * ### **Step 3: Solve Kepler’s Equation for Eccentric Anomaly ($E$)**
+ * **Step 3: Solve Kepler’s Equation for Eccentric Anomaly ($E$)**
  * Kepler’s equation:
  * $$ M = E - e \sin(E) $$
  * is solved numerically to obtain the **eccentric anomaly** ($E$).
  *
- * ### **Step 4: Convert Eccentric Anomaly ($E$) to True Anomaly ($ν$)**
+ * **Step 4: Convert Eccentric Anomaly ($E$) to True Anomaly ($ν$)**
  * Using the relation:
  * $$ ν = 2 \tan^{-1} \left( \sqrt{\frac{1+e}{1-e}} \tan\left(\frac{E}{2}\right) \right) $$
  *
- * ### **Step 5: Adjust the True Anomaly for Certain Bodies**
+ * **Step 5: Adjust the True Anomaly for Certain Bodies**
  * - For **comets**, the final **true anomaly** is adjusted by subtracting the **eccentricity** ($e$).
  * - For **stars and other celestial objects**, the computed **true anomaly** is used directly.
  *

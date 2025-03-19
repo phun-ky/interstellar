@@ -4,11 +4,11 @@ import { TemporalInterface, TemporalUnitType } from '../../types/temporal';
 /**
  * Converts a **temporal measurement** between **days, years, and million years (Myr)**.
  *
- * ## **Conversion Logic:**
+ * **Conversion Logic:**
  * 1. Converts the input time to **years** as an intermediate step.
  * 2. Converts the **years value** into the **target unit**.
  *
- * ## **Supported Conversions:**
+ * **Supported Conversions:**
  * - **Days ↔ Years** (Uses Earth's orbital period `EARTH_PERIOD`).
  * - **Years ↔ Million Years (Myr)**.
  *

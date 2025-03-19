@@ -4,11 +4,11 @@ import { DistanceInterface, ValueInterface } from '../../types/distance';
 /**
  * Converts a **pixel-based distance** back into **Astronomical Units (AU)**.
  *
- * ## **Conversion Logic:**
+ * **Conversion Logic:**
  * 1. Divides the pixel distance by **AU_IN_PX** (pixels per AU).
  * 2. Adjusts the result based on the **scale factor**.
  *
- * ## **Usage in Visualization:**
+ * **Usage in Visualization:**
  * - Used to map **rendered pixel distances** back into **real-world AU measurements**.
  * - Supports scaled rendering where **1 AU ≠ fixed pixel value**.
  *

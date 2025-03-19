@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/distance/normalize-distance
 
 # utils/distance/normalize-distance
 
-> Last updated 2025-03-18T13:45:43.069Z
+> Last updated 2025-03-19T08:29:08.347Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [normalizeDistance()](#normalizedistance)
-- [**Conversion Logic:**](#conversion-logic)
-- [**Supported Units:**](#supported-units)
 
 ## Functions
 
@@ -28,18 +24,18 @@ Defined in:
 
 Normalizes a distance measurement to the most **readable unit**.
 
-## **Conversion Logic:**
+**Conversion Logic:**
 
 1. Converts the input distance to **Astronomical Units (AU)** as an intermediate
    step.
 2. Selects the **most appropriate unit** based on magnitude:
-   - **km** for values \< 1 AU
+   - **km** for values < 1 AU
    - **AU** for values within 1 AU to 1 light-year
    - **ly** for values within 1 to 1000 light-years
    - **kly** for values above 1000 light-years
 3. Preserves the **original sign** of the input value.
 
-## **Supported Units:**
+**Supported Units:**
 
 - **AU ↔ km ↔ ly ↔ kly** (Kilolight-years)
 

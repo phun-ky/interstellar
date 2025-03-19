@@ -5,7 +5,7 @@ import { generateStarfieldBitmap } from './generate-starfield-bitmap';
 /**
  * Initializes or updates the starfield when the window resizes.
  *
- * ## **Initialization Logic:**
+ * **Initialization Logic:**
  * - If `globalThis.STARFIELD_BITMAP` **does not exist**, a new starfield is generated.
  * - If the **canvas size has changed**, the starfield is regenerated.
  * - The last known canvas size is stored in `globalThis.LAST_CANVAS_SIZE` to detect changes.

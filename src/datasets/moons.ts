@@ -1,13 +1,25 @@
-import { MoonInterface } from '../types/moons';
+import { MoonsType } from '../types/moons';
 
 /**
  * Represents a dataset of natural satellites (moons) in the solar system.
  *
  * Each moon entry includes its orbital elements, physical characteristics,
  * and a visual representation color for rendering.
+ *
+ * Uses {@link MoonsType}.
+ *
+ * **Example item in dataset:**
+ *
+ * {@includeCode ../datasets/moons.ts#datasetMoons}
+ *
+ * @example
+ * ```ts
+ * console.log(MOONS[0].name); // "Moon"
+ * ```
  */
-export const MOONS: MoonInterface[] = [
+export const MOONS: MoonsType = [
   // **Earth**
+  // #region datasetMoons
   {
     name: 'Moon',
     category: 'natural satellite',
@@ -25,7 +37,7 @@ export const MOONS: MoonInterface[] = [
     /** Initial angle in orbit at J2000 */
     angle: 2.41
   },
-
+  // #endregion datasetMoons
   // **Mars**
   {
     name: 'Phobos',

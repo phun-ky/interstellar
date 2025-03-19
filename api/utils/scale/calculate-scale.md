@@ -1,19 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / utils/scale/calculate-scale
 
 # utils/scale/calculate-scale
 
-> Last updated 2025-03-18T13:45:43.071Z
+> Last updated 2025-03-19T08:29:08.349Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [calculateScale()](#calculatescale)
-- [**Zoom Logic:**](#zoom-logic)
-- [**Usage in Visualization:**](#usage-in-visualization)
 
 ## Functions
 
@@ -28,12 +24,12 @@ Defined in:
 
 Calculates the **new scale factor** based on a zoom event.
 
-## **Zoom Logic:**
+**Zoom Logic:**
 
 - **Scroll Up (`deltaY < 0`)** → Zoom **in** by multiplying by `ZOOM_FACTOR`.
 - **Scroll Down (`deltaY > 0`)** → Zoom **out** by dividing by `ZOOM_FACTOR`.
 
-## **Usage in Visualization:**
+**Usage in Visualization:**
 
 - Adjusts the **scale of celestial objects and distances** dynamically.
 - Ensures smooth **zooming interactions** in canvas-based simulations.

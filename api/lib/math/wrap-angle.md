@@ -1,18 +1,15 @@
-<div>
-  <img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;" />
-</div>
+<div><img alt="SPECCER logo" src="https://raw.githubusercontent.com/phun-ky/interstellar/main/public/interstellar-header.png" style="max-height:120px;"/></div>
 
 [interstellar](../../README.md) / lib/math/wrap-angle
 
 # lib/math/wrap-angle
 
-> Last updated 2025-03-18T13:45:43.064Z
+> Last updated 2025-03-19T08:29:08.340Z
 
 ## Table of Contents
 
 - [Functions](#functions)
   - [wrapAngle()](#wrapangle)
-- [**Mathematical Explanation:**](#mathematical-explanation)
 
 ## Functions
 
@@ -23,11 +20,11 @@ function wrapAngle(x): number;
 ```
 
 Defined in:
-[lib/math/wrap-angle.ts:25](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/wrap-angle.ts#L25)
+[lib/math/wrap-angle.ts:26](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/wrap-angle.ts#L26)
 
 Wraps an angle to the range $[0, 2\pi)$.
 
-## **Mathematical Explanation:**
+**Mathematical Explanation:**
 
 This function ensures that an angle $x$ is always in the standard range:
 
@@ -54,7 +51,7 @@ within one full revolution.
 
 `number`
 
-The angle wrapped into the range $[0, 2\pi)$.
+The angle wrapped into the range $[0, 2\pi]$.
 
 #### Example
 

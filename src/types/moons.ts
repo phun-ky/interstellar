@@ -5,13 +5,13 @@ import { TemporalInterface } from './temporal';
 /**
  * Represents a **moon** (natural satellite) orbiting a planet.
  *
- * ## **Orbital Properties:**
+ * **Orbital Properties:**
  * - **Semi-major axis (`a`)**: Defines the moon’s orbit size in **Astronomical Units (AU)**.
  * - **Orbital eccentricity (`e`)**: Determines how elliptical the orbit is ($0 =$ circular, closer to $1 =$ highly elliptical).
  * - **Orbital period (`period`)**: Time taken for one full orbit in **Earth days**.
  * - **True anomaly (`angle`)**: The moon’s current position in its orbit (in **radians**).
  *
- * ## **Visualization Properties:**
+ * **Visualization Properties:**
  * - **Orbit Path (`orbitPath`)**: Precomputed trajectory for rendering.
  * - **Color (`color`)**: Visual representation.
  * - **Size (`radius`)**: Actual moon radius in **kilometers (km)**.
