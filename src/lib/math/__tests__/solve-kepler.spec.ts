@@ -3,43 +3,101 @@ import test, { describe } from 'node:test';
 
 import { solveKepler } from '../solve-kepler';
 
+const EPSILON = 1e-8; // Floating-point tolerance
+const assertApproxEqual = (actual: number, expected: number) => {
+  assert.ok(
+    Math.abs(actual - expected) < EPSILON,
+    `Expected ~${expected}, got ${actual}`
+  );
+};
+
 describe('solveKepler', () => {
-  // Test cases for solveKepler
-  const testCases = [
-    { M: 0, e: 0.5, expected: 0.0 }, // M = 0 should give E = 0
-    { M: Math.PI / 4, e: 0.1, expected: 0.861265 }, // Approximate expected value
-    { M: Math.PI / 2, e: 0.3, expected: 1.858468 }, // Approximate expected value
-    { M: Math.PI, e: 0.2, expected: Math.PI }, // M = π should give E = π
-    { M: (3 * Math.PI) / 2, e: 0.4, expected: 4.339829 } // Approximate expected value
-  ];
+  test('Circular Orbit (e = 0)', () => {
+    const M = Math.PI / 4; // 45 degrees
+    const e = 0.0; // Circular orbit
+    const result = solveKepler(M, e);
 
-  test('computes correct eccentric anomaly', () => {
-    testCases.forEach(({ M, e, expected }) => {
-      const result = solveKepler(M, e);
-
-      assert.ok(
-        Math.abs(result - expected) < 1e-4,
-        `Expected E ≈ ${expected} for M=${M}, e=${e}, but got ${result}`
-      );
-    });
+    assertApproxEqual(result, M); // E = M for circular orbits
   });
 
-  test('handles special cases', () => {
-    assert.strictEqual(solveKepler(0, 0), 0); // Circular orbit (e = 0) should return M
-    assert.strictEqual(solveKepler(Math.PI, 0), Math.PI); // Circular case with M = π
+  test('Small Eccentricity (e = 0.1)', () => {
+    const M = Math.PI / 4;
+    const e = 0.1;
+    const expectedE = 0.8612648848681754; // Verified expected value
+    const result = solveKepler(M, e);
+
+    assertApproxEqual(result, expectedE);
   });
 
-  test('throws on invalid eccentricity', () => {
-    assert.throws(
-      () => solveKepler(Math.PI / 3, 1),
-      Error,
-      // eslint-disable-next-line @stylistic/quotes
-      "Kepler's equation is not valid for e = 1"
+  test('Moderate Eccentricity (e = 0.5)', () => {
+    const M = Math.PI / 2;
+    const e = 0.5;
+    const expectedE = 2.02097993808977; // Verified expected value
+    const result = solveKepler(M, e);
+
+    assertApproxEqual(result, expectedE);
+  });
+
+  test('High Eccentricity (e = 0.8)', () => {
+    const M = Math.PI / 6;
+    const e = 0.8;
+    const expectedE = 1.2929083458551878; // Verified expected value
+    const result = solveKepler(M, e);
+
+    assertApproxEqual(result, expectedE);
+  });
+
+  test('Nearly Parabolic Orbit (e = 0.99)', () => {
+    const M = Math.PI / 4;
+    const e = 0.99;
+    const expectedE = 1.7580856078252136; // Verified expected value
+    const result = solveKepler(M, e);
+
+    assertApproxEqual(result, expectedE);
+  });
+
+  test('Mean Anomaly at 0', () => {
+    const M = 0;
+    const e = 0.5;
+    const result = solveKepler(M, e);
+
+    assertApproxEqual(result, 0); // E = 0 when M = 0
+  });
+
+  test('Mean Anomaly at π', () => {
+    const M = Math.PI;
+    const e = 0.5;
+    const expectedE = Math.PI; // At M = π, E should also be π
+    const result = solveKepler(M, e);
+
+    assertApproxEqual(result, expectedE);
+  });
+
+  test('Mean Anomaly at 2π', () => {
+    const M = 2 * Math.PI;
+    const e = 0.5;
+    const result = solveKepler(M, e);
+
+    assertApproxEqual(result, 0); // Should wrap to 0
+  });
+
+  test('Convergence with max iterations', () => {
+    const M = Math.PI / 3;
+    const e = 0.7;
+    const result = solveKepler(M, e, 100); // Force more iterations
+
+    assert.ok(
+      result >= 0 && result < 2 * Math.PI,
+      `Expected result in range [0, 2π), got ${result}`
     );
-    assert.throws(
-      () => solveKepler(Math.PI / 3, -0.1),
-      RangeError,
-      'Eccentricity must be in the range [0, 1]'
-    );
+  });
+
+  test('Invalid Eccentricity (e < 0) Throws Error', () => {
+    assert.throws(() => solveKepler(Math.PI / 4, -0.1), RangeError);
+  });
+
+  test('Invalid Eccentricity (e >= 1) Throws Error', () => {
+    assert.throws(() => solveKepler(Math.PI / 4, 1), RangeError);
+    assert.throws(() => solveKepler(Math.PI / 4, 1.1), RangeError);
   });
 });
