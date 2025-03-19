@@ -54,7 +54,7 @@ export const computeMeanAnomaly = (
 
   if (e < 0 || e >= 1) {
     throw new RangeError(
-      `Invalid eccentricity: ${e}. Eccentricity must be in the range [0, 1).`
+      `Invalid eccentricity: ${e}. Eccentricity must be in the range [0, 1].`
     );
   }
 
