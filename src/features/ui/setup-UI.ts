@@ -72,6 +72,7 @@ export const setupUI = () => {
         <label for="speedMode" class="int">Speed Mode:</label>
         <select id="speedMode" class="int">
           <option class="int" value="realTime">Real-Time (60 FPS)</option>
+          <option class="int" value="quarterFramePerDay">1 Frame = 0.25 Day</option>
           <option class="int" value="framePerDay">1 Frame = 1 Day</option>
           <option class="int" value="spedUp">Sped-Up Mode</option>
           <option class="int" value="insane">Insane Mode</option>

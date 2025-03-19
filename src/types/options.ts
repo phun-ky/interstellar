@@ -46,9 +46,13 @@ export interface UIOptionsInterface {
  * - **`spedUp`**: Runs at a **faster-than-real-time** speed.
  * - **`realTime`**: Syncs with actual time progression.
  *
- * @typedef {'framePerDay' | 'spedUp' | 'realTime'} TimeStepMode
+ * @typedef {'framePerDay' | 'spedUp' | 'realTime' | 'quarterFramePerDay'} TimeStepMode
  */
-export type TimeStepMode = 'framePerDay' | 'spedUp' | 'realTime';
+export type TimeStepMode =
+  | 'framePerDay'
+  | 'spedUp'
+  | 'realTime'
+  | 'quarterFramePerDay';
 
 /**
  * Configuration for time step settings in the simulation.

@@ -28,7 +28,12 @@ export const timeStep: TimeStepInterface = {
 };
 
 export const SPEED_MODE: {
-  value: 'realTime' | 'framePerDay' | 'spedUp' | 'insane';
+  value:
+    | 'realTime'
+    | 'quarterFramePerDay'
+    | 'framePerDay'
+    | 'spedUp'
+    | 'insane';
 } = {
   value: 'realTime'
 };

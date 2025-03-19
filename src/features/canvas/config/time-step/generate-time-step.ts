@@ -12,6 +12,7 @@ import { lastTimestamp, SPEED_MODE, timeStep } from '.';
  * (e.g., 60Hz vs. 144Hz) to ensure consistent simulation speed across different monitors.
  *
  * The function supports the following modes:
+ * - `'quarterFramePerDay'`: Each frame corresponds to 0.25 day.
  * - `'framePerDay'`: Each frame corresponds to 1 day.
  * - `'spedUp'`: Each frame corresponds to 10 days.
  * - `'insane'`: Each frame corresponds to 1000 days.
@@ -39,6 +40,13 @@ export const generateTimeStep = (): void => {
 
   // Always update lastTimestamp before returning
   lastTimestamp.value = now;
+
+  if (mode === 'quarterFramePerDay') {
+    timeStep.value = 0.25;
+    timeStep.unit = 'day';
+
+    return;
+  }
 
   if (mode === 'framePerDay') {
     timeStep.value = 1;

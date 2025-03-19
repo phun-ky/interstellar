@@ -59,6 +59,7 @@ describe('generateTimeStep', () => {
     mockNow = 16.67; // 60Hz frame time
 
     const speedModes = {
+      quarterFramePerDay: 0.25,
       framePerDay: 1,
       spedUp: 10,
       insane: 1000
@@ -68,6 +69,7 @@ describe('generateTimeStep', () => {
       SPEED_MODE.value = mode as
         | 'realTime'
         | 'framePerDay'
+        | 'quarterFramePerDay'
         | 'spedUp'
         | 'insane';
       generateTimeStep();
