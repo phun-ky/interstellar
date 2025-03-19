@@ -25,6 +25,9 @@
   "mergeReadme": true,
   "useCodeBlocks": true,
   "expandObjects": true,
+  "defaultRemarkPlugins": {
+    "mdx": false
+  },
   "remarkPlugins": [
     "unified-prettier",
     ["remark-math"],
