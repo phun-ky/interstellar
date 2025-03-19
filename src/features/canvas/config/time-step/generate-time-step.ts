@@ -61,6 +61,10 @@ export const generateTimeStep = (): void => {
     return;
   }
 
-  timeStep.value = deltaTime / MS_1_DAY;
+  const EXPECTED_FPS = 60;
+  const expectedFrameDuration = 1000 / EXPECTED_FPS;
+  const fpsNormalizedDelta = deltaTime / expectedFrameDuration;
+
+  timeStep.value = (fpsNormalizedDelta * deltaTime) / MS_1_DAY;
   timeStep.unit = 'day';
 };
