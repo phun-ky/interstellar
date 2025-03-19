@@ -125,9 +125,10 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
 
       let periodInDays = convertTemporalUnit(period, 'days').value;
 
-      if (periodInDays < 1) periodInDays = 1; // Prevent division by zero errors
+      // Prevent division by zero but keep sign for retrograde motion
+      if (Math.abs(periodInDays) < 1) periodInDays = periodInDays < 0 ? -1 : 1;
 
-      const maxTrailLength = periodInDays * TRAIL_SCALING_FACTOR;
+      const maxTrailLength = Math.abs(periodInDays) * TRAIL_SCALING_FACTOR;
       const { x, y } = getBodyPosition(body);
       const xPX = distanceToPixels(x as DistanceInterface, scale);
       const yPX = distanceToPixels(y as DistanceInterface, scale);
@@ -142,8 +143,9 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
       // Store latest positions (limit to 100 past positions)
       globalThis.TRAJECTORY_TRAILS[name].push({ x: bodyX, y: bodyY });
 
+      // Ensure retrograde motion is visually accurate
       if (globalThis.TRAJECTORY_TRAILS[name].length > maxTrailLength) {
-        globalThis.TRAJECTORY_TRAILS[name].shift(); // Remove oldest point
+        globalThis.TRAJECTORY_TRAILS[name].shift(); // Remove oldest point normally
       }
 
       // Draw the trail with fading and thickness effect

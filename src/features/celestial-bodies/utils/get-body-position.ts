@@ -56,11 +56,14 @@ export const getBodyPosition = (
     return { x: undefined, y: undefined };
   }
 
-  const { a, miA = 1, angle, focus_x = 0 } = body;
+  const { a, miA = 1, angle, focus_x = 0, period } = body;
   const normalizedA = convertDistance(a, 'AU');
+  // Determine retrograde motion
+  const orbitalDirection = period?.value < 0 ? -1 : 1;
+  const adjustedAngle = orbitalDirection * angle; // Ensures retrograde is correctly represented
   // Calculate body position in real-world units
-  const x = normalizedA.value * Math.cos(angle) - focus_x;
-  const y = miA * Math.sin(angle);
+  const x = normalizedA.value * Math.cos(adjustedAngle) - focus_x;
+  const y = miA * Math.sin(adjustedAngle);
 
   return { x: { value: x, unit: 'AU' }, y: { value: y, unit: 'AU' } };
 };

@@ -70,7 +70,7 @@ describe('solveKepler', () => {
     const expectedE = Math.PI; // At M = π, E should also be π
     const result = solveKepler(M, e);
 
-    assertApproxEqual(result, expectedE);
+    assert.equal(result, expectedE);
   });
 
   test('Mean Anomaly at 2π', () => {
@@ -88,7 +88,7 @@ describe('solveKepler', () => {
 
     assert.ok(
       result >= 0 && result < 2 * Math.PI,
-      `Expected result in range [0, 2π), got ${result}`
+      `Expected result in range [0, 2π], got ${result}`
     );
   });
 

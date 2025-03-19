@@ -1,7 +1,7 @@
 import { wrapAngle } from './wrap-angle';
 
 /**
- * Converts **true anomaly** ($\nu$) to **mean anomaly** ($M$) using Kepler's equation.
+ * Converts **true anomaly** ($\nu$) to **mean anomaly** ($M$) using Kepler's equation while handling retrograde motion.
  *
  * **Mathematical Explanation:**
  *
@@ -65,7 +65,14 @@ export const trueAnomalyToMeanAnomaly = (V: number, e: number): number => {
   // Compute Eccentric Anomaly (E) properly using atan2 and quadrant handling
   const tanHalfV = Math.tan(V / 2);
   const factor = Math.sqrt((1 - e) / (1 + e));
-  const E = 2 * Math.atan2(tanHalfV * factor, 1);
+
+  let E = 2 * Math.atan2(tanHalfV * factor, 1);
+
+  // Ensure correct quadrant for retrograde motion
+  if (V < -Math.PI || V > Math.PI) {
+    E = wrapAngle(E + Math.PI) - Math.PI;
+  }
+
   // Convert eccentric anomaly (E) to mean anomaly (M)
   const M = E - e * Math.sin(E);
 

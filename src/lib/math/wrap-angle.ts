@@ -1,37 +1,46 @@
-import { TWO_PI } from '../../config/constants';
+const EPSILON = 1e-10; // Floating-point tolerance
 
 /**
- * Wraps an angle to the range \([0, 2\pi]\), ensuring it remains within one full revolution.
+ * Wraps an angle to the range \([-\pi, \pi]\), ensuring it remains within a single revolution while preserving retrograde motion.
  *
  * **Mathematical Explanation:**
  *
  * This function ensures that an angle \( x \) is always in the standard range:
  * \[
- * 0 \leq x < 2\pi
+ * -\pi \leq x < \pi
  * \]
- * using the modulo operation:
+ * using the trigonometric identity:
  * \[
- * x_{\text{wrapped}} = (x \mod 2\pi + 2\pi) \mod 2\pi
+ * x_{\text{wrapped}} = \text{atan2}(\sin(x), \cos(x))
  * \]
  *
- * Additionally, due to floating-point precision errors, when the wrapped value is **very close** to \( 2\pi \),
- * it is explicitly set to `0` to maintain numerical consistency.
+ * This method is preferred over modulo operations (`% 2\pi`), as it avoids floating-point precision errors and ensures numerical stability.
  *
- * This function is useful in orbital mechanics and trigonometry, where angles should remain within one full revolution.
+ * **Floating-Point Precision Handling:**
+ * - Floating-point calculations can cause small rounding errors, resulting in angles slightly exceeding \( \pi \) or \( -\pi \).
+ * - Using `atan2` inherently corrects these errors by normalizing the input angle.
+ * - If necessary, a small epsilon correction can be applied to further prevent issues.
+ * - Ensures that \( \pi \) remains \( -\pi \) when the original angle was negative, maintaining correct retrograde motion.
  *
- * @param {number} x - The input angle in radians.
- * @returns {number} The angle wrapped into the range \([0, 2\pi]\), with corrections for floating-point precision.
+ * This function is particularly useful in orbital mechanics and physics simulations where **negative angles must be preserved**, such as retrograde motion calculations.
+ *
+ * @param {number} angle - The input angle in radians.
+ * @returns {number} The angle wrapped into the range \([-\pi, \pi]\), with floating-point correction.
  *
  * @example
  * ```ts
- * console.log(wrapAngle(-3)); // Output: Value wrapped in [0, 2π]
- * console.log(wrapAngle(7 * Math.PI)); // Output: Wrapped angle within [0, 2π]
- * console.log(wrapAngle(100 * Math.PI)); // Output: 0 (due to floating-point correction)
+ * console.log(wrapAngle(-3)); // Output: Value wrapped in [-π, π]
+ * console.log(wrapAngle(7 * Math.PI)); // Output: Wrapped angle within [-π, π]
+ * console.log(wrapAngle(100 * Math.PI)); // Output: Small corrected angle due to floating-point precision
  * ```
  */
-export const wrapAngle = (x: number): number => {
-  const wrapped = ((x % TWO_PI) + TWO_PI) % TWO_PI;
+export const wrapAngle = (angle: number): number => {
+  let wrapped = Math.atan2(Math.sin(angle), Math.cos(angle));
 
-  // Correct floating-point precision error when the result is very close to 2π
-  return Math.abs(wrapped - TWO_PI) < 1e-10 ? 0 : wrapped;
+  // Ensure π remains -π when angle was originally negative
+  if (Math.abs(wrapped - Math.PI) < EPSILON && angle < 0) {
+    wrapped = -Math.PI;
+  }
+
+  return wrapped;
 };

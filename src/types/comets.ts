@@ -41,7 +41,7 @@ export interface CometInterface {
   om: number;
   /** Mean anomaly at epoch in degrees. */
   angle: number;
-  /** Orbital period in Earth days. */
+  /** Orbital period in Earth days. Negative values indicate counter clockwise orbit */
   period: TemporalInterface;
   /** Perihelion distance in AU. */
   q: number;

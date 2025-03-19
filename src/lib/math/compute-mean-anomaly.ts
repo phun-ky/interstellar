@@ -60,12 +60,11 @@ export const computeMeanAnomaly = (
 
   // Convert period to days and compute mean motion
   const periodInDays = convertTemporalUnit(period, 'day').value;
-  const meanMotion = TWO_PI / periodInDays;
+  const meanMotion = TWO_PI / Math.abs(periodInDays);
   // Convert true anomaly (V) to mean anomaly (M0) if necessary
   const M0 = e === 0 ? angle : trueAnomalyToMeanAnomaly(angle, e);
-  // Clamping deltaT to avoid excessive jumps
   const maxAllowedOrbits = 10; // Prevents extreme jumps
-  const maxDeltaT = maxAllowedOrbits * periodInDays;
+  const maxDeltaT = maxAllowedOrbits * Math.abs(periodInDays);
   const clampedDeltaT = Math.min(timeStep.value, Math.round(maxDeltaT));
   // Compute new mean anomaly
   const M = wrapAngle(M0 + meanMotion * clampedDeltaT);

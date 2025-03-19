@@ -29,7 +29,7 @@ export interface StarSystemInterface {
  * **Orbital & Physical Properties:**
  * - **Semi-major axis (`a`)**: Defines the star’s orbit size (AU or light-years).
  * - **Orbital eccentricity (`e`)**: Determines how elliptical the orbit is.
- * - **Orbital period (`period`)**: Time taken for one full orbit.
+ * - **Orbital period (`period`)**: Time taken for one full orbit. Negative values indicates counter clockwise direction.
  * - **True anomaly (`angle`)**: The star’s current position in its orbit (in **radians**).
  * - **Radius (`radius`)**: Physical size of the star.
  *
@@ -87,7 +87,7 @@ export interface StarInterface {
   y: DistanceInterface;
   /** Z-coordinate in a distance-based system. */
   z: DistanceInterface;
-  /** Orbital period of the star. */
+  /** Orbital period of the star. Negative values indicate counter clockwise direction. */
   period: TemporalInterface;
   /** Precomputed orbital path points for visualization (optional). */
   orbitPath?: Coordinates2DInterface[];

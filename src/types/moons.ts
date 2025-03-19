@@ -8,7 +8,7 @@ import { TemporalInterface } from './temporal';
  * **Orbital Properties:**
  * - **Semi-major axis (`a`)**: Defines the moon’s orbit size in **Astronomical Units (AU)**.
  * - **Orbital eccentricity (`e`)**: Determines how elliptical the orbit is ($0 =$ circular, closer to $1 =$ highly elliptical).
- * - **Orbital period (`period`)**: Time taken for one full orbit in **Earth days**.
+ * - **Orbital period (`period`)**: Time taken for one full orbit in **Earth days**. Negative values indicate counter clockwise direction.
  * - **True anomaly (`angle`)**: The moon’s current position in its orbit (in **radians**).
  *
  * **Visualization Properties:**
@@ -50,7 +50,7 @@ export interface MoonInterface {
   miA?: number;
   /** X-offset for the ellipse focus (accounts for eccentricity). */
   focus_x?: number;
-  /** Orbital period in Earth days. */
+  /** Orbital period in Earth days. Negative values indicate counter clockwise orbit */
   period: TemporalInterface;
   /** Physical radius of the moon in kilometres. */
   radius: DistanceInterface;

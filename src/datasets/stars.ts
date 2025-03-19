@@ -39,7 +39,7 @@ export const STARS: StarsType = [
     /** Initial angle in orbit */
     angle: 1.5707963267948966,
     /** Orbital period in million years (Myr) */
-    period: { value: 230, unit: 'Myr' }
+    period: { value: -230, unit: 'Myr' }
   },
   // #endregion datasetStars
   {
@@ -55,7 +55,7 @@ export const STARS: StarsType = [
     e: 0.005,
     a: { value: 27230.011753394454, unit: 'ly' },
     angle: 1.569867205171707,
-    period: { value: 480, unit: 'Myr' }
+    period: { value: -480, unit: 'Myr' }
   },
   {
     name: 'Altair',
@@ -70,7 +70,7 @@ export const STARS: StarsType = [
     e: 0.004,
     a: { value: 27050.005155082687, unit: 'ly' },
     angle: 1.5701789517599378,
-    period: { value: 410, unit: 'Myr' }
+    period: { value: -410, unit: 'Myr' }
   },
   {
     name: 'Deneb',
@@ -85,7 +85,7 @@ export const STARS: StarsType = [
     e: 0.009,
     a: { value: 27375.280016832705, unit: 'ly' },
     angle: 1.475524958596149,
-    period: { value: 720, unit: 'Myr' }
+    period: { value: -720, unit: 'Myr' }
   },
   {
     name: 'Spica',
@@ -100,6 +100,6 @@ export const STARS: StarsType = [
     e: 0.006,
     a: { value: 27201.148872795795, unit: 'ly' },
     angle: 1.5616057972952029,
-    period: { value: 550, unit: 'Myr' }
+    period: { value: -550, unit: 'Myr' }
   }
 ];

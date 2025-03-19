@@ -90,10 +90,12 @@ export const drawLabels = (props: DrawLabelsPropsType): void => {
   space.textAlign = 'center';
 
   celestialBodies.forEach((body: CelestialBodyType) => {
-    const { a, miA = 1, angle, focus_x = 0, name, radius } = body;
+    const { a, miA = 1, angle, focus_x = 0, name, radius, period } = body;
+    const orbitalDirection = period.value < 0 ? -1 : 1; // Determine direction
+    const adjustedAngle = orbitalDirection * angle; // Flip for retrograde motion
     const normalizedA = convertDistance(a, 'AU');
-    const x = normalizedA.value * Math.cos(angle) - focus_x;
-    const y = miA * Math.sin(angle);
+    const x = normalizedA.value * Math.cos(adjustedAngle) - focus_x;
+    const y = miA * Math.sin(adjustedAngle);
     const xPX =
       referenceX +
       distanceToPixels({ value: x, unit: normalizedA.unit }, scale);

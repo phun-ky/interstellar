@@ -100,7 +100,7 @@ export interface PlanetInterface {
   y: DistanceInterface;
   /** Z-coordinate in a distance-based system. */
   z: DistanceInterface;
-  /** Orbital period in Earth days. */
+  /** Orbital period in Earth days. Negative values indicate counter clockwise orbit */
   period: TemporalInterface;
   /** Precomputed orbital path points for visualization (optional). */
   orbitPath?: Coordinates2DInterface[];

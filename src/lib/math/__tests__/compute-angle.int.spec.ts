@@ -26,6 +26,23 @@ describe('computeAngle', () => {
         period: { value: 687, unit: 'day' }
       },
       timeStep: { value: 1, unit: 'day' }
+    },
+    // Retrograde motion test cases
+    {
+      celestialBody: {
+        e: 0.05,
+        angle: Math.PI / 2,
+        period: { value: -365.25, unit: 'day' } // Retrograde motion
+      },
+      timeStep: { value: 1, unit: 'day' }
+    },
+    {
+      celestialBody: {
+        e: 0.2,
+        angle: -Math.PI / 4,
+        period: { value: -4332.59, unit: 'day' } // Retrograde motion
+      },
+      timeStep: { value: 10, unit: 'day' }
     }
   ];
 

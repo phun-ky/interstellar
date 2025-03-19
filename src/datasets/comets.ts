@@ -56,11 +56,28 @@ export const COMETS: CometsType = [
     w: 130.6,
     om: 282.5,
     angle: 180,
-    period: { value: 253533, unit: 'day' }, // ~695 years
+    period: { value: -253533, unit: 'day' }, // ~695 years
     q: 0.914,
     color: '#00A6FF', // Electric blue (ionized tail appearance)
     size: 4,
     radius: { value: 30, unit: 'km' }
+  },
+  {
+    name: 'Comet 67P/Churyumov–Gerasimenko',
+    category: 'jupiter-family comet',
+    type: 'short-period comet',
+    system: 'Sun',
+    a: { value: 3.464, unit: 'AU' }, // Semi-major axis
+    e: 0.641, // Eccentricity
+    i: 7.04, // Inclination in degrees
+    w: 12.78, // Argument of perihelion in degrees
+    om: 50.14, // Longitude of ascending node in degrees
+    angle: 0, // Initial angle (could be updated based on epoch)
+    period: { value: -2484, unit: 'day' }, // ~6.45 years
+    q: 1.243, // Perihelion distance in AU
+    color: '#AAAAAA', // Greyish surface color
+    size: 4, // Visualization size
+    radius: { value: 2, unit: 'km' } // Approximate average radius (~4km total diameter)
   },
   {
     name: 'Comet Encke',
@@ -73,7 +90,7 @@ export const COMETS: CometsType = [
     w: 186.5,
     om: 334.6,
     angle: 160,
-    period: { value: 1204, unit: 'day' }, // ~3.3 years
+    period: { value: -1204, unit: 'day' }, // ~3.3 years
     q: 0.34,
     color: '#FFD700', // Golden yellow (dusty tail, lower albedo)
     size: 3,

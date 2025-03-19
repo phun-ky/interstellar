@@ -40,7 +40,7 @@ describe('trueAnomalyToMeanAnomaly', () => {
 
   test('True Anomaly at 3π/2 (270°)', () => {
     const result = trueAnomalyToMeanAnomaly((3 * Math.PI) / 2, 0.5);
-    const expectedM = 5.669000457875208; // Corrected expected value
+    const expectedM = -0.6141848493043782; // Corrected expected value
 
     assertApproxEqual(result, expectedM);
   });
