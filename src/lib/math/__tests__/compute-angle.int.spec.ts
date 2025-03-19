@@ -8,8 +8,6 @@ import { wrapAngle } from '../wrap-angle';
 
 describe('computeAngle', () => {
   // Test cases
-
-  // Test cases
   const testCases = [
     {
       celestialBody: {
