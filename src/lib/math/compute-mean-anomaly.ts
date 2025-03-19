@@ -66,7 +66,7 @@ export const computeMeanAnomaly = (
   // Clamping deltaT to avoid excessive jumps
   const maxAllowedOrbits = 10; // Prevents extreme jumps
   const maxDeltaT = maxAllowedOrbits * periodInDays;
-  const clampedDeltaT = Math.min(timeStep.value, maxDeltaT);
+  const clampedDeltaT = Math.min(timeStep.value, Math.round(maxDeltaT));
   // Compute new mean anomaly
   const M = wrapAngle(M0 + meanMotion * clampedDeltaT);
 
