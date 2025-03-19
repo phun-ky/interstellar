@@ -1,5 +1,5 @@
 /**
- * Wraps an angle to the range $[0, 2\pi)$.
+ * Wraps an angle to the range $[0, 2\pi]$.
  *
  * **Mathematical Explanation:**
  *
