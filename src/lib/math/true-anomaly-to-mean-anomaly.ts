@@ -1,5 +1,7 @@
+import { wrapAngle } from './wrap-angle';
+
 /**
- * Converts true anomaly ($\nu$) to mean anomaly ($M$) using Kepler's equation.
+ * Converts **true anomaly** ($\nu$) to **mean anomaly** ($M$) using Kepler's equation.
  *
  * **Mathematical Explanation:**
  *
@@ -11,25 +13,33 @@
  * E = 2 \tan^{-1} \left( \sqrt{\frac{1 - e}{1 + e}} \tan\left(\frac{\nu}{2}\right) \right)
  * $$
  *
+ * This transformation ensures that $E$ is computed correctly **across all quadrants**,
+ * using `atan2(y, x)` instead of `atan(x)` to avoid ambiguity in angle computation.
+ *
  * **Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)**
  * Kepler’s equation states:
  * $$
  * M = E - e \sin(E)
  * $$
  *
- * Where:
- * - $\nu$ is the **true anomaly** in radians.
- * - $E$ is the **eccentric anomaly** in radians.
- * - $M$ is the **mean anomaly** in radians.
- * - $e$ is the **orbital eccentricity**, constrained to $0 \leq e < 1$ for elliptical orbits.
+ * Since anomalies are periodic over **one full orbit** ($0 \leq M < 2\pi$),
+ * we apply `wrapAngle(M)` to ensure that the computed **mean anomaly remains within this range**.
  *
- * This function calculates $M$ using these formulas.
+ * ---
  *
- * @param {number} V - True anomaly ($\nu$) in radians.
- * @param {number} e - Eccentricity of the orbit ($0 \leq e < 1$).
- * @returns {number} Mean anomaly ($M$) in radians.
+ * **Why Use `wrapAngle`?**
+ * - Ensures that the mean anomaly **is always wrapped within** $[0, 2\pi]$.
+ * - Corrects floating-point precision issues that may cause values slightly greater than $2\pi$.
+ * - Prevents negative anomalies by shifting them into the valid range.
  *
- * @throws {RangeError} If the eccentricity $e$ is outside the valid range $0 \leq e < 1$.
+ * ---
+ *
+ * @param {number} V - **True anomaly** ($\nu$) in radians.
+ * @param {number} e - **Eccentricity** of the orbit ($0 \leq e < 1$).
+ *
+ * @returns {number} The **mean anomaly** ($M$) in radians, wrapped to the range $[0, 2\pi]$.
+ *
+ * @throws {RangeError} If the **eccentricity** ($e$) is outside the valid range $0 \leq e < 1$.
  *
  * @example
  * ```ts
@@ -37,6 +47,8 @@
  * const e = 0.1; // Eccentricity
  * console.log(trueAnomalyToMeanAnomaly(V, e)); // Output: Mean anomaly in radians
  * ```
+ *
+ * ---
  *
  * @see [Kepler's Equation (Wikipedia)](https://en.wikipedia.org/wiki/Kepler%27s_equation)
  * @see [True Anomaly (Wikipedia)](https://en.wikipedia.org/wiki/True_anomaly)
@@ -50,15 +62,13 @@ export const trueAnomalyToMeanAnomaly = (V: number, e: number): number => {
     );
   }
 
-  // Convert true anomaly (V) to eccentric anomaly (E)
-  const E =
-    2 *
-    Math.atan2(
-      Math.sqrt(1 - e) * Math.sin(V / 2),
-      Math.sqrt(1 + e) * Math.cos(V / 2)
-    );
-  // Convert eccentric anomaly (E) to mean anomaly (M) using Kepler's equation
+  // Compute Eccentric Anomaly (E) properly using atan2 and quadrant handling
+  const tanHalfV = Math.tan(V / 2);
+  const factor = Math.sqrt((1 - e) / (1 + e));
+  const E = 2 * Math.atan2(tanHalfV * factor, 1);
+  // Convert eccentric anomaly (E) to mean anomaly (M)
   const M = E - e * Math.sin(E);
 
-  return M;
+  // Use `wrapAngle` to ensure M is always in [0, 2π]
+  return wrapAngle(M);
 };
