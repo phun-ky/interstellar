@@ -4,7 +4,7 @@
 
 # features/minimap/initialize-minimap
 
-> Last updated 2025-03-20T15:06:52.001Z
+> Last updated 2025-03-20T15:09:40.719Z
 
 ## Table of Contents
 

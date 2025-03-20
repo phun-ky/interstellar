@@ -4,7 +4,7 @@
 
 # components/ToggleBox
 
-> Last updated 2025-03-20T15:06:51.991Z
+> Last updated 2025-03-20T15:09:40.708Z
 
 ## Table of Contents
 

@@ -4,7 +4,7 @@
 
 # lib/math/solve-kepler-high-eccentricity
 
-> Last updated 2025-03-20T15:06:52.004Z
+> Last updated 2025-03-20T15:09:40.722Z
 
 ## Table of Contents
 
@@ -31,13 +31,13 @@ eccentric orbits ($e > 0.9$) using an iterative numerical approach.
 
 Kepler's equation for eccentric anomaly ($E$) is:
 
-![solve-kelper-high-eccentricity-elliptical-orbit](./public/solve-kelper-high-eccentricity-elliptical-orbit.svg)
+![solve-kelper-high-eccentricity-elliptical-orbit](https://raw.githubusercontent.com/phun-ky/interstellar/b607daf8e014128a6dceb3cf8d522676f06bc233/public/solve-kelper-high-eccentricity-elliptical-orbit.svg)
 
 $$
 M = E - e \sin(E) \quad \text{(for elliptical orbits, } 0 < e < 1\text{)}
 $$
 
-![solve-kepler-high-eccentricity-hyperbolic-orbit](./public/solve-kepler-high-eccentricity-hyperbolic-orbit.svg)
+![solve-kepler-high-eccentricity-hyperbolic-orbit](https://raw.githubusercontent.com/phun-ky/interstellar/b607daf8e014128a6dceb3cf8d522676f06bc233/public/solve-kepler-high-eccentricity-hyperbolic-orbit.svg)
 
 $$
 M = e \sinh(E) - E \quad \text{(for hyperbolic orbits, } e > 1\text{)}

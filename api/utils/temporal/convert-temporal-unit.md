@@ -4,7 +4,7 @@
 
 # utils/temporal/convert-temporal-unit
 
-> Last updated 2025-03-20T15:06:52.011Z
+> Last updated 2025-03-20T15:09:40.729Z
 
 ## Table of Contents
 

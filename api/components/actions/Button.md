@@ -4,7 +4,7 @@
 
 # components/actions/Button
 
-> Last updated 2025-03-20T15:06:51.988Z
+> Last updated 2025-03-20T15:09:40.704Z
 
 ## Table of Contents
 

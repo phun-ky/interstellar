@@ -4,7 +4,7 @@
 
 # lib/math/compute-mean-anomaly
 
-> Last updated 2025-03-20T15:06:52.003Z
+> Last updated 2025-03-20T15:09:40.721Z
 
 ## Table of Contents
 

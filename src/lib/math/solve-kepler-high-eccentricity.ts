@@ -12,13 +12,13 @@ import { wrapAngle } from './wrap-angle';
  *
  * Kepler's equation for eccentric anomaly ($E$) is:
  *
- * ![solve-kelper-high-eccentricity-elliptical-orbit](./public/solve-kelper-high-eccentricity-elliptical-orbit.svg)
+ * ![solve-kelper-high-eccentricity-elliptical-orbit](https://raw.githubusercontent.com/phun-ky/interstellar/b607daf8e014128a6dceb3cf8d522676f06bc233/public/solve-kelper-high-eccentricity-elliptical-orbit.svg)
  *
  * $$
  * M = E - e \sin(E) \quad \text{(for elliptical orbits, } 0 < e < 1\text{)}
  * $$
  *
- * ![solve-kepler-high-eccentricity-hyperbolic-orbit](./public/solve-kepler-high-eccentricity-hyperbolic-orbit.svg)
+ * ![solve-kepler-high-eccentricity-hyperbolic-orbit](https://raw.githubusercontent.com/phun-ky/interstellar/b607daf8e014128a6dceb3cf8d522676f06bc233/public/solve-kepler-high-eccentricity-hyperbolic-orbit.svg)
  *
  * $$
  * M = e \sinh(E) - E \quad \text{(for hyperbolic orbits, } e > 1\text{)}

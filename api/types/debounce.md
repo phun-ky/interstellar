@@ -4,7 +4,7 @@
 
 # types/debounce
 
-> Last updated 2025-03-20T15:06:52.006Z
+> Last updated 2025-03-20T15:09:40.723Z
 
 ## Table of Contents
 
