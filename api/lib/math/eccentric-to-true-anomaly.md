@@ -4,7 +4,7 @@
 
 # lib/math/eccentric-to-true-anomaly
 
-> Last updated 2025-03-19T08:29:08.340Z
+> Last updated 2025-03-20T15:01:41.152Z
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ function eccentricToTrueAnomaly(E, e): number;
 ```
 
 Defined in:
-[lib/math/eccentric-to-true-anomaly.ts:40](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/eccentric-to-true-anomaly.ts#L40)
+[lib/math/eccentric-to-true-anomaly.ts:42](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/eccentric-to-true-anomaly.ts#L42)
 
 Converts **Eccentric Anomaly** ($E$) to **True Anomaly** ($V$) for an orbit.
 

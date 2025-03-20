@@ -4,7 +4,7 @@
 
 # lib/math/compute-mean-anomaly
 
-> Last updated 2025-03-19T08:29:08.340Z
+> Last updated 2025-03-20T15:01:41.152Z
 
 ## Table of Contents
 
@@ -20,72 +20,64 @@ function computeMeanAnomaly(body, timeStep): number;
 ```
 
 Defined in:
-[lib/math/compute-mean-anomaly.ts:48](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/compute-mean-anomaly.ts#L48)
+[lib/math/compute-mean-anomaly.ts:65](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/compute-mean-anomaly.ts#L65)
 
-Computes the **Mean Anomaly** ($M$) for a celestial body after a given time
-interval $\Delta t$.
+Computes the **mean anomaly** ($M$) of a celestial body for a given time step.
 
 **Mathematical Explanation:**
 
-The **mean anomaly** ($M$) is related to the **true anomaly** ($V$) and
-**eccentric anomaly** ($E$). The mean anomaly progresses uniformly over time,
-defined as:
+The **mean anomaly** is a measure of the position of an orbiting body as if it
+moved with uniform angular motion along a circular orbit with the same period as
+the actual elliptical orbit. It is computed as:
 
-$$
-M = M_0 + n \cdot \Delta t
-$$
+$M = M_0 + n \cdot \Delta T$
 
 where:
 
-- $M_0$ is the **initial mean anomaly** at $t=0$.
-- $n$ is the **mean motion**, given by:
-  $$
-  n = \frac{2\pi}{T}
-  $$
-  where $T$ is the **orbital period**.
-- $\Delta t$ is the **time elapsed** (in days).
-
-Since anomalies are periodic ($0 \leq M < 2\pi$), a **custom modulo function**
-is used to wrap values within this range.
-
-**Handling Extreme Time Steps**
-
-- The function **caps the time step** to **10 full orbits** to prevent excessive
-  jumps.
-- This ensures numerical stability and prevents unrealistic position updates.
+- $M_0$ is the **initial mean anomaly** (converted from true anomaly if
+  necessary).
+- $n$ is the **mean motion**, given by: $n = \frac{2\pi}{P}$ where $P$ is the
+  orbital period in days.
+- $\Delta T$ is the time step.
 
 #### Parameters
 
 | Parameter  | Type                                                                     | Description                                               |
 | ---------- | ------------------------------------------------------------------------ | --------------------------------------------------------- |
-| `body`     | [`CelestialBodyType`](../../types/celestial-bodies.md#celestialbodytype) | The celestial body with its orbital parameters.           |
-| `timeStep` | [`TemporalInterface`](../../types/temporal.md#temporalinterface)         | The time step over which to compute the new mean anomaly. |
+| `body`     | [`CelestialBodyType`](../../types/celestial-bodies.md#celestialbodytype) | The celestial body for which to compute the mean anomaly. |
+| `timeStep` | [`TemporalInterface`](../../types/temporal.md#temporalinterface)         | The time step over which to compute the change.           |
 
 #### Returns
 
 `number`
 
-The **mean anomaly** ($M$) in radians within the range $[0, 2\pi)$.
+The computed mean anomaly in radians.
 
 #### Throws
 
-If the **eccentricity** ($e$) is out of the valid range $0 \leq e < 1$.
+If the body's eccentricity is outside the range $0 \leq e < 1$.
 
 #### Example
 
 ```ts
-const planet: CelestialBodyType = {
-  e: 0.2,
-  angle: 1.0,
-  period: { value: 365, unit: 'day' }
+import { computeMeanAnomaly } from './compute-mean-anomaly';
+
+const mars: CelestialBodyType = {
+  name: 'Mars',
+  e: 0.0934, // Eccentricity of Mars' orbit
+  angle: 1.047, // Initial true anomaly (in radians)
+  period: { value: 687, unit: 'day' } // Orbital period in days
 };
-const timeStep: TemporalInterface = { value: 100, unit: 'days' };
-console.log(computeMeanAnomaly(planet, timeStep)); // Output: Mean anomaly in radians
+
+const timeStep: TemporalInterface = { value: 1, unit: 'day' }; // 1-day step
+const meanAnomaly = computeMeanAnomaly(mars, timeStep);
+console.log(meanAnomaly); // Output: Computed mean anomaly in radians
 ```
 
 #### See
 
-[Kepler's Equation (Wikipedia)](https://en.wikipedia.org/wiki/Kepler%27s_equation)
+- [Mean Anomaly (Wikipedia)](https://en.wikipedia.org/wiki/Mean_anomaly)
+- [Orbital Mechanics (NASA)](https://solarsystem.nasa.gov/basics/chapter2-2/)
 
 ---
 

@@ -4,7 +4,7 @@
 
 # features/celestial-bodies/orbits/compute
 
-> Last updated 2025-03-19T08:29:08.333Z
+> Last updated 2025-03-20T15:01:41.148Z
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ function computeOrbits(celestialBodies): void;
 ```
 
 Defined in:
-[features/celestial-bodies/orbits/compute.ts:78](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/compute.ts#L78)
+[features/celestial-bodies/orbits/compute.ts:79](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/orbits/compute.ts#L79)
 
 Computes the **orbital paths** for celestial bodies orbiting around a central
 mass (e.g., a black hole).

@@ -4,7 +4,7 @@
 
 # types/native
 
-> Last updated 2025-03-19T08:29:08.344Z
+> Last updated 2025-03-20T15:01:41.156Z
 
 ## Table of Contents
 

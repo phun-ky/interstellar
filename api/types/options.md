@@ -4,7 +4,7 @@
 
 # types/options
 
-> Last updated 2025-03-19T08:29:08.344Z
+> Last updated 2025-03-20T15:01:41.156Z
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@
 ### TemporalOptionsInterface
 
 Defined in:
-[types/options.ts:66](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L66)
+[types/options.ts:70](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L70)
 
 Configuration for time step settings in the simulation.
 
@@ -37,7 +37,7 @@ const temporalSettings: TemporalOptionsInterface = {
 
 | Property                 | Type                                      | Description                  | Defined in                                                                                        |
 | ------------------------ | ----------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------- |
-| <a id="mode"></a> `mode` | [`TimeStepMode`](options.md#timestepmode) | The selected time step mode. | [types/options.ts:68](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L68) |
+| <a id="mode"></a> `mode` | [`TimeStepMode`](options.md#timestepmode) | The selected time step mode. | [types/options.ts:72](https://github.com/phun-ky/interstellar/blob/main/src/types/options.ts#L72) |
 
 ---
 
@@ -88,7 +88,11 @@ const uiOptions: UIOptionsInterface = {
 ### TimeStepMode
 
 ```ts
-type TimeStepMode = 'framePerDay' | 'spedUp' | 'realTime';
+type TimeStepMode =
+  | 'framePerDay'
+  | 'spedUp'
+  | 'realTime'
+  | 'quarterFramePerDay';
 ```
 
 Defined in:

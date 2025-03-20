@@ -12,28 +12,28 @@ const assertApproxEqual = (actual: number, expected: number) => {
 };
 
 describe('wrapAngle', () => {
-  test('angles already in range [-π, π]', () => {
-    assertApproxEqual(wrapAngle(0), 0);
-    assertApproxEqual(wrapAngle(Math.PI / 2), Math.PI / 2);
-    assertApproxEqual(wrapAngle(-Math.PI / 2), -Math.PI / 2);
-    assertApproxEqual(wrapAngle(Math.PI - 0.1), Math.PI - 0.1);
-    assertApproxEqual(wrapAngle(-Math.PI + 0.1), -Math.PI + 0.1);
+  test('angles already in range [-2π, 2π]', () => {
+    assert.equal(wrapAngle(0), 0);
+    assert.equal(wrapAngle(Math.PI), Math.PI);
+    assert.equal(wrapAngle(-Math.PI), -Math.PI);
+    assert.equal(wrapAngle(1.5 * Math.PI), 1.5 * Math.PI);
+    assert.equal(wrapAngle(-1.5 * Math.PI), -1.5 * Math.PI);
   });
 
   test('negative and retrograde angles', () => {
-    assertApproxEqual(wrapAngle(-Math.PI), -Math.PI);
-    assertApproxEqual(wrapAngle((-3 * Math.PI) / 2), Math.PI / 2);
     assertApproxEqual(wrapAngle(-2 * Math.PI), 0);
     assertApproxEqual(wrapAngle(-3 * Math.PI), -Math.PI);
-    assertApproxEqual(wrapAngle((-5 * Math.PI) / 2), -Math.PI / 2);
+    assertApproxEqual(wrapAngle(-4 * Math.PI), 0);
+    assertApproxEqual(wrapAngle(-5 * Math.PI), -Math.PI);
+    assertApproxEqual(wrapAngle(-6 * Math.PI), 0);
   });
 
-  test('angles greater than π', () => {
+  test('angles greater than 2π', () => {
     assertApproxEqual(wrapAngle(2 * Math.PI), 0);
     assertApproxEqual(wrapAngle(3 * Math.PI), Math.PI);
     assertApproxEqual(wrapAngle(4 * Math.PI), 0);
-    assertApproxEqual(wrapAngle((5 * Math.PI) / 2), Math.PI / 2);
-    assertApproxEqual(wrapAngle(7 * Math.PI), Math.PI);
+    assertApproxEqual(wrapAngle(5 * Math.PI), Math.PI);
+    assertApproxEqual(wrapAngle(6 * Math.PI), 0);
   });
 
   test('extreme values', () => {
@@ -41,5 +41,35 @@ describe('wrapAngle', () => {
     assertApproxEqual(wrapAngle(-100 * Math.PI), 0);
     assertApproxEqual(wrapAngle(1000), wrapAngle(1000 % (2 * Math.PI)));
     assertApproxEqual(wrapAngle(-1000), wrapAngle(-1000 % (2 * Math.PI)));
+  });
+
+  test('boundary values', () => {
+    assertApproxEqual(wrapAngle(2 * Math.PI), 0);
+    assertApproxEqual(wrapAngle(-2 * Math.PI), 0);
+    assertApproxEqual(wrapAngle(2 * Math.PI + EPSILON), EPSILON);
+    assertApproxEqual(wrapAngle(-2 * Math.PI - EPSILON), -EPSILON);
+  });
+
+  test('floating-point drift prevention', () => {
+    assertApproxEqual(wrapAngle(Math.PI + EPSILON / 2), Math.PI + EPSILON / 2);
+    assertApproxEqual(
+      wrapAngle(-Math.PI - EPSILON / 2),
+      -Math.PI - EPSILON / 2
+    );
+    assertApproxEqual(wrapAngle(2 * Math.PI - EPSILON / 2), -EPSILON / 2);
+    assertApproxEqual(wrapAngle(-2 * Math.PI + EPSILON / 2), EPSILON / 2);
+  });
+
+  test('large positive and negative angles', () => {
+    assertApproxEqual(wrapAngle(1e6 * Math.PI), 0);
+    assertApproxEqual(wrapAngle(-1e6 * Math.PI), 0);
+    assertApproxEqual(wrapAngle(1e9), wrapAngle(1e9 % (2 * Math.PI)));
+    assertApproxEqual(wrapAngle(-1e9), wrapAngle(-1e9 % (2 * Math.PI)));
+  });
+
+  test('angles near zero', () => {
+    assertApproxEqual(wrapAngle(EPSILON), EPSILON);
+    assertApproxEqual(wrapAngle(-EPSILON), -EPSILON);
+    assertApproxEqual(wrapAngle(0), 0);
   });
 });

@@ -4,7 +4,7 @@
 
 # types/systems
 
-> Last updated 2025-03-19T08:29:08.345Z
+> Last updated 2025-03-20T15:01:41.157Z
 
 ## Table of Contents
 
@@ -17,17 +17,18 @@
 
 ### SystemInterface
 
-Defined in: types/systems.ts:5
+Defined in:
+[types/systems.ts:5](https://github.com/phun-ky/interstellar/blob/main/src/types/systems.ts#L5)
 
 Represents a star system within the space visualization.
 
 #### Properties
 
-| Property                         | Type        | Description                           | Defined in          |
-| -------------------------------- | ----------- | ------------------------------------- | ------------------- |
-| <a id="distance"></a> `distance` | `number`    | Distance from the Sun in light-years. | types/systems.ts:11 |
-| <a id="name"></a> `name`         | `string`    | Name of the star system.              | types/systems.ts:7  |
-| <a id="stars"></a> `stars`       | `string`\[] | List of star names in the system.     | types/systems.ts:9  |
+| Property                         | Type        | Description                           | Defined in                                                                                        |
+| -------------------------------- | ----------- | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| <a id="distance"></a> `distance` | `number`    | Distance from the Sun in light-years. | [types/systems.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/types/systems.ts#L11) |
+| <a id="name"></a> `name`         | `string`    | Name of the star system.              | [types/systems.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/types/systems.ts#L7)   |
+| <a id="stars"></a> `stars`       | `string`\[] | List of star names in the system.     | [types/systems.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/types/systems.ts#L9)   |
 
 ## Type Aliases
 
@@ -37,7 +38,8 @@ Represents a star system within the space visualization.
 type SystemsType = SystemInterface[];
 ```
 
-Defined in: types/systems.ts:17
+Defined in:
+[types/systems.ts:17](https://github.com/phun-ky/interstellar/blob/main/src/types/systems.ts#L17)
 
 Type alias for a collection of star systems.
 

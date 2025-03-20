@@ -4,7 +4,7 @@
 
 # config/constants
 
-> Last updated 2025-03-19T08:29:08.326Z
+> Last updated 2025-03-20T15:01:41.141Z
 
 ## Table of Contents
 
@@ -41,6 +41,7 @@
   - [THRESHOLD_PLANET_LABEL](#threshold_planet_label)
   - [THRESHOLD_PLANET_RENDER](#threshold_planet_render)
   - [TRAIL_SCALING_FACTOR](#trail_scaling_factor)
+  - [TWO_PI](#two_pi)
   - [ZOOM_FACTOR](#zoom_factor)
 
 ## Variables
@@ -433,7 +434,7 @@ Defined in:
 ### THRESHOLD_MOON_RENDER
 
 ```ts
-const THRESHOLD_MOON_RENDER: 12.561281983793059 = 12.561281983793059;
+const THRESHOLD_MOON_RENDER: 4 = 4;
 ```
 
 Defined in:
@@ -477,6 +478,17 @@ Defined in:
 [config/constants.ts:93](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L93)
 
 Scaling factor for rendering orbital trails.
+
+---
+
+### TWO_PI
+
+```ts
+const TWO_PI: number;
+```
+
+Defined in:
+[config/constants.ts:98](https://github.com/phun-ky/interstellar/blob/main/src/config/constants.ts#L98)
 
 ---
 

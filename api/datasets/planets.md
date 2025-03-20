@@ -4,7 +4,7 @@
 
 # datasets/planets
 
-> Last updated 2025-03-19T08:29:08.329Z
+> Last updated 2025-03-20T15:01:41.144Z
 
 ## Table of Contents
 
@@ -48,7 +48,7 @@ Uses [PlanetsType](../types/planets.md#planetstype).
   /** Initial angle in orbit at J2000 */
   angle: 0.843,
   /** Orbital period in days */
-  period: { value: 87.969, unit: 'days' },
+  period: { value: -87.969, unit: 'days' },
   /** Initial position coordinates in AU */
   x: { value: 0.387, unit: 'AU' },
   y: { value: 0.024, unit: 'AU' },

@@ -1,3 +1,5 @@
+import { Radian } from '../../types/celestial-bodies';
+
 /**
  * Converts **Eccentric Anomaly** ($E$) to **True Anomaly** ($V$) for an orbit.
  *
@@ -22,9 +24,9 @@
  *
  * Additionally, numerical stability is ensured when $E \approx \pi$.
  *
- * @param {number} E - Eccentric anomaly ($E$) in radians.
+ * @param {Radian} E - Eccentric anomaly ($E$) in radians.
  * @param {number} e - Orbital eccentricity ($0 \leq e < 1$).
- * @returns {number} True anomaly ($V$) in radians.
+ * @returns {Radian} True anomaly ($V$) in radians.
  *
  * @throws {RangeError} If **eccentricity** is out of the range $0 \leq e \leq 1$.
  *
@@ -37,7 +39,7 @@
  *
  * @see [True Anomaly (Wikipedia)](https://en.wikipedia.org/wiki/True_anomaly)
  */
-export const eccentricToTrueAnomaly = (E: number, e: number): number => {
+export const eccentricToTrueAnomaly = (E: Radian, e: number): Radian => {
   // Validate eccentricity range
   if (e < 0 || e > 1) {
     throw new RangeError(

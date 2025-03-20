@@ -4,7 +4,7 @@
 
 # lib/math/compute-angle
 
-> Last updated 2025-03-19T08:29:08.338Z
+> Last updated 2025-03-20T15:01:41.152Z
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ function computeAngle(body, timeStep): number;
 ```
 
 Defined in:
-[lib/math/compute-angle.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/compute-angle.ts#L63)
+[lib/math/compute-angle.ts:73](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/compute-angle.ts#L73)
 
 Computes the orbital angle (true anomaly, $ν$) of a celestial body for a given
 date and time step.
@@ -31,26 +31,32 @@ This function determines the **true anomaly** ($ν$) based on the time elapsed
 since the **J2000 epoch** (January 1, 2000) and the provided time step. The
 calculation follows these steps:
 
-**Step 1: Compute Time Elapsed Since J2000** The number of days since **J2000**
-is computed as: $\Delta T = \frac{t - t_{J2000}}{\text{MS\_1\_DAY}}$ where:
+**Step 1: Compute Time Elapsed Since J2000**
+
+The number of days since **J2000** is computed as:
+$\Delta T = \frac{t - t_{J2000}}{\text{MS\_1\_DAY}}$ where:
 
 - $t$ is the current date in milliseconds.
 - $t_{J2000}$ is **J2000** (2000-01-01T00:00:00Z).
 - **MS_1_DAY** is the number of milliseconds in one day.
 
-**Step 2: Compute the Mean Anomaly ($M$)** The **mean anomaly** is calculated
-as: $M = M_0 + n \cdot (\Delta T + \text{timeStep})$ where:
+**Step 2: Compute the Mean Anomaly ($M$)**
+
+The **mean anomaly** is calculated as:
+$M = M_0 + n \cdot (\Delta T + \text{timeStep})$ where:
 
 - $M_0$ is the initial mean anomaly at **J2000**.
 - $n$ is the mean motion (orbital angular velocity).
 - $\text{timeStep}$ is the time step in days.
 
-**Step 3: Solve Kepler’s Equation for Eccentric Anomaly ($E$)** Kepler’s
-equation: $M = E - e \sin(E)$ is solved numerically to obtain the **eccentric
-anomaly** ($E$).
+**Step 3: Solve Kepler’s Equation for Eccentric Anomaly ($E$)**
 
-**Step 4: Convert Eccentric Anomaly ($E$) to True Anomaly ($ν$)** Using the
-relation:
+Kepler’s equation: $M = E - e \sin(E)$ is solved numerically to obtain the
+**eccentric anomaly** ($E$).
+
+**Step 4: Convert Eccentric Anomaly ($E$) to True Anomaly ($ν$)**
+
+Using the relation:
 $ν = 2 \tan^{-1} \left( \sqrt{\frac{1+e}{1-e}} \tan\left(\frac{E}{2}\right) \right)$
 
 **Step 5: Adjust the True Anomaly for Certain Bodies**
@@ -71,16 +77,22 @@ $ν = 2 \tan^{-1} \left( \sqrt{\frac{1+e}{1-e}} \tan\left(\frac{E}{2}\right) \ri
 
 `number`
 
-The computed angle for the celestial body
+The computed true anomaly in radians.
 
 #### Example
 
 ```ts
-const date = new Date('2025-06-15T12:00:00Z');
-const earth = { name: 'Earth', e: 0.0167, angle: 0 };
-const timeStep = 1; // 1 day
-const angle = computeAngle(earth, date, timeStep);
-console.log(earth, angle); // Output: Computed true anomaly in radians
+import { computeAngle } from './compute-angle';
+
+const earth: CelestialBodyType = {
+  name: 'Earth',
+  e: 0.0167, // Orbital eccentricity
+  angle: 0 // Initial angle
+};
+
+const timeStep: TimeStepInterface = { days: 1 }; // Time step of 1 day
+const angle: Radian = computeAngle(earth, timeStep);
+console.log(angle); // Output: Computed true anomaly in radians
 ```
 
 #### See

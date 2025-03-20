@@ -4,7 +4,7 @@
 
 # lib/math/wrap-angle
 
-> Last updated 2025-03-19T08:29:08.340Z
+> Last updated 2025-03-20T15:01:41.153Z
 
 ## Table of Contents
 
@@ -16,49 +16,21 @@
 ### wrapAngle()
 
 ```ts
-function wrapAngle(x): number;
+function wrapAngle(angle): number;
 ```
 
 Defined in:
-[lib/math/wrap-angle.ts:26](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/wrap-angle.ts#L26)
-
-Wraps an angle to the range $[0, 2\pi)$.
-
-**Mathematical Explanation:**
-
-This function ensures that an angle $x$ is always in the standard range:
-
-$$
-0 \leq x < 2\pi
-$$
-
-using the modulo operation:
-
-$$
-x_{wrapped} = (x \mod 2\pi + 2\pi) \mod 2\pi
-$$
-
-This is useful in orbital mechanics and trigonometry, where angles should remain
-within one full revolution.
+[lib/math/wrap-angle.ts:6](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/wrap-angle.ts#L6)
 
 #### Parameters
 
-| Parameter | Type     | Description                 |
-| --------- | -------- | --------------------------- |
-| `x`       | `number` | The input angle in radians. |
+| Parameter | Type     |
+| --------- | -------- |
+| `angle`   | `number` |
 
 #### Returns
 
 `number`
-
-The angle wrapped into the range $[0, 2\pi]$.
-
-#### Example
-
-```ts
-console.log(wrapAngle(-3)); // Output: Value wrapped in [0, 2π]
-console.log(wrapAngle(7 * Math.PI)); // Output: Wrapped angle within [0, 2π]
-```
 
 ---
 

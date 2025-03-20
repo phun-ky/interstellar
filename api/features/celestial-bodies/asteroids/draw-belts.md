@@ -5,7 +5,7 @@ features/celestial-bodies/asteroids/draw-belts
 
 # features/celestial-bodies/asteroids/draw-belts
 
-> Last updated 2025-03-19T08:29:08.332Z
+> Last updated 2025-03-20T15:01:41.147Z
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ type DrawBeltsPropsType = {
 ```
 
 Defined in:
-[features/celestial-bodies/asteroids/draw-belts.ts:7](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L7)
+[features/celestial-bodies/asteroids/draw-belts.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L8)
 
 #### Type declaration
 
@@ -57,7 +57,7 @@ Defined in:
 </td>
 <td>
 
-[features/celestial-bodies/asteroids/draw-belts.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L12)
+[features/celestial-bodies/asteroids/draw-belts.ts:13](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L13)
 
 </td>
 </tr>
@@ -74,7 +74,7 @@ Defined in:
 </td>
 <td>
 
-[features/celestial-bodies/asteroids/draw-belts.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L9)
+[features/celestial-bodies/asteroids/draw-belts.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L10)
 
 </td>
 </tr>
@@ -91,7 +91,7 @@ Defined in:
 </td>
 <td>
 
-[features/celestial-bodies/asteroids/draw-belts.ts:10](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L10)
+[features/celestial-bodies/asteroids/draw-belts.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L11)
 
 </td>
 </tr>
@@ -108,7 +108,7 @@ Defined in:
 </td>
 <td>
 
-[features/celestial-bodies/asteroids/draw-belts.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L11)
+[features/celestial-bodies/asteroids/draw-belts.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L12)
 
 </td>
 </tr>
@@ -125,7 +125,7 @@ Defined in:
 </td>
 <td>
 
-[features/celestial-bodies/asteroids/draw-belts.ts:11](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L11)
+[features/celestial-bodies/asteroids/draw-belts.ts:12](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L12)
 
 </td>
 </tr>
@@ -142,7 +142,7 @@ Defined in:
 </td>
 <td>
 
-[features/celestial-bodies/asteroids/draw-belts.ts:8](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L8)
+[features/celestial-bodies/asteroids/draw-belts.ts:9](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L9)
 
 </td>
 </tr>
@@ -158,7 +158,7 @@ function drawBelts(props): void;
 ```
 
 Defined in:
-[features/celestial-bodies/asteroids/draw-belts.ts:44](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L44)
+[features/celestial-bodies/asteroids/draw-belts.ts:45](https://github.com/phun-ky/interstellar/blob/main/src/features/celestial-bodies/asteroids/draw-belts.ts#L45)
 
 Draws asteroid belts on the canvas, including an optional label.
 

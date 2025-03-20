@@ -4,7 +4,7 @@
 
 # features/canvas/config/camera
 
-> Last updated 2025-03-19T08:29:08.330Z
+> Last updated 2025-03-20T15:01:41.146Z
 
 ## Table of Contents
 

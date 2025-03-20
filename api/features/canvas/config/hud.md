@@ -4,7 +4,7 @@
 
 # features/canvas/config/hud
 
-> Last updated 2025-03-19T08:29:08.331Z
+> Last updated 2025-03-20T15:01:41.146Z
 
 ## Table of Contents
 

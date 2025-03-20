@@ -4,7 +4,7 @@
 
 # types/stars
 
-> Last updated 2025-03-19T08:29:08.345Z
+> Last updated 2025-03-20T15:01:41.156Z
 
 ## Table of Contents
 
@@ -27,7 +27,8 @@ Represents a **star** in a planetary or stellar system.
 
 - **Semi-major axis (`a`)**: Defines the star’s orbit size (AU or light-years).
 - **Orbital eccentricity (`e`)**: Determines how elliptical the orbit is.
-- **Orbital period (`period`)**: Time taken for one full orbit.
+- **Orbital period (`period`)**: Time taken for one full orbit. Negative values
+  indicates counter clockwise direction.
 - **True anomaly (`angle`)**: The star’s current position in its orbit (in
   **radians**).
 - **Radius (`radius`)**: Physical size of the star.
@@ -63,24 +64,24 @@ const sun: StarInterface = {
 
 #### Properties
 
-| Property                            | Type                                                             | Description                                                               | Defined in                                                                                    |
-| ----------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| <a id="a"></a> `a`                  | [`MeasureInterface`](distance.md#measureinterface)               | Semi-major axis of the orbit (AU or light-years).                         | [types/stars.ts:75](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L75) |
-| <a id="angle"></a> `angle`          | `number`                                                         | Current orbital position in radians (True Anomaly).                       | [types/stars.ts:83](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L83) |
-| <a id="category"></a> `category`    | `"star"`                                                         | Defines the category as a star.                                           | [types/stars.ts:67](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L67) |
-| <a id="color"></a> `color`          | `string`                                                         | Visual representation color.                                              | [types/stars.ts:73](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L73) |
-| <a id="e"></a> `e`                  | `number`                                                         | Orbital eccentricity (0 = circular, closer to 1 = highly elliptical).     | [types/stars.ts:77](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L77) |
-| <a id="focus_x"></a> `focus_x?`     | `number`                                                         | X-offset for the ellipse focus (accounts for eccentricity).               | [types/stars.ts:81](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L81) |
-| <a id="mia"></a> `miA?`             | `number`                                                         | Semi-minor axis of the orbit (calculated from `a` and `e`).               | [types/stars.ts:79](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L79) |
-| <a id="name"></a> `name`            | `string`                                                         | Name of the star.                                                         | [types/stars.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L63) |
-| <a id="orbitpath"></a> `orbitPath?` | [`Coordinates2DInterface`](planets.md#coordinates2dinterface)\[] | Precomputed orbital path points for visualization (optional).             | [types/stars.ts:93](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L93) |
-| <a id="period"></a> `period`        | [`TemporalInterface`](temporal.md#temporalinterface)             | Orbital period of the star.                                               | [types/stars.ts:91](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L91) |
-| <a id="radius"></a> `radius`        | [`DistanceInterface`](distance.md#distanceinterface)             | Physical radius of the star.                                              | [types/stars.ts:71](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L71) |
-| <a id="system"></a> `system`        | [`StarSystemInterface`](stars.md#starsysteminterface)            | The system in which the star exists.                                      | [types/stars.ts:69](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L69) |
-| <a id="type"></a> `type`            | `string`                                                         | Classification of the star (e.g., main-sequence, red giant, white dwarf). | [types/stars.ts:65](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L65) |
-| <a id="x"></a> `x`                  | [`DistanceInterface`](distance.md#distanceinterface)             | X-coordinate in a distance-based system.                                  | [types/stars.ts:85](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L85) |
-| <a id="y"></a> `y`                  | [`DistanceInterface`](distance.md#distanceinterface)             | Y-coordinate in a distance-based system.                                  | [types/stars.ts:87](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L87) |
-| <a id="z"></a> `z`                  | [`DistanceInterface`](distance.md#distanceinterface)             | Z-coordinate in a distance-based system.                                  | [types/stars.ts:89](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L89) |
+| Property                            | Type                                                             | Description                                                                       | Defined in                                                                                    |
+| ----------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| <a id="a"></a> `a`                  | [`MeasureInterface`](distance.md#measureinterface)               | Semi-major axis of the orbit (AU or light-years).                                 | [types/stars.ts:75](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L75) |
+| <a id="angle"></a> `angle`          | `number`                                                         | Current orbital position in radians (True Anomaly).                               | [types/stars.ts:83](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L83) |
+| <a id="category"></a> `category`    | `"star"`                                                         | Defines the category as a star.                                                   | [types/stars.ts:67](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L67) |
+| <a id="color"></a> `color`          | `string`                                                         | Visual representation color.                                                      | [types/stars.ts:73](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L73) |
+| <a id="e"></a> `e`                  | `number`                                                         | Orbital eccentricity (0 = circular, closer to 1 = highly elliptical).             | [types/stars.ts:77](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L77) |
+| <a id="focus_x"></a> `focus_x?`     | `number`                                                         | X-offset for the ellipse focus (accounts for eccentricity).                       | [types/stars.ts:81](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L81) |
+| <a id="mia"></a> `miA?`             | `number`                                                         | Semi-minor axis of the orbit (calculated from `a` and `e`).                       | [types/stars.ts:79](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L79) |
+| <a id="name"></a> `name`            | `string`                                                         | Name of the star.                                                                 | [types/stars.ts:63](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L63) |
+| <a id="orbitpath"></a> `orbitPath?` | [`Coordinates2DInterface`](planets.md#coordinates2dinterface)\[] | Precomputed orbital path points for visualization (optional).                     | [types/stars.ts:93](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L93) |
+| <a id="period"></a> `period`        | [`TemporalInterface`](temporal.md#temporalinterface)             | Orbital period of the star. Negative values indicate counter clockwise direction. | [types/stars.ts:91](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L91) |
+| <a id="radius"></a> `radius`        | [`DistanceInterface`](distance.md#distanceinterface)             | Physical radius of the star.                                                      | [types/stars.ts:71](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L71) |
+| <a id="system"></a> `system`        | [`StarSystemInterface`](stars.md#starsysteminterface)            | The system in which the star exists.                                              | [types/stars.ts:69](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L69) |
+| <a id="type"></a> `type`            | `string`                                                         | Classification of the star (e.g., main-sequence, red giant, white dwarf).         | [types/stars.ts:65](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L65) |
+| <a id="x"></a> `x`                  | [`DistanceInterface`](distance.md#distanceinterface)             | X-coordinate in a distance-based system.                                          | [types/stars.ts:85](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L85) |
+| <a id="y"></a> `y`                  | [`DistanceInterface`](distance.md#distanceinterface)             | Y-coordinate in a distance-based system.                                          | [types/stars.ts:87](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L87) |
+| <a id="z"></a> `z`                  | [`DistanceInterface`](distance.md#distanceinterface)             | Z-coordinate in a distance-based system.                                          | [types/stars.ts:89](https://github.com/phun-ky/interstellar/blob/main/src/types/stars.ts#L89) |
 
 ---
 

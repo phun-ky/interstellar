@@ -4,7 +4,7 @@
 
 # lib/math/true-anomaly-to-mean-anomaly
 
-> Last updated 2025-03-19T08:29:08.340Z
+> Last updated 2025-03-20T15:01:41.153Z
 
 ## Table of Contents
 
@@ -20,9 +20,12 @@ function trueAnomalyToMeanAnomaly(V, e): number;
 ```
 
 Defined in:
-[lib/math/true-anomaly-to-mean-anomaly.ts:46](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/true-anomaly-to-mean-anomaly.ts#L46)
+[lib/math/true-anomaly-to-mean-anomaly.ts:74](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/true-anomaly-to-mean-anomaly.ts#L74)
 
-Converts true anomaly ($\nu$) to mean anomaly ($M$) using Kepler's equation.
+Converts **true anomaly** ($\nu$) to **mean anomaly** ($M$) using Kepler's
+equation.
+
+---
 
 **Mathematical Explanation:**
 
@@ -35,47 +38,71 @@ $$
 E = 2 \tan^{-1} \left( \sqrt{\frac{1 - e}{1 + e}} \tan\left(\frac{\nu}{2}\right) \right)
 $$
 
-**Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)** Kepler’s
-equation states:
+This transformation ensures that $E$ is computed correctly **across all
+quadrants**, using `atan2(y, x)` instead of `atan(x)` to avoid ambiguity in
+angle computation.
+
+**Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)**
+
+Kepler’s equation states:
 
 $$
 M = E - e \sin(E)
 $$
 
-Where:
+Since anomalies are periodic over **one full orbit** ($0 \leq M < 2\pi$), we
+apply `wrapAngle(M)` to ensure that the computed **mean anomaly remains within
+this range**.
 
-- $\nu$ is the **true anomaly** in radians.
-- $E$ is the **eccentric anomaly** in radians.
-- $M$ is the **mean anomaly** in radians.
-- $e$ is the **orbital eccentricity**, constrained to $0 \leq e < 1$ for
-  elliptical orbits.
+---
 
-This function calculates $M$ using these formulas.
+**Why Use `wrapAngle`?**
+
+- Ensures that the mean anomaly **is always wrapped within** $[0, 2\pi]$.
+- Corrects floating-point precision issues that may cause values slightly
+  greater than $2\pi$.
+- Prevents negative anomalies by shifting them into the valid range.
+
+---
 
 #### Parameters
 
-| Parameter | Type     | Description                                 |
-| --------- | -------- | ------------------------------------------- |
-| `V`       | `number` | True anomaly ($\nu$) in radians.            |
-| `e`       | `number` | Eccentricity of the orbit ($0 \leq e < 1$). |
+| Parameter | Type     | Description                                     |
+| --------- | -------- | ----------------------------------------------- |
+| `V`       | `number` | **True anomaly** ($\nu$) in radians.            |
+| `e`       | `number` | **Eccentricity** of the orbit ($0 \leq e < 1$). |
 
 #### Returns
 
 `number`
 
-Mean anomaly ($M$) in radians.
+The **mean anomaly** ($M$) in radians, wrapped to the range $[0, 2\pi]$.
 
 #### Throws
 
-If the eccentricity $e$ is outside the valid range $0 \leq e < 1$.
+If the **eccentricity** ($e$) is outside the valid range $0 \leq e < 1$.
 
-#### Example
+---
+
+#### Examples
 
 ```ts
+import { trueAnomalyToMeanAnomaly } from './true-anomaly-to-mean-anomaly';
+
+// Example 1: Standard elliptical orbit
 const V = Math.PI / 3; // 60 degrees in radians
 const e = 0.1; // Eccentricity
 console.log(trueAnomalyToMeanAnomaly(V, e)); // Output: Mean anomaly in radians
 ```
+
+```ts
+// Example 2: Retrograde motion handling
+const V_retrograde = -Math.PI / 2; // -90 degrees
+const e_retrograde = 0.2;
+console.log(trueAnomalyToMeanAnomaly(V_retrograde, e_retrograde));
+```
+
+---
 
 #### See
 

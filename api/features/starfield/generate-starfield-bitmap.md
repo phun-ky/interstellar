@@ -4,7 +4,7 @@
 
 # features/starfield/generate-starfield-bitmap
 
-> Last updated 2025-03-19T08:29:08.337Z
+> Last updated 2025-03-20T15:01:41.151Z
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ function generateStarfieldBitmap(width, height, scale): Promise<void>;
 ```
 
 Defined in:
-[features/starfield/generate-starfield-bitmap.ts:38](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-starfield-bitmap.ts#L38)
+[features/starfield/generate-starfield-bitmap.ts:39](https://github.com/phun-ky/interstellar/blob/main/src/features/starfield/generate-starfield-bitmap.ts#L39)
 
 Generates an offscreen canvas containing a starfield and converts it into an
 `ImageBitmap`.

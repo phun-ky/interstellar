@@ -4,7 +4,7 @@
 
 ---
 
-> Last updated 2025-03-19T08:29:08.318Z
+> Last updated 2025-03-20T15:01:41.136Z
 
 ## Modules
 
@@ -62,6 +62,9 @@
 - [lib/math/compute-mean-anomaly](lib/math/compute-mean-anomaly.md)
 - [lib/math/eccentric-to-true-anomaly](lib/math/eccentric-to-true-anomaly.md)
 - [lib/math/solve-kepler](lib/math/solve-kepler.md)
+- [lib/math/solve-kepler-bisection](lib/math/solve-kepler-bisection.md)
+- [lib/math/solve-kepler-high-eccentricity](lib/math/solve-kepler-high-eccentricity.md)
+- [lib/math/solve-kepler-newton-raphson](lib/math/solve-kepler-newton-raphson.md)
 - [lib/math/true-anomaly-to-mean-anomaly](lib/math/true-anomaly-to-mean-anomaly.md)
 - [lib/math/wrap-angle](lib/math/wrap-angle.md)
 - [lib/spa/utils/dom-content-loaded](lib/spa/utils/dom-content-loaded.md)

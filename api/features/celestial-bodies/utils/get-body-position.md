@@ -5,7 +5,7 @@ features/celestial-bodies/utils/get-body-position
 
 # features/celestial-bodies/utils/get-body-position
 
-> Last updated 2025-03-19T08:29:08.334Z
+> Last updated 2025-03-20T15:01:41.148Z
 
 ## Table of Contents
 

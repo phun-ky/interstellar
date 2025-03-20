@@ -90,7 +90,7 @@ export const computeOrbits = (celestialBodies: CelestialBodiesType): void => {
     body.orbitPath = [];
 
     // Dynamic step size based on eccentricity for smooth orbit rendering
-    const baseSteps = globalThis.BASE_STEPS || 1000; // Ensuring at least twice as many points
+    const baseSteps = globalThis.BASE_STEPS || 1000;
     const eccentricityFactor = 1 + body.e * 2; // More steps for high-eccentricity orbits
     const scaledSteps = Math.max(
       baseSteps,

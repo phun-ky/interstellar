@@ -4,7 +4,7 @@
 
 # components/Checkbox
 
-> Last updated 2025-03-19T08:29:08.324Z
+> Last updated 2025-03-20T15:01:41.140Z
 
 ## Table of Contents
 

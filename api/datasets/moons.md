@@ -4,7 +4,7 @@
 
 # datasets/moons
 
-> Last updated 2025-03-19T08:29:08.329Z
+> Last updated 2025-03-20T15:01:41.144Z
 
 ## Table of Contents
 
@@ -41,7 +41,7 @@ Uses [MoonsType](../types/moons.md#moonstype).
   /** Eccentricity (0 = circular orbit, 1 = parabolic trajectory) */
   e: 0.0549,
   /** Orbital period in days */
-  period: { value: 27.322, unit: 'day' },
+  period: { value: -27.322, unit: 'day' },
   /** Radius in km */
   radius: { value: 1737.4, unit: 'km' },
   /** Visual representation color */

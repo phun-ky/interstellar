@@ -4,7 +4,7 @@
 
 # features/canvas/config/time-step
 
-> Last updated 2025-03-19T08:29:08.331Z
+> Last updated 2025-03-20T15:01:41.146Z
 
 ## Table of Contents
 
@@ -32,7 +32,12 @@ Last recorded timestamp for time calculations, in milliseconds.
 
 ```ts
 const SPEED_MODE: {
-  value: 'realTime' | 'framePerDay' | 'spedUp' | 'insane';
+  value:
+    | 'realTime'
+    | 'quarterFramePerDay'
+    | 'framePerDay'
+    | 'spedUp'
+    | 'insane';
 };
 ```
 
@@ -58,7 +63,8 @@ Defined in:
 </td>
 <td>
 
-`"realTime"` | `"framePerDay"` | `"spedUp"` | `"insane"`
+`"realTime"` | `"quarterFramePerDay"` | `"framePerDay"` | `"spedUp"` |
+`"insane"`
 
 </td>
 <td>

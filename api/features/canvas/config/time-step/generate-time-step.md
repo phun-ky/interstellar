@@ -5,7 +5,7 @@ features/canvas/config/time-step/generate-time-step
 
 # features/canvas/config/time-step/generate-time-step
 
-> Last updated 2025-03-19T08:29:08.331Z
+> Last updated 2025-03-20T15:01:41.146Z
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ function generateTimeStep(): void;
 ```
 
 Defined in:
-[features/canvas/config/time-step/generate-time-step.ts:34](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/generate-time-step.ts#L34)
+[features/canvas/config/time-step/generate-time-step.ts:35](https://github.com/phun-ky/interstellar/blob/main/src/features/canvas/config/time-step/generate-time-step.ts#L35)
 
 Generates a time step value based on the selected speed mode while accounting
 for different monitor refresh rates.
@@ -35,6 +35,7 @@ different monitors.
 
 The function supports the following modes:
 
+- `'quarterFramePerDay'`: Each frame corresponds to 0.25 day.
 - `'framePerDay'`: Each frame corresponds to 1 day.
 - `'spedUp'`: Each frame corresponds to 10 days.
 - `'insane'`: Each frame corresponds to 1000 days.

@@ -1,7 +1,9 @@
 import { wrapAngle } from './wrap-angle';
 
 /**
- * Converts **true anomaly** ($\nu$) to **mean anomaly** ($M$) using Kepler's equation while handling retrograde motion.
+ * Converts **true anomaly** ($\nu$) to **mean anomaly** ($M$) using Kepler's equation.
+ *
+ * ---
  *
  * **Mathematical Explanation:**
  *
@@ -17,6 +19,7 @@ import { wrapAngle } from './wrap-angle';
  * using `atan2(y, x)` instead of `atan(x)` to avoid ambiguity in angle computation.
  *
  * **Step 2: Convert Eccentric Anomaly ($E$) to Mean Anomaly ($M$)**
+ *
  * Kepler’s equation states:
  * $$
  * M = E - e \sin(E)
@@ -41,11 +44,24 @@ import { wrapAngle } from './wrap-angle';
  *
  * @throws {RangeError} If the **eccentricity** ($e$) is outside the valid range $0 \leq e < 1$.
  *
+ * ---
+ *
  * @example
  * ```ts
+ * import { trueAnomalyToMeanAnomaly } from './true-anomaly-to-mean-anomaly';
+ *
+ * // Example 1: Standard elliptical orbit
  * const V = Math.PI / 3; // 60 degrees in radians
  * const e = 0.1; // Eccentricity
  * console.log(trueAnomalyToMeanAnomaly(V, e)); // Output: Mean anomaly in radians
+ * ```
+ *
+ * @example
+ * ```ts
+ * // Example 2: Retrograde motion handling
+ * const V_retrograde = -Math.PI / 2; // -90 degrees
+ * const e_retrograde = 0.2;
+ * console.log(trueAnomalyToMeanAnomaly(V_retrograde, e_retrograde));
  * ```
  *
  * ---
@@ -62,13 +78,13 @@ export const trueAnomalyToMeanAnomaly = (V: number, e: number): number => {
     );
   }
 
-  // Compute Eccentric Anomaly (E) properly using atan2 and quadrant handling
+  // Compute Eccentric Anomaly (E) properly using atan2 for quadrant correctness
   const tanHalfV = Math.tan(V / 2);
   const factor = Math.sqrt((1 - e) / (1 + e));
 
   let E = 2 * Math.atan2(tanHalfV * factor, 1);
 
-  // Ensure correct quadrant for retrograde motion
+  // Ensure correct quadrant handling for retrograde motion
   if (V < -Math.PI || V > Math.PI) {
     E = wrapAngle(E + Math.PI) - Math.PI;
   }
@@ -76,6 +92,6 @@ export const trueAnomalyToMeanAnomaly = (V: number, e: number): number => {
   // Convert eccentric anomaly (E) to mean anomaly (M)
   const M = E - e * Math.sin(E);
 
-  // Use `wrapAngle` to ensure M is always in [0, 2π]
+  // Ensure M is always in the range [0, 2π]
   return wrapAngle(M);
 };

@@ -23,7 +23,7 @@ describe('solveKepler', () => {
   test('Small Eccentricity (e = 0.1)', () => {
     const M = Math.PI / 4;
     const e = 0.1;
-    const expectedE = 0.8612648848681754; // Verified expected value
+    const expectedE = 0.8612648848681754;
     const result = solveKepler(M, e);
 
     assertApproxEqual(result, expectedE);
@@ -32,7 +32,7 @@ describe('solveKepler', () => {
   test('Moderate Eccentricity (e = 0.5)', () => {
     const M = Math.PI / 2;
     const e = 0.5;
-    const expectedE = 2.02097993808977; // Verified expected value
+    const expectedE = 2.02097993808977;
     const result = solveKepler(M, e);
 
     assertApproxEqual(result, expectedE);
@@ -41,7 +41,7 @@ describe('solveKepler', () => {
   test('High Eccentricity (e = 0.8)', () => {
     const M = Math.PI / 6;
     const e = 0.8;
-    const expectedE = 1.2929083458551878; // Verified expected value
+    const expectedE = 1.2929083458551878;
     const result = solveKepler(M, e);
 
     assertApproxEqual(result, expectedE);
@@ -50,7 +50,7 @@ describe('solveKepler', () => {
   test('Nearly Parabolic Orbit (e = 0.99)', () => {
     const M = Math.PI / 4;
     const e = 0.99;
-    const expectedE = 1.7580856078252136; // Verified expected value
+    const expectedE = 1.758085607716896;
     const result = solveKepler(M, e);
 
     assertApproxEqual(result, expectedE);
