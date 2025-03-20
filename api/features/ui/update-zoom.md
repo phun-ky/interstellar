@@ -4,7 +4,7 @@
 
 # features/ui/update-zoom
 
-> Last updated 2025-03-20T15:01:41.152Z
+> Last updated 2025-03-20T15:06:52.003Z
 
 ## Table of Contents
 

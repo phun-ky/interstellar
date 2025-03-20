@@ -4,7 +4,7 @@
 
 # lib/math/solve-kepler-newton-raphson
 
-> Last updated 2025-03-20T15:01:41.153Z
+> Last updated 2025-03-20T15:06:52.004Z
 
 ## Table of Contents
 
@@ -19,7 +19,8 @@
 function solveKeplerNewtonRaphson(M, e, maxIter, tolerance): number;
 ```
 
-Defined in: lib/math/solve-kepler-newton-raphson.ts:86
+Defined in:
+[lib/math/solve-kepler-newton-raphson.ts:86](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/solve-kepler-newton-raphson.ts#L86)
 
 Solves **Kepler's Equation** for the **Eccentric Anomaly** ($E$) using the
 **Newton-Raphson method** with Householder acceleration for fast convergence.

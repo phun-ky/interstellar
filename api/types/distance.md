@@ -4,7 +4,7 @@
 
 # types/distance
 
-> Last updated 2025-03-20T15:01:41.154Z
+> Last updated 2025-03-20T15:06:52.006Z
 
 ## Table of Contents
 

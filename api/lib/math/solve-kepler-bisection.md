@@ -4,7 +4,7 @@
 
 # lib/math/solve-kepler-bisection
 
-> Last updated 2025-03-20T15:01:41.152Z
+> Last updated 2025-03-20T15:06:52.004Z
 
 ## Table of Contents
 
@@ -19,7 +19,8 @@
 function solveKeplerBisection(M, e, maxIter, tolerance): number;
 ```
 
-Defined in: lib/math/solve-kepler-bisection.ts:74
+Defined in:
+[lib/math/solve-kepler-bisection.ts:74](https://github.com/phun-ky/interstellar/blob/main/src/lib/math/solve-kepler-bisection.ts#L74)
 
 Solves **Kepler's Equation** for the **Eccentric Anomaly** ($E$) using the
 **bisection method** when Newton-Raphson or other iterative solvers fail to

@@ -4,7 +4,7 @@
 
 # features/canvas/config/ui
 
-> Last updated 2025-03-20T15:01:41.147Z
+> Last updated 2025-03-20T15:06:51.997Z
 
 ## Table of Contents
 

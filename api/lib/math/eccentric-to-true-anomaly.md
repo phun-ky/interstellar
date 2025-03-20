@@ -4,7 +4,7 @@
 
 # lib/math/eccentric-to-true-anomaly
 
-> Last updated 2025-03-20T15:01:41.152Z
+> Last updated 2025-03-20T15:06:52.004Z
 
 ## Table of Contents
 
