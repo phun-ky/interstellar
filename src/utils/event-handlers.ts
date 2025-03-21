@@ -58,9 +58,6 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   // **Smooth Zooming**
   canvas.addEventListener('wheel', (event) => {
     event.preventDefault();
-    globalThis.IS_ZOOMING_OR_PANNING = true;
-
-    if (globalThis.ZOOM_PAN_TIMEOUT) clearTimeout(globalThis.ZOOM_PAN_TIMEOUT); // Reset timer
 
     const newScale = calculateScale(event, SCALE);
 
@@ -118,12 +115,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
       offsetY.value += (worldYAfter - worldYBefore) * SCALE.value;
     }
 
-    updateOrbits(STARS, PLANETS, MOONS, COMETS);
+    updateOrbits(STARS, PLANETS, MOONS, COMETS, ASTEROIDS);
     updateScaleDisplay(scaleDisplay, SCALE);
-
-    globalThis.ZOOM_PAN_TIMEOUT = window.setTimeout(() => {
-      globalThis.IS_ZOOMING_OR_PANNING = false; // Re-enable trails after zooming stops
-    }, 500);
   });
 
   // **Mouse Drag for Panning**
@@ -176,7 +169,15 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   document.addEventListener('ZoomChanged', (event: Event) => {
     const { SCALE: scale } = (event as CustomEvent).detail;
 
+    globalThis.IS_ZOOMING_OR_PANNING = true;
+
+    if (globalThis.ZOOM_PAN_TIMEOUT) clearTimeout(globalThis.ZOOM_PAN_TIMEOUT); // Reset timer
+
     updateMinimap(STARS, scale, offsetX, offsetY);
+
+    globalThis.ZOOM_PAN_TIMEOUT = window.setTimeout(() => {
+      globalThis.IS_ZOOMING_OR_PANNING = false; // Re-enable trails after zooming stops
+    }, 500);
   });
 
   document.addEventListener('visibilitychange', () => {
@@ -227,20 +228,12 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   });
 
   const zoomIn = () => {
-    globalThis.IS_ZOOMING_OR_PANNING = true;
-
-    if (globalThis.ZOOM_PAN_TIMEOUT) clearTimeout(globalThis.ZOOM_PAN_TIMEOUT); // Reset timer
-
     const zoomEvent = new CustomEvent('ZoomChanged', { detail: { SCALE } });
 
     document.dispatchEvent(zoomEvent);
     SCALE.value *= ZOOM_FACTOR;
   };
   const zoomOut = () => {
-    globalThis.IS_ZOOMING_OR_PANNING = true;
-
-    if (globalThis.ZOOM_PAN_TIMEOUT) clearTimeout(globalThis.ZOOM_PAN_TIMEOUT); // Reset timer
-
     const zoomEvent = new CustomEvent('ZoomChanged', { detail: { SCALE } });
 
     document.dispatchEvent(zoomEvent);
