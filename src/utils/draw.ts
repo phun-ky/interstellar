@@ -291,32 +291,6 @@ export const draw = async (props: DrawPropsType) => {
         });
       }
 
-      if (scale.value > THRESHOLD_PLANET_RENDER && OPTIONS_UI.arrowHeads) {
-        drawDirectionalArrows({
-          space,
-          referenceX: sunReferenceX,
-          referenceY: sunReferenceY,
-          canvasWidth,
-          canvasHeight,
-          type: 'planets'
-        });
-      }
-
-      if (
-        scale.value > THRESHOLD_COMET_RENDER &&
-        OPTIONS_UI.comets &&
-        OPTIONS_UI.arrowHeads
-      ) {
-        drawDirectionalArrows({
-          space,
-          referenceX: sunReferenceX,
-          referenceY: sunReferenceY,
-          canvasWidth,
-          canvasHeight,
-          type: 'comets'
-        });
-      }
-
       planets.forEach((planet) => {
         if (OPTIONS_UI.moons) {
           const planetPosition = getBodyPosition(planet);
@@ -360,7 +334,7 @@ export const draw = async (props: DrawPropsType) => {
                   referenceY: planetReferenceY,
                   canvasWidth,
                   canvasHeight,
-                  type: 'moons',
+                  type: 'moon',
                   system: planet.name
                 });
               }
@@ -381,6 +355,40 @@ export const draw = async (props: DrawPropsType) => {
           }
         }
       });
+
+      if (scale.value > THRESHOLD_PLANET_RENDER && OPTIONS_UI.arrowHeads) {
+        drawDirectionalArrows({
+          space,
+          referenceX: sunReferenceX,
+          referenceY: sunReferenceY,
+          canvasWidth,
+          canvasHeight,
+          type: 'planet'
+        });
+        drawDirectionalArrows({
+          space,
+          referenceX: sunReferenceX,
+          referenceY: sunReferenceY,
+          canvasWidth,
+          canvasHeight,
+          type: 'asteroid'
+        });
+      }
+
+      if (
+        scale.value > THRESHOLD_COMET_RENDER &&
+        OPTIONS_UI.comets &&
+        OPTIONS_UI.arrowHeads
+      ) {
+        drawDirectionalArrows({
+          space,
+          referenceX: sunReferenceX,
+          referenceY: sunReferenceY,
+          canvasWidth,
+          canvasHeight,
+          type: 'comet'
+        });
+      }
     }
   }
 

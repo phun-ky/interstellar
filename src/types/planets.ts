@@ -41,7 +41,7 @@ export interface Coordinates2DInterface {
  *   type: 'terrestrial planet',
  *   category: 'planet',
  *   color: '#4287f5',
- *   system: 'Solar System',
+ *   system: 'Sun',
  *   radius: { value: 6371, unit: 'km' },
  *   a: { value: 1.0, unit: 'AU' },
  *   e: 0.0167,

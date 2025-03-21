@@ -75,7 +75,7 @@ export interface CometInterface {
  *   name: 'Halley',
  *   type: 'periodic comet',
  *   category: 'halley-type comet',
- *   system: 'Solar System',
+ *   system: 'Sun,
  *   a: { value: 17.8, unit: 'AU' },
  *   e: 0.967,
  *   i: 162.26,

@@ -9,7 +9,7 @@ export type DrawDirectionalArrowsPropsType = {
   canvasHeight: number;
   referenceX: number;
   referenceY: number;
-  type?: 'stars' | 'planets' | 'moons' | 'comets';
+  type?: 'star' | 'planet' | 'moon' | 'comet' | 'asteroid';
   system?: string;
 };
 
@@ -21,7 +21,7 @@ export type DrawDirectionalArrowsPropsType = {
  * pointing in its direction from the center of the viewport.
  *
  * The function categorizes bodies based on the `type` parameter and filters them accordingly.
- * If `type` is `moons`, an additional `system` parameter is required to determine the host planet.
+ * If `type` is `moon`, an additional `system` parameter is required to determine the host planet.
  *
  * @param {DrawDirectionalArrowsPropsType} props - The properties required for drawing arrows.
  * @returns {void}
@@ -37,7 +37,7 @@ export type DrawDirectionalArrowsPropsType = {
  *     canvasHeight: canvas.height,
  *     referenceX: canvas.width / 2,
  *     referenceY: canvas.height / 2,
- *     type: 'planets',
+ *     type: 'planet',
  *   });
  * }
  * ```
@@ -53,7 +53,7 @@ export const drawDirectionalArrows = (
     canvasHeight,
     referenceX,
     referenceY,
-    type = 'stars',
+    type = 'star',
     system
   } = props;
   const filterBodies = (category: string, systemFilter?: string) =>
@@ -69,7 +69,7 @@ export const drawDirectionalArrows = (
       })
       .map((name) => globalThis.NEAREST_BODIES[name]);
   const bodies =
-    type === 'moons' && typeof system === 'string'
+    type === 'moon' && typeof system === 'string'
       ? filterBodies('satellite', system)
       : filterBodies(type);
 
