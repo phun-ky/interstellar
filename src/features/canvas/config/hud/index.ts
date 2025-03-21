@@ -4,7 +4,7 @@ import { UIOptionsInterface } from '../../../../types/options';
  * UI configuration options for toggling visual elements in the space visualization.
  *
  * This object controls whether certain elements, such as trajectories, labels,
- * moons, arrow indicators, comets, and asteroid belts, should be displayed.
+ * moons, arrow indicators, comets, asteroids and asteroid belts, should be displayed.
  *
  * Each property represents a boolean flag that determines the visibility of a
  * specific feature in the visualization.
@@ -29,5 +29,8 @@ export const OPTIONS_UI: UIOptionsInterface = {
   comets: false,
 
   /** Whether to visualize asteroid belts. */
-  asteroidBelts: false
+  asteroidBelts: false,
+
+  /** Whether to visualize asteroids. */
+  asteroids: false
 };

@@ -1,5 +1,6 @@
 import { MS_1_DAY, SCALE, SIMULATION_DATE } from './config/constants';
 import { setupApp } from './config/setup-app';
+import { ASTEROIDS } from './datasets/asteroids';
 import { COMETS } from './datasets/comets';
 import { GALAXIES } from './datasets/galaxies';
 import { MOONS } from './datasets/moons';
@@ -68,6 +69,7 @@ const App = async () => {
       scale: SCALE,
       galaxies: GALAXIES,
       planets: PLANETS,
+      asteroids: ASTEROIDS,
       stars: STARS,
       moons: MOONS,
       comets: COMETS,

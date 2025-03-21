@@ -40,6 +40,12 @@ export const setupUI = () => {
     name: 'toggleAsteroidBelts',
     label: 'Asteroid Belts'
   });
+  const toggleAsteroidsBox = ToggleBox({
+    id: 'toggleAsteroids',
+    checked: true,
+    name: 'toggleAsteroids',
+    label: 'Asteroids'
+  });
   const pauseButton = Button({
     children: `<svg class="int pause" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M7 1H2v14h5V1ZM14 1H9v14h5V1Z"/></svg>
        <svg class="int play" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"><path fill="currentColor" d="M0 0v512l512-256z"/></svg>`,
@@ -53,6 +59,7 @@ export const setupUI = () => {
     optionsElement.innerHTML = `
     ${toggleMoonsBox}
     ${toggleAsteroidBeltsBox}
+    ${toggleAsteroidsBox}
     ${toggleCometsBox}
     ${toggleArrowheadsBox}
     ${toggleLabelsBox}

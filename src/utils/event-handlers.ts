@@ -1,5 +1,6 @@
 import { MAX_SCALE, MIN_SCALE, SCALE, ZOOM_FACTOR } from '../config/constants';
 import { setUIOptions } from '../config/set-UI-options';
+import { ASTEROIDS } from '../datasets/asteroids';
 import { COMETS } from '../datasets/comets';
 import { MOONS } from '../datasets/moons';
 import { PLANETS } from '../datasets/planets';
@@ -17,6 +18,7 @@ import { updateMinimap } from '../features/minimap/update-minimap';
 import { generateStarfield } from '../features/starfield/generate-star-field';
 import { initializeStarfield } from '../features/starfield/initialize-starfield';
 import { updateScaleDisplay } from '../features/ui/update-scale-display';
+import { AsteroidsType } from '../types/asteroids';
 import { CometsType } from '../types/comets';
 import { MoonsType } from '../types/moons';
 import { EventType } from '../types/native';
@@ -43,7 +45,8 @@ export type AttachEventHandlersPropsType = {
     stars: StarsType,
     planets: PlanetsType,
     moons: MoonsType,
-    comets: CometsType
+    comets: CometsType,
+    asteroids: AsteroidsType
   ) => void;
 };
 
@@ -196,7 +199,7 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
 
       setupCanvas();
 
-      updateOrbits(STARS, PLANETS, MOONS, COMETS);
+      updateOrbits(STARS, PLANETS, MOONS, COMETS, ASTEROIDS);
     })
   );
 
@@ -342,6 +345,9 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   const asteroidBeltsCheckboxElement = document.getElementById(
     'toggleAsteroidBelts'
   ) as HTMLInputElement;
+  const asteroidsCheckboxElement = document.getElementById(
+    'toggleAsteroids'
+  ) as HTMLInputElement;
 
   [
     trajectoryCheckboxElement,
@@ -349,7 +355,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
     cometsCheckboxElement,
     labelCheckboxElement,
     toggleArrowheadsElement,
-    asteroidBeltsCheckboxElement
+    asteroidBeltsCheckboxElement,
+    asteroidsCheckboxElement
   ].forEach((toggle) => {
     toggle.addEventListener('change', () => {
       setUIOptions({
@@ -358,7 +365,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
         cometsCheckboxElement,
         labelCheckboxElement,
         toggleArrowheadsElement,
-        asteroidBeltsCheckboxElement
+        asteroidBeltsCheckboxElement,
+        asteroidsCheckboxElement
       });
     });
   });

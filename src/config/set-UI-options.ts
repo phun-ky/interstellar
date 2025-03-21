@@ -17,6 +17,8 @@ export type SetUIOptionsPropsType = {
   cometsCheckboxElement: HTMLInputElement;
   /** Checkbox element for toggling asteroid belts visibility. */
   asteroidBeltsCheckboxElement: HTMLInputElement;
+  /** Checkbox element for toggling asteroids visibility. */
+  asteroidsCheckboxElement: HTMLInputElement;
 };
 
 /**
@@ -36,6 +38,7 @@ export type SetUIOptionsPropsType = {
  *   toggleArrowheadsElement: document.getElementById('arrowheads') as HTMLInputElement,
  *   cometsCheckboxElement: document.getElementById('comets') as HTMLInputElement,
  *   asteroidBeltsCheckboxElement: document.getElementById('asteroid-belts') as HTMLInputElement
+ *   asteroidsCheckboxElement: document.getElementById('asteroids') as HTMLInputElement
  * });
  * ```
  */
@@ -46,7 +49,8 @@ export const setUIOptions = (props: SetUIOptionsPropsType) => {
     moonsCheckboxElement,
     toggleArrowheadsElement,
     cometsCheckboxElement,
-    asteroidBeltsCheckboxElement
+    asteroidBeltsCheckboxElement,
+    asteroidsCheckboxElement
   } = props;
 
   OPTIONS_UI.trajectory = trajectoryCheckboxElement.checked || false;
@@ -55,4 +59,5 @@ export const setUIOptions = (props: SetUIOptionsPropsType) => {
   OPTIONS_UI.arrowHeads = toggleArrowheadsElement.checked || false;
   OPTIONS_UI.comets = cometsCheckboxElement.checked || false;
   OPTIONS_UI.asteroidBelts = asteroidBeltsCheckboxElement.checked || false;
+  OPTIONS_UI.asteroids = asteroidsCheckboxElement.checked || false;
 };

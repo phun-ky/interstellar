@@ -1,3 +1,4 @@
+import { ASTEROIDS } from '../datasets/asteroids';
 import { COMETS } from '../datasets/comets';
 import { MOONS } from '../datasets/moons';
 import { PLANETS } from '../datasets/planets';
@@ -53,6 +54,9 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   const asteroidBeltsCheckboxElement = document.getElementById(
     'toggleAsteroidBelts'
   ) as HTMLInputElement;
+  const asteroidsCheckboxElement = document.getElementById(
+    'toggleAsteroids'
+  ) as HTMLInputElement;
 
   setUIOptions({
     trajectoryCheckboxElement,
@@ -60,7 +64,8 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
     cometsCheckboxElement,
     labelCheckboxElement,
     toggleArrowheadsElement,
-    asteroidBeltsCheckboxElement
+    asteroidBeltsCheckboxElement,
+    asteroidsCheckboxElement
   });
 
   precomputeInitialAngles(
@@ -68,7 +73,8 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
       ...STARS,
       ...PLANETS,
       ...MOONS,
-      ...COMETS
+      ...COMETS,
+      ...ASTEROIDS
     ] as unknown as CelestialBodiesType,
     SIMULATION_DATE
   );
@@ -86,7 +92,7 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   globalThis.LAST_CANVAS_SIZE = { width: 0, height: 0 };
 
   generateStarfield(canvas.width, canvas.height);
-  updateOrbits(STARS, PLANETS, MOONS, COMETS);
+  updateOrbits(STARS, PLANETS, MOONS, COMETS, ASTEROIDS, true);
 
   if (globalThis.LOCKED_CELESTIAL_BODY !== null) {
     // Calculate the body's position in pixel coordinates
@@ -122,6 +128,7 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   updatePositions(PLANETS, timeStep);
   updatePositions(MOONS, timeStep);
   updatePositions(COMETS, timeStep);
+  updatePositions(ASTEROIDS, timeStep);
 
   updateScaleDisplay(scaleDisplay, SCALE);
 };

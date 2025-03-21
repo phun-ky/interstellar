@@ -1,3 +1,4 @@
+import { AsteroidInterface, AsteroidsType } from './asteroids';
 import { CometInterface, CometsType } from './comets';
 import { MoonInterface, MoonsType } from './moons';
 import { PlanetInterface, PlanetsType } from './planets';
@@ -12,7 +13,7 @@ import { StarInterface, StarsType } from './stars';
  * - **Moons** (`MoonsType`)
  * - **Comets** (`CometsType`)
  *
- * @typedef {StarsType | PlanetsType | MoonsType | CometsType} CelestialBodiesType
+ * @typedef {StarsType | PlanetsType | MoonsType | CometsType | AsteroidsType} CelestialBodiesType
  *
  * @example
  * ```ts
@@ -26,7 +27,8 @@ export type CelestialBodiesType =
   | StarsType
   | PlanetsType
   | MoonsType
-  | CometsType;
+  | CometsType
+  | AsteroidsType;
 
 /**
  * Type alias representing a single celestial body.
@@ -37,7 +39,7 @@ export type CelestialBodiesType =
  * - **Moons** (`MoonInterface`)
  * - **Comets** (`CometInterface`)
  *
- * @typedef {StarInterface | PlanetInterface | MoonInterface | CometInterface} CelestialBodyType
+ * @typedef {StarInterface | PlanetInterface | MoonInterface | CometInterface | AsteroidInterface} CelestialBodyType
  *
  * @example
  * ```ts
@@ -48,7 +50,8 @@ export type CelestialBodyType =
   | StarInterface
   | PlanetInterface
   | MoonInterface
-  | CometInterface;
+  | CometInterface
+  | AsteroidInterface;
 
 /**
  * Type alias representing an angle in **radians**.

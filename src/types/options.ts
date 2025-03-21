@@ -10,6 +10,7 @@
  * - **`comets`**: Show or hide comets.
  * - **`labels`**: Display names of celestial objects.
  * - **`asteroidBelts`**: Render asteroid belts in the visualization.
+ * - **`asteroids`**: Render asteroids in the visualization.
  *
  * @interface UIOptionsInterface
  * @example
@@ -20,6 +21,7 @@
  *   moons: false,
  *   comets: true,
  *   labels: true,
+ *   asteroids: true,
  *   asteroidBelts: false
  * };
  * ```
@@ -37,6 +39,8 @@ export interface UIOptionsInterface {
   labels: boolean;
   /** Render asteroid belts in the visualization. */
   asteroidBelts: boolean;
+  /** Render asteroids in the visualization. */
+  asteroids: boolean;
 }
 
 /**

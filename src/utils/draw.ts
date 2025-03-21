@@ -23,6 +23,7 @@ import { drawLabels } from '../features/labels/draw';
 import { drawGalaxyLabel } from '../features/labels/draw-galaxy-label';
 import { drawStarfield } from '../features/starfield/draw-starfield';
 import { initializeStarfield } from '../features/starfield/initialize-starfield';
+import { AsteroidsType } from '../types/asteroids';
 import { CometsType } from '../types/comets';
 import { ValueInterface } from '../types/distance';
 import { GalaxiesType } from '../types/galaxies';
@@ -40,6 +41,7 @@ export type DrawPropsType = {
   moons: MoonsType;
   galaxies: GalaxiesType;
   planets: PlanetsType;
+  asteroids: AsteroidsType;
   comets: CometsType;
   scale: ValueInterface;
   referenceX: number;
@@ -64,7 +66,7 @@ export type DrawPropsType = {
  * 1. **Background & Starfield**
  * 2. **Galaxy & Labels**
  * 3. **Stars & Orbits**
- * 4. **Planets & Asteroid Belts**
+ * 4. **Planets, Asteroid Belts & Asteroids**
  * 5. **Comets & Moons**
  * 6. **Labels & Directional Arrows**
  *
@@ -79,6 +81,7 @@ export type DrawPropsType = {
  *   moons,
  *   galaxies,
  *   planets,
+ *   asteroids,
  *   comets,
  *   scale: { value: 50 },
  *   referenceX: 500,
@@ -95,6 +98,7 @@ export const draw = async (props: DrawPropsType) => {
     space,
     stars,
     moons,
+    asteroids,
     planets,
     galaxies,
     comets,
@@ -191,6 +195,38 @@ export const draw = async (props: DrawPropsType) => {
           scale,
           asteroidBelts: ASTEROID_BELTS
         });
+
+        if (OPTIONS_UI.asteroids) {
+          // Asteroids:
+          drawOrbits({
+            celestialBodies: asteroids,
+            toggled: OPTIONS_UI.trajectory,
+            space,
+            referenceX: sunReferenceX,
+            referenceY: sunReferenceY,
+            scale
+          });
+
+          // Draw asteroids
+          drawCelestialBodies({
+            space,
+            referenceX: sunReferenceX,
+            referenceY: sunReferenceY,
+            scale,
+            celestialBodies: asteroids,
+            maxSize: MAX_PLANET_SIZE
+          });
+
+          if (scale.value > THRESHOLD_PLANET_RENDER && OPTIONS_UI.labels) {
+            drawLabels({
+              celestialBodies: asteroids,
+              space,
+              scale,
+              referenceX: sunReferenceX,
+              referenceY: sunReferenceY
+            });
+          }
+        }
       }
 
       if (scale.value > THRESHOLD_COMET_RENDER && OPTIONS_UI.comets) {
