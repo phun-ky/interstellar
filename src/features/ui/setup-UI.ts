@@ -36,13 +36,13 @@ export const setupUI = () => {
   });
   const toggleAsteroidBeltsBox = ToggleBox({
     id: 'toggleAsteroidBelts',
-    checked: true,
+    checked: false,
     name: 'toggleAsteroidBelts',
     label: 'Asteroid Belts'
   });
   const toggleAsteroidsBox = ToggleBox({
     id: 'toggleAsteroids',
-    checked: true,
+    checked: false,
     name: 'toggleAsteroids',
     label: 'Asteroids'
   });
@@ -70,8 +70,8 @@ export const setupUI = () => {
           >Type of trajectory display:</label
         >
         <select id="toggleTrajectoryType" class="int">
+        <option value="orbits">Full Orbits</option>
           <option value="trails">Trajectory Trails</option>
-          <option value="orbits">Full Orbits</option>
         </select>
       </div>
       <hr class="int" />

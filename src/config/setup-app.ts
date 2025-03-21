@@ -82,7 +82,7 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   // Global state variables for simulation behavior
   globalThis.PAUSE = false;
   globalThis.LOCKED_CELESTIAL_BODY = null;
-  globalThis.TRAJECTORY_TYPE = 'trails';
+  globalThis.TRAJECTORY_TYPE = 'orbits';
   globalThis.TRAJECTORY_TRAILS = {};
   globalThis.IS_ZOOMING_OR_PANNING = false; // Initialize
   globalThis.ZOOM_PAN_TIMEOUT = null; // For delaying reactivation
