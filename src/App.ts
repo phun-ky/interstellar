@@ -1,4 +1,12 @@
-import { MS_1_DAY, SCALE, SIMULATION_DATE } from './config/constants';
+import {
+  MS_1_DAY,
+  SCALE,
+  SIMULATION_DATE,
+  THRESHOLD_ASTEROID_BELT_RENDER,
+  THRESHOLD_COMET_RENDER,
+  THRESHOLD_MOON_RENDER,
+  THRESHOLD_PLANET_RENDER
+} from './config/constants';
 import { setupApp } from './config/setup-app';
 import { ASTEROIDS } from './datasets/asteroids';
 import { COMETS } from './datasets/comets';
@@ -8,6 +16,7 @@ import { PLANETS } from './datasets/planets';
 import { STARS } from './datasets/stars';
 import { offsetX, offsetY } from './features/canvas/config/camera';
 import { getReference } from './features/canvas/config/camera/get-reference';
+import { OPTIONS_UI } from './features/canvas/config/hud';
 import { timeStep } from './features/canvas/config/time-step';
 import { generateTimeStep } from './features/canvas/config/time-step/generate-time-step';
 import { setupCanvas } from './features/canvas/setup-canvas';
@@ -87,9 +96,25 @@ const App = async () => {
 
       // Calculate star positions per frame
       updatePositions(STARS, timeStep);
-      updatePositions(PLANETS, timeStep);
-      updatePositions(MOONS, timeStep);
-      updatePositions(COMETS, timeStep);
+
+      if (SCALE.value > THRESHOLD_PLANET_RENDER) {
+        updatePositions(PLANETS, timeStep);
+      }
+
+      if (SCALE.value > THRESHOLD_MOON_RENDER && OPTIONS_UI.moons) {
+        updatePositions(MOONS, timeStep);
+      }
+
+      if (SCALE.value > THRESHOLD_COMET_RENDER && OPTIONS_UI.comets) {
+        updatePositions(COMETS, timeStep);
+      }
+
+      if (
+        SCALE.value > THRESHOLD_ASTEROID_BELT_RENDER &&
+        OPTIONS_UI.asteroidBelts
+      ) {
+        updatePositions(ASTEROIDS, timeStep);
+      }
 
       // Increase the time per frame
       SIMULATION_DATE.setTime(

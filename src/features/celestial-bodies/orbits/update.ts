@@ -1,7 +1,16 @@
+import {
+  SCALE,
+  THRESHOLD_ASTEROID_BELT_RENDER,
+  THRESHOLD_COMET_RENDER,
+  THRESHOLD_MOON_RENDER,
+  THRESHOLD_PLANET_RENDER
+} from '../../../config/constants';
+import { AsteroidsType } from '../../../types/asteroids';
 import { CometsType } from '../../../types/comets';
 import { MoonsType } from '../../../types/moons';
 import { PlanetsType } from '../../../types/planets';
 import { StarsType } from '../../../types/stars';
+import { OPTIONS_UI } from '../../canvas/config/hud';
 
 import { computeOrbits } from './compute';
 
@@ -14,10 +23,15 @@ import { computeOrbits } from './compute';
  * It calls `computeOrbits` on each category of celestial bodies, applying Keplerian
  * orbital mechanics to determine their elliptical trajectories.
  *
+ * We only compute the orbits of celestial bodies that is rendering, except for in
+ * the setup. Forced computation is active with the `force` parameter.
+ *
  * @param {StarsType} stars - Array of stars whose orbits need to be updated.
  * @param {PlanetsType} planets - Array of planets whose orbits need recalculating.
  * @param {MoonsType} moons - Array of moons for orbital updates.
  * @param {CometsType} comets - Array of comets, which typically have highly eccentric orbits.
+ * @param {AsteroidsType} asteroids - Array of asteroids whose orbits need recalculating.
+ * @param {boolean} [force=false] - Force computation, used on setup.
  * @returns {void} This function does not return a value; it updates the orbits in place.
  *
  * @example
@@ -31,10 +45,28 @@ export const updateOrbits = (
   stars: StarsType,
   planets: PlanetsType,
   moons: MoonsType,
-  comets: CometsType
+  comets: CometsType,
+  asteroids: AsteroidsType,
+  force = false
 ): void => {
   computeOrbits(stars);
-  computeOrbits(planets);
-  computeOrbits(moons);
-  computeOrbits(comets);
+
+  if (force || SCALE.value > THRESHOLD_PLANET_RENDER) {
+    computeOrbits(planets);
+  }
+
+  if (force || (SCALE.value > THRESHOLD_MOON_RENDER && OPTIONS_UI.moons)) {
+    computeOrbits(moons);
+  }
+
+  if (force || (SCALE.value > THRESHOLD_COMET_RENDER && OPTIONS_UI.comets)) {
+    computeOrbits(comets);
+  }
+
+  if (
+    force ||
+    (SCALE.value > THRESHOLD_ASTEROID_BELT_RENDER && OPTIONS_UI.asteroidBelts)
+  ) {
+    computeOrbits(asteroids);
+  }
 };
