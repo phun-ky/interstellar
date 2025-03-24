@@ -1,4 +1,4 @@
-import { PlanetsType } from '../types/planets';
+import { PlanetsType } from '../types/celestial-bodies/planets';
 
 /**
  * Represents a dataset of planets and planetoids in the solar system.

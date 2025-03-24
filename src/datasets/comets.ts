@@ -1,4 +1,4 @@
-import { CometsType } from '../types/comets';
+import { CometsType } from '../types/celestial-bodies/comets';
 
 /**
  * Represents a collection of well-known comets within the solar system simulation.

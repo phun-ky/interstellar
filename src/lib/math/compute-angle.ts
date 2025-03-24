@@ -1,4 +1,4 @@
-import { CelestialBodyType, Radian } from '../../types/celestial-bodies';
+import { CelestialBodyType, Radians } from '../../types/celestial-bodies';
 import { TimeStepInterface } from '../../types/temporal';
 
 import { computeMeanAnomaly } from './compute-mean-anomaly';

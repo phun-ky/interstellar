@@ -1,5 +1,5 @@
 import { TWO_PI } from '../../config/constants';
-import { CelestialBodyType, Radian } from '../../types/celestial-bodies';
+import { CelestialBodyType, Radians } from '../../types/celestial-bodies';
 import { TemporalInterface } from '../../types/temporal';
 import { convertTemporalUnit } from '../../utils/temporal/convert-temporal-unit';
 

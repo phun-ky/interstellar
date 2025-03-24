@@ -1,5 +1,5 @@
 import { TWO_PI } from '../../../config/constants';
-import { AsteroidBeltsType } from '../../../types/asteroid-belts';
+import { AsteroidBeltsType } from '../../../types/celestial-bodies/asteroid-belts';
 import { distanceToPixels } from '../../../utils/distance/distance-to-pixels';
 import { OPTIONS_UI } from '../../canvas/config/hud';
 import { CANVAS_LABEL_FONT } from '../../canvas/config/ui';

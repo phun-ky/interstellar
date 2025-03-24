@@ -18,12 +18,12 @@ import { updateMinimap } from '../features/minimap/update-minimap';
 import { generateStarfield } from '../features/starfield/generate-star-field';
 import { initializeStarfield } from '../features/starfield/initialize-starfield';
 import { updateScaleDisplay } from '../features/ui/update-scale-display';
-import { AsteroidsType } from '../types/asteroids';
-import { CometsType } from '../types/comets';
-import { MoonsType } from '../types/moons';
+import { AsteroidsType } from '../types/celestial-bodies/asteroids';
+import { CometsType } from '../types/celestial-bodies/comets';
+import { MoonsType } from '../types/celestial-bodies/moons';
 import { EventType } from '../types/native';
-import { PlanetsType } from '../types/planets';
-import { StarsType } from '../types/stars';
+import { PlanetsType } from '../types/celestial-bodies/planets';
+import { StarsType } from '../types/celestial-bodies/stars';
 
 import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';

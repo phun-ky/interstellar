@@ -5,11 +5,11 @@ import {
   THRESHOLD_MOON_RENDER,
   THRESHOLD_PLANET_RENDER
 } from '../../../config/constants';
-import { AsteroidsType } from '../../../types/asteroids';
-import { CometsType } from '../../../types/comets';
-import { MoonsType } from '../../../types/moons';
-import { PlanetsType } from '../../../types/planets';
-import { StarsType } from '../../../types/stars';
+import { AsteroidsType } from '../../../types/celestial-bodies/asteroids';
+import { CometsType } from '../../../types/celestial-bodies/comets';
+import { MoonsType } from '../../../types/celestial-bodies/moons';
+import { PlanetsType } from '../../../types/celestial-bodies/planets';
+import { StarsType } from '../../../types/celestial-bodies/stars';
 import { OPTIONS_UI } from '../../canvas/config/hud';
 
 import { computeOrbits } from './compute';

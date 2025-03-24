@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unused-modules */
-import { SystemsType } from '../types/systems';
+import { SystemsType } from '../types/celestial-bodies/systems';
 
 /**
  * Predefined star systems in the galaxy.

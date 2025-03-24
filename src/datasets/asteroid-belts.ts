@@ -1,4 +1,4 @@
-import { AsteroidBeltsType } from '../types/asteroid-belts';
+import { AsteroidBeltsType } from '../types/celestial-bodies/asteroid-belts';
 
 /**
  * Predefined asteroid belts in the solar system visualization.

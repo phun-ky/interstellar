@@ -1,4 +1,4 @@
-import { MoonsType } from '../types/moons';
+import { MoonsType } from '../types/celestial-bodies/moons';
 
 /**
  * Represents a dataset of natural satellites (moons) in the solar system.

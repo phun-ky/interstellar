@@ -1,4 +1,4 @@
-import { StarsType } from '../types/stars';
+import { StarsType } from '../types/celestial-bodies/stars';
 
 /**
  * Represents a dataset of well-known stars within the Milky Way.

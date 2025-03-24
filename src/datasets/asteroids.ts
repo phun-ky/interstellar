@@ -1,4 +1,4 @@
-import { AsteroidsType } from '../types/asteroids';
+import { AsteroidsType } from '../types/celestial-bodies/asteroids';
 
 /**
  * Represents a collection of well-known asteroids within the solar system simulation.

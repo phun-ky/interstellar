@@ -1,4 +1,4 @@
-import { GalaxiesType } from '../types/galaxies';
+import { GalaxiesType } from '../types/celestial-bodies/galaxies';
 
 /**
  * Represents a collection of galaxies within the space visualization.

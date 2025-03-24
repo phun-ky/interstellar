@@ -1,5 +1,5 @@
 import { DistanceInterface, ValueInterface } from '../../types/distance';
-import { StarsType } from '../../types/stars';
+import { StarsType } from '../../types/celestial-bodies/stars';
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';
 import { getBodyPosition } from '../celestial-bodies/utils/get-body-position';
 
