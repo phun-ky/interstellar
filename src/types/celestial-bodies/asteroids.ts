@@ -1,7 +1,9 @@
 /* eslint-disable import/no-unused-modules */
-import { DistanceInterface, MeasureInterface } from './distance';
+import { DistanceInterface, MeasureInterface } from '../distance';
 import { Coordinates2DInterface } from './planets';
-import { TemporalInterface } from './temporal';
+import { TemporalInterface } from '../temporal';
+
+import { Radians } from '.';
 
 /**
  * The classification of the asteroid based on its orbital characteristics, such as "main-belt asteroid" or "near-Earth asteroid."
@@ -78,8 +80,8 @@ export interface AsteroidInterface {
   /** Longitude of ascending node (degrees). */
   om: number;
 
-  /** Mean anomaly (degrees). */
-  angle: number;
+  /** Current orbital position in radians (True Anomaly). */
+  angle: Radians;
 
   /** Orbital period in Earth days. Negative values dictates counter clockwise direction */
   period: TemporalInterface;

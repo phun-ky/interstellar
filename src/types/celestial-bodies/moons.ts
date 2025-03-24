@@ -1,6 +1,8 @@
-import { DistanceInterface, MeasureInterface } from './distance';
+import { DistanceInterface, MeasureInterface } from '../distance';
 import { Coordinates2DInterface } from './planets';
-import { TemporalInterface } from './temporal';
+import { TemporalInterface } from '../temporal';
+
+import { Radians } from '.';
 
 /**
  * Represents a **moon** (natural satellite) orbiting a planet.
@@ -57,7 +59,7 @@ export interface MoonInterface {
   /** Visual representation color. */
   color: string;
   /** Current orbital position in radians (True Anomaly). */
-  angle: number;
+  angle: Radians;
   /** X-coordinate in a distance-based system (optional). */
   x?: DistanceInterface;
   /** Y-coordinate in a distance-based system (optional). */

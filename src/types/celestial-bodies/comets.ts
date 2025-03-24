@@ -1,6 +1,8 @@
-import { DistanceInterface, MeasureInterface } from './distance';
+import { DistanceInterface, MeasureInterface } from '../distance';
 import { Coordinates2DInterface } from './planets';
-import { TemporalInterface } from './temporal';
+import { TemporalInterface } from '../temporal';
+
+import { Radians } from '.';
 
 /**
  * Represents a **comet** in the solar system simulation.
@@ -39,8 +41,8 @@ export interface CometInterface {
   w: number;
   /** Longitude of the ascending node in degrees. */
   om: number;
-  /** Mean anomaly at epoch in degrees. */
-  angle: number;
+  /** Mean anomaly at epoch in radians. */
+  angle: Radians;
   /** Orbital period in Earth days. Negative values indicate counter clockwise orbit */
   period: TemporalInterface;
   /** Perihelion distance in AU. */

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unused-modules */
-import { DistanceInterface } from './distance';
+import { DistanceInterface } from '../distance';
 
 /**
  * Represents a **black hole** at the center of a galaxy.

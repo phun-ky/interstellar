@@ -56,11 +56,11 @@ export type CelestialBodyType =
 /**
  * Type alias representing an angle in **radians**.
  *
- * @typedef {number} Radian
+ * @typedef {number} Radians
  *
  * @example
  * ```ts
- * const angle: Radian = Math.PI / 2; // 90 degrees in radians
+ * const angle: Radians = Math.PI / 2; // 90 degrees in radians
  * ```
  */
-export type Radian = number;
+export type Radians = number;

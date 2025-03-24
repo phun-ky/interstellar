@@ -1,6 +1,8 @@
-import { DistanceInterface, MeasureInterface } from './distance';
+import { DistanceInterface, MeasureInterface } from '../distance';
 import { Coordinates2DInterface } from './planets';
-import { TemporalInterface } from './temporal';
+import { TemporalInterface } from '../temporal';
+
+import { Radians } from '.';
 
 /**
  * Represents a **star system**, which can be a planetary system or a stellar system.
@@ -80,7 +82,7 @@ export interface StarInterface {
   /** X-offset for the ellipse focus (accounts for eccentricity). */
   focus_x?: number;
   /** Current orbital position in radians (True Anomaly). */
-  angle: number;
+  angle: Radians;
   /** X-coordinate in a distance-based system. */
   x: DistanceInterface;
   /** Y-coordinate in a distance-based system. */
