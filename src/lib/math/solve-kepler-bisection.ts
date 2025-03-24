@@ -1,4 +1,4 @@
-import { Radian } from '../../types/celestial-bodies';
+import { Radians } from '../../types/celestial-bodies';
 
 /**
  * Solves **Kepler's Equation** for the **Eccentric Anomaly** ($E$) using the **bisection method**
@@ -51,11 +51,11 @@ import { Radian } from '../../types/celestial-bodies';
  *
  * ---
  *
- * @param {Radian} M - Mean anomaly ($M$) in **radians**.
+ * @param {Radians} M - Mean anomaly ($M$) in **radians**.
  * @param {number} e - Orbital eccentricity ($0 \leq e < 1$).
  * @param {number} maxIter - Maximum number of **iterations** before failure.
  * @param {number} tolerance - Convergence criterion for stopping the iteration.
- * @returns {Radian} The **eccentric anomaly** ($E$) in **radians** (best approximation).
+ * @returns {Radians} The **eccentric anomaly** ($E$) in **radians** (best approximation).
  *
  * ---
  *
@@ -72,11 +72,11 @@ import { Radian } from '../../types/celestial-bodies';
  * @see [Bisection Method (Wikipedia)](https://en.wikipedia.org/wiki/Bisection_method)
  */
 export const solveKeplerBisection = (
-  M: Radian,
+  M: Radians,
   e: number,
   maxIter: number,
   tolerance: number
-): Radian => {
+): Radians => {
   let E_low = 0;
   let E_high = Math.PI;
   let E = (E_low + E_high) / 2;

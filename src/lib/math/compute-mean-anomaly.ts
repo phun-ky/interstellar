@@ -39,7 +39,7 @@ const areEqual = (a: number, b: number, epsilon: number = EPSILON): boolean => {
  *
  * @param {CelestialBodyType} body - The celestial body for which to compute the mean anomaly.
  * @param {TemporalInterface} timeStep - The time step over which to compute the change.
- * @returns {Radian} The computed mean anomaly in radians.
+ * @returns {Radians} The computed mean anomaly in radians.
  *
  * @throws {RangeError} If the body's eccentricity is outside the range $0 \leq e < 1$.
  *
@@ -65,7 +65,7 @@ const areEqual = (a: number, b: number, epsilon: number = EPSILON): boolean => {
 export const computeMeanAnomaly = (
   body: CelestialBodyType,
   timeStep: TemporalInterface
-): Radian => {
+): Radians => {
   const { e, angle, period } = body;
 
   if (e < 0 || e >= 1) {

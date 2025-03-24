@@ -1,4 +1,4 @@
-import { Radian } from '../../types/celestial-bodies';
+import { Radians } from '../../types/celestial-bodies';
 
 import { solveKeplerBisection } from './solve-kepler-bisection';
 import { solveKeplerHighEccentricity } from './solve-kepler-high-eccentricity';
@@ -47,11 +47,11 @@ import { wrapAngle } from './wrap-angle';
  *
  * ---
  *
- * @param {Radian} M - Mean anomaly ($M$) in **radians**.
+ * @param {Radians} M - Mean anomaly ($M$) in **radians**.
  * @param {number} e - Orbital eccentricity ($0 \leq e < 1$).
  * @param {number} [maxIter=50] - Maximum number of **iterations** before fallback.
  * @param {number} [tolerance=1e-9] - Convergence criterion for stopping the iteration.
- * @returns {Radian} The **eccentric anomaly** ($E$) in **radians** (wrapped to $[0, 2\pi]$).
+ * @returns {Radians} The **eccentric anomaly** ($E$) in **radians** (wrapped to $[0, 2\pi]$).
  *
  * @throws {@link RangeError} If the **eccentricity ($e$) is invalid** ($e < 0$ or $e \geq 1$).
  *
@@ -83,11 +83,11 @@ import { wrapAngle } from './wrap-angle';
  * @see [Eccentric Anomaly (Wikipedia)](https://en.wikipedia.org/wiki/Mean_anomaly#Eccentric_anomaly)
  */
 export const solveKepler = (
-  M: Radian,
+  M: Radians,
   e: number,
   maxIter = 50,
   tolerance = 1e-9
-): Radian => {
+): Radians => {
   if (e < 0 || e >= 1) {
     throw new RangeError(`Invalid eccentricity: ${e}. Must be in range [0,1).`);
   }

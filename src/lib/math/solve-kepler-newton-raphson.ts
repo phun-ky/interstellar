@@ -1,4 +1,4 @@
-import { Radian } from '../../types/celestial-bodies';
+import { Radians } from '../../types/celestial-bodies';
 
 /**
  * Solves **Kepler's Equation** for the **Eccentric Anomaly** ($E$) using the **Newton-Raphson method**
@@ -60,11 +60,11 @@ import { Radian } from '../../types/celestial-bodies';
  *
  * ---
  *
- * @param {Radian} M - Mean anomaly ($M$) in **radians**.
+ * @param {Radians} M - Mean anomaly ($M$) in **radians**.
  * @param {number} e - Orbital eccentricity ($0 \leq e < 1$).
  * @param {number} maxIter - Maximum number of **iterations** before failure.
  * @param {number} tolerance - Convergence criterion for stopping the iteration.
- * @returns {Radian} The **eccentric anomaly** ($E$) in **radians** (or `NaN` if the method fails).
+ * @returns {Radians} The **eccentric anomaly** ($E$) in **radians** (or `NaN` if the method fails).
  *
  * @throws {@link RangeError} If the **eccentricity ($e$) is invalid** ($e < 0$ or $e \geq 1$).
  *
@@ -84,11 +84,11 @@ import { Radian } from '../../types/celestial-bodies';
  * @see [Eccentric Anomaly (Wikipedia)](https://en.wikipedia.org/wiki/Mean_anomaly#Eccentric_anomaly)
  */
 export const solveKeplerNewtonRaphson = (
-  M: Radian,
+  M: Radians,
   e: number,
   maxIter: number,
   tolerance: number
-): Radian => {
+): Radians => {
   if (e < 0 || e >= 1) {
     throw new RangeError(`Invalid eccentricity: ${e}. Must be in range [0,1].`);
   }

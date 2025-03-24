@@ -1,4 +1,4 @@
-import { Radian } from '../../types/celestial-bodies';
+import { Radians } from '../../types/celestial-bodies';
 
 import { wrapAngle } from './wrap-angle';
 
@@ -66,11 +66,11 @@ import { wrapAngle } from './wrap-angle';
  *
  * ---
  *
- * @param {Radian} M - Mean anomaly ($M$) in **radians**.
+ * @param {Radians} M - Mean anomaly ($M$) in **radians**.
  * @param {number} e - Orbital eccentricity ($e > 0.9$ for high-eccentricity orbits).
  * @param {number} [maxIter=Math.max(300, Math.floor(5 + 3 * Math.log(1 + Math.abs(M))))] - Maximum number of **iterations** before failure.
  * @param {number} [tolerance=1e-9] - Convergence criterion for stopping the iteration.
- * @returns {Radian} The **eccentric anomaly** ($E$) in **radians** (wrapped to $[-\pi, \pi]$ for elliptical orbits).
+ * @returns {Radians} The **eccentric anomaly** ($E$) in **radians** (wrapped to $[-\pi, \pi]$ for elliptical orbits).
  *
  * ---
  *
@@ -98,11 +98,11 @@ import { wrapAngle } from './wrap-angle';
  * @see [Hyperbolic Anomaly (Wikipedia)](https://en.wikipedia.org/wiki/Hyperbolic_trajectory#Hyperbolic_anomaly)
  */
 export const solveKeplerHighEccentricity = (
-  M: Radian,
+  M: Radians,
   e: number,
   maxIter = Math.max(300, Math.floor(5 + 3 * Math.log(1 + Math.abs(M)))),
   tolerance = 1e-9
-): Radian => {
+): Radians => {
   if (e < 0) {
     throw new RangeError(`Invalid eccentricity: ${e}. Must be e ≥ 0.`);
   }

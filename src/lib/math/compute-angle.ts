@@ -48,7 +48,7 @@ import { solveKepler } from './solve-kepler';
  *
  * @param {CelestialBodyType} body - The celestial body for which to compute the true anomaly.
  * @param {TimeStepInterface} timeStep - The time step in days since the last frame.
- * @returns {Radian} The computed true anomaly in radians.
+ * @returns {Radians} The computed true anomaly in radians.
  *
  * @example
  * ```ts
@@ -61,7 +61,7 @@ import { solveKepler } from './solve-kepler';
  * };
  *
  * const timeStep: TimeStepInterface = { days: 1 }; // Time step of 1 day
- * const angle: Radian = computeAngle(earth, timeStep);
+ * const angle: Radians = computeAngle(earth, timeStep);
  * console.log(angle); // Output: Computed true anomaly in radians
  * ```
  *
@@ -73,13 +73,13 @@ import { solveKepler } from './solve-kepler';
 export const computeAngle = (
   body: CelestialBodyType,
   timeStep: TimeStepInterface
-): Radian => {
+): Radians => {
   // Compute mean anomaly (M) with time step
-  const M: Radian = computeMeanAnomaly(body, timeStep);
+  const M: Radians = computeMeanAnomaly(body, timeStep);
   // Solve Kepler's equation for eccentric anomaly (E)
-  const E: Radian = solveKepler(M, body.e);
+  const E: Radians = solveKepler(M, body.e);
   // Convert eccentric anomaly (E) to true anomaly (ν)
-  const V: Radian = eccentricToTrueAnomaly(E, body.e);
+  const V: Radians = eccentricToTrueAnomaly(E, body.e);
 
   return V;
 };

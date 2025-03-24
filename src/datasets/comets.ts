@@ -32,7 +32,7 @@ export const COMETS: CometsType = [
     w: 111.33,
     /** Longitude of the ascending node in degrees */
     om: 58.42,
-    /** Mean anomaly in degrees at J2000 epoch */
+    /** Mean anomaly in radians at J2000 epoch */
     angle: 38.38,
     /** Orbital period in days */
     period: { value: 27576, unit: 'day' }, // ~76 years
