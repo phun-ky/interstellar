@@ -33,7 +33,7 @@ export const COMETS: CometsType = [
     /** Longitude of the ascending node in degrees */
     om: 58.42,
     /** Mean anomaly in radians at J2000 epoch */
-    angle: 38.38,
+    angle: 0.669857,
     /** Orbital period in days */
     period: { value: 27576, unit: 'day' }, // ~76 years
     /** Perihelion distance in AU */
@@ -55,7 +55,7 @@ export const COMETS: CometsType = [
     i: 89.4,
     w: 130.6,
     om: 282.5,
-    angle: 180,
+    angle: 3.141593,
     period: { value: -253533, unit: 'day' }, // ~695 years
     q: 0.914,
     color: '#00A6FF', // Electric blue (ionized tail appearance)
@@ -72,7 +72,7 @@ export const COMETS: CometsType = [
     i: 7.04, // Inclination in degrees
     w: 12.78, // Argument of perihelion in degrees
     om: 50.14, // Longitude of ascending node in degrees
-    angle: 0, // Initial angle (could be updated based on epoch)
+    angle: 0.0, // Initial angle (could be updated based on epoch)
     period: { value: -2484, unit: 'day' }, // ~6.45 years
     q: 1.243, // Perihelion distance in AU
     color: '#AAAAAA', // Greyish surface color
@@ -89,7 +89,7 @@ export const COMETS: CometsType = [
     i: 11.8,
     w: 186.5,
     om: 334.6,
-    angle: 160,
+    angle: 2.792527,
     period: { value: -1204, unit: 'day' }, // ~3.3 years
     q: 0.34,
     color: '#FFD700', // Golden yellow (dusty tail, lower albedo)
