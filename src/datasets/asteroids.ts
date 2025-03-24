@@ -16,25 +16,6 @@ import { AsteroidsType } from '../types/celestial-bodies/asteroids';
  */
 export const ASTEROIDS: AsteroidsType = [
   // #region datasetAsteroids
-
-  {
-    name: 'Ceres',
-    type: 'main-belt asteroid',
-    category: 'dwarf planet',
-    spectralType: 'c-type',
-    system: 'Sun',
-    a: { value: 2.766, unit: 'AU' },
-    e: 0.079,
-    i: 10.6,
-    w: 72.6,
-    om: 80.4,
-    angle: 113.4,
-    period: { value: -1680.5, unit: 'days' },
-    q: 2.55,
-    radius: { value: 469.7, unit: 'km' },
-    color: '#cccccc',
-    size: 1
-  },
   {
     name: 'Vesta',
     type: 'main-belt asteroid',

@@ -88,6 +88,21 @@ export const PLANETS: PlanetsType = [
     z: { value: 0.002, unit: 'AU' }
   },
   {
+    name: 'Ceres',
+    type: 'ice planet',
+    category: 'planetoid',
+    system: 'Sun',
+    a: { value: 2.766, unit: 'AU' },
+    e: 0.079,
+    angle: 113.4,
+    period: { value: -1680.5, unit: 'days' },
+    radius: { value: 469.7, unit: 'km' },
+    color: '#C0C0C0',
+    x: { value: 2.766, unit: 'AU' },
+    y: { value: 0, unit: 'AU' },
+    z: { value: 0, unit: 'AU' }
+  },
+  {
     name: 'Jupiter',
     type: 'gas giant',
     category: 'planet',
