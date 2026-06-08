@@ -56,7 +56,7 @@ If the input or target unit is not supported.
 #### Example
 
 ```ts
-const distanceInKM = convertDistance({ value: 1, unit: 'AU' }, 'km');
+const distanceInKM = convertDistance({ value: 1, unit: 'au' }, 'km');
 console.log(distanceInKM); // Output: { value: 149597870.7, unit: 'km' }
 ```
 

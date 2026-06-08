@@ -21,9 +21,12 @@ import { updateScaleDisplay } from '../features/ui/update-scale-display';
 import { AsteroidsType } from '../types/celestial-bodies/asteroids';
 import { CometsType } from '../types/celestial-bodies/comets';
 import { MoonsType } from '../types/celestial-bodies/moons';
-import { EventType } from '../types/native';
 import { PlanetsType } from '../types/celestial-bodies/planets';
-import { StarsType } from '../types/celestial-bodies/stars';
+import {
+  StarsType,
+  StarSystemInterface
+} from '../types/celestial-bodies/stars';
+import { EventType } from '../types/native';
 
 import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';
@@ -79,14 +82,13 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
       if (!x || !y) return;
 
       const { system, category } = globalThis.LOCKED_CELESTIAL_BODY;
-      const celestialBodiesToUse =
-        category === 'planet'
-          ? STARS
-          : category === 'natural satellite'
-            ? PLANETS
-            : [];
+      const celestialBodiesToUse = category.includes('planet')
+        ? STARS
+        : category.includes('satellite')
+          ? PLANETS
+          : [];
       const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-        system,
+        (system as StarSystemInterface).name || (system as string),
         category,
         celestialBodiesToUse,
         SCALE
@@ -190,7 +192,7 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   });
 
   // **Resize Event**
-  window.addEventListener(
+  globalThis.addEventListener(
     'resize',
     throttle(() => {
       globalThis.IS_ZOOMING_OR_PANNING = true;
@@ -204,7 +206,7 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
     })
   );
 
-  window.addEventListener(
+  globalThis.addEventListener(
     'resize',
     throttleAsync(async () => {
       generateStarfield(canvas.width, canvas.height);
@@ -246,7 +248,7 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   trajectoryTypeDropdown.addEventListener(
     'change',
     (event: EventType<HTMLSelectElement>) => {
-      globalThis.TRAJECTORY_TYPE = event.target.value;
+      globalThis.TRAJECTORY_TYPE = event.target.value as 'orbits' | 'trails';
 
       if (globalThis.TRAJECTORY_TYPE === 'orbits') {
         Object.keys(globalThis.TRAJECTORY_TRAILS).forEach((key) => {
@@ -266,6 +268,9 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
 
     if (!globalThis.PAUSE) {
       update();
+      globalThis.INTERVAL_IN_VIEWPORT.resume();
+    } else {
+      globalThis.INTERVAL_IN_VIEWPORT.pause();
     }
   });
 
@@ -286,23 +291,23 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
         if (globalThis.ZOOM_PAN_TIMEOUT)
           clearTimeout(globalThis.ZOOM_PAN_TIMEOUT); // Reset timer
 
-        globalThis.LOCKED_CELESTIAL_BODY = [...STARS, ...PLANETS].find(
-          (star) => star.name === selectedBodyName
-        );
+        globalThis.LOCKED_CELESTIAL_BODY =
+          [...STARS, ...PLANETS].find(
+            (star) => star.name === selectedBodyName
+          ) || null;
 
         if (globalThis.LOCKED_CELESTIAL_BODY) {
           offsetCacheX.value = offsetX.value;
           offsetCacheY.value = offsetY.value;
 
           const { system, category } = globalThis.LOCKED_CELESTIAL_BODY;
-          const celestialBodiesToUse =
-            category === 'planet'
-              ? STARS
-              : category === 'natural satellite'
-                ? PLANETS
-                : [];
+          const celestialBodiesToUse = category.includes('planet')
+            ? STARS
+            : category.includes('satellite')
+              ? PLANETS
+              : [];
           const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-            system,
+            (system as StarSystemInterface).name || (system as string),
             category,
             celestialBodiesToUse,
             SCALE
@@ -341,6 +346,9 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   const asteroidsCheckboxElement = document.getElementById(
     'toggleAsteroids'
   ) as HTMLInputElement;
+  const starfieldCheckboxElement = document.getElementById(
+    'toggleStarfield'
+  ) as HTMLInputElement;
 
   [
     trajectoryCheckboxElement,
@@ -349,7 +357,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
     labelCheckboxElement,
     toggleArrowheadsElement,
     asteroidBeltsCheckboxElement,
-    asteroidsCheckboxElement
+    asteroidsCheckboxElement,
+    starfieldCheckboxElement
   ].forEach((toggle) => {
     toggle.addEventListener('change', () => {
       setUIOptions({
@@ -359,7 +368,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
         labelCheckboxElement,
         toggleArrowheadsElement,
         asteroidBeltsCheckboxElement,
-        asteroidsCheckboxElement
+        asteroidsCheckboxElement,
+        starfieldCheckboxElement
       });
     });
   });

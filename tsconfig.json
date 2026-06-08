@@ -16,13 +16,14 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
+  "include": ["src/**/*", "src/types/global.d.ts"],
   "exclude": [
     "node_modules",
     "build",
     "dist",
     "tests/**",
     "scripts",
-    "dts",
+    "dts/**",
     "**/__tests__/**"
   ]
 }

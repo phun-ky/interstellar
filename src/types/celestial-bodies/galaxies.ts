@@ -15,9 +15,9 @@ import { DistanceInterface } from '../distance';
  * const sagittariusA: BlackHoleInterface = {
  *   name: 'Sagittarius A*',
  *   mass: 4.154e6,
- *   radius: { value: 0.08, unit: 'AU' },
- *   x: { value: 0, unit: 'AU' },
- *   y: { value: 0, unit: 'AU' }
+ *   radius: { value: 0.08, unit: 'au' },
+ *   x: { value: 0, unit: 'au' },
+ *   y: { value: 0, unit: 'au' }
  * };
  * ```
  */

@@ -73,6 +73,8 @@ export const drawDirectionalArrows = (
       ? filterBodies('satellite', system)
       : filterBodies(type);
 
+  space.save();
+
   bodies.forEach(({ x, y, name }) => {
     if (isOffScreen(x, y, canvasWidth, canvasHeight)) {
       const angle = getAngleToViewport(x, y, referenceX, referenceY);
@@ -80,4 +82,6 @@ export const drawDirectionalArrows = (
       drawArrow(space, angle, canvasWidth, canvasHeight, name);
     }
   });
+
+  space.restore();
 };

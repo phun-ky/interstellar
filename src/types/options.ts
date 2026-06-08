@@ -41,6 +41,7 @@ export interface UIOptionsInterface {
   asteroidBelts: boolean;
   /** Render asteroids in the visualization. */
   asteroids: boolean;
+  starfield: boolean;
 }
 
 /**

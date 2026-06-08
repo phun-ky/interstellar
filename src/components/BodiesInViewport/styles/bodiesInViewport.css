@@ -1,0 +1,58 @@
+.int.in-viewport {
+  position: absolute;
+  top: 20em;
+  left: 8em;
+}
+
+.int.in-viewport ul.int {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.5em;
+}
+
+.int.in-viewport ul.int li.int {
+  border-left: 10pt solid #4eeef5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 4em;
+  text-transform: uppercase;
+  line-height: 4em;
+  background-color: #0c1f2d;
+}
+.int.in-viewport ul.int li.int:hover {
+  background-color: #1e4762;
+}
+
+.int.int.in-viewport .int.body {
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  flex-shrink: 0;
+  min-width: 10em;
+}
+
+.int.int.in-viewport .int.icon {
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  flex-shrink: 0;
+  margin-left: auto;
+  background-color: #0a111c;
+}
+.int.int.in-viewport .int.icon svg {
+  flex-shrink: 0;
+  display: block;
+  height: var(--int-ui-body-icon-size);
+  width: var(--int-ui-body-icon-size);
+  color: var(--int-ui-body-icon-fill, #4eeef5);
+}

@@ -12,7 +12,7 @@
   - [AU_IN_KM](#au_in_km)
   - [AU_IN_LY](#au_in_ly)
   - [AU_IN_PX](#au_in_px)
-  - [EARTH_PERIOD](#earth_period)
+  - [JULIAN_YEAR_DAYS](#JULIAN_YEAR_DAYS)
   - [INITIAL_SCALE](#initial_scale)
   - [J2000](#j2000)
   - [KM_IN_PX](#km_in_px)
@@ -85,10 +85,10 @@ Defined in:
 
 ---
 
-### EARTH_PERIOD
+### JULIAN_YEAR_DAYS
 
 ```ts
-const EARTH_PERIOD: 365.256 = 365.256;
+const JULIAN_YEAR_DAYS: 365.256 = 365.256;
 ```
 
 Defined in:

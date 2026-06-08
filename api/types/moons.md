@@ -48,9 +48,9 @@ const europa: MoonInterface = {
   name: 'Europa',
   category: 'natural satellite',
   system: 'Jupiter',
-  a: { value: 0.00448, unit: 'AU' },
+  a: { value: 0.00448, unit: 'au' },
   e: 0.009,
-  period: { value: 3.55, unit: 'days' },
+  period: { value: 3.55, unit: 'd' },
   radius: { value: 1560.8, unit: 'km' },
   color: '#a6a6a6',
   angle: 0

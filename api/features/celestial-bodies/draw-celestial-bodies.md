@@ -208,7 +208,7 @@ canvas.
 const celestialBodies: CelestialBodiesType = [
   {
     name: 'Star A',
-    a: { value: 5000, unit: 'AU' },
+    a: { value: 5000, unit: 'au' },
     e: 0.1,
     radius: { value: 696340, unit: 'km' },
     color: 'white',

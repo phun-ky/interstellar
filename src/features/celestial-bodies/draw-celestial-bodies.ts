@@ -57,7 +57,7 @@ export type DrawCelestialBodiesPropsType = {
  * const celestialBodies: CelestialBodiesType = [
  *   {
  *     name: 'Star A',
- *     a: { value: 5000, unit: 'AU' },
+ *     a: { value: 5000, unit: 'au' },
  *     e: 0.1,
  *     radius: { value: 696340, unit: 'km' },
  *     color: 'white',
@@ -90,6 +90,8 @@ export const drawCelestialBodies = (
     maxSize = MAX_CELESTIAL_BODY_SIZE
   } = props;
 
+  space.save();
+
   celestialBodies.forEach((body: CelestialBodyType) => {
     const { radius, color, name, a, miA, focus_x, angle, period } = body;
 
@@ -121,15 +123,13 @@ export const drawCelestialBodies = (
       system: body.category.includes('satellite') ? body.system : undefined
     };
 
+    const size = Math.max(distanceToPixels(radius, scale), maxSize);
+
     space.fillStyle = color;
     space.beginPath();
-    space.arc(
-      xPX,
-      yPX,
-      Math.max(distanceToPixels(radius, scale), maxSize),
-      0,
-      TWO_PI
-    );
+    space.arc(xPX, yPX, size, 0, TWO_PI);
     space.fill();
   });
+
+  space.restore();
 };

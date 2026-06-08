@@ -30,10 +30,10 @@ export const GALAXIES: GalaxiesType = [
       /** Mass of the black hole in Solar Masses ($M_\odot$). */
       mass: 4.154e6,
       /** Schwarzschild radius (approximate) in AU. */
-      radius: { value: 0.08, unit: 'AU' },
+      radius: { value: 0.08, unit: 'au' },
       /** Positional reference within the galaxy in AU. */
-      x: { value: 0, unit: 'AU' },
-      y: { value: 0, unit: 'AU' }
+      x: { value: 0, unit: 'au' },
+      y: { value: 0, unit: 'au' }
     }
   },
   {
@@ -44,9 +44,9 @@ export const GALAXIES: GalaxiesType = [
     blackHole: {
       name: 'Andromeda Central Black Hole',
       mass: 1.1e8,
-      radius: { value: 5, unit: 'AU' },
-      x: { value: 0, unit: 'AU' },
-      y: { value: 160442417000, unit: 'AU' }
+      radius: { value: 5, unit: 'au' },
+      x: { value: 0, unit: 'au' },
+      y: { value: 160442417000, unit: 'au' }
     }
   },
   {
@@ -57,9 +57,9 @@ export const GALAXIES: GalaxiesType = [
     blackHole: {
       name: 'Triangulum Central Black Hole',
       mass: 1.5e6,
-      radius: { value: 0.1, unit: 'AU' },
-      x: { value: 0, unit: 'AU' },
-      y: { value: 189723000000, unit: 'AU' }
+      radius: { value: 0.1, unit: 'au' },
+      x: { value: 0, unit: 'au' },
+      y: { value: 189723000000, unit: 'au' }
     }
   }
 ];

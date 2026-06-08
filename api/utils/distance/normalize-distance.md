@@ -58,7 +58,7 @@ If the unit is not supported.
 #### Example
 
 ```ts
-const normalized = normalizeDistance({ value: 0.002, unit: 'AU' });
+const normalized = normalizeDistance({ value: 0.002, unit: 'au' });
 console.log(normalized); // Output: { value: 299597.87, unit: 'km' }
 ```
 

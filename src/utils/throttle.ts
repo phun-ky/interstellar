@@ -11,7 +11,7 @@
  * @example
  * ```ts
  * const throttledFn = throttle(() => console.log('Throttled execution'));
- * window.addEventListener('scroll', throttledFn);
+ * globalThis.addEventListener('scroll', throttledFn);
  * ```
  */
 export const throttle = (callback: () => void): (() => void) => {
@@ -48,7 +48,7 @@ export const throttle = (callback: () => void): (() => void) => {
  *   console.log(data);
  * });
  *
- * window.addEventListener('scroll', throttledFetch);
+ * globalThis.addEventListener('scroll', throttledFetch);
  * ```
  */
 export const throttleAsync = <

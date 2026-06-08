@@ -46,6 +46,12 @@ export const setupUI = () => {
     name: 'toggleAsteroids',
     label: 'Asteroids'
   });
+  const toggleStarfieldBox = ToggleBox({
+    id: 'toggleStarfield',
+    checked: false,
+    name: 'toggleStarfield',
+    label: 'Starfield'
+  });
   const pauseButton = Button({
     children: `<svg class="int pause" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M7 1H2v14h5V1ZM14 1H9v14h5V1Z"/></svg>
        <svg class="int play" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"><path fill="currentColor" d="M0 0v512l512-256z"/></svg>`,
@@ -61,13 +67,14 @@ export const setupUI = () => {
     ${toggleAsteroidBeltsBox}
     ${toggleAsteroidsBox}
     ${toggleCometsBox}
+    ${toggleStarfieldBox}
     ${toggleArrowheadsBox}
     ${toggleLabelsBox}
     <hr class="int"/>
     ${toggleTrajectoriesBox}
-    <div class="int input-group">
+    <div class="int input-group select">
         <label for="toggleTrajectoryType" class="int"
-          >Type of trajectory display:</label
+          >Type</label
         >
         <select id="toggleTrajectoryType" class="int">
         <option value="orbits">Full Orbits</option>
@@ -75,8 +82,8 @@ export const setupUI = () => {
         </select>
       </div>
       <hr class="int" />
-      <div class="int input-group">
-        <label for="speedMode" class="int">Speed Mode:</label>
+      <div class="int input-group select">
+        <label for="speedMode" class="int">Speed</label>
         <select id="speedMode" class="int">
           <option class="int" value="realTime">Real-Time (60 FPS)</option>
           <option class="int" value="quarterFramePerDay">1 Frame = 0.25 Day</option>
@@ -86,8 +93,8 @@ export const setupUI = () => {
         </select>
       </div>
 
-      <div class="int input-group" id="hud">
-        <label for="lockOn" class="int">Lock on to Celestial Body:</label>
+      <div class="int input-group select" id="hud">
+        <label for="lockOn" class="int">Lock</label>
         <select id="lockOn" class="int">
           <option value="noLock">No Lock</option>
         </select>

@@ -85,27 +85,27 @@ This function does not return a value.
 const celestialBodies: CelestialBodiesType = [
   {
     name: 'Star A',
-    a: { value: 5000, unit: 'AU' },
+    a: { value: 5000, unit: 'au' },
     e: 0.1,
     radius: { value: 696340, unit: 'km' },
     color: 'white',
-    x: { value: 0, unit: 'AU' },
-    y: { value: 0, unit: 'AU' },
-    z: { value: 0, unit: 'AU' },
+    x: { value: 0, unit: 'au' },
+    y: { value: 0, unit: 'au' },
+    z: { value: 0, unit: 'au' },
     angle: 0,
-    period: { value: 365, unit: 'days' }
+    period: { value: 365, unit: 'd' }
   },
   {
     name: 'Star B',
-    a: { value: 10000, unit: 'AU' },
+    a: { value: 10000, unit: 'au' },
     e: 0.3,
     radius: { value: 696340, unit: 'km' },
     color: 'white',
-    x: { value: 0, unit: 'AU' },
-    y: { value: 0, unit: 'AU' },
-    z: { value: 0, unit: 'AU' },
+    x: { value: 0, unit: 'au' },
+    y: { value: 0, unit: 'au' },
+    z: { value: 0, unit: 'au' },
     angle: 0,
-    period: { value: 365, unit: 'days' }
+    period: { value: 365, unit: 'd' }
   }
 ];
 computeOrbits(celestialBodies);

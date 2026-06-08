@@ -23,7 +23,7 @@ export const COMETS: CometsType = [
     category: 'halley-type comet',
     system: 'Sun',
     /** Semi-major axis in AU */
-    a: { value: 17.834, unit: 'AU' },
+    a: { value: 17.834, unit: 'au' },
     /** Eccentricity (0 = circular orbit, 1 = parabolic trajectory) */
     e: 0.96714,
     /** Inclination in degrees */
@@ -50,7 +50,7 @@ export const COMETS: CometsType = [
     type: 'oort cloud comet',
     category: 'long-period comet',
     system: 'Sun',
-    a: { value: 186.0, unit: 'AU' },
+    a: { value: 186.0, unit: 'au' },
     e: 0.9951,
     i: 89.4,
     w: 130.6,
@@ -67,7 +67,7 @@ export const COMETS: CometsType = [
     category: 'jupiter-family comet',
     type: 'short-period comet',
     system: 'Sun',
-    a: { value: 3.464, unit: 'AU' }, // Semi-major axis
+    a: { value: 3.464, unit: 'au' }, // Semi-major axis
     e: 0.641, // Eccentricity
     i: 7.04, // Inclination in degrees
     w: 12.78, // Argument of perihelion in degrees
@@ -84,7 +84,7 @@ export const COMETS: CometsType = [
     type: 'short-period comet',
     category: 'jupiter-family comet',
     system: 'Sun',
-    a: { value: 2.22, unit: 'AU' },
+    a: { value: 2.22, unit: 'au' },
     e: 0.85,
     i: 11.8,
     w: 186.5,

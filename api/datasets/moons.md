@@ -37,7 +37,7 @@ Uses [MoonsType](../types/moons.md#moonstype).
   category: 'natural satellite',
   system: 'Earth',
   /** Semi-major axis in AU */
-  a: { value: 0.00257, unit: 'AU' },
+  a: { value: 0.00257, unit: 'au' },
   /** Eccentricity (0 = circular orbit, 1 = parabolic trajectory) */
   e: 0.0549,
   /** Orbital period in days */

@@ -190,7 +190,7 @@ This function does not return a value; it renders the galaxy onto the canvas.
 ```ts
 const galaxy: GalaxyInterface = {
   name: 'Milky Way',
-  blackHole: { radius: { value: 0.08, unit: 'AU' } }
+  blackHole: { radius: { value: 0.08, unit: 'au' } }
 };
 
 drawGalaxy({

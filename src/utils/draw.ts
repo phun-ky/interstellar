@@ -25,11 +25,14 @@ import { drawStarfield } from '../features/starfield/draw-starfield';
 import { initializeStarfield } from '../features/starfield/initialize-starfield';
 import { AsteroidsType } from '../types/celestial-bodies/asteroids';
 import { CometsType } from '../types/celestial-bodies/comets';
-import { ValueInterface } from '../types/distance';
 import { GalaxiesType } from '../types/celestial-bodies/galaxies';
 import { MoonsType } from '../types/celestial-bodies/moons';
 import { PlanetsType } from '../types/celestial-bodies/planets';
-import { StarsType } from '../types/celestial-bodies/stars';
+import {
+  StarsType,
+  StarSystemInterface
+} from '../types/celestial-bodies/stars';
+import { ValueInterface } from '../types/distance';
 
 import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';
@@ -116,8 +119,10 @@ export const draw = async (props: DrawPropsType) => {
   space.fillStyle = '#060909';
   space.fillRect(0, 0, canvasWidth, canvasHeight);
 
-  await initializeStarfield(canvasWidth, canvasHeight, scale);
-  drawStarfield(space, canvasWidth, canvasHeight);
+  if (OPTIONS_UI.starfield) {
+    await initializeStarfield(canvasWidth, canvasHeight, scale);
+    drawStarfield(space, canvasWidth, canvasHeight);
+  }
 
   if (globalThis.LOCKED_CELESTIAL_BODY !== null) {
     const { x, y } = getBodyPosition(globalThis.LOCKED_CELESTIAL_BODY);
@@ -126,14 +131,13 @@ export const draw = async (props: DrawPropsType) => {
       const xPX = distanceToPixels(x, scale);
       const yPX = distanceToPixels(y, scale);
       const { system, category } = globalThis.LOCKED_CELESTIAL_BODY;
-      const celestialBodiesToUse =
-        category === 'planet'
-          ? stars
-          : category === 'natural satellite'
-            ? planets
-            : [];
+      const celestialBodiesToUse = category.includes('planet')
+        ? stars
+        : category.includes('satellite')
+          ? planets
+          : [];
       const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-        system,
+        (system as StarSystemInterface).name || (system as string),
         category,
         celestialBodiesToUse,
         scale
@@ -270,6 +274,16 @@ export const draw = async (props: DrawPropsType) => {
           scale
         });
 
+        if (scale.value > THRESHOLD_PLANET_LABEL && OPTIONS_UI.labels) {
+          drawLabels({
+            celestialBodies: planets,
+            space,
+            scale,
+            referenceX: sunReferenceX,
+            referenceY: sunReferenceY
+          });
+        }
+
         // Draw planets
         drawCelestialBodies({
           space,
@@ -278,16 +292,6 @@ export const draw = async (props: DrawPropsType) => {
           scale,
           celestialBodies: planets,
           maxSize: MAX_PLANET_SIZE
-        });
-      }
-
-      if (scale.value > THRESHOLD_PLANET_LABEL && OPTIONS_UI.labels) {
-        drawLabels({
-          celestialBodies: planets,
-          space,
-          scale,
-          referenceX: sunReferenceX,
-          referenceY: sunReferenceY
         });
       }
 
@@ -300,6 +304,19 @@ export const draw = async (props: DrawPropsType) => {
             const planetYPX = distanceToPixels(planetPosition.y, scale);
             const planetReferenceX = sunReferenceX + planetXPX;
             const planetReferenceY = sunReferenceY + planetYPX;
+
+            if (scale.value > THRESHOLD_MOON_RENDER && OPTIONS_UI.labels) {
+              drawLabels({
+                celestialBodies: moons.filter(
+                  (moon) =>
+                    moon.system.toLowerCase() === planet.name.toLowerCase()
+                ),
+                space,
+                scale,
+                referenceX: planetReferenceX,
+                referenceY: planetReferenceY
+              });
+            }
 
             if (scale.value > THRESHOLD_MOON_RENDER) {
               drawOrbits({
@@ -338,19 +355,6 @@ export const draw = async (props: DrawPropsType) => {
                   system: planet.name
                 });
               }
-            }
-
-            if (scale.value > THRESHOLD_MOON_RENDER && OPTIONS_UI.labels) {
-              drawLabels({
-                celestialBodies: moons.filter(
-                  (moon) =>
-                    moon.system.toLowerCase() === planet.name.toLowerCase()
-                ),
-                space,
-                scale,
-                referenceX: planetReferenceX,
-                referenceY: planetReferenceY
-              });
             }
           }
         }
@@ -392,6 +396,16 @@ export const draw = async (props: DrawPropsType) => {
     }
   }
 
+  if (OPTIONS_UI.labels) {
+    drawLabels({
+      celestialBodies: stars,
+      space,
+      scale,
+      referenceX: canvasWidth / 2 + offsetX.value,
+      referenceY: canvasHeight / 2 + offsetY.value
+    });
+  }
+
   // Draw stars
   drawCelestialBodies({
     space,
@@ -410,16 +424,6 @@ export const draw = async (props: DrawPropsType) => {
       referenceY: canvasHeight / 2 + offsetY.value,
       canvasWidth,
       canvasHeight
-    });
-  }
-
-  if (OPTIONS_UI.labels) {
-    drawLabels({
-      celestialBodies: stars,
-      space,
-      scale,
-      referenceX: canvasWidth / 2 + offsetX.value,
-      referenceY: canvasHeight / 2 + offsetY.value
     });
   }
 };

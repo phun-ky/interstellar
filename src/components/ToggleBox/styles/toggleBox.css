@@ -79,6 +79,7 @@
 }
 .int.toggle[type='checkbox']:checked + label.int::after {
   background-image: none;
+  background-color: #1e4764;
 }
 .int.toggle[type='checkbox']:checked + label.int::before {
   left: 2.5rem;

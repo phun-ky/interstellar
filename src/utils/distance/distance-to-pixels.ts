@@ -20,7 +20,7 @@ import { convertDistance } from './convert-distance';
  *
  * @example
  * ```ts
- * const pixelDistance = distanceToPixels({ value: 1, unit: 'AU' }, { value: 50 });
+ * const pixelDistance = distanceToPixels({ value: 1, unit: 'au' }, { value: 50 });
  * console.log(pixelDistance); // Output: Pixels equivalent of 1 AU at scale 50
  * ```
  *

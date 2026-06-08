@@ -9,14 +9,8 @@
 /** 1 Light-Year (LY) in Astronomical Units (AU). */
 export const LY_IN_AU = 63241.077088066;
 
-/** 1 Astronomical Unit (AU) in kilometres. */
-export const AU_IN_KM = 149597870.7;
-
 /** 1 AU in pixels at the default scale. */
 export const AU_IN_PX = 960;
-
-/** 1 Kilometre in pixels at the default scale. */
-export const KM_IN_PX = AU_IN_PX / AU_IN_KM;
 
 /** 1 Light-Year in pixels at the default scale. */
 export const LY_IN_PX = AU_IN_PX * LY_IN_AU;
@@ -33,7 +27,7 @@ export const MIN_SCALE = 1e-20;
 export const MAX_SCALE = 1e20;
 
 /** Earth's orbital period in days. */
-export const EARTH_PERIOD = 365.256;
+export const JULIAN_YEAR_DAYS = 365.256;
 
 /** Threshold for rendering moons (dependent on zoom level). */
 export const THRESHOLD_MOON_RENDER = 4;
@@ -96,3 +90,19 @@ export const TRAIL_SCALING_FACTOR = 0.5;
 export const SIMULATION_DATE = new Date();
 
 export const TWO_PI = 2 * Math.PI;
+
+export const JULIAN_YEAR_SECONDS = SECONDS_1_DAY * JULIAN_YEAR_DAYS;
+
+export const SPEED_OF_LIGHT_M_S = 299_792_458; // exact
+
+export const AU_IN_M = 149_597_870_700; // exact IAU
+
+/** 1 Astronomical Unit (AU) in kilometres. */
+export const AU_IN_KM = AU_IN_M / 1000;
+
+export const LY_IN_M = SPEED_OF_LIGHT_M_S * JULIAN_YEAR_SECONDS; // 9_460_730_472_580_800
+
+export const PARSEC_IN_M = AU_IN_M * (648000 / Math.PI); // ≈ 3.085677581491367e16
+
+/** 1 Kilometre in pixels at the default scale. */
+export const KM_IN_PX = AU_IN_PX / AU_IN_KM;

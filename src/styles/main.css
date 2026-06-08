@@ -9,9 +9,10 @@
     'Menlo for Powerline', 'Menlo Regular for Powerline', 'DejaVu Sans Mono',
     Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
-  --int-color-background: black;
+  --int-color-background: #050807;
   --int-color-text-body: white;
   --int-size-font: 16px;
+  --int-ui-body-icon-size: 4em;
 }
 
 *.int,
@@ -43,7 +44,7 @@ body {
   font-size: var(--int-size-font);
   line-height: 1.5;
   overflow: hidden;
-  background-color: rgb(0, 0, 0);
+  background-color: #050807;
   background-image:
     radial-gradient(at 31% 12%, rgb(7, 12, 39) 0px, rgba(0, 0, 0, 0) 50%),
     radial-gradient(at 2% 84%, rgb(12, 8, 43) 0px, rgba(0, 0, 0, 0) 50%),
@@ -63,7 +64,7 @@ canvas {
 .int.controls {
   position: fixed;
   top: 2em;
-  left: 2em;
+  right: 2em;
 }
 
 #music {
@@ -111,11 +112,13 @@ Other alternatives depending on the tone you want:
 
 
 */
+.int.panel.info {
+  top: 2em;
+  right: 2em;
+}
 .int.panel.info,
 .int.controls {
   position: absolute;
-  top: 2em;
-  right: 2em;
   padding: 0.75em 1.5em 1.5em;
   width: 25em;
   background-color: transparent;
@@ -226,13 +229,6 @@ label.int {
   color: var(--int-color-text-body);
   text-transform: uppercase;
 }
-.int.input-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-bottom: 2em;
-}
 
 .sr-only {
   border: 0 !important;
@@ -255,17 +251,16 @@ label.int {
 }
 
 select.int {
-  height: 3em;
-  border-radius: 6px;
-  border: 2pt solid #47b8be;
+  border: none;
+  color: #fff;
   font-size: 1em;
+  height: 3em;
   line-height: 3em;
-  background-color: rgba(71, 184, 190, 0.1);
-  padding: 0 0.5em;
-  text-transform: uppercase;
-  color: white;
+  padding: 0 0.5em 0 1em;
   text-align: left;
+  text-transform: uppercase;
   width: 100%;
+  background-color: #0a111c;
 }
 
 .int.input-group {
@@ -274,6 +269,36 @@ select.int {
   justify-content: flex-start;
   align-items: flex-start;
   margin-bottom: 1em;
+  padding-left: 1em;
+  background-color: #0c1f2d;
+}
+
+.int.input-group.select {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  border-left: 4pt solid #47b8be;
+  margin-left: auto;
+}
+
+.int.input-group.select label {
+  min-width: 6em;
+  flex-shrink: 0;
+}
+
+.int.input-group.select select.int {
+  appearance: none;
+}
+
+.int.input-group.select::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 4em;
 }
 
 hr.int {
@@ -319,4 +344,22 @@ hr.int {
 .int.pause-button:hover svg {
   filter: drop-shadow(0 0 10px rgb(71, 184, 190));
   color: rgba(71, 184, 190, 0.6);
+}
+
+/*
+
+popup
+
+*/
+.int.popup {
+  background-color: rgba(11, 32, 43, 0.7);
+  border-left: 2pt solid #4feff9;
+  padding: 0.75em 1.5em 1.5em;
+  width: 30em;
+  position: absolute;
+}
+
+.int.body-label {
+  background-color: rgba(11, 32, 43, 0.7);
+  padding: 0.75em 1.5em;
 }

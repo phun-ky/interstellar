@@ -32,7 +32,7 @@ export const drawArrow = (
   name: string
 ): void => {
   const edgePadding = 20; // Distance from viewport edge for arrow
-  const labelOffset = 30; // Distance for label inside viewport
+  const labelOffset = 40; // Distance for label inside viewport
   // Compute arrow position at viewport edge
   const arrowX =
     canvasWidth / 2 + Math.cos(angle) * (canvasWidth / 2 - edgePadding);
@@ -60,20 +60,23 @@ export const drawArrow = (
     textY = isTop ? arrowY + labelOffset : arrowY - labelOffset;
   }
 
-  // Draw arrow
-  space.fillStyle = '#4feff9';
+  // Draw two-line arrow (chevron-style)
+  const lineLength = 20;
+  const spreadAngle = Math.PI / 5; // 30 degrees
+  const x1 = arrowX - lineLength * Math.cos(angle + spreadAngle);
+  const y1 = arrowY - lineLength * Math.sin(angle + spreadAngle);
+  const x2 = arrowX - lineLength * Math.cos(angle - spreadAngle);
+  const y2 = arrowY - lineLength * Math.sin(angle - spreadAngle);
+
+  space.strokeStyle = '#ffffff';
+  space.lineWidth = 5;
+  space.lineCap = 'round';
+
   space.beginPath();
-  space.moveTo(arrowX, arrowY);
-  space.lineTo(
-    arrowX - 10 * Math.cos(angle + Math.PI / 6),
-    arrowY - 10 * Math.sin(angle + Math.PI / 6)
-  );
-  space.lineTo(
-    arrowX - 10 * Math.cos(angle - Math.PI / 6),
-    arrowY - 10 * Math.sin(angle - Math.PI / 6)
-  );
-  space.closePath();
-  space.fill();
+  space.moveTo(x1, y1);
+  space.lineTo(arrowX, arrowY);
+  space.lineTo(x2, y2);
+  space.stroke();
 
   // Draw label
   space.fillStyle = '#47B8BE';

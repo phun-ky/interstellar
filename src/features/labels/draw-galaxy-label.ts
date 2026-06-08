@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unused-modules */
 
-import { ValueInterface } from '../../types/distance';
 import { GalaxyInterface } from '../../types/celestial-bodies/galaxies';
+import { ValueInterface } from '../../types/distance';
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';
 import { CANVAS_GALAXY_FONT, CANVAS_LABEL_FONT } from '../canvas/config/ui';
 
@@ -40,7 +40,7 @@ export type DrawGalaxyLabelPropsType = {
  * ```ts
  * const galaxy: GalaxyInterface = {
  *   name: 'Milky Way',
- *   blackHole: { name: 'Sagittarius A*', radius: { value: 0.08, unit: 'AU' } }
+ *   blackHole: { name: 'Sagittarius A*', radius: { value: 0.08, unit: 'au' } }
  * };
  *
  * drawGalaxyLabel({
@@ -59,8 +59,10 @@ export const drawGalaxyLabel = (props: DrawGalaxyLabelPropsType): void => {
   const { name, blackHole } = galaxy;
   const { radius } = blackHole;
 
-  space.fillStyle = '#47B8BE';
+  space.save();
+
   space.font = CANVAS_GALAXY_FONT;
+  space.fillStyle = '#47B8BE';
   space.textAlign = 'center';
 
   space.fillText(
@@ -69,10 +71,18 @@ export const drawGalaxyLabel = (props: DrawGalaxyLabelPropsType): void => {
     referenceY - distanceToPixels(radius, scale) - 56
   );
 
+  space.restore();
+
+  space.save();
+
   space.font = CANVAS_LABEL_FONT;
+  space.fillStyle = '#47B8BE';
+  space.textAlign = 'center';
   space.fillText(
     blackHole.name,
     referenceX,
     referenceY - distanceToPixels(radius, scale) - 24
   );
+
+  space.restore();
 };

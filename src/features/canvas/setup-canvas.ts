@@ -36,9 +36,9 @@ export const setupCanvas = (): {
 
   if (!space) throw Error('Required space context not found');
 
-  const dpr = window.devicePixelRatio || 1; // Get the device pixel ratio
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const dpr = globalThis.devicePixelRatio || 1; // Get the device pixel ratio
+  const width = globalThis.innerWidth;
+  const height = globalThis.innerHeight;
 
   // Set "actual" size of the canvas in pixels
   canvas.width = width * dpr;

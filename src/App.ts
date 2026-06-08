@@ -25,6 +25,7 @@ import { updatePositions } from './features/celestial-bodies/utils/update-positi
 import { initializeMinimap } from './features/minimap/initialize-minimap';
 import { updateMinimap } from './features/minimap/update-minimap';
 import { setupUI } from './features/ui/setup-UI';
+import { updateBodiesInView } from './features/ui/update-bodies-in-view';
 import { updateCoordinates } from './features/ui/update-coordinates';
 import { updateSimulationDate } from './features/ui/update-simulation-date';
 import { updateZoom } from './features/ui/update-zoom';
@@ -56,7 +57,7 @@ import { waitFor } from './utils/wait-for';
  * App();
  * ```
  */
-const App = async () => {
+const App = async (): Promise<void> => {
   setupUI();
 
   const { canvas, space } = setupCanvas();
@@ -141,6 +142,11 @@ const App = async () => {
   update();
   await waitFor(0);
   updateMinimap(STARS, SCALE, offsetX, offsetY);
+
+  updateBodiesInView({
+    scale: SCALE,
+    canvas
+  });
 };
 
 export default App;

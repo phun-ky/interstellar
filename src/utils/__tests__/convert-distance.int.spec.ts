@@ -8,14 +8,14 @@ import { convertDistance } from '../distance/convert-distance';
 describe('convertDistance', () => {
   // Test cases for convertDistance
   const distanceTestCases = [
-    { input: { value: 1, unit: 'AU' }, target: 'AU', expected: 1 },
+    { input: { value: 1, unit: 'au' }, target: 'AU', expected: 1 },
     { input: { value: AU_IN_KM, unit: 'km' }, target: 'AU', expected: 1 },
     { input: { value: AU_IN_KM * 1000, unit: 'm' }, target: 'AU', expected: 1 },
     { input: { value: 1, unit: 'ly' }, target: 'AU', expected: LY_IN_AU },
-    { input: { value: 1, unit: 'AU' }, target: 'km', expected: AU_IN_KM },
-    { input: { value: 1, unit: 'AU' }, target: 'm', expected: AU_IN_KM * 1000 },
-    { input: { value: 1, unit: 'AU' }, target: 'ly', expected: AU_IN_LY },
-    { input: { value: LY_IN_AU, unit: 'AU' }, target: 'ly', expected: 1 }
+    { input: { value: 1, unit: 'au' }, target: 'km', expected: AU_IN_KM },
+    { input: { value: 1, unit: 'au' }, target: 'm', expected: AU_IN_KM * 1000 },
+    { input: { value: 1, unit: 'au' }, target: 'ly', expected: AU_IN_LY },
+    { input: { value: LY_IN_AU, unit: 'au' }, target: 'ly', expected: 1 }
   ];
 
   test('convertDistance correctly converts distances', () => {
@@ -45,11 +45,11 @@ describe('convertDistance', () => {
 
   test('convertDistance throws error on unsupported target units', () => {
     assert.throws(
-      () => convertDistance({ value: 1, unit: 'AU' }, 'miles' as UnitType),
+      () => convertDistance({ value: 1, unit: 'au' }, 'miles' as UnitType),
       /Unsupported target unit: miles/
     );
     assert.throws(
-      () => convertDistance({ value: 1, unit: 'AU' }, 'parsec' as UnitType),
+      () => convertDistance({ value: 1, unit: 'au' }, 'parsec' as UnitType),
       /Unsupported target unit: parsec/
     );
   });

@@ -53,7 +53,7 @@ once per animation frame**.
 
 ```ts
 const throttledFn = throttle(() => console.log('Throttled execution'));
-window.addEventListener('scroll', throttledFn);
+globalThis.addEventListener('scroll', throttledFn);
 ```
 
 ---
@@ -112,7 +112,7 @@ const throttledFetch = throttleAsync(async () => {
   console.log(data);
 });
 
-window.addEventListener('scroll', throttledFetch);
+globalThis.addEventListener('scroll', throttledFetch);
 ```
 
 ---

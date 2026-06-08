@@ -1,6 +1,7 @@
 import { DistanceInterface, MeasureInterface } from '../distance';
-import { Coordinates2DInterface } from './planets';
 import { TemporalInterface } from '../temporal';
+
+import { Coordinates2DInterface } from './planets';
 
 import { Radians } from '.';
 
@@ -25,9 +26,9 @@ import { Radians } from '.';
  *   name: 'Europa',
  *   category: 'natural satellite',
  *   system: 'Jupiter',
- *   a: { value: 0.00448, unit: 'AU' },
+ *   a: { value: 0.00448, unit: 'au' },
  *   e: 0.009,
- *   period: { value: 3.55, unit: 'days' },
+ *   period: { value: 3.55, unit: 'd' },
  *   radius: { value: 1560.8, unit: 'km' },
  *   color: '#a6a6a6',
  *   angle: 0,
@@ -37,6 +38,7 @@ import { Radians } from '.';
 export interface MoonInterface {
   /** Name of the moon (e.g., "Io", "Europa", "Titan"). */
   name: string;
+  type?: undefined;
   /** Classification of the moon. */
   category:
     | 'natural satellite'

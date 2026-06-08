@@ -79,13 +79,13 @@ const earth: PlanetInterface = {
   color: '#4287f5',
   system: 'Solar System',
   radius: { value: 6371, unit: 'km' },
-  a: { value: 1.0, unit: 'AU' },
+  a: { value: 1.0, unit: 'au' },
   e: 0.0167,
-  period: { value: 365.25, unit: 'days' },
+  period: { value: 365.25, unit: 'd' },
   angle: 0,
-  x: { value: 0, unit: 'AU' },
-  y: { value: 1, unit: 'AU' },
-  z: { value: 0, unit: 'AU' }
+  x: { value: 0, unit: 'au' },
+  y: { value: 1, unit: 'au' },
+  z: { value: 0, unit: 'au' }
 };
 ```
 

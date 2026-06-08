@@ -32,5 +32,6 @@ export const OPTIONS_UI: UIOptionsInterface = {
   asteroidBelts: false,
 
   /** Whether to visualize asteroids. */
-  asteroids: false
+  asteroids: false,
+  starfield: false
 };

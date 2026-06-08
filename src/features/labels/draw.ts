@@ -62,7 +62,7 @@ export type DrawLabelsPropsType = {
  * const celestialBodies: CelestialBodiesType = [
  *   {
  *     name: 'Earth',
- *     a: { value: 1, unit: 'AU' },
+ *     a: { value: 1, unit: 'au' },
  *     e: 0.0167,
  *     radius: { value: 6371, unit: 'km' },
  *     angle: Math.PI / 2,
@@ -85,9 +85,11 @@ export type DrawLabelsPropsType = {
 export const drawLabels = (props: DrawLabelsPropsType): void => {
   const { space, referenceX, referenceY, scale, celestialBodies } = props;
 
-  space.fillStyle = '#47B8BE';
+  space.save();
+  space.fillStyle = '#ffffff';
   space.font = CANVAS_LABEL_FONT;
   space.textAlign = 'center';
+  space.textBaseline = 'middle';
 
   celestialBodies.forEach((body: CelestialBodyType) => {
     const { a, miA = 1, angle, focus_x = 0, name, radius, period } = body;
@@ -102,7 +104,43 @@ export const drawLabels = (props: DrawLabelsPropsType): void => {
     const yPX =
       referenceY +
       distanceToPixels({ value: y, unit: normalizedA.unit }, scale);
+    // Calculate label box dimensions
+    const paddingX = 48;
+    const paddingY = 32;
+    const textMetrics = space.measureText(name);
+    const textWidth = textMetrics.width;
+    const boxWidth = textWidth + paddingX;
+    const boxHeight = 24 + paddingY; // approx 24px font height
+    const boxX = xPX - boxWidth / 2;
+    const boxY = yPX - distanceToPixels(radius, scale) - boxHeight - 80;
 
-    space.fillText(name, xPX, yPX - distanceToPixels(radius, scale) - 24);
+    // Draw label background box (no rounded corners)
+    space.fillStyle = 'rgba(11, 32, 43, 0.8)';
+    space.fillRect(boxX, boxY, boxWidth, boxHeight);
+
+    // Draw label text
+    space.fillStyle = '#ffffff';
+    space.fillText(name.toUpperCase(), xPX, boxY + boxHeight / 2);
+
+    // Draw gradient line from center bottom of box to object
+    const lineStartX = xPX;
+    const lineStartY = boxY + boxHeight;
+    const gradient = space.createLinearGradient(
+      lineStartX,
+      lineStartY,
+      xPX,
+      yPX
+    );
+
+    gradient.addColorStop(0, 'rgba(71, 184, 190, 0.6)');
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0.6)');
+
+    space.strokeStyle = gradient;
+    space.lineWidth = 2;
+    space.beginPath();
+    space.moveTo(lineStartX, lineStartY);
+    space.lineTo(xPX, yPX);
+    space.stroke();
   });
+  space.restore();
 };

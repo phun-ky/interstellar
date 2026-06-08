@@ -12,7 +12,11 @@ import { precomputeInitialAngles } from '../features/celestial-bodies/utils/prec
 import { updatePositions } from '../features/celestial-bodies/utils/update-positions';
 import { generateStarfield } from '../features/starfield/generate-star-field';
 import { updateScaleDisplay } from '../features/ui/update-scale-display';
-import { CelestialBodiesType } from '../types/celestial-bodies';
+import {
+  CelestialBodiesType,
+  CelestialBodyType
+} from '../types/celestial-bodies';
+import { StarSystemInterface } from '../types/celestial-bodies/stars';
 import { distanceToPixels } from '../utils/distance/distance-to-pixels';
 import { getParentBodyOffset } from '../utils/offset/get-parent-body-offset';
 import { normalizeParentOffset } from '../utils/offset/normalize-parent-offset';
@@ -57,6 +61,9 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   const asteroidsCheckboxElement = document.getElementById(
     'toggleAsteroids'
   ) as HTMLInputElement;
+  const starfieldCheckboxElement = document.getElementById(
+    'toggleStarfield'
+  ) as HTMLInputElement;
 
   setUIOptions({
     trajectoryCheckboxElement,
@@ -65,7 +72,8 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
     labelCheckboxElement,
     toggleArrowheadsElement,
     asteroidBeltsCheckboxElement,
-    asteroidsCheckboxElement
+    asteroidsCheckboxElement,
+    starfieldCheckboxElement
   });
 
   precomputeInitialAngles(
@@ -85,10 +93,10 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   globalThis.TRAJECTORY_TYPE = 'orbits';
   globalThis.TRAJECTORY_TRAILS = {};
   globalThis.IS_ZOOMING_OR_PANNING = false; // Initialize
-  globalThis.ZOOM_PAN_TIMEOUT = null; // For delaying reactivation
   globalThis.NEAREST_BODIES = {};
+  globalThis.BODIES_IN_VIEWPORT =
+    globalThis.BODIES_IN_VIEWPORT ?? new Set<string>();
 
-  globalThis.STARFIELD_BITMAP = null;
   globalThis.LAST_CANVAS_SIZE = { width: 0, height: 0 };
 
   generateStarfield(canvas.width, canvas.height);
@@ -99,15 +107,15 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
     const { x, y } = getBodyPosition(globalThis.LOCKED_CELESTIAL_BODY);
     const xPX = x ? distanceToPixels(x, SCALE) : 0;
     const yPX = y ? distanceToPixels(y, SCALE) : 0;
-    const { system, category } = globalThis.LOCKED_CELESTIAL_BODY;
-    const celestialBodiesToUse =
-      category === 'planet'
-        ? STARS
-        : category === 'natural satellite'
-          ? PLANETS
-          : [];
+    const { system, category } =
+      globalThis.LOCKED_CELESTIAL_BODY as CelestialBodyType;
+    const celestialBodiesToUse = category.includes('planet')
+      ? STARS
+      : category.includes('satellite')
+        ? PLANETS
+        : [];
     const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-      system,
+      (system as StarSystemInterface).name || (system as string),
       category,
       celestialBodiesToUse,
       SCALE

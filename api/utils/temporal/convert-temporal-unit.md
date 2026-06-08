@@ -32,7 +32,7 @@ Converts a **temporal measurement** between **days, years, and million years
 
 **Supported Conversions:**
 
-- **Days ↔ Years** (Uses Earth's orbital period `EARTH_PERIOD`).
+- **Days ↔ Years** (Uses Earth's orbital period `JULIAN_YEAR_DAYS`).
 - **Years ↔ Million Years (Myr)**.
 
 #### Parameters
@@ -55,7 +55,7 @@ If the input or target unit is not supported.
 #### Example
 
 ```ts
-const timeInYears = convertTemporalUnit({ value: 365, unit: 'days' }, 'year');
+const timeInYears = convertTemporalUnit({ value: 365, unit: 'd' }, 'year');
 console.log(timeInYears); // Output: { value: 1, unit: 'year' }
 ```
 

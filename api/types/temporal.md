@@ -28,7 +28,7 @@ TemporalInterface
 #### Example
 
 ```ts
-const orbitPeriod: TemporalInterface = { value: 365.25, unit: 'days' };
+const orbitPeriod: TemporalInterface = { value: 365.25, unit: 'd' };
 ```
 
 #### Extends

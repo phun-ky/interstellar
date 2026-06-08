@@ -126,7 +126,7 @@ The calculated position in **astronomical units (AU)**.
 
 ```ts
 const body: CelestialBodyType = {
-  a: { value: 5, unit: 'AU' },
+  a: { value: 5, unit: 'au' },
   e: 0.2,
   angle: Math.PI / 4,
   focus_x: 1,
@@ -134,7 +134,7 @@ const body: CelestialBodyType = {
 };
 
 const position = getBodyPosition(body);
-console.log(position); // { x: { value: ..., unit: 'AU' }, y: { value: ..., unit: 'AU' } }
+console.log(position); // { x: { value: ..., unit: 'au' }, y: { value: ..., unit: 'au' } }
 ```
 
 #### See

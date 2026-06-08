@@ -50,13 +50,13 @@ export interface StarSystemInterface {
  *   system: solarSystem,
  *   radius: { value: 695700, unit: 'km' },
  *   color: '#ffcc00',
- *   a: { value: 0, unit: 'AU' },
+ *   a: { value: 0, unit: 'au' },
  *   e: 0,
  *   period: { value: 0, unit: 'years' },
  *   angle: 0,
- *   x: { value: 0, unit: 'AU' },
- *   y: { value: 0, unit: 'AU' },
- *   z: { value: 0, unit: 'AU' }
+ *   x: { value: 0, unit: 'au' },
+ *   y: { value: 0, unit: 'au' },
+ *   z: { value: 0, unit: 'au' }
  * };
  * ```
  */

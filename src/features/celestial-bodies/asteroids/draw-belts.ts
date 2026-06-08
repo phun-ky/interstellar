@@ -56,9 +56,9 @@ export const drawBelts = (props: DrawBeltsPropsType) => {
       space.fillText(
         belt.name,
         centerX -
-          distanceToPixels({ value: belt.innerRadius, unit: 'AU' }, scale),
+          distanceToPixels({ value: belt.innerRadius, unit: 'au' }, scale),
         centerY -
-          distanceToPixels({ value: belt.innerRadius, unit: 'AU' }, scale)
+          distanceToPixels({ value: belt.innerRadius, unit: 'au' }, scale)
       );
     }
 
@@ -70,7 +70,7 @@ export const drawBelts = (props: DrawBeltsPropsType) => {
     space.arc(
       centerX,
       centerY,
-      distanceToPixels({ value: belt.outerRadius, unit: 'AU' }, scale),
+      distanceToPixels({ value: belt.outerRadius, unit: 'au' }, scale),
       0,
       TWO_PI
     );
@@ -79,7 +79,7 @@ export const drawBelts = (props: DrawBeltsPropsType) => {
     space.arc(
       centerX,
       centerY,
-      distanceToPixels({ value: belt.innerRadius, unit: 'AU' }, scale),
+      distanceToPixels({ value: belt.innerRadius, unit: 'au' }, scale),
       0,
       TWO_PI,
       true

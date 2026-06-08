@@ -34,7 +34,7 @@ export type GetBodyPositionReturnType = {
  * @example
  * ```ts
  * const body: CelestialBodyType = {
- *   a: { value: 5, unit: 'AU' },
+ *   a: { value: 5, unit: 'au' },
  *   e: 0.2,
  *   angle: Math.PI / 4,
  *   focus_x: 1,
@@ -42,7 +42,7 @@ export type GetBodyPositionReturnType = {
  * };
  *
  * const position = getBodyPosition(body);
- * console.log(position); // { x: { value: ..., unit: 'AU' }, y: { value: ..., unit: 'AU' } }
+ * console.log(position); // { x: { value: ..., unit: 'au' }, y: { value: ..., unit: 'au' } }
  * ```
  *
  * @see [Elliptical Orbits](https://en.wikipedia.org/wiki/Ellipse)
@@ -65,5 +65,5 @@ export const getBodyPosition = (
   const x = normalizedA.value * Math.cos(adjustedAngle) - focus_x;
   const y = miA * Math.sin(adjustedAngle);
 
-  return { x: { value: x, unit: 'AU' }, y: { value: y, unit: 'AU' } };
+  return { x: { value: x, unit: 'au' }, y: { value: y, unit: 'au' } };
 };

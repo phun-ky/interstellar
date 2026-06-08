@@ -19,7 +19,7 @@ import { DistanceInterface, ValueInterface } from '../../types/distance';
  * @example
  * ```ts
  * const distance = pixelsToDistance(500, { value: 50 });
- * console.log(distance); // Output: { value: 0.2, unit: 'AU' }
+ * console.log(distance); // Output: { value: 0.2, unit: 'au' }
  * ```
  */
 export const pixelsToDistance = (
@@ -28,5 +28,5 @@ export const pixelsToDistance = (
 ): DistanceInterface => {
   const value = pixels / (AU_IN_PX * scale.value);
 
-  return { value, unit: 'AU' };
+  return { value, unit: 'au' };
 };

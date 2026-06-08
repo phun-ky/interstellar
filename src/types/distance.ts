@@ -1,30 +1,101 @@
-/**
- * Defines possible units of measurement for distance.
- *
- * Supported units:
- * - **AU**: Astronomical Unit
- * - **km**: Kilometers
- * - **kly** / **kilolightyears**: Thousand light-years
- * - **ly** / **lightyears**: Light-years
- * - **m**: Meters
- *
- * @typedef {'AU' | 'km' | 'kly' | 'kilolightyears' | 'lightyears' | 'ly' | 'm'} UnitType
- */
-export type UnitType =
-  | 'AU'
+export type DistanceUnitType =
+  | 'm'
   | 'km'
-  | 'kly'
-  | 'kilolightyears'
-  | 'lightyears'
+  | 'au'
   | 'ly'
-  | 'm';
+  | 'kly'
+  | 'Mly'
+  | 'Gly'
+  | 'pc'
+  | 'kpc'
+  | 'Mpc'
+  | 'Gpc';
 
 /**
- * Alias for distance-specific unit types.
+ * Human-friendly **distance unit aliases** accepted at input time.
  *
- * @typedef {UnitType} DistanceUnitType
+ * These strings are parsed and **normalized** to canonical {@link DistanceUnitType}
+ * (e.g., `"AU"` → `"au"`, `"lightyears"` → `"ly"`, `"kiloparsecs"` → `"kpc"`).
+ *
+ * ### Scope & conventions
+ * - **Canonical vs. aliases**: This type is for *inputs*. Convert to canonical symbols
+ *   (`m`, `km`, `au`, `ly/kly/Mly/Gly`, `pc/kpc/Mpc/Gpc`) before math or serialization.
+ * - **Case-sensitive** and **exact** matches: tokens are matched exactly as listed here.
+ *   For example, `"AU"` is valid (alias) while `"au"` is the canonical symbol (not part of this alias type).
+ * - **IAU symbol**: canonical astronomical unit is lowercase **`au`**; we accept `"AU"`, `"Au"`,
+ *   and textual forms as aliases.
+ * - **Light-year and parsec families**: long names (with/without hyphens) normalize to their
+ *   canonical symbols (`ly/kly/Mly/Gly`, `pc/kpc/Mpc/Gpc`). By convention, `ly` uses the
+ *   **Julian year** (consistent with your temporal units).
+ *
+ * ### Typical flow
+ * 1) Accept `DistanceUnitAliasType | DistanceUnitType` at your API boundary.
+ * 2) Normalize to `DistanceUnitType` (e.g., via `normalizeDistanceUnit`).
+ * 3) Perform calculations using canonical units only.
+ *
+ * @example
+ * ```ts
+ * // Assuming `normalizeDistanceUnit` and `NORMALIZE_DISTANCE_UNIT` are defined:
+ * normalizeDistanceUnit('AU');           // 'au'
+ * normalizeDistanceUnit('lightyears');   // 'ly'
+ * normalizeDistanceUnit('kilolightyears'); // 'kly'
+ * normalizeDistanceUnit('parsecs');      // 'pc'
+ * normalizeDistanceUnit('Mpc');          // 'Mpc' (already canonical)
+ * ```
+ *
+ * @remarks
+ * If you wish to be more permissive (e.g., case-insensitive or allow extra whitespace),
+ * pre-normalize inputs (trim/case-fold) and add corresponding keys to your normalization map.
+ *
+ * @see DistanceUnitType for the canonical symbol set.
+ * @see https://www.iau.org/static/resolutions/IAU2012_English.pdf (IAU 2012 B2 — astronomical unit, symbol “au”)
+ * @see https://en.wikipedia.org/wiki/Light-year (Light-year; Julian-year convention)
+ * @see https://en.wikipedia.org/wiki/Parsec (Parsec definition)
  */
-export type DistanceUnitType = UnitType;
+export type DistanceUnitAliasType =
+  // meters
+  | 'meter'
+  | 'meters'
+  | 'metre'
+  | 'metres'
+  // kilometers
+  | 'kilometer'
+  | 'kilometers'
+  | 'kilometre'
+  | 'kilometres'
+  // astronomical unit
+  | 'AU'
+  | 'Au'
+  | 'astronomical-unit'
+  | 'astronomical-units'
+  | 'astronomical unit'
+  | 'astronomical units'
+  // light-year family
+  | 'lightyear'
+  | 'lightyears'
+  | 'light-year'
+  | 'light-years'
+  | 'kilolightyear'
+  | 'kilolightyears'
+  | 'kly'
+  | 'megalightyear'
+  | 'megalightyears'
+  | 'Mly'
+  | 'gigalightyear'
+  | 'gigalightyears'
+  | 'Gly'
+  // parsec family
+  | 'parsec'
+  | 'parsecs'
+  | 'kiloparsec'
+  | 'kiloparsecs'
+  | 'kpc'
+  | 'megaparsec'
+  | 'megaparsecs'
+  | 'Mpc'
+  | 'gigaparsec'
+  | 'gigaparsecs'
+  | 'Gpc';
 
 /**
  * Represents a numerical value.
@@ -46,7 +117,7 @@ export interface ValueInterface {
  *
  * @interface MeasureInterface
  * @extends ValueInterface
- * @property {UnitType} unit - The unit of measurement.
+ * @property {DistanceUnitType} unit - The unit of measurement.
  *
  * @example
  * ```ts
@@ -54,7 +125,7 @@ export interface ValueInterface {
  * ```
  */
 export interface MeasureInterface extends ValueInterface {
-  unit: UnitType;
+  unit: DistanceUnitType;
 }
 
 /**

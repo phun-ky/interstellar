@@ -38,7 +38,7 @@ Uses [PlanetsType](../types/planets.md#planetstype).
   category: 'planet',
   system: 'Sun',
   /** Semi-major axis in AU */
-  a: { value: 0.387, unit: 'AU' },
+  a: { value: 0.387, unit: 'au' },
   /** Orbital eccentricity */
   e: 0.2056,
   /** Radius in km */
@@ -48,11 +48,11 @@ Uses [PlanetsType](../types/planets.md#planetstype).
   /** Initial angle in orbit at J2000 */
   angle: 0.843,
   /** Orbital period in days */
-  period: { value: -87.969, unit: 'days' },
+  period: { value: -87.969, unit: 'd' },
   /** Initial position coordinates in AU */
-  x: { value: 0.387, unit: 'AU' },
-  y: { value: 0.024, unit: 'AU' },
-  z: { value: 0.001, unit: 'AU' }
+  x: { value: 0.387, unit: 'au' },
+  y: { value: 0.024, unit: 'au' },
+  z: { value: 0.001, unit: 'au' }
 },
 ```
 

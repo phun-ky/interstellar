@@ -175,7 +175,7 @@ This function does not return a value; it renders text labels onto the canvas.
 ```ts
 const galaxy: GalaxyInterface = {
   name: 'Milky Way',
-  blackHole: { name: 'Sagittarius A*', radius: { value: 0.08, unit: 'AU' } }
+  blackHole: { name: 'Sagittarius A*', radius: { value: 0.08, unit: 'au' } }
 };
 
 drawGalaxyLabel({

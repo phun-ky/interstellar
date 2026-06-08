@@ -52,7 +52,7 @@ The converted distance in AU.
 
 ```ts
 const distance = pixelsToDistance(500, { value: 50 });
-console.log(distance); // Output: { value: 0.2, unit: 'AU' }
+console.log(distance); // Output: { value: 0.2, unit: 'au' }
 ```
 
 ---

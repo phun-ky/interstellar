@@ -1,77 +1,53 @@
-import { AU_IN_KM, AU_IN_LY, LY_IN_AU } from '../../config/constants';
-import { DistanceInterface, DistanceUnitType } from '../../types/distance';
+import { AU_IN_M, LY_IN_M, PARSEC_IN_M } from '../../config/constants';
+import {
+  DistanceInterface,
+  DistanceUnitAliasType,
+  DistanceUnitType
+} from '../../types/distance';
+
+import { normalizeDistanceUnit } from './normalize-distance-unit';
 
 /**
- * Converts a distance measurement between **Astronomical Units (AU), kilometres (km), meters (m),**
- * and **light-years (ly)**.
+ * Meters-per-unit lookup for canonical {@link DistanceUnitType}.
+ * Higher-order units are powers of 10 of their base (kilo/mega/giga).
+ */
+export const METERS_PER: Record<DistanceUnitType, number> = {
+  m: 1,
+  km: 1_000,
+
+  au: AU_IN_M,
+
+  ly: LY_IN_M,
+  kly: LY_IN_M * 1e3,
+  Mly: LY_IN_M * 1e6,
+  Gly: LY_IN_M * 1e9,
+
+  pc: PARSEC_IN_M,
+  kpc: PARSEC_IN_M * 1e3,
+  Mpc: PARSEC_IN_M * 1e6,
+  Gpc: PARSEC_IN_M * 1e9
+};
+
+/**
+ * Convert a **distance** between any two canonical {@link DistanceUnitType} units.
  *
- * **Conversion Logic:**
- * 1. Converts the input distance to **Astronomical Units (AU)** as an intermediate step.
- * 2. Converts the AU value to the **target unit**.
- *
- * **Supported Conversions:**
- * - **AU ↔ km ↔ m**
- * - **AU ↔ light-years (ly)**
- *
- * @param {DistanceInterface} distance - The input distance value and its unit.
- * @param {DistanceUnitType} targetUnit - The desired output unit.
- * @returns {DistanceInterface} The converted distance value and unit.
- *
- * @throws {Error} If the input or target unit is not supported.
+ * - Converts via **meters** using {@link METERS_PER}.
+ * - Input and `targetUnit` may be aliases; both are normalized to canonical symbols.
+ * - Floating-point precision applies for very large numbers (e.g., gigaparsecs).
  *
  * @example
- * ```ts
- * const distanceInKM = convertDistance({ value: 1, unit: 'AU' }, 'km');
- * console.log(distanceInKM); // Output: { value: 149597870.7, unit: 'km' }
- * ```
+ * convertDistanceUnit({ value: 1, unit: 'pc' }, 'ly');   // ≈ { value: 3.26156…, unit: 'ly' }
+ * convertDistanceUnit({ value: 1, unit: 'au' }, 'km');   // { value: 149_597_870.7, unit: 'km' }
+ * convertDistanceUnit({ value: 1000, unit: 'km' }, 'm'); // { value: 1_000_000, unit: 'm' }
  */
-export const convertDistance = (
-  distance: DistanceInterface,
-  targetUnit: DistanceUnitType
+export const convertDistanceUnit = (
+  distance: { value: number; unit: DistanceUnitType | DistanceUnitAliasType },
+  targetUnit: DistanceUnitType | DistanceUnitAliasType
 ): DistanceInterface => {
-  const { value, unit } = distance;
+  const from = normalizeDistanceUnit(distance.unit);
+  const to = normalizeDistanceUnit(targetUnit);
+  const meters = distance.value * METERS_PER[from];
+  const value = meters / METERS_PER[to];
 
-  // Convert input distance to AU first
-  let valueInAU: number;
-
-  switch (unit) {
-    case 'AU':
-      valueInAU = value;
-      break;
-    case 'km':
-      valueInAU = value / AU_IN_KM;
-      break;
-    case 'm':
-      valueInAU = value / (AU_IN_KM * 1000);
-      break;
-    case 'lightyears':
-    case 'ly':
-      valueInAU = value * LY_IN_AU; // Convert LY to AU
-      break;
-    default:
-      throw new Error(`Unsupported unit: ${unit}`);
-  }
-
-  // Convert from AU to target unit
-  let convertedValue: number;
-
-  switch (targetUnit) {
-    case 'AU':
-      convertedValue = valueInAU;
-      break;
-    case 'km':
-      convertedValue = valueInAU * AU_IN_KM;
-      break;
-    case 'm':
-      convertedValue = valueInAU * (AU_IN_KM * 1000);
-      break;
-    case 'lightyears':
-    case 'ly':
-      convertedValue = valueInAU * AU_IN_LY;
-      break;
-    default:
-      throw new Error(`Unsupported target unit: ${targetUnit}`);
-  }
-
-  return { value: convertedValue, unit: targetUnit };
+  return { value, unit: to };
 };

@@ -98,9 +98,9 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
         // Convert real-world coordinates to pixels
 
         const pointX =
-          referenceX + distanceToPixels({ value: x, unit: 'AU' }, scale);
+          referenceX + distanceToPixels({ value: x, unit: 'au' }, scale);
         const pointY =
-          referenceY + distanceToPixels({ value: y, unit: 'AU' }, scale);
+          referenceY + distanceToPixels({ value: y, unit: 'au' }, scale);
 
         // Move to the first point, then draw lines to subsequent points
         if (index === 0) space.moveTo(pointX, pointY);

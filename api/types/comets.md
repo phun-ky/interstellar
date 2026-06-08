@@ -91,7 +91,7 @@ const halley: CometInterface = {
   type: 'periodic comet',
   category: 'halley-type comet',
   system: 'Solar System',
-  a: { value: 17.8, unit: 'AU' },
+  a: { value: 17.8, unit: 'au' },
   e: 0.967,
   i: 162.26,
   w: 111.33,

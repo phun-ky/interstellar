@@ -10,7 +10,7 @@ export const updateScaleDisplay = (el: HTMLElement, scale: ValueInterface) => {
   // Convert 1 pixel to real-world distance in AU
   const distanceInAU: DistanceInterface = {
     value: 1 / (AU_IN_PX * scale.value),
-    unit: 'AU'
+    unit: 'au'
   };
 
   let targetUnit: UnitType = 'ly';

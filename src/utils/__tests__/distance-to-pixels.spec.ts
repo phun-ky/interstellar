@@ -9,22 +9,22 @@ describe('distanceToPixels', () => {
   // Test cases for distanceToPixels
   const distanceToPixelsTestCases = [
     {
-      distance: { value: 1, unit: 'AU' },
+      distance: { value: 1, unit: 'au' },
       scale: { value: 1 },
       expected: AU_IN_PX
     },
     {
-      distance: { value: 2, unit: 'AU' },
+      distance: { value: 2, unit: 'au' },
       scale: { value: 1 },
       expected: 2 * AU_IN_PX
     },
     {
-      distance: { value: 1, unit: 'AU' },
+      distance: { value: 1, unit: 'au' },
       scale: { value: 2 },
       expected: 2 * AU_IN_PX
     },
     {
-      distance: { value: 0.5, unit: 'AU' },
+      distance: { value: 0.5, unit: 'au' },
       scale: { value: 1 },
       expected: 0.5 * AU_IN_PX
     }

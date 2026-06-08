@@ -199,7 +199,7 @@ This function does not return a value; it renders text labels onto the canvas.
 const celestialBodies: CelestialBodiesType = [
   {
     name: 'Earth',
-    a: { value: 1, unit: 'AU' },
+    a: { value: 1, unit: 'au' },
     e: 0.0167,
     radius: { value: 6371, unit: 'km' },
     angle: Math.PI / 2,
