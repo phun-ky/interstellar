@@ -132,3 +132,7 @@ dist
 
 dts
 interstellar.d.ts
+
+# Playwright
+test-results/
+playwright-report/
