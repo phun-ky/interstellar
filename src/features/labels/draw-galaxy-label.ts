@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unused-modules */
-
 import { GalaxyInterface, ValueInterface } from '@interstellar-tools/types';
 
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';

@@ -5,7 +5,6 @@ import {
 
 import { Interval } from '../lib/classes/Interval';
 
-/* eslint-disable no-var */
 export {}; // Ensures this file is treated as a module
 
 type NearestBodyType = CartesianCoordinatesInterface & {

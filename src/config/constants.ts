@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 /**
  * Astronomical and simulation-related constants for space visualization.
  *

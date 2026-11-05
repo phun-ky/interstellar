@@ -38,7 +38,6 @@ let isHeldByUser = false;
 let lastMouseX: number;
 let lastMouseY: number;
 
-// eslint-disable-next-line import/no-unused-modules
 export type AttachEventHandlersPropsType = {
   space: CanvasRenderingContext2D;
   canvas: HTMLCanvasElement;

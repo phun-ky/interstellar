@@ -5,7 +5,6 @@ const html = String.raw;
 /**
  * Represents the properties for the Interstellar Checkbox component.
  */
-// eslint-disable-next-line import/no-unused-modules
 export type InterstellarCheckboxPropsType = {
   /** Whether the checkbox is checked by default. Defaults to false. */
   checked?: boolean;

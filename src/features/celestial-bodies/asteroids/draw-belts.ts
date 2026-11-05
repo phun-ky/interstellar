@@ -5,7 +5,6 @@ import { distanceToPixels } from '../../../utils/distance/distance-to-pixels';
 import { OPTIONS_UI } from '../../canvas/config/hud';
 import { CANVAS_LABEL_FONT } from '../../canvas/config/ui';
 
-// eslint-disable-next-line import/no-unused-modules
 export type DrawBeltsPropsType = {
   space: CanvasRenderingContext2D;
   centerX: number;

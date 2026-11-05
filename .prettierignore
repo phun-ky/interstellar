@@ -1,0 +1,7 @@
+# Built output, reports and generated files
+dist
+coverage
+test-results
+playwright-report
+CHANGELOG.md
+package-lock.json

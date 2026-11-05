@@ -3,7 +3,6 @@ import { OPTIONS_UI } from '../features/canvas/config/hud';
 /**
  * Represents the properties for setting UI options in the simulation.
  */
-// eslint-disable-next-line import/no-unused-modules
 export type SetUIOptionsPropsType = {
   /** Checkbox element for toggling trajectory visibility. */
   trajectoryCheckboxElement: HTMLInputElement;

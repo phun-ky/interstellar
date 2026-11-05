@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unused-modules */
-
 /**
  * Defines user interface options for toggling different visualization elements.
  *
@@ -56,10 +54,7 @@ export interface UIOptionsInterface {
  * @typedef {'framePerDay' | 'spedUp' | 'realTime' | 'quarterFramePerDay'} TimeStepMode
  */
 export type TimeStepMode =
-  | 'framePerDay'
-  | 'spedUp'
-  | 'realTime'
-  | 'quarterFramePerDay';
+  'framePerDay' | 'spedUp' | 'realTime' | 'quarterFramePerDay';
 
 /**
  * Configuration for time step settings in the simulation.

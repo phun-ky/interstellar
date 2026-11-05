@@ -70,11 +70,7 @@ describe('generateTimeStep', () => {
 
     for (const [mode, expected] of Object.entries(speedModes)) {
       SPEED_MODE.value = mode as
-        | 'realTime'
-        | 'framePerDay'
-        | 'quarterFramePerDay'
-        | 'spedUp'
-        | 'insane';
+        'realTime' | 'framePerDay' | 'quarterFramePerDay' | 'spedUp' | 'insane';
       generateTimeStep();
       assert.strictEqual(timeStep.unit, 'd');
       assert.strictEqual(timeStep.value, expected);

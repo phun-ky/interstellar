@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 export interface AsteroidImageInterface {
   name: string;
   url: string;

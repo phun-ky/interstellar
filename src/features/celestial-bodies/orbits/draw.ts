@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import { convertTemporalUnit } from '@interstellar-tools/temporal';
 import { ValueInterface } from '@interstellar-tools/types';
 

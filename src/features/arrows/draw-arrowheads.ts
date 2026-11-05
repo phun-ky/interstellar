@@ -8,7 +8,6 @@ import { isOffScreen } from './utils/is-off-screen';
 /** Arrows closer than this (in pixels) along the viewport edge are merged into one. */
 const ARROW_MERGE_DISTANCE = 32;
 
-// eslint-disable-next-line import/no-unused-modules
 export type DrawDirectionalArrowsPropsType = {
   space: CanvasRenderingContext2D;
   canvasWidth: number;

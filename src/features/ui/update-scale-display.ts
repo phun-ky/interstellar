@@ -21,7 +21,7 @@ export const updateScaleDisplay = (el: HTMLElement, scale: ValueInterface) => {
     unit: 'au'
   };
 
-  let targetUnit: DistanceUnitType = 'ly';
+  let targetUnit: DistanceUnitType;
 
   if (distanceInAU.value >= AU_PER_LY) targetUnit = 'ly';
   else if (distanceInAU.value >= 1) targetUnit = 'au';
