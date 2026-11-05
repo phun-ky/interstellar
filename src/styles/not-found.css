@@ -1,0 +1,43 @@
+/*
+ * The 404 page: the HUD's header and a single panel, without the app.
+ */
+@import '@fontsource/ibm-plex-sans-condensed/600.css';
+@import '@fontsource/ibm-plex-sans-condensed/700.css';
+@import './main.css';
+
+.int.mc-brand {
+  text-decoration: none;
+}
+
+.int.mc-lost {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: calc(var(--int-header-height) + var(--int-gutter)) var(--int-gutter)
+    var(--int-gutter);
+  box-sizing: border-box;
+}
+
+.int.mc-lost .mc-panel {
+  width: 100%;
+  max-width: 420px;
+}
+
+.int.mc-lost-title {
+  margin: 4px 0 12px;
+  font-family: var(--int-font-family-heading);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--int-color-text);
+}
+
+.int.mc-lost .mc-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 16px;
+  text-decoration: none;
+}
