@@ -98,7 +98,7 @@ test('axe finds no violations with a body locked, held and its info open', async
 test('every control is reached with Tab, in order, with visible focus', async ({
   page
 }) => {
-  const reached = [];
+  const reached: Awaited<ReturnType<typeof describeFocus>>[] = [];
 
   for (let i = 0; i < TAB_ORDER.length; i++) {
     await page.keyboard.press('Tab');
