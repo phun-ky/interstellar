@@ -32,10 +32,10 @@ describe('index.html metadata', () => {
   test('loads nothing from another origin', () => {
     // The Content Security Policy allows the site's own origin only. The
     // canonical link and og: tags name the site but load nothing.
-    const external = [...html.matchAll(/<(?:link|script)\b[^>]*>/g)]
+    const external = [...html.matchAll(/<(?:link|script)\b[^>]*>/gi)]
       .map(([tag]) => tag)
-      .filter((tag) => /\b(?:href|src)="(?:https?:)?\/\//.test(tag))
-      .filter((tag) => !/\brel="canonical"/.test(tag));
+      .filter((tag) => /\b(?:href|src)\s*=\s*["']?(?:https?:)?\/\//i.test(tag))
+      .filter((tag) => !/\brel\s*=\s*["']?canonical\b/i.test(tag));
 
     assert.deepEqual(external, []);
   });
