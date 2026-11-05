@@ -90,6 +90,43 @@ canvas {
   white-space: nowrap !important;
 }
 
+/* Hidden until focused, then shown above the header */
+.int.mc-skip {
+  position: fixed;
+  top: 8px;
+  left: var(--int-gutter);
+  z-index: 10;
+  padding: 8px 14px;
+  border: 1px solid var(--int-color-cyan);
+  background: var(--int-color-panel-solid);
+  font-family: var(--int-font-family-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--int-color-cyan);
+  transform: translateY(-200%);
+}
+
+.int.mc-skip:focus {
+  transform: none;
+  outline: 2px solid var(--int-color-cyan);
+  outline-offset: 2px;
+}
+
+/* Focus moves here from the skip link; the panel's own frame is enough */
+.int.controls:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 /* ---------- Header ---------- */
 
 .int.mc-header {
