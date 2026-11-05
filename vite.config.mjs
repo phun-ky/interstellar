@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
+import { existsSync, readFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+
 import pack from './package.json' with { type: 'json' };
 import { addContentSecurityPolicy } from './src/config/csp.ts';
 
@@ -30,6 +33,8 @@ export default defineConfig({
   // Served from GitHub Pages at https://phun-ky.net/site-interstellar/
   base: '/site-interstellar/',
   publicDir: 'public',
+  // No fallback to index.html for unknown paths, as on GitHub Pages
+  appType: 'mpa',
   server: {
     port: 3000
   },
@@ -44,14 +49,25 @@ export default defineConfig({
     // `data:` URIs, and small font subsets would otherwise be inlined
     assetsInlineLimit: 0,
     rolldownOptions: {
+      // The app, and the page GitHub Pages serves for unknown paths
+      input: {
+        main: 'index.html',
+        notFound: '404.html'
+      },
       output: {
         postBanner: banner,
         entryFileNames: 'js/main.js',
         chunkFileNames: 'js/[name]-[hash].js',
-        assetFileNames: (assetInfo) =>
-          assetInfo.names.some((name) => name.endsWith('.css'))
-            ? 'css/interstellar.css'
-            : 'assets/[name]-[hash][extname]'
+        assetFileNames: (assetInfo) => {
+          if (!assetInfo.names.some((name) => name.endsWith('.css'))) {
+            return 'assets/[name]-[hash][extname]';
+          }
+
+          // Named after the entry: `notFound.css` comes from 404.html
+          return assetInfo.names.includes('notFound.css')
+            ? 'css/not-found.css'
+            : 'css/interstellar.css';
+        }
       }
     }
   },
@@ -64,6 +80,26 @@ export default defineConfig({
       transformIndexHtml: {
         order: 'post',
         handler: (html) => addContentSecurityPolicy(html)
+      }
+    },
+    // `vite preview` answers unknown paths with 404.html and status 404,
+    // as GitHub Pages does
+    {
+      name: 'preview-not-found',
+      configurePreviewServer: (server) => () => {
+        const { root, build } = server.config;
+        const outDir = resolve(root, build.outDir);
+
+        server.middlewares.use((request, response, next) => {
+          // Vite serves index.html after this, once it has rewritten `/`
+          const path = decodeURIComponent(request.url?.split('?')[0] ?? '');
+
+          if (existsSync(join(outDir, path))) return next();
+
+          response.statusCode = 404;
+          response.setHeader('Content-Type', 'text/html; charset=utf-8');
+          response.end(readFileSync(join(outDir, '404.html')));
+        });
       }
     },
     // Serve and copy `src/assets` to the web root, like `public/`
