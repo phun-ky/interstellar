@@ -73,6 +73,37 @@ describe('getArrowPosition', () => {
     close(corner.y, free.y);
   });
 
+  test('ignores a panel over the centre', () => {
+    // A panel the centre sits inside can't be stepped around
+    const panel = { left: 300, top: 200, right: 500, bottom: 400 };
+    const right = getArrowPosition(0, WIDTH, HEIGHT, [panel]);
+    const free = getArrowPosition(0, WIDTH, HEIGHT);
+
+    close(right.x, free.x);
+    close(right.y, free.y);
+    assert.equal(right.edge, 'right');
+  });
+
+  test('a horizontal ray passes a panel above its row', () => {
+    // The ray to the right runs along y = 300, below the panel
+    const panel = { left: 600, top: 0, right: WIDTH, bottom: 200 };
+    const right = getArrowPosition(0, WIDTH, HEIGHT, [panel]);
+
+    close(right.x, WIDTH - ARROW_EDGE_PADDING);
+    close(right.y, HEIGHT / 2);
+    assert.equal(right.edge, 'right');
+  });
+
+  test('a ray to the left stops outside a panel on the left', () => {
+    // The telemetry column on the left, from y = 100 to 500
+    const panel = { left: 0, top: 100, right: 200, bottom: 500 };
+    const left = getArrowPosition(Math.PI, WIDTH, HEIGHT, [panel]);
+
+    close(left.x, panel.right + ARROW_EDGE_PADDING);
+    close(left.y, HEIGHT / 2);
+    assert.equal(left.edge, 'left');
+  });
+
   test('ignores a panel that would put the arrow on the focused body', () => {
     // A panel just below the centre, inside a focused body 40 px in radius
     const panel = { left: 300, top: HEIGHT / 2 + 30, right: 500, bottom: 500 };
