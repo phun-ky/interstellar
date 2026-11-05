@@ -60,6 +60,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "prepare": "git config core.hooksPath .githooks || true",
     "pretest:e2e": "rm -rf test-results && npm run build",
     "preview": "vite preview",
     "test": "node --import tsx --test 'src/**/__tests__/**/*.spec.ts'",
