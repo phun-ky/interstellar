@@ -1,0 +1,57 @@
+name: Bug report
+description: Something in the simulation or the page doesn't work as it should
+labels: ['problems: 🐛 bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. For a security problem,
+        please don't open an issue: see the security policy instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected to see instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description:
+        Which body was locked, which options were on, the zoom level and
+        simulation date if they matter.
+      placeholder: |
+        1. Click on Jupiter
+        2. Zoom out with the mouse wheel
+        3. See that ...
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Firefox 144, Chrome 142, Safari 26
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and operating system
+      placeholder: MacBook Pro, macOS 26; Pixel 9, Android 16
+  - type: input
+    id: viewport
+    attributes:
+      label: Window size and zoom
+      description: The browser window size, and the page zoom if it isn't 100%.
+      placeholder: 1440 x 900, 100%
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recordings
+      description: Drag images or videos here.
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else
+      description: Console errors, links, or anything else that helps.
