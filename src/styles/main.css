@@ -1,18 +1,39 @@
+/*
+ * Mission HUD: Interstellar's space HUD with the interstellar-tools
+ * "mission control" layer (bracketed panels, mono labels, amber codes).
+ */
 :root {
   --int-font-family-sans:
-    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
-  --int-font-family-serif:
-    ui-serif, DejaVu Serif, Free Serif, Palatino, 'Times New Roman', Times,
-    Noto Serif, serif;
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --int-font-family-heading:
+    'IBM Plex Sans Condensed', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --int-font-family-mono:
     'Menlo for Powerline', 'Menlo Regular for Powerline', 'DejaVu Sans Mono',
     Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
-  --int-color-background: #050807;
-  --int-color-text-body: white;
-  --int-size-font: 16px;
-  --int-ui-body-icon-size: 4em;
+  --int-color-space: #050807;
+  --int-color-panel: #0f1720;
+  --int-color-panel-solid: #0f1720;
+  --int-color-panel-alt: rgba(20, 34, 49, 0.9);
+  --int-color-field: #0b1016;
+  --int-color-grid: rgba(71, 184, 190, 0.07);
+  --int-color-line: rgba(71, 184, 190, 0.22);
+  --int-color-line-strong: rgba(71, 184, 190, 0.3);
+  --int-color-text: #dfe9ee;
+  --int-color-muted: #aabcc6;
+  --int-color-teal: #47b8be;
+  --int-color-cyan: #4feff9;
+  --int-color-amber: #ffb547;
+  --int-color-amber-ink: #1a1205;
+  --int-color-green: #6be3a1;
+  --int-color-red: #ff7a6e;
+
+  --int-header-height: 64px;
+  --int-gutter: 24px;
+  --int-minimap-size: 160px;
+  --int-size-font: 15px;
 }
 
 *.int,
@@ -22,344 +43,435 @@
   padding: 0;
   word-break: break-word;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialised;
-  font-family: var(--int-font-family-sans);
 }
-html {
-  font-family: var(--int-font-family-sans);
-}
+
 html,
 body {
   height: 100%;
   min-height: 100%;
   -webkit-font-smoothing: antialiased;
 }
+
 body {
-  padding: 0;
   margin: 0;
-  line-height: 1.5;
+  padding: 0;
+  overflow: hidden;
   font-family: var(--int-font-family-sans);
-  background-color: var(--int-color-background);
-  color: var(--int-color-text-body);
   font-size: var(--int-size-font);
   line-height: 1.5;
-  overflow: hidden;
-  background-color: #050807;
+  color: var(--int-color-muted);
+  background-color: var(--int-color-space);
+  /* The blueprint grid shows through the transparent canvas */
   background-image:
-    radial-gradient(at 31% 12%, rgb(7, 12, 39) 0px, rgba(0, 0, 0, 0) 50%),
-    radial-gradient(at 2% 84%, rgb(12, 8, 43) 0px, rgba(0, 0, 0, 0) 50%),
-    radial-gradient(at 49% 79%, rgb(13, 8, 38) 0px, rgba(0, 0, 0, 0) 50%),
-    radial-gradient(at 78% 22%, rgb(5, 6, 21) 0px, rgba(0, 0, 0, 0) 50%),
-    radial-gradient(at 97% 54%, rgb(7, 4, 27) 0px, rgba(0, 0, 0, 0) 50%),
-    radial-gradient(at 49% 22%, rgb(6, 4, 21) 0px, rgba(0, 0, 0, 0) 50%),
-    radial-gradient(at 49% 36%, rgb(1, 1, 9) 0px, rgba(0, 0, 0, 0) 50%);
+    linear-gradient(var(--int-color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--int-color-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: block;
   width: 100vw;
   height: 100vh;
 }
 
-.int.controls {
-  position: fixed;
-  top: 2em;
-  right: 2em;
-}
-
-#music {
-  position: fixed;
-  right: 2em;
-  bottom: 2em;
-}
-
-#minimap {
-  position: fixed;
-  right: 2em;
-  bottom: 2em;
-  height: 150px;
-  width: 150px;
-}
-
-/*
-10070: (18.6432,44.1288,45.5457) #132C2E
-10503: (33.5994,50.9117,50.2972) #223332
-11347: (53.9741,106.847,107.596) #366B6C
-15123: (47.9681,80.6548,80.558) #305151
-2936: (74.5521,130.867,124.147) #4B837C
-29563: (11.6907,27.9801,37.4884) #0C1C25
-3372: (95.5269,162.722,165.048) #60A3A5
-4234: (66.1451,123.169,132.094) #427B84
-4252: (175.31,184.592,185.486) #AFB9B9
-430198: (5.73691,8.76672,8.55118) #060909
-5396: (80.69,140.672,141.749) #518D8E
-5442: (70.7323,183.781,189.697) #47B8BE
-7690: (72.9487,109.128,109.139) #496D6D
-8579: (34.8542,82.8923,88.992) #235359
-8880: (78.5949,94.9343,94.9745) #4F5F5F
-9615: (32.5203,62.7748,64.6467) #213F41
-#8dc5c9
-#4feff9
-
-#050A30 – A deep navy blue, often used to represent outer space.
-
-Other alternatives depending on the tone you want:
-
-    #000814 – Almost black with a hint of deep blue.
-    #0A0F29 – A darker, rich blue-black shade.
-    #1B1F3B – A slightly lighter deep space blue.
-
-
-
-*/
-.int.panel.info {
-  top: 2em;
-  right: 2em;
-}
-.int.panel.info,
-.int.controls {
-  position: absolute;
-  padding: 0.75em 1.5em 1.5em;
-  width: 25em;
-  background-color: transparent;
-  filter: drop-shadow(0 0 10px rgb(71, 184, 190));
-}
-
-.int.panel.info .inner,
-.int.controls .inner {
-  height: 100%;
-  width: 100%;
-  background-color: #050807;
-}
-
-.int.panel.info .inner::before,
-.int.controls .inner::before {
-  background: #050807;
-  clip-path: polygon(
-    0 0,
-    0 0,
-    100% 0,
-    100% calc(100% - 40px),
-    calc(100% - 40px) 100%,
-    0 100%
-  );
-  content: '';
-  inset: 0;
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.int.panel.info .inner::after,
-.int.controls .inner::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #47b8be;
-  pointer-events: none;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 40px),
-    calc(100% - 40px) 100%,
-    0 100%,
-    0 0,
-    3px 3px,
-    3px calc(100% - 3px),
-    calc(100% - 40px - 1.24px) calc(100% - 3px),
-    calc(100% - 3px) calc(100% - 40px - 1.24px),
-    calc(100% - 3px) 3px,
-    3px 3px
-  );
-}
-.int.panel.info h2.int,
-.int.controls h2.int {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 1.25em;
-  margin-bottom: 0.5em;
-}
-
-.int.panel.info dl.int {
-  display: grid;
-  grid-template-columns: calc(50% - 0.75em) calc(50% - 0.75em);
-  grid-gap: 0.25em 1.5em;
-  margin-bottom: 1em;
-}
-
-.int.panel.info dl.int.horizontal {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  grid-gap: 0.5em;
-}
-
-.int.panel.info dt.int {
-  color: white;
-  text-transform: uppercase;
-}
-.int.panel.info dd.int {
-  color: #47b8be;
-}
-
-fieldset.int {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-legend.int {
-  display: table;
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  margin-bottom: 1em;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--int-color-text-body);
-}
-legend.int + * {
-  clear: both;
-}
-label.int {
-  font-family: var(--int-font-family-sans);
-  line-height: 1.333;
-  font-weight: 500;
-  margin-bottom: 0.25em;
-  color: var(--int-color-text-body);
-  text-transform: uppercase;
-}
-
 .sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important
- /* 1 */
- ;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important
- /* 2 */
- ;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
-  white-space: nowrap !important
- /* 3 */
- ;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  white-space: nowrap !important;
 }
 
-select.int {
-  border: none;
-  color: #fff;
-  font-size: 1em;
-  height: 3em;
-  line-height: 3em;
-  padding: 0 0.5em 0 1em;
-  text-align: left;
+/* ---------- Header ---------- */
+
+.int.mc-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 32px;
+  min-height: var(--int-header-height);
+  padding: 0 var(--int-gutter);
+  background: rgba(11, 16, 22, 0.85);
+  border-bottom: 1px solid var(--int-color-line);
+}
+
+.int.mc-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--int-color-teal);
+}
+
+.int.mc-brand-name {
+  font-family: var(--int-font-family-heading);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  width: 100%;
-  background-color: #0a111c;
+  color: var(--int-color-text);
 }
 
-.int.input-group {
+.int.mc-header-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  font-family: var(--int-font-family-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.int.mc-callsign {
+  color: var(--int-color-amber);
+}
+
+.int.mc-callsign[hidden] {
+  display: none;
+}
+
+.int.mc-status {
+  color: var(--int-color-green);
+}
+
+.int.mc-status.is-hold {
+  color: var(--int-color-amber);
+}
+
+/* ---------- Panels ---------- */
+
+.int.mc-panel {
+  position: relative;
+  padding: 18px 20px;
+  border: 1px solid var(--int-color-line);
+  background: var(--int-color-panel);
+}
+
+/* teal corner brackets, top left and bottom right */
+.int.mc-panel::before,
+.int.mc-panel::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--int-color-teal);
+  pointer-events: none;
+}
+
+.int.mc-panel::before {
+  top: -2px;
+  left: -2px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.int.mc-panel::after {
+  right: -2px;
+  bottom: -2px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.int.mc-ptitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-family: var(--int-font-family-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--int-color-muted);
+}
+
+.int.mc-ptitle b {
+  font-weight: 500;
+  color: var(--int-color-amber);
+}
+
+/* ---------- Left column: telemetry and bodies in view ---------- */
+
+.int.mc-left {
+  position: fixed;
+  top: calc(var(--int-header-height) + var(--int-gutter));
+  left: var(--int-gutter);
+  width: 320px;
+  max-width: calc(100vw - 2 * var(--int-gutter));
+  /* leave room for the minimap in the bottom left corner */
+  max-height: calc(
+    100vh - var(--int-header-height) - var(--int-minimap-size) - 4 *
+      var(--int-gutter)
+  );
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-bottom: 1em;
-  padding-left: 1em;
-  background-color: #0c1f2d;
+  gap: 20px;
+  padding: 2px;
 }
 
-.int.input-group.select {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  border-left: 4pt solid #47b8be;
-  margin-left: auto;
+.int.mc-date {
+  margin-bottom: 12px;
+  font-family: var(--int-font-family-heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--int-color-text);
 }
 
-.int.input-group.select label {
-  min-width: 6em;
-  flex-shrink: 0;
+.int.mc-cells {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--int-color-line);
+  border: 1px solid var(--int-color-line);
 }
 
-.int.input-group.select select.int {
-  appearance: none;
+.int.mc-cells > div {
+  padding: 8px 12px;
+  background: var(--int-color-panel-solid);
 }
 
-.int.input-group.select::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 4em;
+.int.mc-cells dt {
+  font-family: var(--int-font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.int.mc-cells dd {
+  margin-top: 2px;
+  font-family: var(--int-font-family-heading);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--int-color-text);
+}
+
+/* ---------- Right column: systems panel ---------- */
+
+.int.controls {
+  position: fixed;
+  top: calc(var(--int-header-height) + var(--int-gutter));
+  right: var(--int-gutter);
+  width: 330px;
+  max-width: calc(100vw - 2 * var(--int-gutter));
+  max-height: calc(100vh - var(--int-header-height) - 2 * var(--int-gutter));
+  overflow-y: auto;
+  filter: drop-shadow(0 0 8px rgba(79, 239, 249, 0.35));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 28px),
+    calc(100% - 28px) 100%,
+    0 100%
+  );
+}
+
+.int.controls .inner {
+  padding: 20px;
+  background: #050807;
+  border: 1px solid rgba(79, 239, 249, 0.45);
+  border-top-width: 3px;
+}
+
+.int.controls .mc-ptitle {
+  color: var(--int-color-teal);
 }
 
 hr.int {
-  margin: 2em auto;
-  padding: 0;
-  height: 2pt;
-  background: radial-gradient(
-    circle,
-    rgba(71, 184, 190, 0.6) 56%,
-    rgba(71, 184, 190, 0.1) 100%
+  height: 1px;
+  margin: 12px 0;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(71, 184, 190, 0),
+    rgba(71, 184, 190, 0.6),
+    rgba(71, 184, 190, 0)
   );
-  width: 90%;
-  border: none;
 }
 
-.int.pause-button {
-  height: 48px;
-  width: 48px;
-  border: none;
-  background-color: transparent;
+/* ---------- Fields ---------- */
+
+.int.mc-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-family: var(--int-font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--int-color-muted);
 }
 
-.int.pause-button svg.play {
+select.int {
+  width: 170px;
+  min-height: 36px;
+  padding: 0 8px;
+  border: 1px solid var(--int-color-line-strong);
+  border-radius: 0;
+  background: var(--int-color-field);
+  color: var(--int-color-text);
+  font-family: var(--int-font-family-mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+select.int:focus-visible,
+.int.mc-button:focus-visible {
+  outline: 2px solid var(--int-color-cyan);
+  outline-offset: 2px;
+}
+
+/* ---------- Buttons ---------- */
+
+.int.mc-button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 0 16px;
+  border: 1px solid var(--int-color-amber);
+  border-radius: 0;
+  background: var(--int-color-amber);
+  color: var(--int-color-amber-ink);
+  font-family: var(--int-font-family-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.int.mc-button:hover {
+  background: #ffc773;
+}
+
+/* the secondary action: outlined teal, so Hold stays the main one */
+.int.mc-button.mc-button-secondary {
+  border-color: var(--int-color-line-strong);
+  background: transparent;
+  color: var(--int-color-text);
+  font-weight: 400;
+}
+
+.int.mc-button.mc-button-secondary:hover {
+  border-color: var(--int-color-amber);
+  background: transparent;
+  color: var(--int-color-amber);
+}
+
+/* ---------- Body info popup: docked at the bottom, clear of the locked body ---------- */
+
+.int.mc-popup {
+  position: fixed;
+  bottom: var(--int-gutter);
+  left: 50%;
+  /* wide and short, between the side panels where there is room */
+  width: min(
+    680px,
+    max(320px, calc(100vw - 2 * (330px + 2 * var(--int-gutter)))),
+    calc(100vw - 2 * var(--int-gutter))
+  );
+  transform: translateX(-50%);
+}
+
+.int.mc-popup[hidden] {
   display: none;
 }
 
-.int.pause-button.is-active svg.play {
-  display: block;
+.int.mc-popup-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.int.pause-button.is-active svg.pause {
+.int.mc-popup-kind {
+  font-family: var(--int-font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--int-color-amber);
+}
+
+.int.mc-popup-title {
+  font-family: var(--int-font-family-heading);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--int-color-text);
+}
+
+.int.mc-popup-close {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--int-color-line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--int-color-text);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.int.mc-popup-close:hover {
+  border-color: var(--int-color-amber);
+  color: var(--int-color-amber);
+}
+
+.int.mc-popup-close:focus-visible {
+  outline: 2px solid var(--int-color-cyan);
+  outline-offset: 2px;
+}
+
+.int.mc-popup .mc-cells dd {
+  font-size: 16px;
+}
+
+/* facts in a row, wrapping; each row's cells stretch to fill it */
+.int.mc-popup .mc-cells {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.int.mc-popup .mc-cells > div {
+  flex: 1 1 120px;
+}
+
+#minimap[hidden] {
   display: none;
 }
 
-.int.pause-button svg {
-  filter: drop-shadow(0 0 4px rgb(71, 184, 190));
-  height: 48px;
-  width: 48px;
-  color: #47b8be;
+/* ---------- Minimap: bottom left of the viewport ---------- */
+
+#minimap {
+  position: fixed;
+  left: var(--int-gutter);
+  bottom: var(--int-gutter);
+  width: var(--int-minimap-size);
+  height: var(--int-minimap-size);
+  overflow: hidden;
+  border: 1px solid var(--int-color-teal);
+  border-radius: 50%;
+  background: rgba(5, 8, 7, 0.85);
+  box-shadow: 0 0 12px rgba(71, 184, 190, 0.4) inset;
   pointer-events: none;
-}
-
-.int.pause-button:hover svg {
-  filter: drop-shadow(0 0 10px rgb(71, 184, 190));
-  color: rgba(71, 184, 190, 0.6);
-}
-
-/*
-
-popup
-
-*/
-.int.popup {
-  background-color: rgba(11, 32, 43, 0.7);
-  border-left: 2pt solid #4feff9;
-  padding: 0.75em 1.5em 1.5em;
-  width: 30em;
-  position: absolute;
-}
-
-.int.body-label {
-  background-color: rgba(11, 32, 43, 0.7);
-  padding: 0.75em 1.5em;
 }

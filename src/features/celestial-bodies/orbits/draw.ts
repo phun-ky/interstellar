@@ -1,17 +1,20 @@
-/* eslint-disable no-console */
 /* eslint-disable import/no-unused-modules */
+import { convertTemporalUnit } from '@interstellar-tools/temporal';
+import { ValueInterface } from '@interstellar-tools/types';
+
 import { TRAIL_SCALING_FACTOR } from '../../../config/constants';
 import {
-  CelestialBodiesType,
-  CelestialBodyType
-} from '../../../types/celestial-bodies';
-import { DistanceInterface, ValueInterface } from '../../../types/distance';
+  OrbitingBodiesType,
+  OrbitingBodyType
+} from '../../../types/orbiting-bodies';
 import { distanceToPixels } from '../../../utils/distance/distance-to-pixels';
-import { convertTemporalUnit } from '../../../utils/temporal/convert-temporal-unit';
 import { getBodyPosition } from '../utils/get-body-position';
 
+import { getOrbitStyle } from './orbit-style';
+import { traceOrbit } from './trace-orbit';
+
 export type DrawOrbitsPropsType = {
-  celestialBodies: CelestialBodiesType;
+  celestialBodies: OrbitingBodiesType;
   toggled: boolean;
   space: CanvasRenderingContext2D;
   referenceX: number;
@@ -24,8 +27,9 @@ export type DrawOrbitsPropsType = {
  *
  * **Mathematical Explanation:**
  *
- * A celestial body follows an **elliptical orbit** with the galactic center at one of its foci.
- * The **orbit path** consists of discrete points $(x, y)$, which are calculated as:
+ * A celestial body follows an **elliptical orbit** with its parent at one of its foci.
+ * In `orbits` mode the ellipse is traced for the current view by `traceOrbit()`, which
+ * keeps it accurate at any zoom level. Its points $(x, y)$ are:
  * $$
  * x = a \cos(\theta) - f
  * $$
@@ -35,7 +39,7 @@ export type DrawOrbitsPropsType = {
  * where:
  * - $a$ is the **semi-major axis** in real-world units (e.g., AU or light-years).
  * - $b$ is the **semi-minor axis** in real-world units.
- * - $\theta$ is the **current orbital position** (true anomaly).
+ * - $\theta$ runs from $0$ to $2\pi$ around the ellipse.
  * - $f = e \cdot a$ is the **focus shift** (due to eccentricity), calculated in real-world units.
  * - $(x, y)$ represents the **position of a point** on the orbit in real-world units.
  *
@@ -65,51 +69,32 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
   // Skip rendering if orbits are toggled off
   if (!toggled) return;
 
-  celestialBodies.forEach((body: CelestialBodyType) => {
-    // Skip rendering for celestial bodies without an orbit path
-    if (!body.orbitPath) return;
+  celestialBodies.forEach((body: OrbitingBodyType) => {
+    const { name, orbit } = body;
 
-    // Validate orbit path
-    if (!Array.isArray(body.orbitPath)) {
-      console.warn(
-        `Star ${body.name} has an invalid orbitPath. Skipping rendering.`
-      );
+    // Skip rendering for celestial bodies without an orbit
+    if (!orbit) return;
 
-      return;
-    }
-
-    if (body.orbitPath.length === 0) {
-      console.warn(
-        `Celestial body ${body.name} has an empty orbitPath. Skipping rendering.`
-      );
-
-      return;
-    }
-
-    const { name, period, orbitPath } = body;
+    const style = getOrbitStyle(body);
 
     if (globalThis.TRAJECTORY_TYPE === 'orbits') {
-      // Begin drawing the orbit path
+      // Trace the orbit for the current view, so it stays accurate at any zoom level
+      space.save();
       space.beginPath();
-      space.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-      space.lineWidth = 1;
-
-      orbitPath.forEach(({ x, y }, index) => {
-        // Convert real-world coordinates to pixels
-
-        const pointX =
-          referenceX + distanceToPixels({ value: x, unit: 'au' }, scale);
-        const pointY =
-          referenceY + distanceToPixels({ value: y, unit: 'au' }, scale);
-
-        // Move to the first point, then draw lines to subsequent points
-        if (index === 0) space.moveTo(pointX, pointY);
-        else space.lineTo(pointX, pointY);
-      });
-
-      // Close and stroke the path
-      space.closePath();
+      space.strokeStyle = style.color;
+      space.globalAlpha = style.alpha;
+      space.lineWidth = style.width;
+      traceOrbit(
+        space,
+        orbit,
+        referenceX,
+        referenceY,
+        scale,
+        space.canvas.width,
+        space.canvas.height
+      );
       space.stroke();
+      space.restore();
     } else if (globalThis.TRAJECTORY_TYPE === 'trails') {
       // **Disable trails if zooming or panning**
       if (globalThis.IS_ZOOMING_OR_PANNING) {
@@ -123,15 +108,15 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
         return;
       }
 
-      let periodInDays = convertTemporalUnit(period, 'days').value;
+      let periodInDays = convertTemporalUnit(orbit.period, 'd').value;
 
       // Prevent division by zero but keep sign for retrograde motion
       if (Math.abs(periodInDays) < 1) periodInDays = periodInDays < 0 ? -1 : 1;
 
       const maxTrailLength = Math.abs(periodInDays) * TRAIL_SCALING_FACTOR;
       const { x, y } = getBodyPosition(body);
-      const xPX = distanceToPixels(x as DistanceInterface, scale);
-      const yPX = distanceToPixels(y as DistanceInterface, scale);
+      const xPX = distanceToPixels(x, scale);
+      const yPX = distanceToPixels(y, scale);
       const bodyX = referenceX + xPX;
       const bodyY = referenceY + yPX;
 
@@ -156,13 +141,16 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
         const lineWidth = 1 + 2 * alpha; // Thicker at the end, thinner at the start
 
         space.beginPath();
-        space.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+        space.strokeStyle = style.color;
+        space.globalAlpha = style.alpha * alpha;
         space.lineWidth = lineWidth;
         space.moveTo(start.x, start.y);
         space.lineTo(end.x, end.y);
         space.stroke();
         space.closePath();
       }
+
+      space.globalAlpha = 1;
     }
   });
 };

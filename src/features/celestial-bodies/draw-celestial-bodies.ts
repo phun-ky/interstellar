@@ -1,13 +1,20 @@
-/* eslint-disable no-console */
 /* eslint-disable import/no-unused-modules */
-import { MAX_CELESTIAL_BODY_SIZE, TWO_PI } from '../../config/constants';
+import { TWO_PI } from '@interstellar-tools/constants';
 import {
   CelestialBodiesType,
-  CelestialBodyType
-} from '../../types/celestial-bodies';
-import { ValueInterface } from '../../types/distance';
-import { convertDistance } from '../../utils/distance/convert-distance';
+  CelestialBodyType,
+  ValueInterface
+} from '@interstellar-tools/types';
+
+import { MAX_CELESTIAL_BODY_SIZE } from '../../config/constants';
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';
+
+import { getBodyPosition } from './utils/get-body-position';
+
+/** How far a star's glow reaches, as a multiple of its drawn radius. */
+const STAR_GLOW_RADIUS = 3;
+/** Opacity of a star's glow at its brightest. */
+const STAR_GLOW_OPACITY = 0.35;
 
 export type DrawCelestialBodiesPropsType = {
   space: CanvasRenderingContext2D;
@@ -93,37 +100,43 @@ export const drawCelestialBodies = (
   space.save();
 
   celestialBodies.forEach((body: CelestialBodyType) => {
-    const { radius, color, name, a, miA, focus_x, angle, period } = body;
+    const { radius, name, display } = body;
+    const { x, y } = getBodyPosition(body);
+    const xPX = referenceX + distanceToPixels(x, scale);
+    const yPX = referenceY + distanceToPixels(y, scale);
+    const size = Math.max(distanceToPixels(radius, scale), maxSize);
+    const color = display?.color ?? 'white';
 
-    if (a === undefined || miA === undefined || focus_x === undefined) {
-      console.warn(
-        `Celestial body ${name} has undefined orbit parameters. Skipping rendering.`
-      );
-
-      return;
-    }
-
-    const orbitalDirection = period.value < 0 ? -1 : 1; // Determine direction
-    const adjustedAngle = orbitalDirection * angle; // Flip for retrograde motion
-    const normalizedA = convertDistance(a, 'AU');
-    const x = normalizedA.value * Math.cos(adjustedAngle) - focus_x;
-    const y = miA * Math.sin(adjustedAngle);
-    const xPX =
-      referenceX +
-      distanceToPixels({ value: x, unit: normalizedA.unit }, scale);
-    const yPX =
-      referenceY +
-      distanceToPixels({ value: y, unit: normalizedA.unit }, scale);
-
-    globalThis.NEAREST_BODIES[name] = {
+    globalThis.NEAREST_BODIES[body.id] = {
+      id: body.id,
       x: xPX,
       y: yPX,
+      size,
       name,
       category: body.category,
-      system: body.category.includes('satellite') ? body.system : undefined
+      parent: body.category.includes('satellite') ? body.parent : undefined
     };
 
-    const size = Math.max(distanceToPixels(radius, scale), maxSize);
+    // Stars glow softly in their own colour
+    if (body.category === 'star') {
+      const glow = space.createRadialGradient(
+        xPX,
+        yPX,
+        size * 0.8,
+        xPX,
+        yPX,
+        size * STAR_GLOW_RADIUS
+      );
+
+      glow.addColorStop(0, color);
+      glow.addColorStop(1, 'transparent');
+      space.globalAlpha = STAR_GLOW_OPACITY;
+      space.fillStyle = glow;
+      space.beginPath();
+      space.arc(xPX, yPX, size * STAR_GLOW_RADIUS, 0, TWO_PI);
+      space.fill();
+      space.globalAlpha = 1;
+    }
 
     space.fillStyle = color;
     space.beginPath();

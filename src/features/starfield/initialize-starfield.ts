@@ -1,4 +1,4 @@
-import { ValueInterface } from '../../types/distance';
+import { ValueInterface } from '@interstellar-tools/types';
 
 import { generateStarfieldBitmap } from './generate-starfield-bitmap';
 

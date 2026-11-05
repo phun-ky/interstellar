@@ -4,7 +4,6 @@ import {
   THRESHOLD_PLANET_RENDER
 } from '../../config/constants';
 import { Interval } from '../../lib/classes/Interval';
-import { PlanetInterface } from '../../types/celestial-bodies/planets';
 
 import { isInViewport } from './utils/is-in-viewport';
 
@@ -15,7 +14,7 @@ export const updateBodiesInView = (props) => {
   if (!inViewportElement) return;
 
   globalThis.INTERVAL_IN_VIEWPORT = new Interval(() => {
-    const filterBodies = (category: string, systemFilter?: string) =>
+    const filterBodies = (category: string, parentFilter?: string) =>
       Object.keys(globalThis.NEAREST_BODIES)
         .filter((name: string) => {
           const body = globalThis.NEAREST_BODIES[name];
@@ -23,10 +22,7 @@ export const updateBodiesInView = (props) => {
           return (
             body &&
             body.category.includes(category) &&
-            (systemFilter
-              ? (body.system as string).toLowerCase() ===
-                systemFilter.toLowerCase()
-              : true)
+            (parentFilter ? body.parent === parentFilter : true)
           );
         })
         .map((name) => globalThis.NEAREST_BODIES[name]);
@@ -50,7 +46,7 @@ export const updateBodiesInView = (props) => {
     ) {
       const bodies = filterBodies(
         'satellite',
-        (globalThis.LOCKED_CELESTIAL_BODY as PlanetInterface).name
+        globalThis.LOCKED_CELESTIAL_BODY.id
       );
 
       bodies.forEach(({ x, y, name }) => {

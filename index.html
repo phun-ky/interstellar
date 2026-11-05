@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en-GB" class="int">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interstellar</title>
+    <meta
+      name="description"
+      content="A project journey to simulate our galaxy 1:1"
+    />
+    <meta name="author" content="Alexander Vassbotn Røyne-Helgesen" />
+    <meta name="copyright" content="Alexander Vassbotn Røyne-Helgesen" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Language" content="en-GB" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="application-name" content="interstellar" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Interstellar" />
+    <meta property="og:url" content="http://localhost:3000" />
+    <meta
+      property="og:image"
+      content="http://localhost:3000/interstellar.png"
+    />
+    <meta
+      property="og:description"
+      content="A project journey to simulate our galaxy 1:1"
+    />
+
+    <meta name="msapplication-TileColor" content="#4feff9" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#4feff9" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/images/icons/icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/icons/icon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/icons/icon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/icons/icon-16x16.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/icons/icon-180x180.png"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Interstellar" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap"
+    />
+  </head>
+  <body class="int">
+    <canvas id="spaceCanvas"></canvas>
+
+    <header class="int mc-header">
+      <span class="int mc-brand">
+        <svg
+          class="int"
+          width="30"
+          height="30"
+          viewBox="0 0 300 300"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle
+            cx="150"
+            cy="150"
+            r="60"
+            stroke="currentColor"
+            stroke-width="10"
+          />
+          <ellipse
+            cx="150"
+            cy="150"
+            rx="120"
+            ry="40"
+            stroke="currentColor"
+            stroke-width="6"
+          />
+          <circle
+            cx="150"
+            cy="150"
+            r="110"
+            stroke="currentColor"
+            stroke-width="4"
+            stroke-dasharray="8 8"
+          />
+          <circle cx="210" cy="150" r="10" fill="currentColor" />
+        </svg>
+        <span class="int mc-brand-name">Interstellar</span>
+      </span>
+      <div class="int mc-header-status" role="status">
+        <span class="int mc-callsign" id="lockStatus" hidden>
+          // Lock: <span class="int" id="lockStatusName"></span>
+        </span>
+        <span class="int mc-status" id="simStatus">● nominal</span>
+      </div>
+    </header>
+
+    <div class="int mc-left">
+      <section class="int mc-panel" aria-labelledby="telemetryTitle">
+        <h2 class="int mc-ptitle" id="telemetryTitle">
+          <span class="int">Telemetry</span><b class="int">TLM-01</b>
+        </h2>
+        <p class="int mc-date" id="simDate"></p>
+        <dl class="int mc-cells">
+          <div class="int">
+            <dt class="int">Scale</dt>
+            <dd class="int" id="scaleDisplay"></dd>
+          </div>
+          <div class="int">
+            <dt class="int">Zoom</dt>
+            <dd class="int" id="zoomLevel"></dd>
+          </div>
+          <div class="int">
+            <dt class="int">X</dt>
+            <dd class="int" id="coordX"></dd>
+          </div>
+          <div class="int">
+            <dt class="int">Y</dt>
+            <dd class="int" id="coordY"></dd>
+          </div>
+        </dl>
+      </section>
+      <div class="int in-viewport" id="in-viewport"></div>
+    </div>
+
+    <aside class="int controls" aria-labelledby="systemsTitle">
+      <div class="int inner">
+        <h2 class="int mc-ptitle" id="systemsTitle">
+          <span class="int">Systems</span><b class="int">SYS-01</b>
+        </h2>
+        <div class="int" id="options"></div>
+      </div>
+    </aside>
+
+    <section
+      class="int mc-panel mc-popup"
+      id="bodyInfo"
+      aria-labelledby="bodyInfoTitle"
+      hidden
+    >
+      <div class="int mc-popup-head">
+        <div class="int">
+          <p class="int mc-popup-kind" id="bodyInfoKind"></p>
+          <h2 class="int mc-popup-title" id="bodyInfoTitle"></h2>
+        </div>
+        <button
+          type="button"
+          class="int mc-popup-close"
+          id="bodyInfoClose"
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+      <dl class="int mc-cells" id="bodyInfoFacts"></dl>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

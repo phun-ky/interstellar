@@ -1,5 +1,6 @@
+import { ValueInterface } from '@interstellar-tools/types';
+
 import { ZOOM_FACTOR } from '../../config/constants';
-import { ValueInterface } from '../../types/distance';
 
 export const updateZoom = (scale: ValueInterface) => {
   const zoomElement = document.getElementById('zoomLevel') as HTMLSpanElement;

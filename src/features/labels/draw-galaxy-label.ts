@@ -1,9 +1,14 @@
 /* eslint-disable import/no-unused-modules */
 
-import { GalaxyInterface } from '../../types/celestial-bodies/galaxies';
-import { ValueInterface } from '../../types/distance';
+import { GalaxyInterface, ValueInterface } from '@interstellar-tools/types';
+
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';
-import { CANVAS_GALAXY_FONT, CANVAS_LABEL_FONT } from '../canvas/config/ui';
+import {
+  CANVAS_COLORS,
+  CANVAS_GALAXY_FONT,
+  CANVAS_LABEL_FONT,
+  setLabelLetterSpacing
+} from '../canvas/config/ui';
 
 export type DrawGalaxyLabelPropsType = {
   space: CanvasRenderingContext2D;
@@ -62,11 +67,11 @@ export const drawGalaxyLabel = (props: DrawGalaxyLabelPropsType): void => {
   space.save();
 
   space.font = CANVAS_GALAXY_FONT;
-  space.fillStyle = '#47B8BE';
+  space.fillStyle = CANVAS_COLORS.teal;
   space.textAlign = 'center';
 
   space.fillText(
-    name,
+    name.toUpperCase(),
     referenceX,
     referenceY - distanceToPixels(radius, scale) - 56
   );
@@ -76,10 +81,11 @@ export const drawGalaxyLabel = (props: DrawGalaxyLabelPropsType): void => {
   space.save();
 
   space.font = CANVAS_LABEL_FONT;
-  space.fillStyle = '#47B8BE';
+  setLabelLetterSpacing(space);
+  space.fillStyle = CANVAS_COLORS.amber;
   space.textAlign = 'center';
   space.fillText(
-    blackHole.name,
+    blackHole.name.toUpperCase(),
     referenceX,
     referenceY - distanceToPixels(radius, scale) - 24
   );

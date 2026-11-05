@@ -1,7 +1,7 @@
 import {
   TemporalInterface,
   TimeStepInterface
-} from '../../../../types/temporal';
+} from '@interstellar-tools/types';
 
 /**
  * Stores temporal values used for time progression in the simulation.
@@ -24,7 +24,7 @@ export const lastTimestamp: TemporalInterface = {
 /** Defines the simulation time step, initially set to 0 days. */
 export const timeStep: TimeStepInterface = {
   value: 0,
-  unit: 'day'
+  unit: 'd'
 };
 
 export const SPEED_MODE: {

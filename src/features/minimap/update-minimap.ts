@@ -1,13 +1,13 @@
-import { DistanceInterface, ValueInterface } from '../../types/distance';
-import { StarsType } from '../../types/celestial-bodies/stars';
+import { StarsType, ValueInterface } from '@interstellar-tools/types';
+
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';
-import { getBodyPosition } from '../celestial-bodies/utils/get-body-position';
+import { getAbsolutePosition } from '../celestial-bodies/utils/get-absolute-position';
 
 /**
  * Updates the minimap by rendering Sagittarius A* and nearby stars, positioning them relative to the viewport center.
  *
  * **Rendering Details:**
- * - The **minimap size** is fixed at `150px`.
+ * - The **minimap size** is read from the element (set in `styles/main.css`).
  * - **Sagittarius A*** is marked with a red dot and moves relative to the viewport center.
  * - **Stars** are rendered as coloured dots based on their real positions, adjusted to fit the minimap.
  * - The positions are offset using:
@@ -48,7 +48,7 @@ export const updateMinimap = (
 
   minimap.innerHTML = ''; // Clear previous stars
 
-  const minimapSize = 150;
+  const minimapSize = minimap.clientWidth || 160;
   const minimapCenterX = minimapSize / 2;
   const minimapCenterY = minimapSize / 2;
   // Sagittarius A* and stars should move relative to the viewport center
@@ -65,20 +65,20 @@ export const updateMinimap = (
   sagittarius.style.top = `${sagittariusY - 3}px`;
   sagittarius.style.width = '6px';
   sagittarius.style.height = '6px';
-  sagittarius.style.backgroundColor = 'red';
+  sagittarius.style.backgroundColor = '#ff7a6e';
   sagittarius.style.borderRadius = '50%';
   minimap.appendChild(sagittarius);
 
   // Draw stars relative to viewport center
   stars.forEach((star) => {
-    const { x, y } = getBodyPosition(star);
+    const { x, y } = getAbsolutePosition(star);
     const starX =
       minimapCenterX +
-      (distanceToPixels(x as DistanceInterface, scale) / 1000) * 0.1 -
+      (distanceToPixels(x, scale) / 1000) * 0.1 -
       offsetXScaled;
     const starY =
       minimapCenterY +
-      (distanceToPixels(y as DistanceInterface, scale) / 1000) * 0.1 -
+      (distanceToPixels(y, scale) / 1000) * 0.1 -
       offsetYScaled;
     const starDot = document.createElement('span');
 
@@ -88,7 +88,7 @@ export const updateMinimap = (
     starDot.style.top = `${starY}px`;
     starDot.style.width = '4px';
     starDot.style.height = '4px';
-    starDot.style.backgroundColor = star.color;
+    starDot.style.backgroundColor = star.display?.color ?? 'white';
     starDot.style.borderRadius = '50%';
 
     minimap.appendChild(starDot);

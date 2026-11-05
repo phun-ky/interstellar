@@ -1,5 +1,6 @@
-import { AU_IN_KM, AU_IN_LY, LY_IN_AU } from '../../config/constants';
-import { DistanceInterface, DistanceUnitType } from '../../types/distance';
+import { AU_PER_LY, KM_PER_AU, LY_PER_AU } from '@interstellar-tools/constants';
+import { convertDistanceUnit } from '@interstellar-tools/equations';
+import { DistanceInterface, DistanceUnitType } from '@interstellar-tools/types';
 
 /**
  * Normalizes a distance measurement to the most **readable unit**.
@@ -30,33 +31,8 @@ import { DistanceInterface, DistanceUnitType } from '../../types/distance';
 export const normalizeDistance = (
   distance: DistanceInterface
 ): DistanceInterface => {
-  const { value, unit } = distance;
-
   // Convert input to AU for easier comparisons
-  let valueInAU: number;
-
-  switch (unit) {
-    case 'AU':
-      valueInAU = value;
-      break;
-    case 'km':
-      valueInAU = value / AU_IN_KM;
-      break;
-    case 'm':
-      valueInAU = value / (AU_IN_KM * 1000);
-      break;
-    case 'lightyears':
-    case 'ly':
-      valueInAU = value * LY_IN_AU;
-      break;
-    case 'kilolightyears':
-    case 'kly':
-      valueInAU = value * LY_IN_AU * 1000; // Convert kly to AU
-      break;
-    default:
-      throw new Error(`Unsupported unit: ${unit}`);
-  }
-
+  const valueInAU = convertDistanceUnit(distance, 'au').value;
   // Preserve the sign for negative values
   const sign = Math.sign(valueInAU);
 
@@ -65,16 +41,16 @@ export const normalizeDistance = (
   let readableUnit: DistanceUnitType;
 
   if (Math.abs(valueInAU) < 1) {
-    readableValue = Math.abs(valueInAU) * AU_IN_KM; // Convert to km
+    readableValue = Math.abs(valueInAU) * KM_PER_AU; // Convert to km
     readableUnit = 'km';
-  } else if (Math.abs(valueInAU) < LY_IN_AU) {
+  } else if (Math.abs(valueInAU) < AU_PER_LY) {
     readableValue = Math.abs(valueInAU); // Keep in AU
-    readableUnit = 'AU';
-  } else if (Math.abs(valueInAU) < 1000 * LY_IN_AU) {
-    readableValue = Math.abs(valueInAU) * AU_IN_LY; // Convert to ly
+    readableUnit = 'au';
+  } else if (Math.abs(valueInAU) < 1000 * AU_PER_LY) {
+    readableValue = Math.abs(valueInAU) * LY_PER_AU; // Convert to ly
     readableUnit = 'ly';
   } else {
-    readableValue = (Math.abs(valueInAU) * AU_IN_LY) / 1000; // Convert to kly
+    readableValue = (Math.abs(valueInAU) * LY_PER_AU) / 1000; // Convert to kly
     readableUnit = 'kly';
   }
 

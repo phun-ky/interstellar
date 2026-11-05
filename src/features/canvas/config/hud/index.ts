@@ -25,6 +25,9 @@ export const OPTIONS_UI: UIOptionsInterface = {
   /** Whether to show directional arrows indicating off-screen objects. */
   arrowHeads: false,
 
+  /** How many of the nearest off-screen objects get a directional arrow. */
+  arrowHeadsCount: 10,
+
   /** Whether to display comets in the visualization. */
   comets: false,
 

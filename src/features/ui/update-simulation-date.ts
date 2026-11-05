@@ -4,6 +4,7 @@ export const updateSimulationDate = (
 ) => {
   if (!simDateDisplayElement) return;
 
-  simDateDisplayElement.textContent =
-    SIMULATION_DATE.toLocaleDateString('no-NB');
+  const [date, time] = SIMULATION_DATE.toISOString().split('T');
+
+  simDateDisplayElement.textContent = `${date} · ${time.slice(0, 5)} UTC`;
 };

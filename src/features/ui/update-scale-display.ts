@@ -1,10 +1,18 @@
-import { AU_IN_KM, AU_IN_PX, LY_IN_AU } from '../../config/constants';
+import { AU_PER_LY, KM_PER_AU } from '@interstellar-tools/constants';
+import { convertDistanceUnit } from '@interstellar-tools/equations';
 import {
   DistanceInterface,
-  UnitType,
+  DistanceUnitType,
   ValueInterface
-} from '../../types/distance';
-import { convertDistance } from '../../utils/distance/convert-distance';
+} from '@interstellar-tools/types';
+
+import { AU_IN_PX } from '../../config/constants';
+
+/** Short numbers for the scale readout, e.g. 8 906 672.63 → "8.91M". */
+const SCALE_NUMBER_FORMAT = new Intl.NumberFormat('en', {
+  notation: 'compact',
+  maximumFractionDigits: 2
+});
 
 export const updateScaleDisplay = (el: HTMLElement, scale: ValueInterface) => {
   // Convert 1 pixel to real-world distance in AU
@@ -13,17 +21,18 @@ export const updateScaleDisplay = (el: HTMLElement, scale: ValueInterface) => {
     unit: 'au'
   };
 
-  let targetUnit: UnitType = 'ly';
+  let targetUnit: DistanceUnitType = 'ly';
 
-  if (distanceInAU.value >= LY_IN_AU) targetUnit = 'ly';
-  else if (distanceInAU.value >= 1) targetUnit = 'AU';
-  else if (distanceInAU.value >= 1 / AU_IN_KM) targetUnit = 'km';
+  if (distanceInAU.value >= AU_PER_LY) targetUnit = 'ly';
+  else if (distanceInAU.value >= 1) targetUnit = 'au';
+  else if (distanceInAU.value >= 1 / KM_PER_AU) targetUnit = 'km';
   else targetUnit = 'm';
 
   // Convert distance to appropriate unit
-  const convertedDistance = convertDistance(distanceInAU, targetUnit);
+  const convertedDistance = convertDistanceUnit(distanceInAU, targetUnit);
   // Update scale display with proper formatting
-  const scaleRatio = `1:${convertedDistance.value.toFixed(2)} ${convertedDistance.unit.toUpperCase()}`;
+  const value = SCALE_NUMBER_FORMAT.format(convertedDistance.value);
+  const scaleRatio = `1:${value} ${convertedDistance.unit.toUpperCase()}`;
 
   el.textContent = `${scaleRatio}`;
 };

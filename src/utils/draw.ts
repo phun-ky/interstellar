@@ -1,4 +1,15 @@
 /* eslint-disable import/no-unused-modules */
+import { ASTEROID_BELTS, SYSTEMS } from '@interstellar-tools/constants';
+import {
+  AsteroidsType,
+  CometsType,
+  GalaxiesType,
+  MoonsType,
+  PlanetsType,
+  StarsType,
+  ValueInterface
+} from '@interstellar-tools/types';
+
 import {
   MAX_CELESTIAL_BODY_SIZE,
   MAX_MOON_SIZE,
@@ -11,28 +22,21 @@ import {
   THRESHOLD_PLANET_LABEL,
   THRESHOLD_PLANET_RENDER
 } from '../config/constants';
-import { ASTEROID_BELTS } from '../datasets/asteroid-belts';
 import { drawDirectionalArrows } from '../features/arrows/draw-arrowheads';
+import { getHudObstacles } from '../features/arrows/utils/get-clear-bounds';
 import { OPTIONS_UI } from '../features/canvas/config/hud';
 import { drawBelts } from '../features/celestial-bodies/asteroids/draw-belts';
 import { drawCelestialBodies } from '../features/celestial-bodies/draw-celestial-bodies';
 import { drawGalaxy } from '../features/celestial-bodies/draw-galaxy';
+import { drawLockReticle } from '../features/celestial-bodies/draw-lock-reticle';
 import { drawOrbits } from '../features/celestial-bodies/orbits/draw';
+import { getAbsolutePosition } from '../features/celestial-bodies/utils/get-absolute-position';
 import { getBodyPosition } from '../features/celestial-bodies/utils/get-body-position';
 import { drawLabels } from '../features/labels/draw';
 import { drawGalaxyLabel } from '../features/labels/draw-galaxy-label';
 import { drawStarfield } from '../features/starfield/draw-starfield';
 import { initializeStarfield } from '../features/starfield/initialize-starfield';
-import { AsteroidsType } from '../types/celestial-bodies/asteroids';
-import { CometsType } from '../types/celestial-bodies/comets';
-import { GalaxiesType } from '../types/celestial-bodies/galaxies';
-import { MoonsType } from '../types/celestial-bodies/moons';
-import { PlanetsType } from '../types/celestial-bodies/planets';
-import {
-  StarsType,
-  StarSystemInterface
-} from '../types/celestial-bodies/stars';
-import { ValueInterface } from '../types/distance';
+import { OrbitingBodyType } from '../types/orbiting-bodies';
 
 import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';
@@ -115,14 +119,16 @@ export const draw = async (props: DrawPropsType) => {
   } = props;
 
   // Clear the canvas for each update
+  // The canvas stays transparent so the blueprint grid on the page shows through
   space.clearRect(0, 0, canvasWidth, canvasHeight);
-  space.fillStyle = '#060909';
-  space.fillRect(0, 0, canvasWidth, canvasHeight);
 
   if (OPTIONS_UI.starfield) {
     await initializeStarfield(canvasWidth, canvasHeight, scale);
     drawStarfield(space, canvasWidth, canvasHeight);
   }
+
+  // Only track the bodies drawn in this frame, so hidden ones don't linger
+  globalThis.NEAREST_BODIES = {};
 
   if (globalThis.LOCKED_CELESTIAL_BODY !== null) {
     const { x, y } = getBodyPosition(globalThis.LOCKED_CELESTIAL_BODY);
@@ -130,16 +136,8 @@ export const draw = async (props: DrawPropsType) => {
     if (x && y) {
       const xPX = distanceToPixels(x, scale);
       const yPX = distanceToPixels(y, scale);
-      const { system, category } = globalThis.LOCKED_CELESTIAL_BODY;
-      const celestialBodiesToUse = category.includes('planet')
-        ? stars
-        : category.includes('satellite')
-          ? planets
-          : [];
       const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-        (system as StarSystemInterface).name || (system as string),
-        category,
-        celestialBodiesToUse,
+        globalThis.LOCKED_CELESTIAL_BODY.parent,
         scale
       );
 
@@ -149,7 +147,22 @@ export const draw = async (props: DrawPropsType) => {
     }
   }
 
-  const sun = stars.find((star) => star.name === 'Sun'); // Find the Sun
+  const galacticReferenceX = canvasWidth / 2 + offsetX.value;
+  const galacticReferenceY = canvasHeight / 2 + offsetY.value;
+  // Stars and star systems can be nested (e.g. Alpha Centauri A → Alpha Centauri AB → Alpha Centauri),
+  // so each one is drawn relative to the position of its parent
+  const getParentReference = (body: OrbitingBodyType) => {
+    const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
+      body.parent,
+      scale
+    );
+
+    return {
+      referenceX: galacticReferenceX + parentOffsetX,
+      referenceY: galacticReferenceY + parentOffsetY
+    };
+  };
+  const sun = stars.find((star) => star.id === 'sun'); // Find the Sun
 
   // draw galaxy center
   drawGalaxy({
@@ -169,24 +182,25 @@ export const draw = async (props: DrawPropsType) => {
     galaxy: galaxies[0]
   });
 
-  // Draw star orbits if toggled on
-  drawOrbits({
-    celestialBodies: stars,
-    toggled: OPTIONS_UI.trajectory,
-    space,
-    referenceX: canvasWidth / 2 + offsetX.value,
-    referenceY: canvasHeight / 2 + offsetY.value,
-    scale
+  // Draw star system and star orbits if toggled on
+  [...SYSTEMS, ...stars].forEach((body) => {
+    drawOrbits({
+      celestialBodies: [body],
+      toggled: OPTIONS_UI.trajectory,
+      space,
+      ...getParentReference(body),
+      scale
+    });
   });
 
   if (sun) {
-    const sunPosition = getBodyPosition(sun);
+    const sunPosition = getAbsolutePosition(sun);
 
     if (sunPosition.x && sunPosition.y) {
       const sunXPX = distanceToPixels(sunPosition.x, scale);
       const sunYPX = distanceToPixels(sunPosition.y, scale);
-      const sunReferenceX = canvasWidth / 2 + offsetX.value + sunXPX;
-      const sunReferenceY = canvasHeight / 2 + offsetY.value + sunYPX;
+      const sunReferenceX = galacticReferenceX + sunXPX;
+      const sunReferenceY = galacticReferenceY + sunYPX;
 
       if (
         scale.value > THRESHOLD_ASTEROID_BELT_RENDER &&
@@ -304,13 +318,13 @@ export const draw = async (props: DrawPropsType) => {
             const planetYPX = distanceToPixels(planetPosition.y, scale);
             const planetReferenceX = sunReferenceX + planetXPX;
             const planetReferenceY = sunReferenceY + planetYPX;
+            const planetMoons = moons.filter(
+              (moon) => moon.parent === planet.id
+            );
 
             if (scale.value > THRESHOLD_MOON_RENDER && OPTIONS_UI.labels) {
               drawLabels({
-                celestialBodies: moons.filter(
-                  (moon) =>
-                    moon.system.toLowerCase() === planet.name.toLowerCase()
-                ),
+                celestialBodies: planetMoons,
                 space,
                 scale,
                 referenceX: planetReferenceX,
@@ -320,10 +334,7 @@ export const draw = async (props: DrawPropsType) => {
 
             if (scale.value > THRESHOLD_MOON_RENDER) {
               drawOrbits({
-                celestialBodies: moons.filter(
-                  (moon) =>
-                    moon.system.toLowerCase() === planet.name.toLowerCase()
-                ),
+                celestialBodies: planetMoons,
                 toggled: OPTIONS_UI.trajectory,
                 space,
                 referenceX: planetReferenceX,
@@ -337,93 +348,48 @@ export const draw = async (props: DrawPropsType) => {
                 referenceX: planetReferenceX,
                 referenceY: planetReferenceY,
                 scale,
-                celestialBodies: moons.filter(
-                  (moon) =>
-                    moon.system.toLowerCase() === planet.name.toLowerCase()
-                ),
+                celestialBodies: planetMoons,
                 maxSize: MAX_MOON_SIZE
               });
-
-              if (OPTIONS_UI.arrowHeads) {
-                drawDirectionalArrows({
-                  space,
-                  referenceX: planetReferenceX,
-                  referenceY: planetReferenceY,
-                  canvasWidth,
-                  canvasHeight,
-                  type: 'moon',
-                  system: planet.name
-                });
-              }
             }
           }
         }
       });
-
-      if (scale.value > THRESHOLD_PLANET_RENDER && OPTIONS_UI.arrowHeads) {
-        drawDirectionalArrows({
-          space,
-          referenceX: sunReferenceX,
-          referenceY: sunReferenceY,
-          canvasWidth,
-          canvasHeight,
-          type: 'planet'
-        });
-        drawDirectionalArrows({
-          space,
-          referenceX: sunReferenceX,
-          referenceY: sunReferenceY,
-          canvasWidth,
-          canvasHeight,
-          type: 'asteroid'
-        });
-      }
-
-      if (
-        scale.value > THRESHOLD_COMET_RENDER &&
-        OPTIONS_UI.comets &&
-        OPTIONS_UI.arrowHeads
-      ) {
-        drawDirectionalArrows({
-          space,
-          referenceX: sunReferenceX,
-          referenceY: sunReferenceY,
-          canvasWidth,
-          canvasHeight,
-          type: 'comet'
-        });
-      }
     }
   }
 
   if (OPTIONS_UI.labels) {
-    drawLabels({
-      celestialBodies: stars,
-      space,
-      scale,
-      referenceX: canvasWidth / 2 + offsetX.value,
-      referenceY: canvasHeight / 2 + offsetY.value
+    stars.forEach((star) => {
+      drawLabels({
+        celestialBodies: [star],
+        space,
+        scale,
+        ...getParentReference(star)
+      });
     });
   }
 
   // Draw stars
-  drawCelestialBodies({
-    space,
-    referenceX: canvasWidth / 2 + offsetX.value,
-    referenceY: canvasHeight / 2 + offsetY.value,
-    scale,
-    celestialBodies: stars,
-    maxSize: MAX_STAR_SIZE
+  stars.forEach((star) => {
+    drawCelestialBodies({
+      space,
+      scale,
+      ...getParentReference(star),
+      celestialBodies: [star],
+      maxSize: MAX_STAR_SIZE
+    });
   });
 
-  // Draw arrowheads if toggled on
+  // Mark the body the camera is locked on
+  drawLockReticle(space);
+
+  // Draw arrows towards the nearest off-screen bodies drawn in this frame
   if (OPTIONS_UI.arrowHeads) {
     drawDirectionalArrows({
       space,
-      referenceX: canvasWidth / 2 + offsetX.value,
-      referenceY: canvasHeight / 2 + offsetY.value,
       canvasWidth,
-      canvasHeight
+      canvasHeight,
+      obstacles: getHudObstacles(space.canvas, canvasWidth)
     });
   }
 };

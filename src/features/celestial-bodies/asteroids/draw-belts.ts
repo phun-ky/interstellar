@@ -1,5 +1,6 @@
-import { TWO_PI } from '../../../config/constants';
-import { AsteroidBeltsType } from '../../../types/celestial-bodies/asteroid-belts';
+import { TWO_PI } from '@interstellar-tools/constants';
+import { AsteroidBeltsType } from '@interstellar-tools/types';
+
 import { distanceToPixels } from '../../../utils/distance/distance-to-pixels';
 import { OPTIONS_UI } from '../../canvas/config/hud';
 import { CANVAS_LABEL_FONT } from '../../canvas/config/ui';
@@ -55,22 +56,20 @@ export const drawBelts = (props: DrawBeltsPropsType) => {
       space.globalAlpha = 1;
       space.fillText(
         belt.name,
-        centerX -
-          distanceToPixels({ value: belt.innerRadius, unit: 'au' }, scale),
-        centerY -
-          distanceToPixels({ value: belt.innerRadius, unit: 'au' }, scale)
+        centerX - distanceToPixels(belt.innerRadius, scale),
+        centerY - distanceToPixels(belt.innerRadius, scale)
       );
     }
 
     space.beginPath();
-    space.globalAlpha = belt.opacity;
-    space.fillStyle = belt.color;
+    space.globalAlpha = belt.display?.opacity ?? 1;
+    space.fillStyle = belt.display?.color ?? 'white';
 
     // Outer boundary
     space.arc(
       centerX,
       centerY,
-      distanceToPixels({ value: belt.outerRadius, unit: 'au' }, scale),
+      distanceToPixels(belt.outerRadius, scale),
       0,
       TWO_PI
     );
@@ -79,7 +78,7 @@ export const drawBelts = (props: DrawBeltsPropsType) => {
     space.arc(
       centerX,
       centerY,
-      distanceToPixels({ value: belt.innerRadius, unit: 'au' }, scale),
+      distanceToPixels(belt.innerRadius, scale),
       0,
       TWO_PI,
       true

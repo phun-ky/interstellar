@@ -1,5 +1,5 @@
-import { TWO_PI } from '../../config/constants';
-import { ValueInterface } from '../../types/distance';
+import { TWO_PI } from '@interstellar-tools/constants';
+import { ValueInterface } from '@interstellar-tools/types';
 
 import { starfield } from './config';
 

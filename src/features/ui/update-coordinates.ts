@@ -1,4 +1,5 @@
-import { ValueInterface } from '../../types/distance';
+import { ValueInterface } from '@interstellar-tools/types';
+
 import { normalizeDistance } from '../../utils/distance/normalize-distance';
 import { pixelsToDistance } from '../../utils/distance/pixels-to-distance';
 
@@ -7,18 +8,14 @@ export const updateCoordinates = (
   offsetX: number,
   offsetY: number
 ) => {
-  const coordElement = document.getElementById(
-    'centerCoords'
-  ) as HTMLSpanElement;
-  const xAU = pixelsToDistance(offsetX, scale);
-  const yAU = pixelsToDistance(offsetY, scale);
-  const readableX = normalizeDistance(xAU);
-  const readableY = normalizeDistance(yAU);
+  const xElement = document.getElementById('coordX');
+  const yElement = document.getElementById('coordY');
 
-  coordElement.innerHTML = `
-  <dt class="int">X</dt>
-        <dd class="int">${readableX.value} ${readableX.unit}</dd>
-  <dt class="int">Y</dt>
-        <dd class="int">${readableY.value} ${readableY.unit}</dd>
-        `;
+  if (!xElement || !yElement) return;
+
+  const readableX = normalizeDistance(pixelsToDistance(offsetX, scale));
+  const readableY = normalizeDistance(pixelsToDistance(offsetY, scale));
+
+  xElement.textContent = `${readableX.value} ${readableX.unit}`;
+  yElement.textContent = `${readableY.value} ${readableY.unit}`;
 };

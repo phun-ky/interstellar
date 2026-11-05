@@ -1,7 +1,7 @@
-import { computeAngle } from '../../../lib/math/compute-angle';
-import { wrapAngle } from '../../../lib/math/wrap-angle';
-import { CelestialBodyType } from '../../../types/celestial-bodies';
-import { TimeStepInterface } from '../../../types/temporal';
+import { computeAngle, wrapAngle } from '@interstellar-tools/equations';
+import { Radians, TimeStepInterface } from '@interstellar-tools/types';
+
+import { OrbitingBodyType } from '../../../types/orbiting-bodies';
 
 /**
  * Updates the **orbital position** (angle) of a celestial body based on the given time step.
@@ -18,27 +18,29 @@ import { TimeStepInterface } from '../../../types/temporal';
  * - $\Delta V$ is the **change in anomaly** over the given time step.
  *
  * The updated **true anomaly** is then **wrapped within** the range $[0, 2\pi]$ to ensure periodicity.
+ * Bodies without an `orbit` are left untouched.
  *
  * @param {TimeStepInterface} timeStep - The time step ($\Delta t$) that determines the amount of orbital progression.
- * @returns {(body: CelestialBodyType) => void} A function that updates a celestial body's angle.
+ * @returns {(body: OrbitingBodyType) => void} A function that updates a celestial body's angle.
  *
  * @example
  * ```ts
- * const timeStep = { value: 1, unit: 'day' };
+ * const timeStep = { value: 1, unit: 'd' };
  * const update = updatePosition(timeStep);
  *
- * const planet = { name: 'Earth', angle: 1.5, ...otherProps };
+ * const planet = { name: 'Earth', orbit: { angle: 1.5, ...otherOrbitProps }, ...otherProps };
  * update(planet);
- * console.log(planet.angle); // Updated angle in radians, wrapped within [0, 2π]
+ * console.log(planet.orbit.angle); // Updated angle in radians, wrapped within [0, 2π]
  * ```
  *
  * @see [True Anomaly & Orbital Mechanics](https://en.wikipedia.org/wiki/True_anomaly)
  */
 export const updatePosition = (
   timeStep: TimeStepInterface
-): ((body: CelestialBodyType) => void) => {
-  return (body: CelestialBodyType) => {
-    body.angle = computeAngle(body, timeStep);
-    body.angle = wrapAngle(body.angle);
+): ((body: OrbitingBodyType) => void) => {
+  return ({ orbit }: OrbitingBodyType) => {
+    if (!orbit) return;
+
+    orbit.angle = wrapAngle(computeAngle(orbit, timeStep)) as Radians;
   };
 };

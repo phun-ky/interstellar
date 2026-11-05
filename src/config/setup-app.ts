@@ -1,22 +1,21 @@
-import { ASTEROIDS } from '../datasets/asteroids';
-import { COMETS } from '../datasets/comets';
-import { MOONS } from '../datasets/moons';
-import { PLANETS } from '../datasets/planets';
-import { STARS } from '../datasets/stars';
+import {
+  ASTEROIDS,
+  COMETS,
+  MOONS,
+  PLANETS,
+  STARS,
+  SYSTEMS
+} from '@interstellar-tools/constants';
+import { CelestialBodyType } from '@interstellar-tools/types';
+
 import { offsetX, offsetY } from '../features/canvas/config/camera';
 import { timeStep } from '../features/canvas/config/time-step';
 import { generateTimeStep } from '../features/canvas/config/time-step/generate-time-step';
-import { updateOrbits } from '../features/celestial-bodies/orbits/update';
 import { getBodyPosition } from '../features/celestial-bodies/utils/get-body-position';
 import { precomputeInitialAngles } from '../features/celestial-bodies/utils/precompute-initial-angles';
 import { updatePositions } from '../features/celestial-bodies/utils/update-positions';
 import { generateStarfield } from '../features/starfield/generate-star-field';
 import { updateScaleDisplay } from '../features/ui/update-scale-display';
-import {
-  CelestialBodiesType,
-  CelestialBodyType
-} from '../types/celestial-bodies';
-import { StarSystemInterface } from '../types/celestial-bodies/stars';
 import { distanceToPixels } from '../utils/distance/distance-to-pixels';
 import { getParentBodyOffset } from '../utils/offset/get-parent-body-offset';
 import { normalizeParentOffset } from '../utils/offset/normalize-parent-offset';
@@ -77,13 +76,7 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   });
 
   precomputeInitialAngles(
-    [
-      ...STARS,
-      ...PLANETS,
-      ...MOONS,
-      ...COMETS,
-      ...ASTEROIDS
-    ] as unknown as CelestialBodiesType,
+    [...SYSTEMS, ...STARS, ...PLANETS, ...MOONS, ...COMETS, ...ASTEROIDS],
     SIMULATION_DATE
   );
 
@@ -100,24 +93,14 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   globalThis.LAST_CANVAS_SIZE = { width: 0, height: 0 };
 
   generateStarfield(canvas.width, canvas.height);
-  updateOrbits(STARS, PLANETS, MOONS, COMETS, ASTEROIDS, true);
 
   if (globalThis.LOCKED_CELESTIAL_BODY !== null) {
     // Calculate the body's position in pixel coordinates
     const { x, y } = getBodyPosition(globalThis.LOCKED_CELESTIAL_BODY);
     const xPX = x ? distanceToPixels(x, SCALE) : 0;
     const yPX = y ? distanceToPixels(y, SCALE) : 0;
-    const { system, category } =
-      globalThis.LOCKED_CELESTIAL_BODY as CelestialBodyType;
-    const celestialBodiesToUse = category.includes('planet')
-      ? STARS
-      : category.includes('satellite')
-        ? PLANETS
-        : [];
     const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-      (system as StarSystemInterface).name || (system as string),
-      category,
-      celestialBodiesToUse,
+      (globalThis.LOCKED_CELESTIAL_BODY as CelestialBodyType).parent,
       SCALE
     );
 
@@ -132,6 +115,7 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
   generateTimeStep();
 
   // Initial computation of star positions
+  updatePositions(SYSTEMS, timeStep);
   updatePositions(STARS, timeStep);
   updatePositions(PLANETS, timeStep);
   updatePositions(MOONS, timeStep);

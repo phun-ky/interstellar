@@ -32,13 +32,17 @@ export const setupCanvas = (): {
 
   if (!canvas) throw Error('Required canvas element not found');
 
-  const space = canvas.getContext('2d', { alpha: false });
+  // Transparent, so the blueprint grid behind the canvas shows through
+  const space = canvas.getContext('2d');
 
   if (!space) throw Error('Required space context not found');
 
   const dpr = globalThis.devicePixelRatio || 1; // Get the device pixel ratio
   const width = globalThis.innerWidth;
-  const height = globalThis.innerHeight;
+  // The canvas starts below the header, so its centre is the centre of the visible space
+  const header = document.querySelector<HTMLElement>('.mc-header');
+  const top = header?.offsetHeight ?? 0;
+  const height = globalThis.innerHeight - top;
 
   // Set "actual" size of the canvas in pixels
   canvas.width = width * dpr;
@@ -50,6 +54,7 @@ export const setupCanvas = (): {
   // Maintain logical (CSS) size to match window dimensions
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
+  canvas.style.top = `${top}px`;
 
   return { canvas, space };
 };

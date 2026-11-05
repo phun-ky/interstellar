@@ -1,4 +1,4 @@
-import { ValueInterface } from '../../../../types/distance';
+import { ValueInterface } from '@interstellar-tools/types';
 
 /**
  * Stores global offset values used for positioning elements relative to a reference point.

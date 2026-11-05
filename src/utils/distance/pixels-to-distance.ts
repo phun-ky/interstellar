@@ -1,5 +1,6 @@
+import { DistanceInterface, ValueInterface } from '@interstellar-tools/types';
+
 import { AU_IN_PX } from '../../config/constants';
-import { DistanceInterface, ValueInterface } from '../../types/distance';
 
 /**
  * Converts a **pixel-based distance** back into **Astronomical Units (AU)**.

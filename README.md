@@ -30,7 +30,6 @@ trajectories of asteroids.
   - [About](#about)
     - [Timeline](#timeline)
   - [Known issues](#known-issues)
-  - [API](#api)
   - [Development](#development)
   - [Contributing](#contributing)
   - [License](#license)
@@ -45,11 +44,6 @@ trajectories of asteroids.
 - Initial positions of the celestial bodies are off
 - Orbits of comets are not working
 - Not accounting for any counter clockwise rotation of celestial bodies
-
-## API
-
-Full API documentation is available
-[here](https://github.com/phun-ky/interstellar/blob/main/api/README.md).
 
 ## Development
 

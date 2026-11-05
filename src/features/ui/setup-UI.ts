@@ -1,7 +1,15 @@
+import {
+  ASTEROIDS,
+  COMETS,
+  MOONS,
+  PLANETS,
+  STARS
+} from '@interstellar-tools/constants';
+import { CelestialBodyType } from '@interstellar-tools/types';
+
 import { Button } from '../../components/actions/Button';
 import { ToggleBox } from '../../components/ToggleBox';
-import { PLANETS } from '../../datasets/planets';
-import { STARS } from '../../datasets/stars';
+import { OPTIONS_UI } from '../canvas/config/hud';
 
 export const setupUI = () => {
   const toggleTrajectoriesBox = ToggleBox({
@@ -38,7 +46,7 @@ export const setupUI = () => {
     id: 'toggleAsteroidBelts',
     checked: false,
     name: 'toggleAsteroidBelts',
-    label: 'Asteroid Belts'
+    label: 'Asteroid belts'
   });
   const toggleAsteroidsBox = ToggleBox({
     id: 'toggleAsteroids',
@@ -53,12 +61,23 @@ export const setupUI = () => {
     label: 'Starfield'
   });
   const pauseButton = Button({
-    children: `<svg class="int pause" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M7 1H2v14h5V1ZM14 1H9v14h5V1Z"/></svg>
-       <svg class="int play" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"><path fill="currentColor" d="M0 0v512l512-256z"/></svg>`,
+    children: 'Hold',
     id: 'pause',
     type: 'button',
-    className: 'pause-button'
+    className: 'mc-button'
   });
+  const resetButton = Button({
+    children: 'Reset to now',
+    id: 'resetToNow',
+    type: 'button',
+    className: 'mc-button mc-button-secondary'
+  });
+  const arrowCountOptions = [5, 10, 20]
+    .map(
+      (count) =>
+        `<option value="${count}"${count === OPTIONS_UI.arrowHeadsCount ? ' selected' : ''}>Nearest ${count}</option>`
+    )
+    .join('');
   const optionsElement = document.getElementById('options');
 
   if (optionsElement) {
@@ -70,47 +89,61 @@ export const setupUI = () => {
     ${toggleStarfieldBox}
     ${toggleArrowheadsBox}
     ${toggleLabelsBox}
-    <hr class="int"/>
     ${toggleTrajectoriesBox}
-    <div class="int input-group select">
-        <label for="toggleTrajectoryType" class="int"
-          >Type</label
-        >
-        <select id="toggleTrajectoryType" class="int">
-        <option value="orbits">Full Orbits</option>
-          <option value="trails">Trajectory Trails</option>
-        </select>
-      </div>
-      <hr class="int" />
-      <div class="int input-group select">
-        <label for="speedMode" class="int">Speed</label>
-        <select id="speedMode" class="int">
-          <option class="int" value="realTime">Real-Time (60 FPS)</option>
-          <option class="int" value="quarterFramePerDay">1 Frame = 0.25 Day</option>
-          <option class="int" value="framePerDay">1 Frame = 1 Day</option>
-          <option class="int" value="spedUp">Sped-Up Mode</option>
-          <option class="int" value="insane">Insane Mode</option>
-        </select>
-      </div>
-
-      <div class="int input-group select" id="hud">
-        <label for="lockOn" class="int">Lock</label>
-        <select id="lockOn" class="int">
-          <option value="noLock">No Lock</option>
-        </select>
-      </div>
-      ${pauseButton}
+    <hr class="int" />
+    <label class="int mc-field" for="arrowCount">
+      Arrows
+      <select id="arrowCount" class="int">${arrowCountOptions}</select>
+    </label>
+    <label class="int mc-field" for="toggleTrajectoryType">
+      Trajectory
+      <select id="toggleTrajectoryType" class="int">
+        <option value="orbits">Full orbits</option>
+        <option value="trails">Trails</option>
+      </select>
+    </label>
+    <label class="int mc-field" for="speedMode">
+      Speed
+      <select id="speedMode" class="int">
+        <option value="realTime">Real time</option>
+        <option value="quarterFramePerDay">¼ day / frame</option>
+        <option value="framePerDay">1 day / frame</option>
+        <option value="spedUp">10 days / frame</option>
+        <option value="insane">1 000 days / frame</option>
+      </select>
+    </label>
+    <label class="int mc-field" for="lockOn">
+      Lock
+      <select id="lockOn" class="int">
+        <option value="noLock">No lock</option>
+      </select>
+    </label>
+    ${pauseButton}
+    ${resetButton}
     `;
   }
 
   const lockOnDropdown = document.getElementById('lockOn') as HTMLSelectElement;
+  const lockGroups: [label: string, bodies: CelestialBodyType[]][] = [
+    ['Stars', STARS],
+    ['Planets', PLANETS],
+    ['Moons', MOONS],
+    ['Comets', COMETS],
+    ['Asteroids', ASTEROIDS]
+  ];
 
-  [...STARS, ...PLANETS].forEach((star) => {
-    const option = document.createElement('option');
+  // Every body, by id, so any body that can be clicked can also be picked here
+  lockGroups.forEach(([label, bodies]) => {
+    const group = document.createElement('optgroup');
 
-    option.value = star.name;
+    group.label = label;
+    bodies.forEach(({ id, name }) => {
+      const option = document.createElement('option');
 
-    option.textContent = star.name;
-    lockOnDropdown.appendChild(option);
+      option.value = id;
+      option.textContent = name;
+      group.appendChild(option);
+    });
+    lockOnDropdown.appendChild(group);
   });
 };

@@ -29,6 +29,8 @@
 export interface UIOptionsInterface {
   /** Display directional arrowheads for trajectories. */
   arrowHeads: boolean;
+  /** How many of the nearest off-screen objects get a directional arrowhead. */
+  arrowHeadsCount: number;
   /** Toggle visibility of object trajectories. */
   trajectory: boolean;
   /** Show or hide planetary moons. */

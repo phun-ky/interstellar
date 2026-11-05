@@ -6,17 +6,13 @@
  * used in the simulation.
  */
 
-/** 1 Light-Year (LY) in Astronomical Units (AU). */
-export const LY_IN_AU = 63241.077088066;
+import { AU_PER_LY, KM_PER_AU } from '@interstellar-tools/constants';
 
 /** 1 AU in pixels at the default scale. */
 export const AU_IN_PX = 960;
 
 /** 1 Light-Year in pixels at the default scale. */
-export const LY_IN_PX = AU_IN_PX * LY_IN_AU;
-
-/** 1 AU in Light-Years. */
-export const AU_IN_LY = 1 / LY_IN_AU;
+export const LY_IN_PX = AU_IN_PX * AU_PER_LY;
 
 /** Zooming factor for scaling operations. */
 export const ZOOM_FACTOR = 1.1;
@@ -25,9 +21,6 @@ export const ZOOM_FACTOR = 1.1;
 export const MIN_SCALE = 1e-20;
 
 export const MAX_SCALE = 1e20;
-
-/** Earth's orbital period in days. */
-export const JULIAN_YEAR_DAYS = 365.256;
 
 /** Threshold for rendering moons (dependent on zoom level). */
 export const THRESHOLD_MOON_RENDER = 4;
@@ -50,9 +43,6 @@ export const MAX_MOON_SIZE = 2;
 /** Minimum and maximum sizes for comets in the visualization. */
 export const MIN_COMET_SIZE = 2;
 
-/** Radius of the Sun in kilometres. */
-export const SUN_RADIUS_KM = 696340;
-
 /** Maximum allowed celestial body size in the visualization. */
 export const MAX_CELESTIAL_BODY_SIZE = 10;
 
@@ -67,18 +57,8 @@ export const THRESHOLD_COMET_RENDER = 0.0007533210080944772;
 
 export const THRESHOLD_ASTEROID_BELT_RENDER = 0.0007533210080944772;
 
-/** Time-related constants. */
-export const MS_1_DAY = 86400000; // Milliseconds in a day
-
-export const MS_1_SECOND = 1000; // Milliseconds in a second
-
-export const SECONDS_1_DAY = 86400; // Seconds in a day
-
 /** Initial scale factor for the simulation. */
 export const INITIAL_SCALE = 2.389618154589582e-10;
-
-/** Julian Date reference for J2000 epoch (January 1, 2000, 12:00 TT). */
-export const J2000 = new Date('2000-01-01T00:00:00Z');
 
 /** Global scale object to manage dynamic scaling. */
 export const SCALE = { value: INITIAL_SCALE };
@@ -89,20 +69,5 @@ export const TRAIL_SCALING_FACTOR = 0.5;
 /** Stores the simulation's current date. */
 export const SIMULATION_DATE = new Date();
 
-export const TWO_PI = 2 * Math.PI;
-
-export const JULIAN_YEAR_SECONDS = SECONDS_1_DAY * JULIAN_YEAR_DAYS;
-
-export const SPEED_OF_LIGHT_M_S = 299_792_458; // exact
-
-export const AU_IN_M = 149_597_870_700; // exact IAU
-
-/** 1 Astronomical Unit (AU) in kilometres. */
-export const AU_IN_KM = AU_IN_M / 1000;
-
-export const LY_IN_M = SPEED_OF_LIGHT_M_S * JULIAN_YEAR_SECONDS; // 9_460_730_472_580_800
-
-export const PARSEC_IN_M = AU_IN_M * (648000 / Math.PI); // ≈ 3.085677581491367e16
-
 /** 1 Kilometre in pixels at the default scale. */
-export const KM_IN_PX = AU_IN_PX / AU_IN_KM;
+export const KM_IN_PX = AU_IN_PX / KM_PER_AU;

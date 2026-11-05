@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unused-modules */
+import { GalaxyInterface, ValueInterface } from '@interstellar-tools/types';
+
 import { MAX_CELESTIAL_BODY_SIZE } from '../../config/constants';
-import { ValueInterface } from '../../types/distance';
-import { GalaxyInterface } from '../../types/celestial-bodies/galaxies';
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';
 
 export type DrawGalaxyPropsType = {

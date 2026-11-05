@@ -1,11 +1,7 @@
 /* eslint-disable import/no-unused-modules */
-import gasPlanetIcon from '../../assets/icons/gas-planet.svg';
-import icePlanetIcon from '../../assets/icons/ice-planet.svg';
-import moonIcon from '../../assets/icons/moon.svg';
-import planetIcon from '../../assets/icons/planet.svg';
-import { MOONS } from '../../datasets/moons';
-import { PLANETS } from '../../datasets/planets';
-import { CelestialBodyType } from '../../types/celestial-bodies';
+import { MOONS, PLANETS } from '@interstellar-tools/constants';
+
+import { getBodyPosition } from '../../features/celestial-bodies/utils/get-body-position';
 
 import './styles/bodiesInViewport.css';
 
@@ -15,60 +11,59 @@ export type BodiesInViewportPropsType = {
   bodies: Set<string>;
 };
 
-export const getIconForBody = (body: CelestialBodyType): string => {
-  if (!body) return planetIcon;
-
-  const { name, type = '', category } = body;
-
-  if (!name || name === '') return planetIcon;
-
-  if (category.includes('satellite')) return moonIcon;
-
-  if (type.includes('ice')) return icePlanetIcon;
-
-  if (type.includes('gas')) return gasPlanetIcon;
-
-  return planetIcon;
-};
-
+/**
+ * Renders the "In view" panel: a telemetry table of the bodies currently in the
+ * viewport, with each body's distance from its parent (the Sun for planets, the
+ * planet for moons). The locked body is marked instead of showing a distance.
+ *
+ * @param {BodiesInViewportPropsType} props - The names of the bodies in the viewport.
+ * @returns {string} The panel's HTML, or an empty string when nothing is in view.
+ *
+ * @example
+ * ```ts
+ * element.innerHTML = BodiesInViewport({ bodies: new Set(['Earth', 'Mars']) });
+ * ```
+ */
 export const BodiesInViewport = (props: BodiesInViewportPropsType) => {
   const { bodies } = props;
-
-  if (!bodies.size) return '';
-
-  // const noPlanets = [...bodies].filter((body) =>
-  //   body.type.includes('planet')
-  // ).length;
-  // const noMoons = [...bodies].filter((body) =>
-  //   body.category.includes('satellite')
-  // ).length;
-  const bodiesHTML = [...bodies]
+  const rows = [...bodies]
     .slice(-6)
-    .map((name) => {
-      const body = [...PLANETS, ...MOONS].find((body) => {
-        return body.name.toLowerCase() == name.toLowerCase();
-      });
+    .map((name) =>
+      [...PLANETS, ...MOONS].find(
+        (body) => body.name.toLowerCase() === name.toLowerCase()
+      )
+    )
+    .filter((body) => body !== undefined)
+    .map((body) => {
+      const isLocked = globalThis.LOCKED_CELESTIAL_BODY?.id === body.id;
+      const { x, y } = getBodyPosition(body);
+      const distance = isLocked
+        ? 'Lock'
+        : Math.hypot(x.value, y.value).toFixed(2);
 
-      if (!body) return '';
+      return html`<tr class="int${isLocked ? ' is-locked' : ''}">
+        <td class="int body">${body.name}</td>
+        <td class="int distance">${distance}</td>
+      </tr>`;
+    });
 
-      const { radius, color } = body;
-      //const size = Math.max(distanceToPixels(radius, SCALE), 7);
-      const size = 7;
-      //style="--int-ui-body-icon-size: calc(0.3em * ${size}); --int-ui-body-icon-fill: ${color};"
-      const icon = getIconForBody(body);
+  if (!rows.length) return '';
 
-      return html`<li class="int">
-        <span class="int body">${name}</span>
-        <span
-          class="int icon"
-          style="--int-ui-body-icon-size: calc(0.3em * ${size}); --int-ui-body-icon-fill: ${color};"
-          >${icon}</span
-        >
-      </li>`;
-    })
-    .join('\n');
-
-  return html`<ul class="int">
-    ${bodiesHTML}
-  </ul>`;
+  return html`<section class="int mc-panel" aria-labelledby="inViewTitle">
+    <h2 class="int mc-ptitle" id="inViewTitle">
+      <span class="int">In view</span
+      ><b class="int">${String(rows.length).padStart(2, '0')}</b>
+    </h2>
+    <table class="int">
+      <thead>
+        <tr>
+          <th class="int" scope="col">Body</th>
+          <th class="int distance" scope="col">r (au)</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.join('')}
+      </tbody>
+    </table>
+  </section>`;
 };
