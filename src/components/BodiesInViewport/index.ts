@@ -1,13 +1,12 @@
 /* eslint-disable import/no-unused-modules */
-import { MOONS, PLANETS } from '@interstellar-tools/constants';
-
-import { getBodyPosition } from '../../features/celestial-bodies/utils/get-body-position';
+import { getInViewRows } from '../../features/ui/get-in-view-rows';
 
 import './styles/bodiesInViewport.css';
 
 const html = String.raw;
 
 export type BodiesInViewportPropsType = {
+  /** Ids of the bodies in view, in display order. */
   bodies: Set<string>;
 };
 
@@ -16,36 +15,23 @@ export type BodiesInViewportPropsType = {
  * viewport, with each body's distance from its parent (the Sun for planets, the
  * planet for moons). The locked body is marked instead of showing a distance.
  *
- * @param {BodiesInViewportPropsType} props - The names of the bodies in the viewport.
+ * @param {BodiesInViewportPropsType} props - The ids of the bodies in the viewport.
  * @returns {string} The panel's HTML, or an empty string when nothing is in view.
  *
  * @example
  * ```ts
- * element.innerHTML = BodiesInViewport({ bodies: new Set(['Earth', 'Mars']) });
+ * element.innerHTML = BodiesInViewport({ bodies: new Set(['earth', 'mars']) });
  * ```
  */
 export const BodiesInViewport = (props: BodiesInViewportPropsType) => {
   const { bodies } = props;
-  const rows = [...bodies]
-    .slice(-6)
-    .map((name) =>
-      [...PLANETS, ...MOONS].find(
-        (body) => body.name.toLowerCase() === name.toLowerCase()
-      )
-    )
-    .filter((body) => body !== undefined)
-    .map((body) => {
-      const isLocked = globalThis.LOCKED_CELESTIAL_BODY?.id === body.id;
-      const { x, y } = getBodyPosition(body);
-      const distance = isLocked
-        ? 'Lock'
-        : Math.hypot(x.value, y.value).toFixed(2);
-
-      return html`<tr class="int${isLocked ? ' is-locked' : ''}">
-        <td class="int body">${body.name}</td>
+  const rows = getInViewRows(bodies).map(
+    ({ name, distance, isLocked }) =>
+      html`<tr class="int${isLocked ? ' is-locked' : ''}">
+        <td class="int body">${name}</td>
         <td class="int distance">${distance}</td>
-      </tr>`;
-    });
+      </tr>`
+  );
 
   if (!rows.length) return '';
 
