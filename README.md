@@ -47,13 +47,23 @@ trajectories of asteroids.
 
 ## Development
 
+Requires Node 22.13 or later on 22, or Node 24 or later, and npm 11 or later.
+
 ```sh
-# Build
-npm run build
-# Run the dev server
+npm ci
+# Run the dev server on http://localhost:3000
 npm run dev
-# Test
+# Build to dist/
+npm run build
+# Lint, check formatting and typecheck
+npm run lint
+npm run format:check
+npm run typecheck
+# Unit tests, with or without the coverage floor
 npm test
+npm run test:coverage
+# End-to-end tests (builds first)
+npm run test:e2e
 ```
 
 ## Contributing
