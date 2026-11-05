@@ -59,7 +59,8 @@ repository:
         date: '2026-11-05'
         comment: |
           SECURITY.md sets out what the site does and doesn't do (no data
-          collection, no outside input, one third party) and the known gaps.
+          collection, no outside input, no third parties, a Content Security
+          Policy) and the known gaps.
     tools:
       - name: CodeQL
         type: SAST
