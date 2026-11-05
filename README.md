@@ -30,7 +30,6 @@ trajectories of asteroids.
   - [About](#about)
     - [Timeline](#timeline)
   - [Known issues](#known-issues)
-  - [API](#api)
   - [Development](#development)
   - [Contributing](#contributing)
   - [License](#license)
