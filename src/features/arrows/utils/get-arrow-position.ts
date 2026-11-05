@@ -96,17 +96,6 @@ export const getArrowPosition = (
       top: obstacle.top - ARROW_EDGE_PADDING,
       bottom: obstacle.bottom + ARROW_EDGE_PADDING
     };
-
-    // A panel over the centre itself can't be avoided this way
-    if (
-      centerX > box.left &&
-      centerX < box.right &&
-      centerY > box.top &&
-      centerY < box.bottom
-    ) {
-      return;
-    }
-
     const tx1 = cos === 0 ? -Infinity : (box.left - centerX) / cos;
     const tx2 = cos === 0 ? Infinity : (box.right - centerX) / cos;
     const ty1 = sin === 0 ? -Infinity : (box.top - centerY) / sin;
@@ -123,7 +112,9 @@ export const getArrowPosition = (
 
     if (sin === 0 && (centerY < box.top || centerY > box.bottom)) return;
 
-    // A panel that would put the arrow on the focused body is skipped
+    // A panel that would put the arrow on the focused body is skipped. So is a
+    // panel over the centre itself: the ray starts inside it, so it enters
+    // behind the centre (enter < 0) and can't be stepped around.
     if (enter >= keepOutRadius && enter <= exit && enter < t) {
       t = enter;
       // Hitting a panel's left side puts the arrow on the clear area's right edge, …
