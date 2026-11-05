@@ -34,13 +34,24 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      # The Markdown documents and the built pages. Only http and https links:
-      # the built pages' own paths are checked by the end-to-end tests.
+      # The Markdown documents and the built pages, http and https links only.
+      # The pages' own paths resolve under dist/ as local files, which the
+      # scheme filter skips: the end-to-end tests check those.
+      # savelife.in.ua answers automated requests with 403.
       - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
+          # prettier-ignore
           args: >-
-            --no-progress --scheme https --scheme http --exclude-loopback
-            --max-retries 3 --accept 200,206,429 './*.md' './.github/**/*.md'
+            --no-progress
+            --scheme https
+            --scheme http
+            --root-dir ${{ github.workspace }}/dist
+            --exclude-loopback
+            --exclude '^https://savelife\.in\.ua/'
+            --max-retries 3
+            --accept 200,206,429
+            './*.md'
+            './.github/**/*.md'
             './dist/*.html'
           fail: true
           # The action downloads this release; set here so it changes on purpose
