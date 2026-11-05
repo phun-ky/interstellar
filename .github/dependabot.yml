@@ -1,0 +1,50 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    # Wait two weeks after a release before proposing it, so a compromised or
+    # broken release is usually caught and pulled before it reaches this repo.
+    # Security updates are not delayed by this.
+    cooldown:
+      default-days: 14
+    # Minor and patch updates come as one PR. Major updates are not grouped,
+    # so each one gets its own PR to test and merge.
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - 'minor'
+          - 'patch'
+    # Only what package.json lists; transitive updates come with them
+    allow:
+      - dependency-type: 'direct'
+    ignore:
+      # Keep @types/node on the Node major that CI runs (24)
+      - dependency-name: '@types/node'
+        versions:
+          - '>= 25'
+    labels:
+      - 'mindless: 📦 dependencies'
+    commit-message:
+      prefix: 'chore: 🤖 '
+    open-pull-requests-limit: 5
+
+  # Actions are pinned to commit SHAs. This keeps the pins and their version
+  # comments up to date, all in one PR.
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    cooldown:
+      default-days: 14
+    groups:
+      actions:
+        patterns:
+          - '*'
+    labels:
+      - 'mindless: 📦 dependencies'
+    commit-message:
+      prefix: 'ci: 🎡 '
+    open-pull-requests-limit: 5
