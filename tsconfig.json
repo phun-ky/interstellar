@@ -17,13 +17,5 @@
     "resolveJsonModule": true
   },
   "include": ["src/**/*", "src/types/global.d.ts"],
-  "exclude": [
-    "node_modules",
-    "build",
-    "dist",
-    "tests/**",
-    "scripts",
-    "dts/**",
-    "**/__tests__/**"
-  ]
+  "exclude": ["node_modules", "build", "dist", "tests/**", "scripts", "dts/**"]
 }
