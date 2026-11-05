@@ -2,10 +2,12 @@ name: Check
 
 # No path filter on pull_request: `check` is the required status check, so it
 # must report on every PR, or a PR can wait forever for a check that never runs.
+#
+# Pushes to main run these checks through deploy.yml, which calls this
+# workflow before it builds and deploys, so they are not triggered here too.
 on:
   pull_request:
-  push:
-    branches: [main]
+  workflow_call:
   workflow_dispatch:
 
 permissions:
