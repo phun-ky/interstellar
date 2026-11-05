@@ -1,16 +1,22 @@
-import { Interval } from '../lib/classes/Interval';
+import {
+  CartesianCoordinatesInterface,
+  CelestialBodyType
+} from '@interstellar-tools/types';
 
-import { CelestialBodyType } from './celestial-bodies';
-import { Coordinates2DInterface } from './celestial-bodies/planets';
-import { StarSystemInterface } from './celestial-bodies/stars';
+import { Interval } from '../lib/classes/Interval';
 
 /* eslint-disable no-var */
 export {}; // Ensures this file is treated as a module
 
-type NearestBodyType = Coordinates2DInterface & {
+type NearestBodyType = CartesianCoordinatesInterface & {
+  /** The body's id */
+  id: string;
+  /** The radius the body is drawn with, in pixels */
+  size: number;
   name: string;
   category: string;
-  system: string | StarSystemInterface | undefined;
+  /** Id of the parent body, set for satellites */
+  parent: string | undefined;
 };
 
 type CanvasRectType = {
@@ -40,9 +46,10 @@ declare global {
     INTERVAL_IN_VIEWPORT: Interval;
     LOCKED_CELESTIAL_BODY: CelestialBodyType | null;
     TRAJECTORY_TYPE: 'orbits' | 'trails';
-    TRAJECTORY_TRAILS: Record<string, Coordinates2DInterface[]>;
+    TRAJECTORY_TRAILS: Record<string, CartesianCoordinatesInterface[]>;
     IS_ZOOMING_OR_PANNING: boolean; // Initialize
     ZOOM_PAN_TIMEOUT: number; // For delaying reactivation
+    /** Screen positions of the bodies drawn in the current frame, keyed by body id. */
     NEAREST_BODIES: Record<string, NearestBodyType>;
     STARFIELD_BITMAP: ImageBitmap;
     LAST_CANVAS_SIZE: CanvasRectType;
@@ -61,9 +68,10 @@ declare global {
   var INTERVAL_IN_VIEWPORT: Interval;
   var LOCKED_CELESTIAL_BODY: CelestialBodyType | null;
   var TRAJECTORY_TYPE: 'orbits' | 'trails';
-  var TRAJECTORY_TRAILS: Record<string, Coordinates2DInterface[]>;
+  var TRAJECTORY_TRAILS: Record<string, CartesianCoordinatesInterface[]>;
   var IS_ZOOMING_OR_PANNING: boolean; // Initialize
   var ZOOM_PAN_TIMEOUT: number; // For delaying reactivation
+  /** Screen positions of the bodies drawn in the current frame, keyed by body id. */
   var NEAREST_BODIES: Record<string, NearestBodyType>;
   var STARFIELD_BITMAP: ImageBitmap;
   var LAST_CANVAS_SIZE: CanvasRectType;

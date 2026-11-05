@@ -1,5 +1,15 @@
 import {
-  MS_1_DAY,
+  ASTEROIDS,
+  COMETS,
+  GALAXIES,
+  MILLISECONDS_PER_DAY,
+  MOONS,
+  PLANETS,
+  STARS,
+  SYSTEMS
+} from '@interstellar-tools/constants';
+
+import {
   SCALE,
   SIMULATION_DATE,
   THRESHOLD_ASTEROID_BELT_RENDER,
@@ -8,19 +18,12 @@ import {
   THRESHOLD_PLANET_RENDER
 } from './config/constants';
 import { setupApp } from './config/setup-app';
-import { ASTEROIDS } from './datasets/asteroids';
-import { COMETS } from './datasets/comets';
-import { GALAXIES } from './datasets/galaxies';
-import { MOONS } from './datasets/moons';
-import { PLANETS } from './datasets/planets';
-import { STARS } from './datasets/stars';
 import { offsetX, offsetY } from './features/canvas/config/camera';
 import { getReference } from './features/canvas/config/camera/get-reference';
 import { OPTIONS_UI } from './features/canvas/config/hud';
 import { timeStep } from './features/canvas/config/time-step';
 import { generateTimeStep } from './features/canvas/config/time-step/generate-time-step';
 import { setupCanvas } from './features/canvas/setup-canvas';
-import { updateOrbits } from './features/celestial-bodies/orbits/update';
 import { updatePositions } from './features/celestial-bodies/utils/update-positions';
 import { initializeMinimap } from './features/minimap/initialize-minimap';
 import { updateMinimap } from './features/minimap/update-minimap';
@@ -95,7 +98,8 @@ const App = async (): Promise<void> => {
       // Define speed modes
       generateTimeStep();
 
-      // Calculate star positions per frame
+      // Calculate star system and star positions per frame
+      updatePositions(SYSTEMS, timeStep);
       updatePositions(STARS, timeStep);
 
       if (SCALE.value > THRESHOLD_PLANET_RENDER) {
@@ -119,7 +123,7 @@ const App = async (): Promise<void> => {
 
       // Increase the time per frame
       SIMULATION_DATE.setTime(
-        SIMULATION_DATE.getTime() + timeStep.value * MS_1_DAY
+        SIMULATION_DATE.getTime() + timeStep.value * MILLISECONDS_PER_DAY
       );
       // Update the UI with the current simulation date
       updateSimulationDate(simDateDisplayElement, SIMULATION_DATE);
@@ -133,9 +137,7 @@ const App = async (): Promise<void> => {
 
   attachEventHandlers({
     space,
-    canvas,
-    updateOrbits,
-    update
+    canvas
   });
 
   initializeMinimap();

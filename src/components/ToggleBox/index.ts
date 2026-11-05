@@ -1,7 +1,6 @@
 const html = String.raw;
 
 import { Checkbox } from '../Checkbox';
-import { Label } from '../Label';
 
 import './styles/toggleBox.css';
 
@@ -25,7 +24,9 @@ export type InterstellarToggleBoxPropsType = {
 /**
  * Renders an Interstellar ToggleBox component.
  *
- * This component wraps a checkbox input and a label to create a toggle switch.
+ * This component renders a visually hidden checkbox and a label row with the
+ * name on the left and an ON/OFF status tag on the right, styled from the
+ * checkbox's checked state.
  *
  * @param {InterstellarToggleBoxProps} props - The properties for the toggle box component.
  * @returns {string} The generated toggle box HTML string.
@@ -48,8 +49,10 @@ export const ToggleBox = (props: InterstellarToggleBoxPropsType) => {
   const { checked = false, name, id, className = '', label } = props;
 
   return html`<div class="int toggle-controls">
-    ${label}
     ${Checkbox({ checked, name, id, className: `int toggle ${className}` })}
-    ${Label({ hidden: true, labelFor: id, label: checked ? 'on' : 'off' })}
+    <label class="int toggle-label" for="${id}"
+      ><span class="int">${label}</span
+      ><span class="int toggle-state" aria-hidden="true"></span
+    ></label>
   </div>`;
 };

@@ -1,12 +1,17 @@
 /* eslint-disable import/no-unused-modules */
 import {
   CelestialBodiesType,
-  CelestialBodyType
-} from '../../types/celestial-bodies';
-import { ValueInterface } from '../../types/distance';
-import { convertDistance } from '../../utils/distance/convert-distance';
+  CelestialBodyType,
+  ValueInterface
+} from '@interstellar-tools/types';
+
 import { distanceToPixels } from '../../utils/distance/distance-to-pixels';
-import { CANVAS_LABEL_FONT } from '../canvas/config/ui';
+import {
+  CANVAS_COLORS,
+  CANVAS_LABEL_FONT,
+  setLabelLetterSpacing
+} from '../canvas/config/ui';
+import { getBodyPosition } from '../celestial-bodies/utils/get-body-position';
 
 export type DrawLabelsPropsType = {
   space: CanvasRenderingContext2D;
@@ -84,63 +89,43 @@ export type DrawLabelsPropsType = {
  */
 export const drawLabels = (props: DrawLabelsPropsType): void => {
   const { space, referenceX, referenceY, scale, celestialBodies } = props;
+  const paddingX = 8;
+  const boxHeight = 20;
+  const gap = 24; // Distance between the body and the bottom of its label
 
   space.save();
-  space.fillStyle = '#ffffff';
   space.font = CANVAS_LABEL_FONT;
+  setLabelLetterSpacing(space);
   space.textAlign = 'center';
   space.textBaseline = 'middle';
+  space.lineWidth = 1;
 
   celestialBodies.forEach((body: CelestialBodyType) => {
-    const { a, miA = 1, angle, focus_x = 0, name, radius, period } = body;
-    const orbitalDirection = period.value < 0 ? -1 : 1; // Determine direction
-    const adjustedAngle = orbitalDirection * angle; // Flip for retrograde motion
-    const normalizedA = convertDistance(a, 'AU');
-    const x = normalizedA.value * Math.cos(adjustedAngle) - focus_x;
-    const y = miA * Math.sin(adjustedAngle);
-    const xPX =
-      referenceX +
-      distanceToPixels({ value: x, unit: normalizedA.unit }, scale);
-    const yPX =
-      referenceY +
-      distanceToPixels({ value: y, unit: normalizedA.unit }, scale);
-    // Calculate label box dimensions
-    const paddingX = 48;
-    const paddingY = 32;
-    const textMetrics = space.measureText(name);
-    const textWidth = textMetrics.width;
-    const boxWidth = textWidth + paddingX;
-    const boxHeight = 24 + paddingY; // approx 24px font height
-    const boxX = xPX - boxWidth / 2;
-    const boxY = yPX - distanceToPixels(radius, scale) - boxHeight - 80;
+    const { name, radius } = body;
+    const { x, y } = getBodyPosition(body);
+    const xPX = referenceX + distanceToPixels(x, scale);
+    const yPX = referenceY + distanceToPixels(y, scale);
+    const text = name.toUpperCase();
+    const boxWidth = space.measureText(text).width + 2 * paddingX;
+    const boxX = Math.round(xPX - boxWidth / 2) + 0.5;
+    const boxY =
+      Math.round(yPX - distanceToPixels(radius, scale) - gap - boxHeight) + 0.5;
 
-    // Draw label background box (no rounded corners)
-    space.fillStyle = 'rgba(11, 32, 43, 0.8)';
-    space.fillRect(boxX, boxY, boxWidth, boxHeight);
-
-    // Draw label text
-    space.fillStyle = '#ffffff';
-    space.fillText(name.toUpperCase(), xPX, boxY + boxHeight / 2);
-
-    // Draw gradient line from center bottom of box to object
-    const lineStartX = xPX;
-    const lineStartY = boxY + boxHeight;
-    const gradient = space.createLinearGradient(
-      lineStartX,
-      lineStartY,
-      xPX,
-      yPX
-    );
-
-    gradient.addColorStop(0, 'rgba(71, 184, 190, 0.6)');
-    gradient.addColorStop(1, 'rgba(255, 255, 255, 0.6)');
-
-    space.strokeStyle = gradient;
-    space.lineWidth = 2;
+    // Leader line from the bottom of the label to the body
+    space.strokeStyle = CANVAS_COLORS.leader;
     space.beginPath();
-    space.moveTo(lineStartX, lineStartY);
+    space.moveTo(xPX, boxY + boxHeight);
     space.lineTo(xPX, yPX);
     space.stroke();
+
+    // Label box: panel fill with a teal hairline
+    space.fillStyle = CANVAS_COLORS.panel;
+    space.fillRect(boxX, boxY, boxWidth, boxHeight);
+    space.strokeStyle = CANVAS_COLORS.line;
+    space.strokeRect(boxX, boxY, boxWidth, boxHeight);
+
+    space.fillStyle = CANVAS_COLORS.text;
+    space.fillText(text, xPX, boxY + boxHeight / 2);
   });
   space.restore();
 };

@@ -1,4 +1,4 @@
-import { MS_1_DAY } from '../../../../config/constants';
+import { MILLISECONDS_PER_DAY } from '@interstellar-tools/constants';
 
 import { lastTimestamp, SPEED_MODE, timeStep } from '.';
 
@@ -43,28 +43,28 @@ export const generateTimeStep = (): void => {
 
   if (mode === 'quarterFramePerDay') {
     timeStep.value = 0.25;
-    timeStep.unit = 'day';
+    timeStep.unit = 'd';
 
     return;
   }
 
   if (mode === 'framePerDay') {
     timeStep.value = 1;
-    timeStep.unit = 'day';
+    timeStep.unit = 'd';
 
     return;
   }
 
   if (mode === 'spedUp') {
     timeStep.value = 10; // Example factor
-    timeStep.unit = 'day';
+    timeStep.unit = 'd';
 
     return;
   }
 
   if (mode === 'insane') {
     timeStep.value = 1000; // Example factor
-    timeStep.unit = 'day';
+    timeStep.unit = 'd';
 
     return;
   }
@@ -73,6 +73,6 @@ export const generateTimeStep = (): void => {
   const expectedFrameDuration = 1000 / EXPECTED_FPS;
   const fpsNormalizedDelta = deltaTime / expectedFrameDuration;
 
-  timeStep.value = (fpsNormalizedDelta * deltaTime) / MS_1_DAY;
-  timeStep.unit = 'day';
+  timeStep.value = (fpsNormalizedDelta * deltaTime) / MILLISECONDS_PER_DAY;
+  timeStep.unit = 'd';
 };

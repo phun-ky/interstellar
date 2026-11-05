@@ -1,41 +1,39 @@
+import { STARS } from '@interstellar-tools/constants';
+import { CelestialBodyType } from '@interstellar-tools/types';
+
 import { MAX_SCALE, MIN_SCALE, SCALE, ZOOM_FACTOR } from '../config/constants';
 import { setUIOptions } from '../config/set-UI-options';
-import { ASTEROIDS } from '../datasets/asteroids';
-import { COMETS } from '../datasets/comets';
-import { MOONS } from '../datasets/moons';
-import { PLANETS } from '../datasets/planets';
-import { STARS } from '../datasets/stars';
-import {
-  offsetCacheX,
-  offsetCacheY,
-  offsetX,
-  offsetY
-} from '../features/canvas/config/camera';
+import { offsetX, offsetY } from '../features/canvas/config/camera';
+import { OPTIONS_UI } from '../features/canvas/config/hud';
 import { SPEED_MODE } from '../features/canvas/config/time-step';
 import { setupCanvas } from '../features/canvas/setup-canvas';
+import {
+  findBodyById,
+  getBodyKind
+} from '../features/celestial-bodies/utils/body-catalog';
 import { getBodyPosition } from '../features/celestial-bodies/utils/get-body-position';
 import { updateMinimap } from '../features/minimap/update-minimap';
 import { generateStarfield } from '../features/starfield/generate-star-field';
 import { initializeStarfield } from '../features/starfield/initialize-starfield';
+import { hideBodyInfo } from '../features/ui/body-info';
+import { focusOn, getBodyAtPoint, lockOn } from '../features/ui/lock-on';
+import { resetToNow } from '../features/ui/reset-to-now';
 import { updateScaleDisplay } from '../features/ui/update-scale-display';
-import { AsteroidsType } from '../types/celestial-bodies/asteroids';
-import { CometsType } from '../types/celestial-bodies/comets';
-import { MoonsType } from '../types/celestial-bodies/moons';
-import { PlanetsType } from '../types/celestial-bodies/planets';
-import {
-  StarsType,
-  StarSystemInterface
-} from '../types/celestial-bodies/stars';
+import { updateSimulationStatus } from '../features/ui/update-simulation-status';
 import { EventType } from '../types/native';
 
 import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';
-import { normalizeParentOffset } from './offset/normalize-parent-offset';
 import { normalizeParentOffsetPrev } from './offset/normalize-parent-offset-prev';
 import { calculateScale } from './scale/calculate-scale';
 import { throttle, throttleAsync } from './throttle';
 
+/** How far the pointer may move between press and release for a click, in pixels. */
+const CLICK_TOLERANCE_PX = 5;
+
 let isDragging = false;
+// Whether the user held the simulation, so showing the tab again doesn't resume it
+let isHeldByUser = false;
 let lastMouseX: number;
 let lastMouseY: number;
 
@@ -43,20 +41,12 @@ let lastMouseY: number;
 export type AttachEventHandlersPropsType = {
   space: CanvasRenderingContext2D;
   canvas: HTMLCanvasElement;
-  update: () => void;
-  updateOrbits: (
-    stars: StarsType,
-    planets: PlanetsType,
-    moons: MoonsType,
-    comets: CometsType,
-    asteroids: AsteroidsType
-  ) => void;
 };
 
 const scaleDisplay = document.getElementById('scaleDisplay') as HTMLElement;
 
 export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
-  const { canvas, updateOrbits, update } = props;
+  const { canvas } = props;
 
   // **Smooth Zooming**
   canvas.addEventListener('wheel', (event) => {
@@ -81,16 +71,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
 
       if (!x || !y) return;
 
-      const { system, category } = globalThis.LOCKED_CELESTIAL_BODY;
-      const celestialBodiesToUse = category.includes('planet')
-        ? STARS
-        : category.includes('satellite')
-          ? PLANETS
-          : [];
       const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-        (system as StarSystemInterface).name || (system as string),
-        category,
-        celestialBodiesToUse,
+        globalThis.LOCKED_CELESTIAL_BODY.parent,
         SCALE
       );
       const prevX = distanceToPixels(x, prevScale);
@@ -102,8 +84,10 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
       offsetY.value += normalizeParentOffsetPrev(parentOffsetY, prevY, newY);
     } else {
       // Regular zoom behavior when no locked object
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
+      // Mouse position relative to the canvas, which starts below the header
+      const { left, top } = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - left;
+      const mouseY = event.clientY - top;
       const worldXBefore =
         (mouseX - canvas.width / 2 - offsetX.value) / prevScale.value;
       const worldYBefore =
@@ -117,7 +101,6 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
       offsetY.value += (worldYAfter - worldYBefore) * SCALE.value;
     }
 
-    updateOrbits(STARS, PLANETS, MOONS, COMETS, ASTEROIDS);
     updateScaleDisplay(scaleDisplay, SCALE);
   });
 
@@ -185,9 +168,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       globalThis.PAUSE = true; // Pause simulation when tab is hidden
-    } else {
+    } else if (!isHeldByUser) {
       globalThis.PAUSE = false; // Resume simulation when tab is visible
-      update(); // Restart animation loop
     }
   });
 
@@ -201,8 +183,6 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
         clearTimeout(globalThis.ZOOM_PAN_TIMEOUT); // Reset timer
 
       setupCanvas();
-
-      updateOrbits(STARS, PLANETS, MOONS, COMETS, ASTEROIDS);
     })
   );
 
@@ -215,6 +195,8 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   );
 
   document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') hideBodyInfo();
+
     if (event.ctrlKey || event.metaKey) {
       // Ctrl on Windows/Linux, Cmd on macOS
       if (event.key === '=' || event.key === '+') {
@@ -264,66 +246,77 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
 
   pauseButtonElement.addEventListener('click', () => {
     globalThis.PAUSE = !globalThis.PAUSE;
-    pauseButtonElement.classList.toggle('is-active');
+    isHeldByUser = globalThis.PAUSE;
+    updateSimulationStatus(globalThis.PAUSE);
 
+    // The animation loop keeps running while held, so it isn't restarted here
     if (!globalThis.PAUSE) {
-      update();
       globalThis.INTERVAL_IN_VIEWPORT.resume();
     } else {
       globalThis.INTERVAL_IN_VIEWPORT.pause();
     }
   });
 
+  document
+    .getElementById('resetToNow')
+    ?.addEventListener('click', () => resetToNow());
+
   const lockOnDropdown = document.getElementById('lockOn') as HTMLSelectElement;
 
   lockOnDropdown.addEventListener(
     'change',
     (event: EventType<HTMLSelectElement>) => {
-      const selectedBodyName = event?.target?.value;
+      const value = event?.target?.value;
+      const body = findBodyById(value);
 
-      if (selectedBodyName === 'noLock') {
-        globalThis.LOCKED_CELESTIAL_BODY = null;
-        offsetX.value = offsetCacheX.value;
-        offsetY.value = offsetCacheY.value;
+      if (value === 'noLock' || !body || getBodyKind(body.id) === 'system') {
+        lockOn(null);
       } else {
-        globalThis.IS_ZOOMING_OR_PANNING = true;
-
-        if (globalThis.ZOOM_PAN_TIMEOUT)
-          clearTimeout(globalThis.ZOOM_PAN_TIMEOUT); // Reset timer
-
-        globalThis.LOCKED_CELESTIAL_BODY =
-          [...STARS, ...PLANETS].find(
-            (star) => star.name === selectedBodyName
-          ) || null;
-
-        if (globalThis.LOCKED_CELESTIAL_BODY) {
-          offsetCacheX.value = offsetX.value;
-          offsetCacheY.value = offsetY.value;
-
-          const { system, category } = globalThis.LOCKED_CELESTIAL_BODY;
-          const celestialBodiesToUse = category.includes('planet')
-            ? STARS
-            : category.includes('satellite')
-              ? PLANETS
-              : [];
-          const { parentOffsetX, parentOffsetY } = getParentBodyOffset(
-            (system as StarSystemInterface).name || (system as string),
-            category,
-            celestialBodiesToUse,
-            SCALE
-          );
-          // Calculate the body's position in pixel coordinates
-          const { x, y } = getBodyPosition(globalThis.LOCKED_CELESTIAL_BODY);
-          const xPX = x ? distanceToPixels(x, SCALE) : 0;
-          const yPX = y ? distanceToPixels(y, SCALE) : 0;
-
-          // Adjust offsets to center the body in the viewport
-          offsetX.value -= normalizeParentOffset(xPX, parentOffsetX, 1);
-          offsetY.value -= normalizeParentOffset(yPX, parentOffsetY, 1);
-        }
+        focusOn(body as CelestialBodyType);
       }
     }
   );
+
+  // **Click a body to lock on it**, unless the pointer moved (a drag)
+  let pointerDownAt: { x: number; y: number } | null = null;
+
+  canvas.addEventListener('pointerdown', (event) => {
+    pointerDownAt = { x: event.clientX, y: event.clientY };
+  });
+
+  canvas.addEventListener('click', (event) => {
+    if (
+      pointerDownAt &&
+      Math.hypot(
+        event.clientX - pointerDownAt.x,
+        event.clientY - pointerDownAt.y
+      ) > CLICK_TOLERANCE_PX
+    ) {
+      return;
+    }
+
+    const body = getBodyAtPoint(canvas, event.clientX, event.clientY);
+
+    if (body) focusOn(body, true);
+  });
+
+  // Show a pointer over bodies, checked at most once per frame
+  let hoverCheck: number | null = null;
+
+  canvas.addEventListener('mousemove', (event) => {
+    if (hoverCheck !== null) return;
+
+    hoverCheck = requestAnimationFrame(() => {
+      hoverCheck = null;
+      canvas.style.cursor = getBodyAtPoint(canvas, event.clientX, event.clientY)
+        ? 'pointer'
+        : '';
+    });
+  });
+
+  document.getElementById('bodyInfoClose')?.addEventListener('click', () => {
+    hideBodyInfo();
+  });
 
   const trajectoryCheckboxElement = document.getElementById(
     'toggleTrajectory'
@@ -372,6 +365,14 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
         starfieldCheckboxElement
       });
     });
+  });
+
+  const arrowCountElement = document.getElementById(
+    'arrowCount'
+  ) as HTMLSelectElement;
+
+  arrowCountElement.addEventListener('change', () => {
+    OPTIONS_UI.arrowHeadsCount = Number(arrowCountElement.value);
   });
 
   const speedModeElement = document.getElementById(

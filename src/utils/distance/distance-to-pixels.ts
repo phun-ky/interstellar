@@ -1,7 +1,7 @@
-import { AU_IN_PX } from '../../config/constants';
-import { DistanceInterface, ValueInterface } from '../../types/distance';
+import { convertDistanceUnit } from '@interstellar-tools/equations';
+import { DistanceInterface, ValueInterface } from '@interstellar-tools/types';
 
-import { convertDistance } from './convert-distance';
+import { AU_IN_PX } from '../../config/constants';
 
 /**
  * Converts a **distance measurement** to **pixels** based on a given scale.
@@ -24,13 +24,13 @@ import { convertDistance } from './convert-distance';
  * console.log(pixelDistance); // Output: Pixels equivalent of 1 AU at scale 50
  * ```
  *
- * @see {@link convertDistance} for unit conversions.
+ * @see {@link convertDistanceUnit} for unit conversions.
  */
 export const distanceToPixels = (
   distance: DistanceInterface,
   scale: ValueInterface
 ): number => {
-  const converted = convertDistance(distance, 'AU');
+  const converted = convertDistanceUnit(distance, 'au');
   const { value } = converted;
 
   return value * AU_IN_PX * scale.value;

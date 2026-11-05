@@ -2,7 +2,7 @@ import assert from 'node:assert';
 import { test, beforeEach, afterEach, describe } from 'node:test';
 
 import { lastTimestamp, SPEED_MODE, timeStep } from '..';
-import { MS_1_DAY } from '../../../../../config/constants';
+import { MILLISECONDS_PER_DAY } from '@interstellar-tools/constants';
 import { generateTimeStep } from '../generate-time-step';
 
 // Mock `performance.now()`
@@ -16,22 +16,23 @@ describe('generateTimeStep', () => {
   beforeEach(() => {
     lastTimestamp.value = 0;
     timeStep.value = 0;
-    timeStep.unit = 'day';
+    timeStep.unit = 'd';
   });
 
   afterEach(() => {
     lastTimestamp.value = 0;
     timeStep.value = 0;
-    timeStep.unit = 'day';
+    timeStep.unit = 'd';
   });
 
   test('Normal FPS (60Hz)', () => {
     mockNow = 16.67; // ~16.67ms per frame (60Hz)
     generateTimeStep();
 
-    const expectedTimeStep = (mockNow / (1000 / 60)) * (mockNow / MS_1_DAY);
+    const expectedTimeStep =
+      (mockNow / (1000 / 60)) * (mockNow / MILLISECONDS_PER_DAY);
 
-    assert.strictEqual(timeStep.unit, 'day');
+    assert.strictEqual(timeStep.unit, 'd');
     assert.strictEqual(timeStep.value.toFixed(8), expectedTimeStep.toFixed(8));
   });
 
@@ -39,9 +40,10 @@ describe('generateTimeStep', () => {
     mockNow = 6.94; // ~6.94ms per frame (144Hz)
     generateTimeStep();
 
-    const expectedTimeStep = (mockNow / (1000 / 60)) * (mockNow / MS_1_DAY);
+    const expectedTimeStep =
+      (mockNow / (1000 / 60)) * (mockNow / MILLISECONDS_PER_DAY);
 
-    assert.strictEqual(timeStep.unit, 'day');
+    assert.strictEqual(timeStep.unit, 'd');
     assert.strictEqual(timeStep.value.toFixed(8), expectedTimeStep.toFixed(8));
   });
 
@@ -49,9 +51,10 @@ describe('generateTimeStep', () => {
     mockNow = 33.33; // ~33.33ms per frame (30Hz)
     generateTimeStep();
 
-    const expectedTimeStep = (mockNow / (1000 / 60)) * (mockNow / MS_1_DAY);
+    const expectedTimeStep =
+      (mockNow / (1000 / 60)) * (mockNow / MILLISECONDS_PER_DAY);
 
-    assert.strictEqual(timeStep.unit, 'day');
+    assert.strictEqual(timeStep.unit, 'd');
     assert.strictEqual(timeStep.value.toFixed(8), expectedTimeStep.toFixed(8));
   });
 
@@ -73,7 +76,7 @@ describe('generateTimeStep', () => {
         | 'spedUp'
         | 'insane';
       generateTimeStep();
-      assert.strictEqual(timeStep.unit, 'day');
+      assert.strictEqual(timeStep.unit, 'd');
       assert.strictEqual(timeStep.value, expected);
     }
   });

@@ -1,5 +1,6 @@
+import { ValueInterface } from '@interstellar-tools/types';
+
 import { ZOOM_FACTOR } from '../../config/constants';
-import { ValueInterface } from '../../types/distance';
 
 /**
  * Calculates the **new scale factor** based on a zoom event.

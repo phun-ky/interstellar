@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test, { describe } from 'node:test';
 
 import { AU_IN_PX } from '../../config/constants';
-import { DistanceInterface } from '../../types/distance';
+import { DistanceInterface } from '@interstellar-tools/types';
 import { distanceToPixels } from '../distance/distance-to-pixels';
 
 describe('distanceToPixels', () => {

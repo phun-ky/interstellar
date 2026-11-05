@@ -1,58 +1,53 @@
-.int.in-viewport {
-  position: absolute;
-  top: 20em;
-  left: 8em;
+.int.in-viewport:empty {
+  display: none;
 }
 
-.int.in-viewport ul.int {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  grid-gap: 0.5em;
-}
-
-.int.in-viewport ul.int li.int {
-  border-left: 10pt solid #4eeef5;
+.int.in-viewport table.int {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 4em;
-  text-transform: uppercase;
-  line-height: 4em;
-  background-color: #0c1f2d;
-}
-.int.in-viewport ul.int li.int:hover {
-  background-color: #1e4762;
+  border-collapse: collapse;
+  font-size: 13px;
 }
 
-.int.int.in-viewport .int.body {
-  height: 4em;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.int.in-viewport th.int {
+  padding: 6px 10px;
+  font-family: var(--int-font-family-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-align: left;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  flex-shrink: 0;
-  min-width: 10em;
+  text-transform: uppercase;
 }
 
-.int.int.in-viewport .int.icon {
-  height: 4em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  flex-shrink: 0;
-  margin-left: auto;
-  background-color: #0a111c;
+.int.in-viewport td.int {
+  padding: 7px 10px;
+  color: var(--int-color-text);
 }
-.int.int.in-viewport .int.icon svg {
-  flex-shrink: 0;
-  display: block;
-  height: var(--int-ui-body-icon-size);
-  width: var(--int-ui-body-icon-size);
-  color: var(--int-ui-body-icon-fill, #4eeef5);
+
+.int.in-viewport tbody tr.int {
+  border-left: 3px solid var(--int-color-teal);
+}
+
+.int.in-viewport tbody tr.int:nth-child(2n) {
+  background: var(--int-color-panel-alt);
+}
+
+.int.in-viewport tbody tr.int.is-locked {
+  border-left-color: var(--int-color-amber);
+  background: rgba(255, 181, 71, 0.08);
+}
+
+.int.in-viewport .int.body {
+  font-family: var(--int-font-family-heading);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.int.in-viewport .int.distance {
+  font-family: var(--int-font-family-mono);
+  text-align: right;
+}
+
+.int.in-viewport tr.is-locked .int.distance {
+  color: var(--int-color-amber);
 }

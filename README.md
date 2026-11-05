@@ -46,11 +46,6 @@ trajectories of asteroids.
 - Orbits of comets are not working
 - Not accounting for any counter clockwise rotation of celestial bodies
 
-## API
-
-Full API documentation is available
-[here](https://github.com/phun-ky/interstellar/blob/main/api/README.md).
-
 ## Development
 
 ```
