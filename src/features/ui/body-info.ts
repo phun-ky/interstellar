@@ -68,7 +68,7 @@ const getBodyFacts = (
   const { type, category, parent, radius, orbit } = body;
   const parentName =
     findBodyById(parent)?.name ??
-    (parent === 'milky-way' ? 'Milky Way' : (parent ?? '—'));
+    (parent === 'milky-way' ? 'Milky Way' : (parent ?? 'Unknown'));
   const moons = getChildBodies(body.id).filter(
     (child) => getBodyKind(child.id) === 'moon'
   ).length;

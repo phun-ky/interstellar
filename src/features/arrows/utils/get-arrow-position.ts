@@ -97,7 +97,7 @@ export const getArrowPosition = (
   const minDistance =
     Math.min(canvasWidth, canvasHeight) * MIN_ARROW_DISTANCE_RATIO;
 
-  // Stop just outside the first panel the ray runs into (ray–box slab test)
+  // Stop just outside the first panel the ray runs into (ray-box slab test)
   obstacles.forEach((obstacle) => {
     const box = {
       left: obstacle.left - ARROW_EDGE_PADDING,

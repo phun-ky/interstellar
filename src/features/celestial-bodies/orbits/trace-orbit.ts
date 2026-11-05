@@ -18,7 +18,7 @@ type PointType = [x: number, y: number];
 type RectType = { left: number; top: number; right: number; bottom: number };
 
 /**
- * Clips the segment `p0`–`p1` to `rect` (Liang–Barsky).
+ * Clips the segment from `p0` to `p1` to `rect` (Liang-Barsky).
  *
  * @returns The clipped end points, or `null` when the segment misses the rectangle.
  */
