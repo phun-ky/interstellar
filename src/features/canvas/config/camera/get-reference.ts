@@ -1,3 +1,5 @@
+import { getViewportSize } from '../../get-viewport-size';
+
 import { offsetX, offsetY } from '.';
 
 /**
@@ -26,8 +28,9 @@ import { offsetX, offsetY } from '.';
 export const getReference = (
   canvas: HTMLCanvasElement
 ): { referenceX: number; referenceY: number } => {
-  const referenceX = canvas.width / 2 + offsetX.value;
-  const referenceY = canvas.height / 2 + offsetY.value;
+  const { width, height } = getViewportSize(canvas);
+  const referenceX = width / 2 + offsetX.value;
+  const referenceY = height / 2 + offsetY.value;
 
   return {
     referenceX,

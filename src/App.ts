@@ -23,6 +23,7 @@ import { getReference } from './features/canvas/config/camera/get-reference';
 import { OPTIONS_UI } from './features/canvas/config/hud';
 import { timeStep } from './features/canvas/config/time-step';
 import { generateTimeStep } from './features/canvas/config/time-step/generate-time-step';
+import { getViewportSize } from './features/canvas/get-viewport-size';
 import { setupCanvas } from './features/canvas/setup-canvas';
 import { updatePositions } from './features/celestial-bodies/utils/update-positions';
 import { initializeMinimap } from './features/minimap/initialize-minimap';
@@ -72,8 +73,9 @@ const App = async (): Promise<void> => {
   const update = () => {
     if (!space) throw Error('Required space context not found');
 
-    const canvasWidth = canvas.width;
-    const canvasHeight = canvas.height;
+    // CSS pixels, the space everything is drawn in (not the device-pixel buffer size)
+    const { width: canvasWidth, height: canvasHeight } =
+      getViewportSize(canvas);
     const { referenceX, referenceY } = getReference(canvas);
 
     // Draw everything related to canvas

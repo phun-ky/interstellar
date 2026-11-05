@@ -4,6 +4,7 @@ import {
   THRESHOLD_PLANET_RENDER
 } from '../../config/constants';
 import { Interval } from '../../lib/classes/Interval';
+import { getViewportSize } from '../canvas/get-viewport-size';
 
 import { isInViewport } from './utils/is-in-viewport';
 
@@ -14,6 +15,7 @@ export const updateBodiesInView = (props) => {
   if (!inViewportElement) return;
 
   globalThis.INTERVAL_IN_VIEWPORT = new Interval(() => {
+    const { width, height } = getViewportSize(canvas);
     const filterBodies = (category: string, parentFilter?: string) =>
       Object.keys(globalThis.NEAREST_BODIES)
         .filter((name: string) => {
@@ -31,7 +33,7 @@ export const updateBodiesInView = (props) => {
       const bodies = filterBodies('planet');
 
       bodies.forEach(({ x, y, name }) => {
-        if (isInViewport(x, y, canvas.width, canvas.height)) {
+        if (isInViewport(x, y, width, height)) {
           globalThis.BODIES_IN_VIEWPORT.add(name);
         } else {
           globalThis.BODIES_IN_VIEWPORT.delete(name);
@@ -50,7 +52,7 @@ export const updateBodiesInView = (props) => {
       );
 
       bodies.forEach(({ x, y, name }) => {
-        if (isInViewport(x, y, canvas.width, canvas.height)) {
+        if (isInViewport(x, y, width, height)) {
           globalThis.BODIES_IN_VIEWPORT.add(name);
         } else {
           globalThis.BODIES_IN_VIEWPORT.delete(name);
