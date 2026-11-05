@@ -7,6 +7,7 @@
 [![SemVer 2.0](https://img.shields.io/badge/SemVer-2.0-green.svg)](http://semver.org/spec/v2.0.0.html)
 ![issues](https://img.shields.io/github/issues/phun-ky/site-interstellar)
 ![GitHub Repo stars](https://img.shields.io/github/stars/phun-ky/site-interstellar)
+[![build](https://github.com/phun-ky/site-interstellar/actions/workflows/deploy.yml/badge.svg)](https://github.com/phun-ky/site-interstellar/actions/workflows/deploy.yml)
 
 ## About
 
