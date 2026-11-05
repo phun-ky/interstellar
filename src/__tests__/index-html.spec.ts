@@ -29,6 +29,17 @@ describe('index.html metadata', () => {
     assert.ok(image?.startsWith(SITE_URL), `og:image is ${image}`);
   });
 
+  test('loads nothing from another origin', () => {
+    // The Content Security Policy allows the site's own origin only. The
+    // canonical link and og: tags name the site but load nothing.
+    const external = [...html.matchAll(/<(?:link|script)\b[^>]*>/g)]
+      .map(([tag]) => tag)
+      .filter((tag) => /\b(?:href|src)="(?:https?:)?\/\//.test(tag))
+      .filter((tag) => !/\brel="canonical"/.test(tag));
+
+    assert.deepEqual(external, []);
+  });
+
   test('the canonical URL is the deployed site', () => {
     const canonical = html
       .match(/<link[^>]*rel="canonical"[^>]*>/s)?.[0]

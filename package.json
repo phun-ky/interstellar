@@ -94,6 +94,7 @@
     "npm": ">=11.0.0"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-sans-condensed": "^5.3.0",
     "@interstellar-tools/constants": "^1.2.1",
     "@interstellar-tools/equations": "^1.12.0",
     "@interstellar-tools/temporal": "^1.2.0",
