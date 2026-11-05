@@ -1,6 +1,7 @@
 {
   "name": "interstellar",
   "version": "1.0.0",
+  "private": true,
   "description": "A map",
   "keywords": [
     "interstellar",
@@ -57,9 +58,8 @@
     "dev": "vite",
     "preview": "vite preview",
     "style:code": "npx putout src",
-    "release": "release-it",
-    "style:format": "./node_modules/.bin/eslint -c ./eslint.config.mjs src  --fix && ./node_modules/.bin/prettier --write ./eslint.config.mjs src",
-    "style:lint": "./node_modules/.bin/eslint -c ./eslint.config.mjs src && ./node_modules/.bin/prettier --check src",
+    "style:format": "eslint -c ./eslint.config.mjs src  --fix && ./node_modules/.bin/prettier --write ./eslint.config.mjs src",
+    "style:lint": "eslint -c ./eslint.config.mjs src && ./node_modules/.bin/prettier --check src",
     "pretest:ci": "rm -rf coverage && mkdir -p coverage",
     "pretest:e2e": "rm -rf test-results && npm run build",
     "test": "npm run test:unit",
@@ -75,7 +75,6 @@
   "devDependencies": {
     "@phun-ky/eslint-config": "^0.1.10",
     "@playwright/test": "^1.50.1",
-    "@release-it/conventional-changelog": "^10.0.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@types/node": "^22.13.1",
@@ -92,7 +91,6 @@
     "postcss-cli": "^11.0.0",
     "prettier": "3.5.1",
     "putout": "^38.2.0",
-    "release-it": "^18.1.2",
     "stylus": "^0.64.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
