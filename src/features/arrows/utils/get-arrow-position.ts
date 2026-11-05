@@ -1,13 +1,6 @@
 /** Distance in pixels between the viewport edge and an arrow. */
 export const ARROW_EDGE_PADDING = 20;
 
-/**
- * A panel the ray meets closer to the centre than this share of the viewport's
- * shorter side is ignored for that arrow, so arrows never land on the body in
- * the middle; the arrow goes to the edge instead.
- */
-const MIN_ARROW_DISTANCE_RATIO = 0.25;
-
 /** A rectangle on the canvas, in canvas pixels: an area, or a HUD panel over it. */
 export type ArrowBoundsType = {
   left: number;
@@ -42,13 +35,14 @@ type ArrowPositionType = {
  *
  * When `obstacles` are given (the HUD panels over the canvas), the arrow stops at
  * the first one the ray meets instead, just outside it, so no panel covers it,
- * unless that would put the arrow close to the centre (see
- * `MIN_ARROW_DISTANCE_RATIO`).
+ * unless that would put the arrow within `keepOutRadius` of the centre, on the
+ * focused body; then the arrow goes to the edge instead.
  *
  * @param {number} angle - The angle in radians, measured from the viewport center.
  * @param {number} canvasWidth - The width of the canvas.
  * @param {number} canvasHeight - The height of the canvas.
  * @param {ArrowBoundsType[]} [obstacles=[]] - Areas the arrow must stay out of.
+ * @param {number} [keepOutRadius=0] - Distance from the centre, in pixels, that arrows never stop within (the focused body's radius plus a margin).
  * @returns {ArrowPositionType} The arrow position and the edge it sits on.
  *
  * @example
@@ -60,7 +54,8 @@ export const getArrowPosition = (
   angle: number,
   canvasWidth: number,
   canvasHeight: number,
-  obstacles: ArrowBoundsType[] = []
+  obstacles: ArrowBoundsType[] = [],
+  keepOutRadius = 0
 ): ArrowPositionType => {
   const cos = Math.cos(angle);
   const sin = Math.sin(angle);
@@ -92,10 +87,6 @@ export const getArrowPosition = (
       : sin > 0
         ? 'bottom'
         : 'top';
-
-  // Arrows never stop closer to the centre than this, where the focused body is
-  const minDistance =
-    Math.min(canvasWidth, canvasHeight) * MIN_ARROW_DISTANCE_RATIO;
 
   // Stop just outside the first panel the ray runs into (ray-box slab test)
   obstacles.forEach((obstacle) => {
@@ -132,7 +123,8 @@ export const getArrowPosition = (
 
     if (sin === 0 && (centerY < box.top || centerY > box.bottom)) return;
 
-    if (enter >= minDistance && enter <= exit && enter < t) {
+    // A panel that would put the arrow on the focused body is skipped
+    if (enter >= keepOutRadius && enter <= exit && enter < t) {
       t = enter;
       // Hitting a panel's left side puts the arrow on the clear area's right edge, …
       edge =

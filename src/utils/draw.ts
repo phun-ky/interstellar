@@ -42,6 +42,16 @@ import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';
 import { normalizeParentOffset } from './offset/normalize-parent-offset';
 
+/** Room kept clear around the focused body for arrows, beyond its drawn radius, in pixels. */
+const FOCUS_KEEP_OUT_MARGIN = 32;
+/** How far from the centre arrows must stay: the locked body's drawn radius plus a margin. */
+const getFocusKeepOut = (): number => {
+  const locked = globalThis.LOCKED_CELESTIAL_BODY;
+  const tracked = locked ? globalThis.NEAREST_BODIES[locked.id] : undefined;
+
+  return tracked ? tracked.size + FOCUS_KEEP_OUT_MARGIN : 0;
+};
+
 export type DrawPropsType = {
   space: CanvasRenderingContext2D;
   stars: StarsType;
@@ -389,7 +399,8 @@ export const draw = async (props: DrawPropsType) => {
       space,
       canvasWidth,
       canvasHeight,
-      obstacles: getHudObstacles(space.canvas, canvasWidth)
+      obstacles: getHudObstacles(space.canvas, canvasWidth),
+      keepOutRadius: getFocusKeepOut()
     });
   }
 };

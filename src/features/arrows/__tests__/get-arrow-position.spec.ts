@@ -73,12 +73,29 @@ describe('getArrowPosition', () => {
     close(corner.y, free.y);
   });
 
-  test('ignores a panel close to the centre', () => {
-    // A panel just below the centre, where an arrow would land on the focused body
+  test('ignores a panel that would put the arrow on the focused body', () => {
+    // A panel just below the centre, inside a focused body 40 px in radius
     const panel = { left: 300, top: HEIGHT / 2 + 30, right: 500, bottom: 500 };
-    const down = getArrowPosition(Math.PI / 2, WIDTH, HEIGHT, [panel]);
+    const down = getArrowPosition(Math.PI / 2, WIDTH, HEIGHT, [panel], 40);
 
     close(down.y, HEIGHT - ARROW_EDGE_PADDING);
+    assert.equal(down.edge, 'bottom');
+  });
+
+  test('stops above the info popup when the focused body is small', () => {
+    // The layout measured in #47: a 1440 × 836 canvas, the popup's top 142 px
+    // below the centre, a focused body 10 px in radius (keep-out 10 + 32)
+    const width = 1440;
+    const height = 836;
+    const popup = {
+      left: 380,
+      top: height / 2 + 142,
+      right: 1060,
+      bottom: 812
+    };
+    const down = getArrowPosition(Math.PI / 2, width, height, [popup], 42);
+
+    close(down.y, popup.top - ARROW_EDGE_PADDING);
     assert.equal(down.edge, 'bottom');
   });
 });
