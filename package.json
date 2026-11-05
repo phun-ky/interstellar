@@ -60,14 +60,13 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "pretest:e2e": "rm -rf test-results && npm run build",
     "preview": "vite preview",
     "style:code": "npx putout src",
-    "pretest:ci": "rm -rf coverage && mkdir -p coverage",
-    "pretest:e2e": "rm -rf test-results && npm run build",
-    "test": "npm run test:unit",
-    "test:ci": "glob -c \"node --import tsx --import global-jsdom/register --test --no-warnings --experimental-test-coverage --test-reporter=cobertura --test-reporter-destination=coverage/cobertura-coverage.xml --test-reporter=spec --test-reporter-destination=stdout\" \"./src/**/__tests__/**/*.spec.[jt]s\"",
+    "test": "node --import tsx --test 'src/**/__tests__/**/*.spec.ts'",
+    "test:coverage": "node --import tsx --enable-source-maps --test --experimental-test-coverage --test-coverage-include='src/**/*.ts' --test-coverage-exclude='src/**/__tests__/**' --test-coverage-lines=89 --test-coverage-branches=88 --test-coverage-functions=95 'src/**/__tests__/**/*.spec.ts'",
     "test:e2e": "npx playwright test",
-    "test:unit": "glob -c \"node --import tsx --import global-jsdom/register --test --no-warnings\" \"./src/**/__tests__/**/*.spec.[jt]s\""
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "config": {
     "commitizen": {
@@ -76,18 +75,12 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.4.2",
     "@types/node": "^22.13.1",
-    "cobertura": "^1.0.1",
     "cssnano": "^7.0.6",
     "eslint": "^10.14.0",
     "eslint-config-phun-ky": "^2.0.10",
     "git-cz": "^4.9.0",
-    "glob": "^11.0.1",
-    "global-jsdom": "^26.0.0",
     "globals": "^17.14.0",
-    "jsdom": "^26.0.0",
     "postcss": "^8.5.2",
     "postcss-cli": "^11.0.0",
     "prettier": "^3.9.10",
