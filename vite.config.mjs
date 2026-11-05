@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import pack from './package.json' with { type: 'json' };
+import { addContentSecurityPolicy } from './src/config/csp.ts';
 
 const banner = `/**
  * ${pack.name}
@@ -39,6 +40,9 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     sourcemap: true,
+    // Keep every asset a file: the Content Security Policy allows no
+    // `data:` URIs, and small font subsets would otherwise be inlined
+    assetsInlineLimit: 0,
     rolldownOptions: {
       output: {
         postBanner: banner,
@@ -52,6 +56,16 @@ export default defineConfig({
     }
   },
   plugins: [
+    // The policy goes into the built page only: the dev server injects
+    // inline styles that it would block
+    {
+      name: 'content-security-policy',
+      apply: 'build',
+      transformIndexHtml: {
+        order: 'post',
+        handler: (html) => addContentSecurityPolicy(html)
+      }
+    },
     // Serve and copy `src/assets` to the web root, like `public/`
     viteStaticCopy({
       targets: [{ src: 'src/assets/**/*', dest: '.', rename: { stripBase: 2 } }]
