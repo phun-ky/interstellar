@@ -16,6 +16,8 @@ export type DrawDirectionalArrowsPropsType = {
   count?: number;
   /** HUD panels over the canvas. Bodies behind one count as off screen, arrows stop outside them, and labels avoid them. */
   obstacles?: ArrowBoundsType[];
+  /** Distance from the centre, in pixels, arrows never stop within: the focused body's radius plus a margin. */
+  keepOutRadius?: number;
 };
 
 type ArrowGroupType = {
@@ -64,7 +66,8 @@ export const drawDirectionalArrows = (
     canvasWidth,
     canvasHeight,
     count = OPTIONS_UI.arrowHeadsCount,
-    obstacles = []
+    obstacles = [],
+    keepOutRadius = 0
   } = props;
   const centerX = canvasWidth / 2;
   const centerY = canvasHeight / 2;
@@ -91,7 +94,8 @@ export const drawDirectionalArrows = (
       angle,
       canvasWidth,
       canvasHeight,
-      obstacles
+      obstacles,
+      keepOutRadius
     );
     const group = groups.find(
       (g) => Math.hypot(g.x - x, g.y - y) < ARROW_MERGE_DISTANCE
@@ -117,7 +121,8 @@ export const drawDirectionalArrows = (
       canvasHeight,
       label,
       occupiedLabels,
-      obstacles
+      obstacles,
+      keepOutRadius
     );
   });
 

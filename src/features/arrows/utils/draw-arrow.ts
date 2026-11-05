@@ -49,6 +49,7 @@ const overlaps = (a: ArrowLabelBoxType, b: ArrowLabelBoxType): boolean =>
  * @param {string} name - The label to be displayed near the arrow.
  * @param {ArrowLabelBoxType[]} [occupied=[]] - Label boxes already drawn in this frame.
  * @param {ArrowBoundsType[]} [obstacles=[]] - HUD panels the arrow must stay out of.
+ * @param {number} [keepOutRadius=0] - Distance from the centre arrows never stop within.
  *
  * @example
  * ```ts
@@ -68,13 +69,20 @@ export const drawArrow = (
   canvasHeight: number,
   name: string,
   occupied: ArrowLabelBoxType[] = [],
-  obstacles: ArrowBoundsType[] = []
+  obstacles: ArrowBoundsType[] = [],
+  keepOutRadius = 0
 ): void => {
   const {
     x: arrowX,
     y: arrowY,
     edge
-  } = getArrowPosition(angle, canvasWidth, canvasHeight, obstacles);
+  } = getArrowPosition(
+    angle,
+    canvasWidth,
+    canvasHeight,
+    obstacles,
+    keepOutRadius
+  );
   // Draw two-line arrow (chevron-style)
   const lineLength = 16;
   const spreadAngle = Math.PI / 4; // 45 degrees
