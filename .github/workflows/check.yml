@@ -75,12 +75,36 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+  e2e:
+    name: End-to-end tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # The browsers that match the installed Playwright version
+      - run: npx playwright install --with-deps chromium firefox
+      # Builds first (pretest:e2e), then tests the built site in both browsers
+      - run: npm run test:e2e
+      - name: Keep the traces of failed tests
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playwright-test-results
+          path: test-results/
+          retention-days: 7
+
   # The one required check: fails when any job above failed, was cancelled or
   # was skipped, so a broken job can never be read as a pass.
   check:
     name: check
     if: ${{ !cancelled() }}
-    needs: [lint, typecheck, test, build]
+    needs: [lint, typecheck, test, build, e2e]
     runs-on: ubuntu-24.04
     steps:
       - name: All jobs succeeded
