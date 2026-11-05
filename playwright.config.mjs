@@ -6,35 +6,23 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests/e2e',
   testMatch: '**/*.@(spec|test|e2e).?(c|m)[jt]s?(x)',
-  /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  // Fail on CI when a `test.only` was left in
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  // A test that only passes on a second try is a bug to fix, not to hide
+  retries: 0,
   reporter: process.env.CI ? 'dot' : 'list',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* The site's GitHub Pages base path, so `page.goto('./')` opens the app. */
+    // The site's GitHub Pages base path, so `page.goto('./')` opens the app
     baseURL: 'http://127.0.0.1:3000/site-interstellar/',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry'
+    trace: 'retain-on-failure'
   },
-
-  /* Configure projects for major browsers */
+  // Google Chrome, as installed on GitHub's ubuntu-24.04 runners, so CI
+  // downloads no browser. Locally, Chrome must be installed.
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] }
-    },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] }
+      name: 'chrome',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' }
     }
   ],
 
