@@ -5,8 +5,8 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](http://makeapullrequest.com)
 [![SemVer 2.0](https://img.shields.io/badge/SemVer-2.0-green.svg)](http://semver.org/spec/v2.0.0.html)
-![issues](https://img.shields.io/github/issues/phun-ky/interstellar)
-![GitHub Repo stars](https://img.shields.io/github/stars/phun-ky/interstellar)
+![issues](https://img.shields.io/github/issues/phun-ky/site-interstellar)
+![GitHub Repo stars](https://img.shields.io/github/stars/phun-ky/site-interstellar)
 
 ## About
 
@@ -69,21 +69,21 @@ npm run test:e2e
 ## Contributing
 
 Want to contribute? Please read the
-[CONTRIBUTING.md](https://github.com/phun-ky/interstellar/blob/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/phun-ky/site-interstellar/blob/main/CONTRIBUTING.md)
 and
-[CODE_OF_CONDUCT.md](https://github.com/phun-ky/interstellar/blob/main/CODE_OF_CONDUCT.md)
+[CODE_OF_CONDUCT.md](https://github.com/phun-ky/site-interstellar/blob/main/CODE_OF_CONDUCT.md)
 
 ## License
 
 This project is licensed under a
 [GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/). - see the
-[LICENSE](https://github.com/phun-ky/interstellar/blob/main/LICENSE) file for
-details.
+[LICENSE](https://github.com/phun-ky/site-interstellar/blob/main/LICENSE) file
+for details.
 
 ## Changelog
 
 See the
-[CHANGELOG.md](https://github.com/phun-ky/interstellar/blob/main/CHANGELOG.md)
+[CHANGELOG.md](https://github.com/phun-ky/site-interstellar/blob/main/CHANGELOG.md)
 for details on the latest updates.
 
 ## Sponsor me

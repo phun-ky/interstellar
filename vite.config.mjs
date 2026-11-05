@@ -26,8 +26,8 @@ const banner = `/**
  */`;
 
 export default defineConfig({
-  // Served from GitHub Pages at https://phun-ky.net/interstellar/
-  base: '/interstellar/',
+  // Served from GitHub Pages at https://phun-ky.net/site-interstellar/
+  base: '/site-interstellar/',
   publicDir: 'public',
   server: {
     port: 3000

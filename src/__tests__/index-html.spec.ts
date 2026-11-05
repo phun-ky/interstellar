@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, test } from 'node:test';
 
-const SITE_URL = 'https://phun-ky.net/interstellar/';
+const SITE_URL = 'https://phun-ky.net/site-interstellar/';
 const html = readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
 
 /** The `content` of a `<meta property="…">` tag, or `null`. */

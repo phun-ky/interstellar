@@ -26,14 +26,14 @@ pick one of the files. Repeat for the other.
 Or with the GitHub CLI, as a repository admin:
 
 ```sh
-gh api -X POST repos/phun-ky/interstellar/rulesets --input .github/rulesets/main-protect-history.json
-gh api -X POST repos/phun-ky/interstellar/rulesets --input .github/rulesets/main-merge-rules.json
+gh api -X POST repos/phun-ky/site-interstellar/rulesets --input .github/rulesets/main-protect-history.json
+gh api -X POST repos/phun-ky/site-interstellar/rulesets --input .github/rulesets/main-merge-rules.json
 ```
 
 ## Check
 
 ```sh
-gh api repos/phun-ky/interstellar/rules/branches/main --jq '.[].type'
+gh api repos/phun-ky/site-interstellar/rules/branches/main --jq '.[].type'
 ```
 
 The output lists `non_fast_forward`, `deletion`, `pull_request`,
@@ -45,8 +45,8 @@ Change the file here first, in a pull request, then apply it over the existing
 ruleset:
 
 ```sh
-gh api repos/phun-ky/interstellar/rulesets --jq '.[] | "\(.id) \(.name)"'
-gh api -X PUT repos/phun-ky/interstellar/rulesets/<id> --input .github/rulesets/<file>.json
+gh api repos/phun-ky/site-interstellar/rulesets --jq '.[] | "\(.id) \(.name)"'
+gh api -X PUT repos/phun-ky/site-interstellar/rulesets/<id> --input .github/rulesets/<file>.json
 ```
 
 ## Signing off commits
