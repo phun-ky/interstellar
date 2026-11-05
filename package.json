@@ -39,13 +39,13 @@
     "jpl",
     "esa"
   ],
-  "homepage": "https://github.com/phun-ky/interstellar#readme",
+  "homepage": "https://github.com/phun-ky/site-interstellar#readme",
   "bugs": {
-    "url": "https://github.com/phun-ky/interstellar/issues"
+    "url": "https://github.com/phun-ky/site-interstellar/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phun-ky/interstellar.git"
+    "url": "git+https://github.com/phun-ky/site-interstellar.git"
   },
   "license": "GPL-3.0",
   "author": "Alexander Vassbotn Røyne-Helgesen <alexander@phun-ky.net>",

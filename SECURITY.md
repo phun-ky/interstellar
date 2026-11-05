@@ -16,7 +16,7 @@ versions to patch.
 ## Reporting a Vulnerability
 
 Report vulnerabilities privately, either with GitHub's
-[private vulnerability reporting](https://github.com/phun-ky/interstellar/security/advisories/new)
+[private vulnerability reporting](https://github.com/phun-ky/site-interstellar/security/advisories/new)
 or by email to <security@phun-ky.net>. Please don't open a public issue for a
 security problem.
 
@@ -67,7 +67,7 @@ Actions are pinned to commit SHAs.
 **Tracking them.** Dependabot proposes version updates weekly, two weeks after a
 release, and security updates as soon as an advisory is published. Every pull
 request runs
-[dependency review](https://github.com/phun-ky/interstellar/blob/main/.github/workflows/dependency-review.yml).
+[dependency review](https://github.com/phun-ky/site-interstellar/blob/main/.github/workflows/dependency-review.yml).
 
 **Fixing known vulnerabilities.** Findings are checked against the GitHub
 Advisory Database:

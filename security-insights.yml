@@ -2,7 +2,7 @@ header:
   schema-version: 2.2.0
   last-updated: '2026-11-05'
   last-reviewed: '2026-11-05'
-  url: https://raw.githubusercontent.com/phun-ky/interstellar/main/security-insights.yml
+  url: https://raw.githubusercontent.com/phun-ky/site-interstellar/main/security-insights.yml
   comment: |
     Security information for Interstellar, in the OpenSSF Security Insights
     format. Keep it in step with SECURITY.md.
@@ -15,20 +15,20 @@ project:
       social: https://github.com/phun-ky
       primary: true
   documentation:
-    code-of-conduct: https://github.com/phun-ky/interstellar/blob/main/CODE_OF_CONDUCT.md
-    support-policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md#supported-versions
+    code-of-conduct: https://github.com/phun-ky/site-interstellar/blob/main/CODE_OF_CONDUCT.md
+    support-policy: https://github.com/phun-ky/site-interstellar/blob/main/SECURITY.md#supported-versions
   repositories:
     - name: interstellar
-      url: https://github.com/phun-ky/interstellar
+      url: https://github.com/phun-ky/site-interstellar
       comment: |
         The website: a canvas simulation of the solar system and beyond.
   vulnerability-reporting:
     reports-accepted: true
     bug-bounty-available: false
-    policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md
+    policy: https://github.com/phun-ky/site-interstellar/blob/main/SECURITY.md
     comment: |
       Report privately with GitHub's private vulnerability reporting
-      (https://github.com/phun-ky/interstellar/security/advisories/new)
+      (https://github.com/phun-ky/site-interstellar/security/advisories/new)
       or by email to the contact below.
     contact:
       name: Interstellar security contact
@@ -36,7 +36,7 @@ project:
       primary: true
 
 repository:
-  url: https://github.com/phun-ky/interstellar
+  url: https://github.com/phun-ky/site-interstellar
   status: active
   accepts-change-request: true
   accepts-automated-change-request: true
@@ -46,16 +46,16 @@ repository:
       social: https://github.com/phun-ky
       primary: true
   documentation:
-    contributing-guide: https://github.com/phun-ky/interstellar/blob/main/CONTRIBUTING.md
-    security-policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md
-    dependency-management-policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md#dependencies
+    contributing-guide: https://github.com/phun-ky/site-interstellar/blob/main/CONTRIBUTING.md
+    security-policy: https://github.com/phun-ky/site-interstellar/blob/main/SECURITY.md
+    dependency-management-policy: https://github.com/phun-ky/site-interstellar/blob/main/SECURITY.md#dependencies
   license:
-    url: https://github.com/phun-ky/interstellar/blob/main/LICENSE
+    url: https://github.com/phun-ky/site-interstellar/blob/main/LICENSE
     expression: GPL-3.0
   security:
     assessments:
       self:
-        evidence: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md#security-expectations
+        evidence: https://github.com/phun-ky/site-interstellar/blob/main/SECURITY.md#security-expectations
         date: '2026-11-05'
         comment: |
           SECURITY.md sets out what the site does and doesn't do (no data
@@ -120,4 +120,4 @@ repository:
         results: {}
         comment: |
           Runs weekly and on every push to main; results at
-          https://scorecard.dev/viewer/?uri=github.com/phun-ky/interstellar
+          https://scorecard.dev/viewer/?uri=github.com/phun-ky/site-interstellar

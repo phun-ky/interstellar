@@ -1,5 +1,5 @@
 # Check, build and deploy the site to GitHub Pages on every push to main:
-# https://phun-ky.net/interstellar/
+# https://phun-ky.net/site-interstellar/
 name: Deploy
 
 on:
