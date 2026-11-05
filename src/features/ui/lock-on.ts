@@ -8,6 +8,7 @@ import {
   SCALE,
   THRESHOLD_MOON_RENDER
 } from '../../config/constants';
+import { prefersReducedMotion } from '../../utils/prefers-reduced-motion';
 import { getClearBounds } from '../arrows/utils/get-clear-bounds';
 import {
   offsetCacheX,
@@ -204,9 +205,11 @@ const zoomTo = (target: number): void => {
   const scaleDisplay = document.getElementById('scaleDisplay');
   const from = Math.log(SCALE.value);
   const to = Math.log(Math.min(Math.max(target, MIN_SCALE), MAX_SCALE));
+  // With reduced motion, jump straight to the target
+  const duration = prefersReducedMotion() ? 0 : ZOOM_DURATION_MS;
   const start = performance.now();
   const step = (now: number) => {
-    const progress = Math.min(1, (now - start) / ZOOM_DURATION_MS);
+    const progress = duration ? Math.min(1, (now - start) / duration) : 1;
     const eased = 1 - (1 - progress) ** 3;
 
     SCALE.value = Math.exp(from + (to - from) * eased);

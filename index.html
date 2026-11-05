@@ -69,7 +69,15 @@
     <meta name="apple-mobile-web-app-title" content="Interstellar" />
   </head>
   <body class="int">
-    <canvas id="spaceCanvas"></canvas>
+    <a class="int mc-skip" href="#systems">Skip to systems</a>
+
+    <main class="int">
+      <canvas
+        id="spaceCanvas"
+        role="img"
+        aria-label="Map of the solar system, nearby stars and the Milky Way. The bodies on screen are listed under In view."
+      ></canvas>
+    </main>
 
     <header class="int mc-header">
       <span class="int mc-brand">
@@ -144,7 +152,12 @@
       <div class="int in-viewport" id="in-viewport"></div>
     </div>
 
-    <aside class="int controls" aria-labelledby="systemsTitle">
+    <aside
+      class="int controls"
+      id="systems"
+      tabindex="-1"
+      aria-labelledby="systemsTitle"
+    >
       <div class="int inner">
         <h2 class="int mc-ptitle" id="systemsTitle">
           <span class="int">Systems</span><b class="int">SYS-01</b>
