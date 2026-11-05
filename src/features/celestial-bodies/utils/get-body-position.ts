@@ -12,21 +12,23 @@ export type GetBodyPositionReturnType = {
  * Computes the **current position** of a celestial body relative to its parent, in real-world units.
  *
  * The position is determined from the body's `orbit`: its **semi-major axis** ($a$),
- * **eccentricity** ($e$) and **orbital angle** ($\theta$).
- * The coordinates $(x, y)$ are calculated using the parametric equations:
+ * **eccentricity** ($e$) and **true anomaly** ($\nu$, `orbit.angle`), with the parent at
+ * the focus of the ellipse:
  *
  * $$
- * x = a \cos\theta - f
+ * r = \frac{a(1 - e^2)}{1 + e \cos\nu}
  * $$
  * $$
- * y = b \sin\theta
+ * x = r \cos\nu \qquad y = r \sin\nu
  * $$
  * where:
  * - $a$ is the **semi-major axis** converted to AU.
- * - $b = a \sqrt{1 - e^2}$ is the **semi-minor axis**.
- * - $\theta$ is the **current angle** of the celestial body in its orbit, mirrored for
- *   prograde orbits so they run counter-clockwise on the canvas (where the y-axis points down).
- * - $f = e \cdot a$ is the **focus shift** caused by orbital eccentricity.
+ * - $\nu$ is the **true anomaly**, the angle from periapsis as seen from the parent,
+ *   mirrored for prograde orbits so they run counter-clockwise on the canvas (where the
+ *   y-axis points down).
+ *
+ * This lies on the same ellipse `traceOrbit()` draws (centred $a \cdot e$ from the focus),
+ * at the point the true anomaly gives.
  *
  * A body without an `orbit` (like the Sun inside the Solar System) sits on its parent: `(0, 0)`.
  *
@@ -54,14 +56,13 @@ export const getBodyPosition = (
 
   const { e, angle, retrograde } = orbit;
   const a = convertDistanceUnit(orbit.a, 'au').value;
-  const b = a * Math.sqrt(1 - e ** 2);
-  const focusOffset = e * a;
+  // Distance from the parent (at the focus) at this true anomaly
+  const r = (a * (1 - e ** 2)) / (1 + e * Math.cos(angle));
   // Prograde orbits are mirrored so they run counter-clockwise on the canvas
   const orbitalDirection = retrograde ? 1 : -1;
   const adjustedAngle = orbitalDirection * angle;
-  // Calculate body position in real-world units
-  const x = a * Math.cos(adjustedAngle) - focusOffset;
-  const y = b * Math.sin(adjustedAngle);
+  const x = r * Math.cos(adjustedAngle);
+  const y = r * Math.sin(adjustedAngle);
 
   return { x: { value: x, unit: 'au' }, y: { value: y, unit: 'au' } };
 };
