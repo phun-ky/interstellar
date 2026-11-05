@@ -11,6 +11,7 @@ import { CelestialBodyType } from '@interstellar-tools/types';
 import { offsetX, offsetY } from '../features/canvas/config/camera';
 import { timeStep } from '../features/canvas/config/time-step';
 import { generateTimeStep } from '../features/canvas/config/time-step/generate-time-step';
+import { getViewportSize } from '../features/canvas/get-viewport-size';
 import { getBodyPosition } from '../features/celestial-bodies/utils/get-body-position';
 import { precomputeInitialAngles } from '../features/celestial-bodies/utils/precompute-initial-angles';
 import { updatePositions } from '../features/celestial-bodies/utils/update-positions';
@@ -92,7 +93,9 @@ export const setupApp = (canvas: HTMLCanvasElement) => {
 
   globalThis.LAST_CANVAS_SIZE = { width: 0, height: 0 };
 
-  generateStarfield(canvas.width, canvas.height);
+  const { width, height } = getViewportSize(canvas);
+
+  generateStarfield(width, height);
 
   if (globalThis.LOCKED_CELESTIAL_BODY !== null) {
     // Calculate the body's position in pixel coordinates

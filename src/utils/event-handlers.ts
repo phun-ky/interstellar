@@ -6,6 +6,7 @@ import { setUIOptions } from '../config/set-UI-options';
 import { offsetX, offsetY } from '../features/canvas/config/camera';
 import { OPTIONS_UI } from '../features/canvas/config/hud';
 import { SPEED_MODE } from '../features/canvas/config/time-step';
+import { getViewportSize } from '../features/canvas/get-viewport-size';
 import { setupCanvas } from '../features/canvas/setup-canvas';
 import {
   findBodyById,
@@ -86,16 +87,15 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
       // Regular zoom behavior when no locked object
       // Mouse position relative to the canvas, which starts below the header
       const { left, top } = canvas.getBoundingClientRect();
+      const { width, height } = getViewportSize(canvas);
       const mouseX = event.clientX - left;
       const mouseY = event.clientY - top;
       const worldXBefore =
-        (mouseX - canvas.width / 2 - offsetX.value) / prevScale.value;
+        (mouseX - width / 2 - offsetX.value) / prevScale.value;
       const worldYBefore =
-        (mouseY - canvas.height / 2 - offsetY.value) / prevScale.value;
-      const worldXAfter =
-        (mouseX - canvas.width / 2 - offsetX.value) / SCALE.value;
-      const worldYAfter =
-        (mouseY - canvas.height / 2 - offsetY.value) / SCALE.value;
+        (mouseY - height / 2 - offsetY.value) / prevScale.value;
+      const worldXAfter = (mouseX - width / 2 - offsetX.value) / SCALE.value;
+      const worldYAfter = (mouseY - height / 2 - offsetY.value) / SCALE.value;
 
       offsetX.value += (worldXAfter - worldXBefore) * SCALE.value;
       offsetY.value += (worldYAfter - worldYBefore) * SCALE.value;
@@ -189,8 +189,10 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   globalThis.addEventListener(
     'resize',
     throttleAsync(async () => {
-      generateStarfield(canvas.width, canvas.height);
-      await initializeStarfield(canvas.width, canvas.height, SCALE);
+      const { width, height } = getViewportSize(canvas);
+
+      generateStarfield(width, height);
+      await initializeStarfield(width, height, SCALE);
     })
   );
 

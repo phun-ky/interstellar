@@ -8,6 +8,7 @@ import {
   OrbitingBodyType
 } from '../../../types/orbiting-bodies';
 import { distanceToPixels } from '../../../utils/distance/distance-to-pixels';
+import { getViewportSize } from '../../canvas/get-viewport-size';
 import { getBodyPosition } from '../utils/get-body-position';
 
 import { getOrbitStyle } from './orbit-style';
@@ -69,6 +70,8 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
   // Skip rendering if orbits are toggled off
   if (!toggled) return;
 
+  const viewport = getViewportSize(space.canvas);
+
   celestialBodies.forEach((body: OrbitingBodyType) => {
     const { name, orbit } = body;
 
@@ -90,8 +93,8 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
         referenceX,
         referenceY,
         scale,
-        space.canvas.width,
-        space.canvas.height
+        viewport.width,
+        viewport.height
       );
       space.stroke();
       space.restore();
