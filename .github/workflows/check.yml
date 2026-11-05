@@ -78,6 +78,7 @@ jobs:
   e2e:
     name: End-to-end tests
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -87,9 +88,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      # The browsers that match the installed Playwright version
-      - run: npx playwright install --with-deps chromium firefox
-      # Builds first (pretest:e2e), then tests the built site in both browsers
+      # Uses the runner's Google Chrome, so nothing is downloaded. Builds
+      # first (pretest:e2e), then tests the built site.
       - run: npm run test:e2e
       - name: Keep the traces of failed tests
         if: ${{ failure() }}
