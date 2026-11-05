@@ -73,7 +73,7 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
   const viewport = getViewportSize(space.canvas);
 
   celestialBodies.forEach((body: OrbitingBodyType) => {
-    const { name, orbit } = body;
+    const { orbit } = body;
 
     // Skip rendering for celestial bodies without an orbit
     if (!orbit) return;
@@ -102,7 +102,7 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
       // **Disable trails if zooming or panning**
       if (globalThis.IS_ZOOMING_OR_PANNING) {
         try {
-          globalThis.TRAJECTORY_TRAILS[name] = [];
+          globalThis.TRAJECTORY_TRAILS[body.id] = [];
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
           return;
@@ -124,23 +124,27 @@ export const drawOrbits = (props: DrawOrbitsPropsType): void => {
       const bodyY = referenceY + yPX;
 
       // Trajectory Trails Mode
-      if (!globalThis.TRAJECTORY_TRAILS[name]) {
-        globalThis.TRAJECTORY_TRAILS[name] = [];
+      if (!globalThis.TRAJECTORY_TRAILS[body.id]) {
+        globalThis.TRAJECTORY_TRAILS[body.id] = [];
       }
 
       // Store latest positions (limit to 100 past positions)
-      globalThis.TRAJECTORY_TRAILS[name].push({ x: bodyX, y: bodyY });
+      globalThis.TRAJECTORY_TRAILS[body.id].push({ x: bodyX, y: bodyY });
 
       // Ensure retrograde motion is visually accurate
-      if (globalThis.TRAJECTORY_TRAILS[name].length > maxTrailLength) {
-        globalThis.TRAJECTORY_TRAILS[name].shift(); // Remove oldest point normally
+      if (globalThis.TRAJECTORY_TRAILS[body.id].length > maxTrailLength) {
+        globalThis.TRAJECTORY_TRAILS[body.id].shift(); // Remove oldest point normally
       }
 
       // Draw the trail with fading and thickness effect
-      for (let i = 0; i < globalThis.TRAJECTORY_TRAILS[name].length - 1; i++) {
-        const start = globalThis.TRAJECTORY_TRAILS[name][i];
-        const end = globalThis.TRAJECTORY_TRAILS[name][i + 1];
-        const alpha = (i + 1) / globalThis.TRAJECTORY_TRAILS[name].length; // Fade effect
+      for (
+        let i = 0;
+        i < globalThis.TRAJECTORY_TRAILS[body.id].length - 1;
+        i++
+      ) {
+        const start = globalThis.TRAJECTORY_TRAILS[body.id][i];
+        const end = globalThis.TRAJECTORY_TRAILS[body.id][i + 1];
+        const alpha = (i + 1) / globalThis.TRAJECTORY_TRAILS[body.id].length; // Fade effect
         const lineWidth = 1 + 2 * alpha; // Thicker at the end, thinner at the start
 
         space.beginPath();

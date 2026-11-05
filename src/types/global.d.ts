@@ -33,8 +33,7 @@ type CanvasRectType = {
 declare global {
   interface globalThis {
     /**
-     * A set of celestial body names that are currently visible within the viewport.
-     * Used for rendering optimizations and label management.
+     * Ids of the bodies listed in the "In view" panel, rebuilt every update.
      */
     BODIES_IN_VIEWPORT: Set<string>;
 
@@ -46,6 +45,7 @@ declare global {
     INTERVAL_IN_VIEWPORT: Interval;
     LOCKED_CELESTIAL_BODY: CelestialBodyType | null;
     TRAJECTORY_TYPE: 'orbits' | 'trails';
+    /** Trail points per body id, in trails mode. */
     TRAJECTORY_TRAILS: Record<string, CartesianCoordinatesInterface[]>;
     IS_ZOOMING_OR_PANNING: boolean; // Initialize
     ZOOM_PAN_TIMEOUT: number; // For delaying reactivation
@@ -56,8 +56,7 @@ declare global {
   }
 
   /**
-   * A set of celestial body names that are currently visible within the viewport.
-   * Used for rendering optimizations and label management.
+   * Ids of the bodies listed in the "In view" panel, rebuilt every update.
    */
   var BODIES_IN_VIEWPORT: Set<string>;
   /**
@@ -68,6 +67,7 @@ declare global {
   var INTERVAL_IN_VIEWPORT: Interval;
   var LOCKED_CELESTIAL_BODY: CelestialBodyType | null;
   var TRAJECTORY_TYPE: 'orbits' | 'trails';
+  /** Trail points per body id, in trails mode. */
   var TRAJECTORY_TRAILS: Record<string, CartesianCoordinatesInterface[]>;
   var IS_ZOOMING_OR_PANNING: boolean; // Initialize
   var ZOOM_PAN_TIMEOUT: number; // For delaying reactivation
