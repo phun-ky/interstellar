@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 /**
  * Waits for the next animation frame using `requestAnimationFrame`.
  *

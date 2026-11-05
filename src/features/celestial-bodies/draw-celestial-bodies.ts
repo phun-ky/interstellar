@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import { TWO_PI } from '@interstellar-tools/constants';
 import {
   CelestialBodiesType,

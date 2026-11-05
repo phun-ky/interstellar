@@ -7,7 +7,6 @@ import './styles/toggleBox.css';
 /**
  * Represents the properties for the Interstellar ToggleBox component.
  */
-// eslint-disable-next-line import/no-unused-modules
 export type InterstellarToggleBoxPropsType = {
   /** Whether the toggle box is checked by default. Defaults to false. */
   checked?: boolean;

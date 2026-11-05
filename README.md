@@ -47,13 +47,13 @@ trajectories of asteroids.
 
 ## Development
 
-```
-// Build
-$ npm run build
-// Run dev
-$ npm run dev
-// Test
-$ npm test
+```sh
+# Build
+npm run build
+# Run the dev server
+npm run dev
+# Test
+npm test
 ```
 
 ## Contributing

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import { ASTEROID_BELTS, SYSTEMS } from '@interstellar-tools/constants';
 import {
   AsteroidsType,

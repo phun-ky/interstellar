@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 export interface StarImageInterface {
   name: string;
   url: string;

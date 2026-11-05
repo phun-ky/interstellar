@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 

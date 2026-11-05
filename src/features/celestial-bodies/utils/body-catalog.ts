@@ -12,12 +12,7 @@ import { OrbitingBodyType } from '../../../types/orbiting-bodies';
 
 /** The kind of a body, from the dataset it belongs to. */
 type BodyKindType =
-  | 'system'
-  | 'star'
-  | 'planet'
-  | 'moon'
-  | 'comet'
-  | 'asteroid';
+  'system' | 'star' | 'planet' | 'moon' | 'comet' | 'asteroid';
 
 const BODIES_BY_ID = new Map<string, OrbitingBodyType>(
   [...SYSTEMS, ...STARS, ...PLANETS, ...MOONS, ...COMETS, ...ASTEROIDS].map(

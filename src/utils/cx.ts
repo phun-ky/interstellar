@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unused-modules */
-
 /**
  * Type for the optional properties object with boolean values.
  *

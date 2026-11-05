@@ -8,7 +8,6 @@ const html = String.raw;
 /**
  * Represents the properties for the Interstellar Button component.
  */
-// eslint-disable-next-line import/no-unused-modules
 export type InterstellarButtonPropsType = {
   /** The content inside the button. */
   children: string;

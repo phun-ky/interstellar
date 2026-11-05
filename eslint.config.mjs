@@ -1,16 +1,35 @@
-import customConfig from '@phun-ky/eslint-config';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import customConfig from 'eslint-config-phun-ky';
+import globals from 'globals';
 
-// eslint-disable-next-line import/no-unused-modules
 export default defineConfig([
+  // Built output, test reports and the generated changelog
+  globalIgnores([
+    'dist/**',
+    'coverage/**',
+    'test-results/**',
+    'playwright-report/**',
+    'CHANGELOG.md'
+  ]),
   {
-    extends: [customConfig]
+    extends: [customConfig],
+    rules: {
+      // Match Prettier, which keeps "Halley's Comet" rather than escaping it
+      '@stylistic/quotes': ['error', 'single', { avoidEscape: true }]
+    }
   },
   {
+    // GitHub-flavoured Markdown, so task lists ([x]) and tables are understood
     files: ['**/*.md'],
-    rules: {
-      'no-irregular-whitespace': 'off',
-      '@stylistic/indent': 'off'
+    language: 'markdown/gfm'
+  },
+  {
+    // Config files run in Node
+    files: ['*.mjs', '*.cjs'],
+    languageOptions: {
+      globals: {
+        ...globals.node
+      }
     }
   }
 ]);
