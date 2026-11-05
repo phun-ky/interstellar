@@ -91,7 +91,7 @@
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.1.2",
     "git-cz": "^4.9.0",
-    "glob": "^11.0.1",
+    "glob": "^14.0.2",
     "global-jsdom": "^26.0.0",
     "globals": "^15.14.0",
     "jsdom": "^26.0.0",
