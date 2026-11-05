@@ -86,10 +86,16 @@ reason listed here. There are none.
 ## Code Scanning
 
 CodeQL (GitHub default setup) analyses JavaScript and TypeScript on every pull
-request and every push to `main`. The merge ruleset in
-[`.github/rulesets/`](.github/rulesets/) blocks merging while CodeQL reports an
-error, or a security alert of high or critical severity. OpenSSF Scorecard runs
-weekly and on every push to `main`.
+request and every push to `main`. OpenSSF Scorecard runs weekly and on every
+push to `main`.
+
+The merge ruleset on `main`
+([`.github/rulesets/main-merge-rules.json`](.github/rulesets/main-merge-rules.json))
+blocks merging while CodeQL reports an error or a security alert of high or
+critical severity, and requires the `check`, `dependency-review` and `DCO`
+checks to pass on a branch that is up to date with `main`. Repository admins can
+bypass it. A second ruleset stops force pushes to `main` and its deletion, with
+no bypass.
 
 ## Secrets
 
