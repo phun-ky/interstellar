@@ -72,12 +72,12 @@ request runs
 **Fixing known vulnerabilities.** Findings are checked against the GitHub
 Advisory Database:
 
-| Finding                    | Where                  | What happens                                                                               |
-| -------------------------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| Critical or high           | Runtime dependency     | Fails the dependency review check; fixed and deployed within 7 days                        |
-| Critical or high           | Development dependency | Fails the dependency review check when introduced; an existing one is fixed within 30 days |
-| Moderate or low            | Any dependency         | Fixed with the next update that reaches it, within 90 days of a fix being reachable        |
-| Licence outside the policy | New dependency         | Not merged                                                                                 |
+| Finding                    | Where                  | What happens                                                                        |
+| -------------------------- | ---------------------- | ----------------------------------------------------------------------------------- |
+| Critical or high           | Runtime dependency     | Blocks merging (dependency review); fixed and deployed within 7 days                |
+| Critical or high           | Development dependency | Blocks merging when introduced; an existing one is fixed within 30 days             |
+| Moderate or low            | Any dependency         | Fixed with the next update that reaches it, within 90 days of a fix being reachable |
+| Licence outside the policy | New dependency         | Not merged                                                                          |
 
 **Accepted exceptions.** A vulnerability that can't be fixed yet and can't be
 exploited through this project may be allowed in dependency review, with the
@@ -89,11 +89,13 @@ CodeQL (GitHub default setup) analyses JavaScript and TypeScript on every pull
 request and every push to `main`. OpenSSF Scorecard runs weekly and on every
 push to `main`.
 
-Nothing blocks merging yet: `main` has no rulesets. The merge ruleset in
-[`.github/rulesets/`](.github/rulesets/) is written but not applied. Once it is,
-it blocks merging while CodeQL reports an error or a security alert of high or
+The merge ruleset on `main`
+([`.github/rulesets/main-merge-rules.json`](.github/rulesets/main-merge-rules.json))
+blocks merging while CodeQL reports an error or a security alert of high or
 critical severity, and requires the `check`, `dependency-review` and `DCO`
-checks to pass.
+checks to pass on a branch that is up to date with `main`. Repository admins can
+bypass it. A second ruleset stops force pushes to `main` and its deletion, with
+no bypass.
 
 ## Secrets
 
