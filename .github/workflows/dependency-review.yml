@@ -15,7 +15,8 @@ permissions:
 
 jobs:
   dependency-review:
-    name: Dependency review
+    # The name is the status check context the ruleset requires (#30)
+    name: dependency-review
     runs-on: ubuntu-24.04
     steps:
       - name: Review dependency changes
