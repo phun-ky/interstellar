@@ -1,0 +1,26 @@
+name: Dependency Review
+
+# Checks the dependencies a pull request adds or changes against the GitHub
+# Advisory Database, and fails on a high or critical vulnerability. Only what
+# the PR changes is reviewed, not what is already on the base branch.
+#
+# No branch filter, so a PR stacked on another PR is reviewed too.
+on:
+  pull_request:
+
+# Read-only: the action reads the dependency diff through the API, with no
+# checkout
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    # The name is the status check context the ruleset requires (#30)
+    name: dependency-review
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: high
+          fail-on-scopes: runtime, development
