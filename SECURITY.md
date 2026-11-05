@@ -43,14 +43,24 @@ What you can rely on:
   from the network. All HTML it builds comes from data bundled with the site,
   and the body names and facts in the info panel are escaped as well. No `eval`
   or `new Function`.
-- **One third party.** The only request to another site is for the IBM Plex Sans
-  Condensed font from Google Fonts (`fonts.googleapis.com` and
-  `fonts.gstatic.com`), which sees your IP address and browser like any web
-  request.
+- **No third parties.** Everything the page loads, the IBM Plex Sans Condensed
+  font included, comes from the site itself.
+- **A Content Security Policy.** The built page carries a
+  [policy](https://github.com/phun-ky/site-interstellar/blob/main/src/config/csp.ts)
+  in a `<meta>` tag, since GitHub Pages cannot set headers. It allows scripts,
+  styles, fonts, images and the manifest from the site's own origin only, and
+  blocks everything else, inline scripts and styles included.
 
 What you can't rely on:
 
-- **A Content Security Policy.** The page doesn't set one yet.
+- **What a `<meta>` policy cannot do.** Browsers ignore `frame-ancestors`,
+  `report-uri` and `sandbox` in a `<meta>` tag, so another site can frame the
+  page, and blocked requests are not reported anywhere. The page has no forms,
+  accounts or actions with effects outside it, which leaves little to gain from
+  framing it.
+- **A policy in development.** `npm run dev` serves the page without the policy,
+  because the dev server injects inline styles. `npm run preview` serves the
+  built page with it.
 - **Availability.** The site is static and has no service level.
 
 ## Dependencies
