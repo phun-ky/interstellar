@@ -1,0 +1,123 @@
+header:
+  schema-version: 2.2.0
+  last-updated: '2026-11-05'
+  last-reviewed: '2026-11-05'
+  url: https://raw.githubusercontent.com/phun-ky/interstellar/main/security-insights.yml
+  comment: |
+    Security information for Interstellar, in the OpenSSF Security Insights
+    format. Keep it in step with SECURITY.md.
+
+project:
+  name: interstellar
+  funding: https://github.com/sponsors/phun-ky
+  administrators:
+    - name: Alexander Vassbotn Røyne-Helgesen
+      social: https://github.com/phun-ky
+      primary: true
+  documentation:
+    code-of-conduct: https://github.com/phun-ky/interstellar/blob/main/CODE_OF_CONDUCT.md
+    support-policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md#supported-versions
+  repositories:
+    - name: interstellar
+      url: https://github.com/phun-ky/interstellar
+      comment: |
+        The website: a canvas simulation of the solar system and beyond.
+  vulnerability-reporting:
+    reports-accepted: true
+    bug-bounty-available: false
+    policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md
+    comment: |
+      Report privately with GitHub's private vulnerability reporting
+      (https://github.com/phun-ky/interstellar/security/advisories/new)
+      or by email to the contact below.
+    contact:
+      name: Interstellar security contact
+      email: security@phun-ky.net
+      primary: true
+
+repository:
+  url: https://github.com/phun-ky/interstellar
+  status: active
+  accepts-change-request: true
+  accepts-automated-change-request: true
+  no-third-party-packages: false
+  core-team:
+    - name: Alexander Vassbotn Røyne-Helgesen
+      social: https://github.com/phun-ky
+      primary: true
+  documentation:
+    contributing-guide: https://github.com/phun-ky/interstellar/blob/main/CONTRIBUTING.md
+    security-policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md
+    dependency-management-policy: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md#dependencies
+  license:
+    url: https://github.com/phun-ky/interstellar/blob/main/LICENSE
+    expression: GPL-3.0
+  security:
+    assessments:
+      self:
+        evidence: https://github.com/phun-ky/interstellar/blob/main/SECURITY.md#security-expectations
+        date: '2026-11-05'
+        comment: |
+          SECURITY.md sets out what the site does and doesn't do (no data
+          collection, no outside input, one third party) and the known gaps.
+    tools:
+      - name: CodeQL
+        type: SAST
+        rulesets:
+          - default
+        integration:
+          adhoc: false
+          ci: true
+          release: false
+        results: {}
+        comment: |
+          GitHub default setup, scanning JavaScript and TypeScript on every
+          push to main and every pull request.
+      - name: Dependabot
+        type: SCA
+        rulesets:
+          - default
+        integration:
+          adhoc: true
+          ci: false
+          release: false
+        results: {}
+        comment: |
+          Weekly checks of the npm dependencies and GitHub Actions, with
+          update pull requests, and security updates as advisories appear.
+      - name: Dependency Review
+        type: SCA
+        rulesets:
+          - default
+        integration:
+          adhoc: false
+          ci: true
+          release: false
+        results: {}
+        comment: |
+          Fails pull requests that add a dependency with a known high or
+          critical vulnerability.
+      - name: GitHub secret scanning
+        type: secret
+        rulesets:
+          - default
+        integration:
+          adhoc: false
+          ci: true
+          release: false
+        results: {}
+        comment: |
+          Scans the repository for secrets, with push protection blocking
+          pushes that contain one.
+      - name: OpenSSF Scorecard
+        type: other
+        rulesets:
+          - default
+        integration:
+          adhoc: false
+          ci: true
+          release: false
+        results: {}
+        comment: |
+          Runs weekly and on every push to main; results at
+          https://scorecard.dev/viewer/?uri=github.com/phun-ky/interstellar
