@@ -2,8 +2,8 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="http://localhost:3000/images/icons/icon-180x180.png"/>
-            <wide310x150logo src="http://localhost:3000/interstellar-header.png"/>
+            <square150x150logo src="images/icons/icon-180x180.png"/>
+            <wide310x150logo src="interstellar-header.png"/>
             <TileColor>#050807</TileColor>
         </tile>
     </msapplication>
