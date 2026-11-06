@@ -30,6 +30,7 @@ import { initializeMinimap } from './features/minimap/initialize-minimap';
 import { updateMinimap } from './features/minimap/update-minimap';
 import { setupMainMenu } from './features/ui/main-menu';
 import { setupUI } from './features/ui/setup-UI';
+import { setupSystemsSheet } from './features/ui/systems-sheet';
 import { updateBodiesInView } from './features/ui/update-bodies-in-view';
 import { updateCoordinates } from './features/ui/update-coordinates';
 import { updateSimulationDate } from './features/ui/update-simulation-date';
@@ -65,6 +66,7 @@ import { waitFor } from './utils/wait-for';
 const App = async (): Promise<void> => {
   setupUI();
   setupMainMenu();
+  setupSystemsSheet();
 
   const { canvas, space } = setupCanvas();
 

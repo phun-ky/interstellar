@@ -62,12 +62,14 @@ const HUD_PANEL_SELECTORS = [
   '.mc-left',
   '.int.controls',
   '#bodyInfo',
-  '#minimap'
+  '#minimap',
+  '.mc-dock'
 ];
 
 /**
  * Measures the HUD panels that cover the canvas (the left column, the Systems
- * panel, the info popup and the minimap, when shown), in canvas pixels.
+ * panel, the info popup, the minimap and the bottom bar, when shown), in
+ * canvas pixels.
  *
  * Arrows stop outside these, their labels avoid them, and bodies behind them
  * count as off screen.

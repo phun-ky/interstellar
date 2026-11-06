@@ -114,6 +114,8 @@ test.describe('on a narrow screen', () => {
     page
   }) => {
     await page.goto('./');
+    // The Lock menu is in the Systems sheet on a narrow screen
+    await page.locator('#systemsToggle').click();
     await page.selectOption('#lockOn', 'alpha-centauri-a');
 
     const header = page.locator('.mc-header');

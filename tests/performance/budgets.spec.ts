@@ -12,17 +12,19 @@ const BUDGETS: Record<string, Budget> = {
   // Measured on 2026-11-06, 3 x 3 runs: html 1943 B, js 19967 B, css 3813 B,
   // fonts 39808 B, images 1975 B (the favicon), LCP 908-996 ms, CLS 0.007,
   // INP 64-72 ms. html raised from 2300 B for the header navigation (#74):
-  // 2782 B measured with it
+  // 2782 B measured with it. css raised from 4400 B for the narrow screen
+  // layout (#17): 4152 B before it, 4503 B with it
   './': {
-    bytes: { html: 3200, js: 23_000, css: 4400, fonts: 46_000, images: 2300 },
+    bytes: { html: 3200, js: 23_000, css: 5200, fonts: 46_000, images: 2300 },
     lcpMs: 1300,
     cls: 0.02,
     inpMs: 150
   },
   // Measured the same day: html 1082 B, css 3298 B, fonts 19672 B, images
-  // 1975 B, LCP 500-520 ms, CLS 0
+  // 1975 B, LCP 500-520 ms, CLS 0. css raised from 3800 B for the narrow
+  // screen layout in main.css (#17): 3643 B before it, 4003 B with it
   'no/such/page': {
-    bytes: { html: 1300, css: 3800, fonts: 23_000, images: 2300 },
+    bytes: { html: 1300, css: 4600, fonts: 23_000, images: 2300 },
     lcpMs: 800,
     cls: 0.02
   }

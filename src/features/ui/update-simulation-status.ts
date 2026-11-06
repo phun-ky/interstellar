@@ -1,6 +1,6 @@
 /**
  * Shows whether the simulation runs or holds: the status in the header
- * (`● nominal` / `◌ hold`) and the label of the hold button.
+ * (`● nominal` / `◌ hold`) and the labels of the hold buttons.
  *
  * @param {boolean} paused - Whether the simulation is paused.
  *
@@ -11,17 +11,18 @@
  */
 export const updateSimulationStatus = (paused: boolean): void => {
   const statusElement = document.getElementById('simStatus');
-  const pauseButtonElement = document.getElementById('pause');
+  // The Systems panel's button, and the bottom bar's on narrow screens
+  const pauseButtonElements = document.querySelectorAll('#pause, #pauseDock');
 
   if (statusElement) {
     statusElement.textContent = paused ? '◌ hold' : '● nominal';
     statusElement.classList.toggle('is-hold', paused);
   }
 
-  if (pauseButtonElement) {
-    pauseButtonElement.textContent = paused ? 'Resume' : 'Hold';
-    pauseButtonElement.setAttribute('aria-pressed', String(paused));
-  }
+  pauseButtonElements.forEach((button) => {
+    button.textContent = paused ? 'Resume' : 'Hold';
+    button.setAttribute('aria-pressed', String(paused));
+  });
 };
 
 /**
