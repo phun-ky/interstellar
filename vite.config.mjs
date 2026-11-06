@@ -29,8 +29,8 @@ const banner = `/**
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */`;
 /**
- * Where the site is published: the canonical URL, the social card and the
- * sitemap all start here, and `base` is its path.
+ * Where the site is published: the canonical URL and the social card start
+ * here, and `base` is its path.
  */
 const SITE_URL = 'https://phun-ky.net/site-interstellar/';
 
@@ -77,32 +77,14 @@ export default defineConfig({
     }
   },
   plugins: [
-    // The canonical URL in the pages, and the sitemap and robots.txt that
-    // point at it. robots.txt is read at the root of a host only, so it
-    // applies once the site has a domain of its own
+    // The site URL in the pages: the canonical URL and the social card.
+    // No robots.txt or sitemap.xml until the site has a domain of its own
+    // (#39): crawlers read them at the root of a host only
     {
       name: 'site-metadata',
       transformIndexHtml: {
         order: 'pre',
         handler: (html) => html.replaceAll('%SITE_URL%', SITE_URL)
-      },
-      generateBundle() {
-        this.emitFile({
-          type: 'asset',
-          fileName: 'sitemap.xml',
-          source: [
-            '<?xml version="1.0" encoding="UTF-8"?>',
-            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-            `  <url><loc>${SITE_URL}</loc></url>`,
-            '</urlset>',
-            ''
-          ].join('\n')
-        });
-        this.emitFile({
-          type: 'asset',
-          fileName: 'robots.txt',
-          source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`
-        });
       }
     },
     // The policy goes into the built page only: the dev server injects
