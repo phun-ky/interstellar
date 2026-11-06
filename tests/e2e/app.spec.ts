@@ -130,6 +130,20 @@ test('Moons and Comets add and remove their bodies', async ({ page }) => {
   await expect.poll(drawn).not.toContain('1p-halley');
 });
 
+test('turning Moons on while locked on a planet shows its moons', async ({
+  page
+}) => {
+  const drawn = () => readApp(page, (app) => Object.keys(app.NEAREST_BODIES));
+
+  await openApp(page);
+  await expect(page.locator('#toggleMoons')).not.toBeChecked();
+  await lockOn(page, 'jupiter');
+  expect(await drawn()).not.toContain('io');
+
+  await toggle(page, 'toggleMoons');
+  await expect.poll(drawn).toContain('io');
+});
+
 test('Asteroids adds and removes the asteroids without the belts', async ({
   page
 }) => {
