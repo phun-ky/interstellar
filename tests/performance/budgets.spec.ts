@@ -12,9 +12,9 @@ const BUDGETS: Record<string, Budget> = {
   // Measured on 2026-11-06, 3 x 3 runs: html 1943 B, js 19967 B, css 3813 B,
   // fonts 39808 B, images 1975 B (the favicon), LCP 908-996 ms, CLS 0.007,
   // INP 64-72 ms. html raised from 2300 B for the header navigation (#74):
-  // 2843 B measured with it
+  // 2782 B measured with it
   './': {
-    bytes: { html: 3300, js: 23_000, css: 4400, fonts: 46_000, images: 2300 },
+    bytes: { html: 3200, js: 23_000, css: 4400, fonts: 46_000, images: 2300 },
     lcpMs: 1300,
     cls: 0.02,
     inpMs: 150
