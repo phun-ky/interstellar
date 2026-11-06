@@ -6,7 +6,9 @@
   "background_color": "#050807",
   "display": "fullscreen",
   "orientation": "landscape",
-  "start_url": ".",
+  "id": "./",
+  "scope": "./",
+  "start_url": "./",
   "icons": [
     {
       "src": "images/icons/icon-16x16.png",
