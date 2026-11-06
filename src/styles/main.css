@@ -339,6 +339,55 @@ canvas {
   }
 }
 
+/* ---------- Sound (#99) ---------- */
+
+/* The header button on wide screens; the bottom bar has its own on narrow
+   screens. The icon shows a speaker struck through when off, sound waves
+   when on */
+.int.mc-sound {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--int-color-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--int-color-text);
+  font-family: var(--int-font-family-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.int.mc-sound:hover {
+  color: var(--int-color-cyan);
+}
+
+.int.mc-sound:focus-visible {
+  outline: 2px solid var(--int-color-cyan);
+  outline-offset: 2px;
+}
+
+.int.mc-sound[aria-pressed='true'] {
+  border-color: var(--int-color-cyan);
+  color: var(--int-color-cyan);
+}
+
+.int.mc-dock-sound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+[aria-pressed='false'] > .mc-sound-icon .mc-sound-waves,
+[aria-pressed='true'] > .mc-sound-icon .mc-sound-mute {
+  display: none;
+}
+
 /* ---------- Panels ---------- */
 
 .int.mc-panel {
@@ -748,7 +797,7 @@ select.int:focus-visible,
     display: none;
   }
 
-  /* The bottom bar: Hold and the Systems sheet's button */
+  /* The bottom bar: Hold, Sound and the Systems sheet's button */
   .int.mc-dock {
     position: fixed;
     left: 0;
@@ -756,7 +805,7 @@ select.int:focus-visible,
     bottom: 0;
     z-index: 4;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
     height: var(--int-dock-height);
     padding: 10px var(--int-gutter) 12px;
@@ -768,6 +817,12 @@ select.int:focus-visible,
     margin: 0;
   }
 
+  /* Sound moves to the bottom bar */
+  .int.mc-header .mc-sound {
+    display: none;
+  }
+
+  .int.mc-dock #soundDock[aria-pressed='true'],
   .int.mc-dock #systemsToggle[aria-expanded='true'] {
     border-color: var(--int-color-cyan);
     color: var(--int-color-cyan);

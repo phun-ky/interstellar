@@ -17,6 +17,7 @@ const AXE_TAGS = [
 const TAB_ORDER = [
   'skip link',
   'link Interstellar',
+  '#soundToggle',
   'link Tools',
   'link Sponsor',
   'link Contributing',

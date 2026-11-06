@@ -28,6 +28,7 @@ import { setupCanvas } from './features/canvas/setup-canvas';
 import { updatePositions } from './features/celestial-bodies/utils/update-positions';
 import { initializeMinimap } from './features/minimap/initialize-minimap';
 import { updateMinimap } from './features/minimap/update-minimap';
+import { setupSound } from './features/sound/sound';
 import { setupMainMenu } from './features/ui/main-menu';
 import { setupUI } from './features/ui/setup-UI';
 import { setupSystemsSheet } from './features/ui/systems-sheet';
@@ -67,6 +68,7 @@ const App = async (): Promise<void> => {
   setupUI();
   setupMainMenu();
   setupSystemsSheet();
+  setupSound();
 
   const { canvas, space } = setupCanvas();
 
