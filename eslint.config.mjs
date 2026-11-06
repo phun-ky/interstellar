@@ -24,12 +24,20 @@ export default defineConfig([
     language: 'markdown/gfm'
   },
   {
-    // Config files run in Node
-    files: ['*.mjs', '*.cjs'],
+    // Config files and scripts run in Node
+    files: ['*.mjs', '*.cjs', 'scripts/**'],
     languageOptions: {
       globals: {
         ...globals.node
       }
+    }
+  },
+  {
+    // The scripts report through the console: the Best Practices check and
+    // the links that propose its answers
+    files: ['scripts/**'],
+    rules: {
+      'no-console': 'off'
     }
   }
 ]);

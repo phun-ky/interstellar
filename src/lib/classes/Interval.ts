@@ -19,7 +19,8 @@
  * ```
  */
 export class Interval {
-  callbackStartTime;
+  /** When the current tick started, from `performance.now()`. */
+  callbackStartTime = 0;
   remaining = 0;
   /** Whether the interval is currently paused. */
   paused = false;

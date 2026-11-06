@@ -1,10 +1,17 @@
+import { ValueInterface } from '@interstellar-tools/types';
+
 import { BodiesInViewport } from '../../components/BodiesInViewport';
 import { Interval } from '../../lib/classes/Interval';
 import { getViewportSize } from '../canvas/get-viewport-size';
 
 import { getBodiesInView } from './get-bodies-in-view';
 
-export const updateBodiesInView = (props) => {
+type UpdateBodiesInViewPropsType = {
+  scale: ValueInterface;
+  canvas: HTMLCanvasElement;
+};
+
+export const updateBodiesInView = (props: UpdateBodiesInViewPropsType) => {
   const { scale, canvas } = props;
   const inViewportElement = document.getElementById('in-viewport');
 

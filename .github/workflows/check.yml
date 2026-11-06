@@ -32,6 +32,8 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run format:check
+      - name: Check the Best Practices answers and their links
+        run: npm run check:bestpractices
 
   typecheck:
     name: Typecheck

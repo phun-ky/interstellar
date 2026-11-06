@@ -58,7 +58,7 @@
     "dev": "vite",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "lint:html": "html-validate dist/*.html",
     "prepare": "git config core.hooksPath .githooks || true",
@@ -68,7 +68,9 @@
     "test:coverage": "node --import tsx --enable-source-maps --test --experimental-test-coverage --test-coverage-include='src/**/*.ts' --test-coverage-exclude='src/**/__tests__/**' --test-coverage-lines=89 --test-coverage-branches=88 --test-coverage-functions=95 'src/**/__tests__/**/*.spec.ts'",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc -p tests/tsconfig.json",
-    "test:performance": "playwright test -c playwright.performance.config.mjs"
+    "test:performance": "playwright test -c playwright.performance.config.mjs",
+    "check:bestpractices": "node scripts/check-bestpractices.mjs",
+    "bestpractices:url": "node scripts/bestpractices-url.mjs"
   },
   "config": {
     "commitizen": {
