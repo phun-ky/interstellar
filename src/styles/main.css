@@ -141,12 +141,11 @@ canvas {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 5;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px 32px;
-  min-height: var(--int-header-height);
+  gap: 32px;
+  height: var(--int-header-height);
   padding: 0 var(--int-gutter);
   background: rgba(11, 16, 22, 0.85);
   border-bottom: 1px solid var(--int-color-line);
@@ -154,9 +153,18 @@ canvas {
 
 .int.mc-brand {
   display: flex;
+  flex: none;
   align-items: center;
   gap: 10px;
   color: var(--int-color-teal);
+  text-decoration: none;
+}
+
+.int.mc-brand:focus-visible,
+.int.mc-nav a.int:focus-visible,
+.int.mc-menu:focus-visible {
+  outline: 2px solid var(--int-color-cyan);
+  outline-offset: 2px;
 }
 
 .int.mc-brand-name {
@@ -171,6 +179,10 @@ canvas {
 .int.mc-header-status {
   display: flex;
   flex-wrap: wrap;
+  margin-right: auto;
+  min-width: 0;
+  word-break: normal;
+  white-space: nowrap;
   align-items: center;
   gap: 8px 20px;
   font-family: var(--int-font-family-mono);
@@ -193,6 +205,135 @@ canvas {
 
 .int.mc-status.is-hold {
   color: var(--int-color-amber);
+}
+
+/* Phones: the logo alone, so the status fits beside it. The name is still
+   the link's accessible name */
+@media (max-width: 599px) {
+  .int.mc-header {
+    gap: 16px;
+  }
+
+  .int.mc-brand-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .int.mc-header-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  /* A long body name ends in an ellipsis rather than under the menu */
+  .int.mc-callsign {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* ---------- Navigation ---------- */
+
+/* As on the Interstellar Tools site: mono uppercase links, a divider, then
+   the icon links */
+.int.mc-nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.int.mc-nav a.int {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  min-height: 40px;
+  font-family: var(--int-font-family-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--int-color-text);
+  text-decoration: none;
+}
+
+.int.mc-nav a.int:hover {
+  color: var(--int-color-cyan);
+}
+
+.int.mc-external {
+  font-size: 11px;
+  color: var(--int-color-muted);
+}
+
+.int.mc-nav-icon {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--int-color-line);
+}
+
+.int.mc-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--int-color-line);
+  background: transparent;
+  color: var(--int-color-text);
+  cursor: pointer;
+}
+
+.int.mc-menu[aria-expanded='true'] {
+  border-color: var(--int-color-cyan);
+  color: var(--int-color-cyan);
+}
+
+/* Narrow screens: the links open from the menu button, as a panel under the
+   header */
+@media (max-width: 1279px) {
+  .int.mc-menu {
+    display: flex;
+  }
+
+  .int.mc-nav-links {
+    position: fixed;
+    top: var(--int-header-height);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: calc(100vh - var(--int-header-height));
+    padding: 8px var(--int-gutter) 24px;
+    overflow-y: auto;
+    background: var(--int-color-panel-solid);
+    border-bottom: 1px solid var(--int-color-line);
+  }
+
+  .int.mc-menu[aria-expanded='true'] + .int.mc-nav-links {
+    display: flex;
+  }
+
+  .int.mc-nav-links > li.int {
+    border-bottom: 1px solid var(--int-color-line);
+  }
+
+  .int.mc-nav a.int {
+    min-height: 48px;
+    padding: 0;
+  }
+
+  .int.mc-nav-icon {
+    margin: 0;
+    padding: 0;
+    border-left: 0;
+  }
 }
 
 /* ---------- Panels ---------- */
