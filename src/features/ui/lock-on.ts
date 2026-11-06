@@ -26,6 +26,7 @@ import {
 import { hideBodyInfo, showBodyInfo } from './body-info';
 import { updateScaleDisplay } from './update-scale-display';
 import { updateLockStatus } from './update-simulation-status';
+import { needsMoonZoom } from './utils/needs-moon-zoom';
 
 /** How far from the click a body still counts as clicked, in pixels. */
 const HIT_SLOP_PX = 6;
@@ -286,4 +287,24 @@ export const focusOn = (body: CelestialBodyType, showInfo = false): void => {
   zoomTo(getFocusScale(body));
 
   if (showInfo) showBodyInfo(body);
+};
+
+/**
+ * Zooms to the locked planet again when its moons are too far out to be
+ * drawn: what turning the Moons layer on does. Locking with Moons off frames
+ * the planet alone, so its moons would stay hidden (#75).
+ *
+ * @example
+ * ```ts
+ * moonsToggle.addEventListener('change', () => {
+ *   if (moonsToggle.checked) showLockedMoons();
+ * });
+ * ```
+ */
+export const showLockedMoons = (): void => {
+  const locked = globalThis.LOCKED_CELESTIAL_BODY;
+
+  if (locked && needsMoonZoom(locked.id, SCALE.value)) {
+    zoomTo(getFocusScale(locked));
+  }
 };

@@ -17,7 +17,12 @@ import { updateMinimap } from '../features/minimap/update-minimap';
 import { generateStarfield } from '../features/starfield/generate-star-field';
 import { initializeStarfield } from '../features/starfield/initialize-starfield';
 import { hideBodyInfo } from '../features/ui/body-info';
-import { focusOn, getBodyAtPoint, lockOn } from '../features/ui/lock-on';
+import {
+  focusOn,
+  getBodyAtPoint,
+  lockOn,
+  showLockedMoons
+} from '../features/ui/lock-on';
 import { resetToNow } from '../features/ui/reset-to-now';
 import { updateScaleDisplay } from '../features/ui/update-scale-display';
 import { updateSimulationStatus } from '../features/ui/update-simulation-status';
@@ -366,6 +371,11 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
         starfieldCheckboxElement
       });
     });
+  });
+
+  // After the options above are set, so the zoom counts the moons
+  moonsCheckboxElement.addEventListener('change', () => {
+    if (moonsCheckboxElement.checked) showLockedMoons();
   });
 
   const arrowCountElement = document.getElementById(
