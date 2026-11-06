@@ -32,6 +32,7 @@ import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';
 import { normalizeParentOffsetPrev } from './offset/normalize-parent-offset-prev';
 import { calculateScale } from './scale/calculate-scale';
+import { getPinchScale, getZoomOffset } from './scale/zoom-at';
 import { throttle, throttleAsync } from './throttle';
 
 /** How far the pointer may move between press and release for a click, in pixels. */
@@ -52,26 +53,23 @@ const scaleDisplay = document.getElementById('scaleDisplay') as HTMLElement;
 
 export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
   const { canvas } = props;
-
-  // **Smooth Zooming**
-  canvas.addEventListener('wheel', (event) => {
-    event.preventDefault();
-
-    const newScale = calculateScale(event, SCALE);
-
+  /**
+   * Zooms to `newScale` around a point on the screen (the wheel's pointer, or
+   * the middle of a pinch). While locked, the locked body stays centred.
+   */
+  const zoomAround = (newScale: number, clientX: number, clientY: number) => {
     if (newScale < MIN_SCALE || newScale > MAX_SCALE) return;
 
     const prevScale = { value: SCALE.value };
 
     SCALE.value = newScale;
 
-    const zoomEvent = new CustomEvent('ZoomChanged', { detail: { SCALE } });
-
-    document.dispatchEvent(zoomEvent);
+    document.dispatchEvent(
+      new CustomEvent('ZoomChanged', { detail: { SCALE } })
+    );
 
     if (globalThis.LOCKED_CELESTIAL_BODY) {
-      // Get the locked body's position
-      //Calculate the body's position in pixel coordinates
+      // The locked body's position in pixels, before and after
       const { x, y } = getBodyPosition(globalThis.LOCKED_CELESTIAL_BODY);
 
       if (!x || !y) return;
@@ -88,72 +86,133 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
       offsetX.value += normalizeParentOffsetPrev(parentOffsetX, prevX, newX);
       offsetY.value += normalizeParentOffsetPrev(parentOffsetY, prevY, newY);
     } else {
-      // Regular zoom behavior when no locked object
-      // Mouse position relative to the canvas, which starts below the header
+      // The point relative to the canvas, which starts below the header
       const { left, top } = canvas.getBoundingClientRect();
       const { width, height } = getViewportSize(canvas);
-      const mouseX = event.clientX - left;
-      const mouseY = event.clientY - top;
-      const worldXBefore =
-        (mouseX - width / 2 - offsetX.value) / prevScale.value;
-      const worldYBefore =
-        (mouseY - height / 2 - offsetY.value) / prevScale.value;
-      const worldXAfter = (mouseX - width / 2 - offsetX.value) / SCALE.value;
-      const worldYAfter = (mouseY - height / 2 - offsetY.value) / SCALE.value;
 
-      offsetX.value += (worldXAfter - worldXBefore) * SCALE.value;
-      offsetY.value += (worldYAfter - worldYBefore) * SCALE.value;
+      offsetX.value = getZoomOffset(
+        offsetX.value,
+        clientX - left,
+        width / 2,
+        prevScale.value,
+        SCALE.value
+      );
+      offsetY.value = getZoomOffset(
+        offsetY.value,
+        clientY - top,
+        height / 2,
+        prevScale.value,
+        SCALE.value
+      );
     }
 
     updateScaleDisplay(scaleDisplay, SCALE);
+  };
+
+  // **Smooth Zooming**
+  canvas.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    zoomAround(calculateScale(event, SCALE), event.clientX, event.clientY);
   });
 
-  // **Mouse Drag for Panning**
-  canvas.addEventListener('mousedown', (event) => {
-    if (
-      globalThis.LOCKED_CELESTIAL_BODY == null ||
-      !globalThis.LOCKED_CELESTIAL_BODY
-    ) {
-      globalThis.IS_ZOOMING_OR_PANNING = true;
+  // **Panning and pinching**, with a mouse, a finger or a pen. One pointer
+  // pans (unless locked); two pinch to zoom around their middle, and pan
+  // with it
+  const pointers = new Map<number, { x: number; y: number }>();
 
-      if (globalThis.ZOOM_PAN_TIMEOUT)
-        clearTimeout(globalThis.ZOOM_PAN_TIMEOUT);
+  let pinch: { distance: number; scale: number } | null = null;
 
-      isDragging = true;
-      lastMouseX = event.clientX;
-      lastMouseY = event.clientY;
-    }
-  });
+  const isLocked = () => Boolean(globalThis.LOCKED_CELESTIAL_BODY);
+  const pinchGeometry = () => {
+    const [a, b] = [...pointers.values()];
 
-  canvas.addEventListener('mousemove', (event) => {
-    if (
-      isDragging &&
-      (globalThis.LOCKED_CELESTIAL_BODY == null ||
-        !globalThis.LOCKED_CELESTIAL_BODY)
-    ) {
-      const dx = event.clientX - lastMouseX;
-      const dy = event.clientY - lastMouseY;
+    return {
+      distance: Math.hypot(b.x - a.x, b.y - a.y),
+      x: (a.x + b.x) / 2,
+      y: (a.y + b.y) / 2
+    };
+  };
+  const startMoving = () => {
+    globalThis.IS_ZOOMING_OR_PANNING = true;
 
-      offsetX.value += dx;
-      offsetY.value += dy;
-      lastMouseX = event.clientX;
-      lastMouseY = event.clientY;
-    }
-  });
-
-  canvas.addEventListener('mouseup', () => {
+    if (globalThis.ZOOM_PAN_TIMEOUT) clearTimeout(globalThis.ZOOM_PAN_TIMEOUT);
+  };
+  const stopMoving = () => {
     globalThis.ZOOM_PAN_TIMEOUT = window.setTimeout(() => {
       globalThis.IS_ZOOMING_OR_PANNING = false; // Re-enable trails after panning stops
     }, 500);
-    isDragging = false;
+  };
+
+  canvas.addEventListener('pointerdown', (event) => {
+    // The main mouse button only; any finger or pen
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+    // Keeps the gesture going when it leaves the canvas
+    canvas.setPointerCapture?.(event.pointerId);
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    startMoving();
+
+    if (pointers.size === 2) {
+      const { distance, x, y } = pinchGeometry();
+
+      pinch = { distance, scale: SCALE.value };
+      lastMouseX = x;
+      lastMouseY = y;
+      isDragging = !isLocked();
+    } else if (pointers.size === 1) {
+      lastMouseX = event.clientX;
+      lastMouseY = event.clientY;
+      isDragging = !isLocked();
+    }
   });
 
-  canvas.addEventListener('mouseleave', () => {
-    globalThis.ZOOM_PAN_TIMEOUT = window.setTimeout(() => {
-      globalThis.IS_ZOOMING_OR_PANNING = false; // Re-enable trails after panning stops
-    }, 500);
-    isDragging = false;
+  canvas.addEventListener('pointermove', (event) => {
+    if (!pointers.has(event.pointerId)) return;
+
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+    // The middle of a pinch moves like a single pointer
+    const { x, y } =
+      pinch && pointers.size === 2
+        ? pinchGeometry()
+        : { x: event.clientX, y: event.clientY };
+
+    if (pinch && pointers.size === 2) {
+      zoomAround(
+        getPinchScale(pinch.scale, pinch.distance, pinchGeometry().distance),
+        x,
+        y
+      );
+    }
+
+    if (isDragging && !isLocked()) {
+      offsetX.value += x - lastMouseX;
+      offsetY.value += y - lastMouseY;
+    }
+
+    lastMouseX = x;
+    lastMouseY = y;
   });
+
+  const endPointer = (event: PointerEvent) => {
+    if (!pointers.delete(event.pointerId)) return;
+
+    if (pointers.size < 2) pinch = null;
+
+    if (pointers.size === 1) {
+      // Carry on panning with the finger still down, without a jump
+      const [rest] = [...pointers.values()];
+
+      lastMouseX = rest.x;
+      lastMouseY = rest.y;
+    } else if (pointers.size === 0) {
+      isDragging = false;
+      stopMoving();
+    }
+  };
+
+  canvas.addEventListener('pointerup', endPointer);
+  canvas.addEventListener('pointercancel', endPointer);
 
   document.addEventListener('ZoomChanged', (event: Event) => {
     const { SCALE: scale } = (event as CustomEvent).detail;

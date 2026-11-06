@@ -83,6 +83,8 @@ canvas {
   display: block;
   width: 100vw;
   height: calc(100vh - var(--int-header-height));
+  /* Fingers pan and pinch the map, not the page */
+  touch-action: none;
 }
 
 .sr-only {
