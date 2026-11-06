@@ -31,6 +31,13 @@ forward to your contributions. 🎉
     - [Suggesting Enhancements](#suggesting-enhancements)
       - [Before Submitting an Enhancement](#before-submitting-an-enhancement)
       - [How Do I Submit a Good Enhancement Suggestion?](#how-do-i-submit-a-good-enhancement-suggestion)
+    - [Your First Code Contribution](#your-first-code-contribution)
+      - [Set up](#set-up)
+      - [Scripts](#scripts)
+      - [Tests](#tests)
+      - [Commits](#commits)
+      - [Pull requests](#pull-requests)
+      - [Deploys](#deploys)
   - [Attribution](#attribution)
 
 ## Code of Conduct
@@ -172,6 +179,110 @@ Enhancement suggestions are tracked as
 - **Explain why this enhancement would be useful** to most **INTERSTELLAR**
   users. You may also want to point out the other projects that solved it better
   and which could serve as inspiration.
+
+### Your First Code Contribution
+
+#### Set up
+
+You need Node 22.13 or later on 22, or Node 24 or later, npm 11 or later, and
+Google Chrome for the browser tests.
+
+```sh
+git clone https://github.com/phun-ky/site-interstellar.git
+cd site-interstellar
+npm ci
+npm run dev
+```
+
+The dev server runs on <http://localhost:3000/site-interstellar/>. `npm ci` also
+turns on the repository's Git hooks (see [Commits](#commits)).
+
+#### Scripts
+
+| Script                     | What it does                                                                       |
+| -------------------------- | ---------------------------------------------------------------------------------- |
+| `npm run dev`              | Runs the dev server.                                                               |
+| `npm run build`            | Builds the site to `dist/`.                                                        |
+| `npm run preview`          | Serves `dist/` as GitHub Pages does, with the 404 page for unknown paths.          |
+| `npm run clean`            | Empties `dist/`.                                                                   |
+| `npm run lint`             | Lints the code and the Markdown with ESLint.                                       |
+| `npm run lint:fix`         | Lints and fixes what ESLint can.                                                   |
+| `npm run lint:html`        | Validates the built pages with html-validate (after a build).                      |
+| `npm run format`           | Formats everything with Prettier.                                                  |
+| `npm run format:check`     | Checks the formatting without changing anything.                                   |
+| `npm run typecheck`        | Typechecks the app and the tests.                                                  |
+| `npm test`                 | Runs the unit tests.                                                               |
+| `npm run test:coverage`    | Runs the unit tests with the coverage floor.                                       |
+| `npm run test:e2e`         | Builds the site, then runs the end-to-end tests against it.                        |
+| `npm run test:performance` | Checks the performance budgets on a throttled phone (after a build).               |
+| `npm run commit`           | Writes a commit message in the project's style, step by step ([git-cz](#commits)). |
+
+#### Tests
+
+- **Unit tests** sit next to the code, in `src/**/__tests__/*.spec.ts`, and run
+  with Node's test runner. `npm run test:coverage` fails below 89 % of lines, 88
+  % of branches or 95 % of functions. Add tests with the code they cover.
+- **End-to-end tests** in `tests/e2e/` drive the built site in Chrome with
+  Playwright: the controls, the keyboard, touch, the narrow screen layout, axe
+  accessibility checks, the Content Security Policy, links and metadata.
+- **Performance budgets** in `tests/performance/` load the map and the 404 page
+  on a throttled phone and fail when the bytes per resource type, LCP, CLS or
+  INP go over budget. Raise a budget only on purpose, with the reason and the
+  measurement against `main` in the commit.
+
+A fix comes with a test that fails without it.
+
+#### Commits
+
+Every commit is signed off, under the
+[Developer Certificate of Origin](https://developercertificate.org/):
+
+```sh
+git commit -s
+```
+
+The `prepare-commit-msg` hook in `.githooks/` adds the sign-off for you once
+`npm ci` has run, and the DCO check fails a pull request with an unsigned
+commit.
+
+Commit messages follow
+[Conventional Commits](https://www.conventionalcommits.org/) with a
+[gitmoji](https://gitmoji.dev/), in the form `type: emoji Subject`:
+
+| Type       | Emoji | For                                         |
+| ---------- | ----- | ------------------------------------------- |
+| `feat`     | 🎸    | A new feature                               |
+| `fix`      | 🐛    | A bug fix                                   |
+| `docs`     | ✏️    | Documentation only                          |
+| `test`     | 💍    | Tests, or the budgets they check            |
+| `refactor` | 💡    | A change that neither fixes nor adds        |
+| `perf`     | ⚡️    | A performance improvement                   |
+| `style`    | 💄    | Formatting, with no change in behaviour     |
+| `ci`       | 🎡    | The GitHub Actions workflows                |
+| `chore`    | 🤖    | Dependencies, tooling and other maintenance |
+
+For example `fix: 🐛 Zoom in to show a locked planet's moons`. `npm run commit`
+asks for the type and subject and writes the message for you. Say what changed
+and why in the body, and close issues with `Closes #123`.
+
+#### Pull requests
+
+Branch from an up-to-date `main` and open a pull request against it. Say what
+changed, how to test it, what it means for the deployed site, and which issues
+it closes.
+
+Every pull request runs the **Check** workflow: lint and formatting, typecheck,
+unit tests with coverage, the build with HTML validation, and the end-to-end
+tests with the performance budgets. Its `check` job passes only when all of them
+do. CodeQL, the dependency review and the DCO check run too. Pull requests are
+merged with a merge commit.
+
+#### Deploys
+
+Every push to `main` runs the **Deploy** workflow: the same checks, then a build
+published to GitHub Pages at <https://phun-ky.net/site-interstellar/>. Nothing
+is deployed when a check fails. External links are checked every Monday by the
+**Links** workflow.
 
 ## Attribution
 
