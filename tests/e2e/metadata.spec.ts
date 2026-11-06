@@ -94,27 +94,12 @@ test.describe('the map', () => {
   });
 });
 
-test('the sitemap and robots.txt point at the canonical URL', async ({
-  page,
-  request
-}) => {
-  await page.goto('./');
-
-  const site =
-    (await page.locator('head link[rel="canonical"]').getAttribute('href')) ??
-    '';
-  const sitemap = await request.get('sitemap.xml');
-
-  expect(sitemap.status()).toBe(200);
-  // The map is the only page to index
-  expect([...(await sitemap.text()).matchAll(/<loc>([^<]+)<\/loc>/g)]).toEqual([
-    expect.arrayContaining([site])
-  ]);
-
-  const robots = await request.get('robots.txt');
-
-  expect(robots.status()).toBe(200);
-  expect(await robots.text()).toContain(`Sitemap: ${site}sitemap.xml`);
+// Crawlers read robots.txt at the root of a host only, so neither file is
+// published until the site has a domain of its own (#39)
+test('serves no robots.txt or sitemap.xml', async ({ request }) => {
+  for (const file of ['robots.txt', 'sitemap.xml']) {
+    expect((await request.get(file)).status(), file).toBe(404);
+  }
 });
 
 test('the manifest opens and stays under the base path', async ({
