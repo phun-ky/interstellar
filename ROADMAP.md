@@ -68,3 +68,4 @@ The larger steps toward a 1:1 simulation of the galaxy, from the
 - **Third-party services,** such as analytics, ads, trackers, CDNs or embeds.
   Everything the site needs is served by the site itself, as its
   [Content Security Policy](SECURITY.md) requires.
+
