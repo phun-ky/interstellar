@@ -1,4 +1,4 @@
-# interstellar
+# Interstellar
 
 ![Interstellar](./public/interstellar-header.png)
 
@@ -13,10 +13,26 @@
 
 > A project journey to simulate our galaxy 1:1
 
+**Live:**
+[phun-ky.net/site-interstellar](https://phun-ky.net/site-interstellar/)
+
 Interstellar is a small project I dabble with from time to time between clients.
 The goal is to ultimately have a 1:1 simulation of our galaxy and to be able to
 view information and follow all known celestial bodies, including calculating
 trajectories of asteroids.
+
+Today it is a 2D map of the Milky Way's centre, nearby stars and the solar
+system, moving in real time or faster:
+
+- Pan with the mouse or a finger, and zoom with the wheel or a pinch.
+- Lock on any star, planet, moon, comet or asteroid to follow it, and click or
+  tap a body for its details.
+- Switch moons, asteroid belts, asteroids, comets, the starfield, arrows to
+  off-screen bodies, labels and orbits on and off.
+- Hold the simulation, change its speed, or reset it to now.
+
+The orbital mechanics come from
+[Interstellar Tools](https://phun-ky.net/interstellar-tools/).
 
 ### Timeline
 
@@ -27,24 +43,24 @@ trajectories of asteroids.
 
 ## Table of Contents<!-- omit from toc -->
 
-- [interstellar](#interstellar)
-  - [About](#about)
-    - [Timeline](#timeline)
-  - [Known issues](#known-issues)
-  - [Development](#development)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Changelog](#changelog)
-  - [Sponsor me](#sponsor-me)
+- [About](#about)
+  - [Timeline](#timeline)
+- [Known issues](#known-issues)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+- [Changelog](#changelog)
+- [Sponsor me](#sponsor-me)
 
-![Interstellar](./public/interstellar.png)
+![The Interstellar map: the solar system's orbits around the Sun on a starfield, with the telemetry and systems panels](./public/social-card.png)
 
 ## Known issues
 
-- Orbits are a bit wrong when zooming in too much.
-- Initial positions of the celestial bodies are off
-- Orbits of comets are not working
-- Not accounting for any counter clockwise rotation of celestial bodies
+- Orbits are drawn flat: inclination is ignored until the map is 3D (see the
+  [timeline](#timeline)).
+- [Stars in nested systems overlap at galaxy scale](https://github.com/phun-ky/site-interstellar/issues/13).
+- [Labels overlap at solar system scale](https://github.com/phun-ky/site-interstellar/issues/91).
+- [The body info panel can't be opened with the keyboard](https://github.com/phun-ky/site-interstellar/issues/90).
 
 ## Development
 
@@ -52,14 +68,19 @@ Requires Node 22.13 or later on 22, or Node 24 or later, and npm 11 or later.
 
 ```sh
 npm ci
-# Run the dev server on http://localhost:3000
+# Run the dev server on http://localhost:3000/site-interstellar/
 npm run dev
-# Build to dist/
+# Build to dist/, then serve the build as GitHub Pages does
 npm run build
+npm run preview
 # Lint, check formatting and typecheck
 npm run lint
 npm run format:check
 npm run typecheck
+# Fix formatting
+npm run format
+# Validate the built HTML (after a build)
+npm run lint:html
 # Unit tests, with or without the coverage floor
 npm test
 npm run test:coverage
@@ -68,6 +89,9 @@ npm run test:e2e
 # Performance budgets on a throttled phone (after a build)
 npm run test:performance
 ```
+
+The end-to-end tests and the performance budgets use the installed Google
+Chrome.
 
 ## Contributing
 
