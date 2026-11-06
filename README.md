@@ -41,6 +41,8 @@ The orbital mechanics come from
 - [ ] **Third version** is to use web workers in some extent
 - [ ] **Fourth version** is to draw this with WebGL
 
+See the [roadmap](ROADMAP.md) for what is planned next, and what is not.
+
 ## Table of Contents<!-- omit from toc -->
 
 - [About](#about)
