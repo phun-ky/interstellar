@@ -40,7 +40,10 @@ const overlaps = (a: ArrowLabelBoxType, b: ArrowLabelBoxType): boolean =>
  * meets the viewport edge (see `getArrowPosition`). The label is placed just inside
  * the viewport and aligned so it never runs off the edge. If it would overlap one of
  * the `occupied` label boxes, it is moved further inside (or down, on the side edges)
- * one line at a time. The box of the drawn label is added to `occupied`.
+ * one line at a time, or straight to the line it was on in the last frame if
+ * that is free. The box of the drawn label is added to `occupied`, and
+ * the number of lines it was moved is returned, so the next frame can place it
+ * first or last (see `drawDirectionalArrows`).
  *
  * @param {CanvasRenderingContext2D} space - The rendering context for the canvas.
  * @param {number} angle - The angle in radians at which the arrow is pointing.
@@ -50,6 +53,8 @@ const overlaps = (a: ArrowLabelBoxType, b: ArrowLabelBoxType): boolean =>
  * @param {ArrowLabelBoxType[]} [occupied=[]] - Label boxes already drawn in this frame.
  * @param {ArrowBoundsType[]} [obstacles=[]] - HUD panels the arrow must stay out of.
  * @param {number} [keepOutRadius=0] - Distance from the centre arrows never stop within.
+ * @param {number} [previousNudges=0] - How many lines the label was moved in the last frame: it stays there, if it can't go home, while that line is free.
+ * @returns {number} How many lines the label was moved to clear the others: 0 when it wasn't.
  *
  * @example
  * ```ts
@@ -70,8 +75,9 @@ export const drawArrow = (
   name: string,
   occupied: ArrowLabelBoxType[] = [],
   obstacles: ArrowBoundsType[] = [],
-  keepOutRadius = 0
-): void => {
+  keepOutRadius = 0,
+  previousNudges = 0
+): number => {
   const {
     x: arrowX,
     y: arrowY,
@@ -134,16 +140,19 @@ export const drawArrow = (
       bottom: y + LABEL_LINE_HEIGHT / 2
     };
   };
-
-  let box = placeLabel(0);
-
-  for (
-    let nudges = 1;
-    nudges <= MAX_LABEL_NUDGES && occupied.some((b) => overlaps(b, box));
-    nudges++
-  ) {
-    box = placeLabel(nudges * LABEL_LINE_HEIGHT);
-  }
+  const isFree = (nudges: number) =>
+    !occupied.some((taken) => overlaps(taken, placeLabel(nudges)));
+  // Home if it's free, else the line the label was on in the last frame, else
+  // the first free line: a moved label doesn't hop between lines while the
+  // labels around it move
+  const candidates = [
+    0,
+    Math.min(previousNudges, MAX_LABEL_NUDGES),
+    ...Array.from({ length: MAX_LABEL_NUDGES }, (_, i) => i + 1)
+  ];
+  const nudges =
+    candidates.find((n) => isFree(n * LABEL_LINE_HEIGHT)) ?? MAX_LABEL_NUDGES;
+  const box = placeLabel(nudges * LABEL_LINE_HEIGHT);
 
   occupied.push(box);
 
@@ -160,4 +169,6 @@ export const drawArrow = (
   space.fillStyle = CANVAS_COLORS.text;
   space.textAlign = 'center';
   space.fillText(text, box.left + boxWidth / 2, centerY);
+
+  return nudges;
 };
