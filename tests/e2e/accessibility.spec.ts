@@ -17,10 +17,7 @@ const AXE_TAGS = [
 const TAB_ORDER = [
   'skip link',
   'link Interstellar',
-  'link Guide',
-  'link AI assistants',
-  'link Learn',
-  'link Reference',
+  'link Tools',
   'link Sponsor',
   'link Contributing',
   'link GitHub repository',

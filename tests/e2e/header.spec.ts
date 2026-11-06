@@ -3,14 +3,7 @@ import { expect, type Page, test } from '@playwright/test';
 
 /** The header links, in order: accessible name, target, and whether `↗` shows. */
 const LINKS: [string, string, boolean][] = [
-  [
-    'Guide',
-    'https://phun-ky.net/interstellar-tools/guide/introduction/',
-    false
-  ],
-  ['AI assistants', 'https://phun-ky.net/interstellar-tools/guide/mcp/', false],
-  ['Learn', 'https://phun-ky.net/interstellar-tools/learn/', false],
-  ['Reference', 'https://phun-ky.net/interstellar-tools/api/', false],
+  ['Tools', 'https://phun-ky.net/interstellar-tools/', false],
   ['Sponsor', 'https://github.com/sponsors/phun-ky', true],
   [
     'Contributing',
@@ -80,10 +73,10 @@ test.describe('on a narrow screen', () => {
     await page.goto('./');
 
     const menu = nav(page).getByRole('button', { name: 'Menu' });
-    const guide = nav(page).getByRole('link', { name: 'Guide' });
+    const tools = nav(page).getByRole('link', { name: 'Tools' });
 
     await expect(menu).toHaveAttribute('aria-expanded', 'false');
-    await expect(guide).toBeHidden();
+    await expect(tools).toBeHidden();
 
     await menu.click();
     await expect(menu).toHaveAttribute('aria-expanded', 'true');
@@ -93,11 +86,11 @@ test.describe('on a narrow screen', () => {
     }
 
     // Escape closes the menu and returns focus to its button
-    await guide.focus();
+    await tools.focus();
     await page.keyboard.press('Escape');
     await expect(menu).toHaveAttribute('aria-expanded', 'false');
     await expect(menu).toBeFocused();
-    await expect(guide).toBeHidden();
+    await expect(tools).toBeHidden();
 
     // A click outside the navigation closes it too
     await menu.click();
