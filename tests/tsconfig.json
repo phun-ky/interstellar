@@ -3,6 +3,6 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["e2e/**/*.ts"],
+  "include": ["e2e/**/*.ts", "performance/**/*.ts"],
   "exclude": []
 }

@@ -93,6 +93,10 @@ jobs:
       # Uses the runner's Google Chrome, so nothing is downloaded. Builds
       # first (pretest:e2e), then tests the built site.
       - run: npm run test:e2e
+      # Throttled phone: bytes per resource type, LCP, CLS and INP, measured
+      # on the build the end-to-end tests just tested
+      - name: Check the performance budgets
+        run: npm run test:performance
       - name: Keep the traces of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
