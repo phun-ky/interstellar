@@ -199,23 +199,25 @@ turns on the repository's Git hooks (see [Commits](#commits)).
 
 #### Scripts
 
-| Script                     | What it does                                                                       |
-| -------------------------- | ---------------------------------------------------------------------------------- |
-| `npm run dev`              | Runs the dev server.                                                               |
-| `npm run build`            | Builds the site to `dist/`.                                                        |
-| `npm run preview`          | Serves `dist/` as GitHub Pages does, with the 404 page for unknown paths.          |
-| `npm run clean`            | Empties `dist/`.                                                                   |
-| `npm run lint`             | Lints the code and the Markdown with ESLint.                                       |
-| `npm run lint:fix`         | Lints and fixes what ESLint can.                                                   |
-| `npm run lint:html`        | Validates the built pages with html-validate (after a build).                      |
-| `npm run format`           | Formats everything with Prettier.                                                  |
-| `npm run format:check`     | Checks the formatting without changing anything.                                   |
-| `npm run typecheck`        | Typechecks the app and the tests.                                                  |
-| `npm test`                 | Runs the unit tests.                                                               |
-| `npm run test:coverage`    | Runs the unit tests with the coverage floor.                                       |
-| `npm run test:e2e`         | Builds the site, then runs the end-to-end tests against it.                        |
-| `npm run test:performance` | Checks the performance budgets on a throttled phone (after a build).               |
-| `npm run commit`           | Writes a commit message in the project's style, step by step ([git-cz](#commits)). |
+| Script                        | What it does                                                                                                                                          |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`                 | Runs the dev server.                                                                                                                                  |
+| `npm run build`               | Builds the site to `dist/`.                                                                                                                           |
+| `npm run preview`             | Serves `dist/` as GitHub Pages does, with the 404 page for unknown paths.                                                                             |
+| `npm run clean`               | Empties `dist/`.                                                                                                                                      |
+| `npm run lint`                | Lints the code and the Markdown with ESLint, failing on any warning.                                                                                  |
+| `npm run lint:fix`            | Lints and fixes what ESLint can.                                                                                                                      |
+| `npm run lint:html`           | Validates the built pages with html-validate (after a build).                                                                                         |
+| `npm run format`              | Formats everything with Prettier.                                                                                                                     |
+| `npm run format:check`        | Checks the formatting without changing anything.                                                                                                      |
+| `npm run typecheck`           | Typechecks the app and the tests.                                                                                                                     |
+| `npm test`                    | Runs the unit tests.                                                                                                                                  |
+| `npm run test:coverage`       | Runs the unit tests with the coverage floor.                                                                                                          |
+| `npm run test:e2e`            | Builds the site, then runs the end-to-end tests against it.                                                                                           |
+| `npm run test:performance`    | Checks the performance budgets on a throttled phone (after a build).                                                                                  |
+| `npm run commit`              | Writes a commit message in the project's style, step by step ([git-cz](#commits)).                                                                    |
+| `npm run check:bestpractices` | Checks `.bestpractices.json`, and that every file and heading it and `security-insights.yml` link to exists.                                          |
+| `npm run bestpractices:url`   | Prints bestpractices.dev links that propose the answers in `.bestpractices.json` the project doesn't have yet, for the maintainer to review and save. |
 
 #### Tests
 
@@ -271,11 +273,11 @@ Branch from an up-to-date `main` and open a pull request against it. Say what
 changed, how to test it, what it means for the deployed site, and which issues
 it closes.
 
-Every pull request runs the **Check** workflow: lint and formatting, typecheck,
-unit tests with coverage, the build with HTML validation, and the end-to-end
-tests with the performance budgets. Its `check` job passes only when all of them
-do. CodeQL, the dependency review and the DCO check run too. Pull requests are
-merged with a merge commit.
+Every pull request runs the **Check** workflow: lint (no warnings allowed) and
+formatting, the Best Practices answers, typecheck, unit tests with coverage, the
+build with HTML validation, and the end-to-end tests with the performance
+budgets. Its `check` job passes only when all of them do. CodeQL, the dependency
+review and the DCO check run too. Pull requests are merged with a merge commit.
 
 #### Deploys
 

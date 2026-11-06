@@ -26,7 +26,6 @@ import {
 import { resetToNow } from '../features/ui/reset-to-now';
 import { updateScaleDisplay } from '../features/ui/update-scale-display';
 import { updateSimulationStatus } from '../features/ui/update-simulation-status';
-import { EventType } from '../types/native';
 
 import { distanceToPixels } from './distance/distance-to-pixels';
 import { getParentBodyOffset } from './offset/get-parent-body-offset';
@@ -292,18 +291,16 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
     'toggleTrajectoryType'
   ) as HTMLSelectElement;
 
-  trajectoryTypeDropdown.addEventListener(
-    'change',
-    (event: EventType<HTMLSelectElement>) => {
-      globalThis.TRAJECTORY_TYPE = event.target.value as 'orbits' | 'trails';
+  trajectoryTypeDropdown.addEventListener('change', () => {
+    globalThis.TRAJECTORY_TYPE = trajectoryTypeDropdown.value as
+      'orbits' | 'trails';
 
-      if (globalThis.TRAJECTORY_TYPE === 'orbits') {
-        Object.keys(globalThis.TRAJECTORY_TRAILS).forEach((key) => {
-          globalThis.TRAJECTORY_TRAILS[key] = []; // Clear stored trail data
-        });
-      }
+    if (globalThis.TRAJECTORY_TYPE === 'orbits') {
+      Object.keys(globalThis.TRAJECTORY_TRAILS).forEach((key) => {
+        globalThis.TRAJECTORY_TRAILS[key] = []; // Clear stored trail data
+      });
     }
-  );
+  });
 
   const pauseButtonElement = document.getElementById(
     'pause'
@@ -328,19 +325,16 @@ export const attachEventHandlers = (props: AttachEventHandlersPropsType) => {
 
   const lockOnDropdown = document.getElementById('lockOn') as HTMLSelectElement;
 
-  lockOnDropdown.addEventListener(
-    'change',
-    (event: EventType<HTMLSelectElement>) => {
-      const value = event?.target?.value;
-      const body = findBodyById(value);
+  lockOnDropdown.addEventListener('change', () => {
+    const value = lockOnDropdown.value;
+    const body = findBodyById(value);
 
-      if (value === 'noLock' || !body || getBodyKind(body.id) === 'system') {
-        lockOn(null);
-      } else {
-        focusOn(body as CelestialBodyType);
-      }
+    if (value === 'noLock' || !body || getBodyKind(body.id) === 'system') {
+      lockOn(null);
+    } else {
+      focusOn(body as CelestialBodyType);
     }
-  );
+  });
 
   // **Click a body to lock on it**, unless the pointer moved (a drag)
   let pointerDownAt: { x: number; y: number } | null = null;

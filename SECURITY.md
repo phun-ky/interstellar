@@ -96,8 +96,12 @@ reason listed here. There are none.
 ## Code Scanning
 
 CodeQL (GitHub default setup) analyses JavaScript and TypeScript on every pull
-request and every push to `main`. OpenSSF Scorecard runs weekly and on every
-push to `main`.
+request and every push to `main`.
+[OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/phun-ky/site-interstellar)
+scores the repository's practices weekly and on every push to `main`, and
+publishes the result. The answers to the
+[OpenSSF Best Practices](https://www.bestpractices.dev/projects/16380) criteria
+are kept in [`.bestpractices.json`](.bestpractices.json) and checked in CI.
 
 The merge ruleset on `main`
 ([`.github/rulesets/main-merge-rules.json`](.github/rulesets/main-merge-rules.json))
