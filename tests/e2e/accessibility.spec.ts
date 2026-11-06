@@ -16,6 +16,11 @@ const AXE_TAGS = [
 /** Every control, in Tab order. */
 const TAB_ORDER = [
   'skip link',
+  'link Interstellar',
+  'link Tools',
+  'link Sponsor',
+  'link Contributing',
+  'link GitHub repository',
   '#toggleMoons',
   '#toggleAsteroidBelts',
   '#toggleAsteroids',
@@ -56,7 +61,12 @@ const describeFocus = (page: Page) =>
     const box = shown.getBoundingClientRect();
 
     return {
-      id: element.matches('.mc-skip') ? 'skip link' : `#${element.id}`,
+      id: element.matches('.mc-skip')
+        ? 'skip link'
+        : element.id
+          ? `#${element.id}`
+          : // A header link: its accessible name, without the `↗`
+            `link ${element.getAttribute('aria-label') ?? element.textContent?.replace('↗', '').trim()}`,
       outlined: outlineStyle !== 'none' && parseFloat(outlineWidth) > 0,
       onScreen:
         box.width > 0 &&
