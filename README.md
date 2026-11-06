@@ -65,6 +65,8 @@ npm test
 npm run test:coverage
 # End-to-end tests (builds first)
 npm run test:e2e
+# Performance budgets on a throttled phone (after a build)
+npm run test:performance
 ```
 
 ## Contributing
