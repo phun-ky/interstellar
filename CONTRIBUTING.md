@@ -212,7 +212,7 @@ turns on the repository's Git hooks (see [Commits](#commits)).
 | `npm run format:check`        | Checks the formatting without changing anything.                                                                                                      |
 | `npm run typecheck`           | Typechecks the app and the tests.                                                                                                                     |
 | `npm test`                    | Runs the unit tests.                                                                                                                                  |
-| `npm run test:coverage`       | Runs the unit tests with the coverage floor.                                                                                                          |
+| `npm run test:coverage`       | Runs the unit tests with the coverage floor, writing `coverage/lcov.info`.                                                                            |
 | `npm run test:e2e`            | Builds the site, then runs the end-to-end tests against it.                                                                                           |
 | `npm run test:performance`    | Checks the performance budgets on a throttled phone (after a build).                                                                                  |
 | `npm run commit`              | Writes a commit message in the project's style, step by step ([git-cz](#commits)).                                                                    |
@@ -223,10 +223,13 @@ turns on the repository's Git hooks (see [Commits](#commits)).
 
 - **Unit tests** sit next to the code, in `src/**/__tests__/*.spec.ts`, and run
   with Node's test runner. `npm run test:coverage` fails below 89 % of lines, 88
-  % of branches or 95 % of functions. Add tests with the code they cover.
+  % of branches or 95 % of functions, and writes `coverage/lcov.info`, which CI
+  uploads to Codecov. Add tests with the code they cover.
 - **End-to-end tests** in `tests/e2e/` drive the built site in Chrome with
   Playwright: the controls, the keyboard, touch, the narrow screen layout, axe
-  accessibility checks, the Content Security Policy, links and metadata.
+  accessibility checks, the Content Security Policy, links and metadata. They
+  also fail when the build ships a file nothing asks for: remove an asset with
+  the code that used it.
 - **Performance budgets** in `tests/performance/` load the map and the 404 page
   on a throttled phone and fail when the bytes per resource type, LCP, CLS or
   INP go over budget. Raise a budget only on purpose, with the reason and the

@@ -113,12 +113,18 @@ no bypass.
 
 ## Secrets
 
-The workflows use no repository secrets. They run with the short-lived
-`GITHUB_TOKEN` GitHub issues for each run, read-only unless a job asks for more.
+The project keeps as few secrets as possible:
 
-- **Storage:** any secret would be kept only as an encrypted GitHub Actions
-  secret, never in the repository. Secret scanning with push protection blocks
-  commits that contain one.
+| Secret          | Used by     | For                                |
+| --------------- | ----------- | ---------------------------------- |
+| `CODECOV_TOKEN` | `check.yml` | Uploading test coverage to Codecov |
+
+Everything else runs with the short-lived `GITHUB_TOKEN` GitHub issues for each
+run, read-only unless a job asks for more. Deploying needs no secret.
+
+- **Storage:** secrets are kept only as encrypted GitHub Actions secrets, never
+  in the repository. Secret scanning with push protection blocks commits that
+  contain one.
 - **Access:** only the maintainer can view or change secrets, and they are not
   available to workflows run from forks.
 - **Rotation:** at least once a year, and immediately if one may have been
