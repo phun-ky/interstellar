@@ -214,11 +214,11 @@
             <dt class="int">Zoom</dt>
             <dd class="int" id="zoomLevel"></dd>
           </div>
-          <div class="int">
+          <div class="int mc-coord">
             <dt class="int">X</dt>
             <dd class="int" id="coordX"></dd>
           </div>
-          <div class="int">
+          <div class="int mc-coord">
             <dt class="int">Y</dt>
             <dd class="int" id="coordY"></dd>
           </div>
@@ -240,6 +240,27 @@
         <div class="int" id="options"></div>
       </div>
     </aside>
+
+    <!-- Narrow screens: Hold and the Systems sheet, at the bottom -->
+    <div class="int mc-dock">
+      <button
+        type="button"
+        class="int mc-button"
+        id="pauseDock"
+        aria-pressed="false"
+      >
+        Hold
+      </button>
+      <button
+        type="button"
+        class="int mc-button mc-button-secondary"
+        id="systemsToggle"
+        aria-expanded="false"
+        aria-controls="systems"
+      >
+        Systems
+      </button>
+    </div>
 
     <section
       class="int mc-panel mc-popup"

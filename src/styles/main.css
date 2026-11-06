@@ -33,6 +33,7 @@
   --int-header-height: 64px;
   --int-gutter: 24px;
   --int-minimap-size: 160px;
+  --int-dock-height: 68px;
   --int-size-font: 15px;
 }
 
@@ -659,4 +660,160 @@ select.int:focus-visible,
   background: rgba(5, 8, 7, 0.85);
   box-shadow: 0 0 12px rgba(71, 184, 190, 0.4) inset;
   pointer-events: none;
+}
+
+/* ---------- Bottom bar: narrow screens only ---------- */
+
+.int.mc-dock {
+  display: none;
+}
+
+/* ---------- Narrow screens and phones (#17) ----------
+   Below the header menu's breakpoint the side panels would cover the map:
+   Telemetry becomes a compact strip under the header, In view and the
+   coordinates are hidden, and Systems opens as a sheet from a bottom bar
+   that also holds Hold. */
+@media (max-width: 1023px) {
+  :root {
+    --int-gutter: 16px;
+    --int-minimap-size: 96px;
+  }
+
+  /* Telemetry: the date on one line, scale and zoom on the next */
+  .int.mc-left {
+    top: var(--int-header-height);
+    left: 0;
+    right: 0;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .int.mc-left > .mc-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 16px;
+    padding: 8px var(--int-gutter);
+    border-width: 0 0 1px;
+    background: rgba(11, 16, 22, 0.92);
+  }
+
+  .int.mc-left > .mc-panel::before,
+  .int.mc-left > .mc-panel::after {
+    display: none;
+  }
+
+  .int.mc-left .mc-ptitle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .int.mc-date {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .int.mc-left .mc-cells {
+    display: flex;
+    gap: 16px;
+    border: 0;
+    background: none;
+  }
+
+  .int.mc-left .mc-cells > div {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 0;
+    background: none;
+  }
+
+  .int.mc-left .mc-cells dd {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .int.mc-left .mc-cells > .mc-coord,
+  .int.in-viewport {
+    display: none;
+  }
+
+  /* The bottom bar: Hold and the Systems sheet's button */
+  .int.mc-dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    height: var(--int-dock-height);
+    padding: 10px var(--int-gutter) 12px;
+    background: rgba(11, 16, 22, 0.92);
+    border-top: 1px solid var(--int-color-line);
+  }
+
+  .int.mc-dock .mc-button {
+    margin: 0;
+  }
+
+  .int.mc-dock #systemsToggle[aria-expanded='true'] {
+    border-color: var(--int-color-cyan);
+    color: var(--int-color-cyan);
+  }
+
+  /* Systems: a sheet above the bottom bar, shown from its button */
+  .int.controls {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: var(--int-dock-height);
+    z-index: 4;
+    display: none;
+    width: auto;
+    max-width: none;
+    max-height: calc(
+      100vh - var(--int-header-height) - var(--int-dock-height) - 16px
+    );
+    filter: none;
+    clip-path: none;
+  }
+
+  .int.controls.is-open {
+    display: block;
+  }
+
+  /* The bottom bar's Hold stands in for the panel's own */
+  .int.controls #pause {
+    display: none;
+  }
+
+  .int.controls .inner {
+    padding: 16px var(--int-gutter);
+    border-width: 3px 0 0;
+  }
+
+  /* The minimap and the info popup stay clear of the bottom bar */
+  #minimap {
+    bottom: calc(var(--int-dock-height) + var(--int-gutter));
+  }
+
+  .int.mc-popup {
+    bottom: calc(var(--int-dock-height) + var(--int-gutter));
+    width: calc(100vw - 2 * var(--int-gutter));
+    max-height: calc(
+      100vh - var(--int-header-height) - var(--int-dock-height) - 2 *
+        var(--int-gutter)
+    );
+    overflow-y: auto;
+  }
 }
