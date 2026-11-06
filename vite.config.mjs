@@ -28,10 +28,15 @@ const banner = `/**
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */`;
+/**
+ * Where the site is published: the canonical URL, the social card and the
+ * sitemap all start here, and `base` is its path.
+ */
+const SITE_URL = 'https://phun-ky.net/site-interstellar/';
 
 export default defineConfig({
-  // Served from GitHub Pages at https://phun-ky.net/site-interstellar/
-  base: '/site-interstellar/',
+  // Served from GitHub Pages at SITE_URL
+  base: new URL(SITE_URL).pathname,
   publicDir: 'public',
   // No fallback to index.html for unknown paths, as on GitHub Pages
   appType: 'mpa',
@@ -72,6 +77,34 @@ export default defineConfig({
     }
   },
   plugins: [
+    // The canonical URL in the pages, and the sitemap and robots.txt that
+    // point at it. robots.txt is read at the root of a host only, so it
+    // applies once the site has a domain of its own
+    {
+      name: 'site-metadata',
+      transformIndexHtml: {
+        order: 'pre',
+        handler: (html) => html.replaceAll('%SITE_URL%', SITE_URL)
+      },
+      generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'sitemap.xml',
+          source: [
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+            `  <url><loc>${SITE_URL}</loc></url>`,
+            '</urlset>',
+            ''
+          ].join('\n')
+        });
+        this.emitFile({
+          type: 'asset',
+          fileName: 'robots.txt',
+          source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`
+        });
+      }
+    },
     // The policy goes into the built page only: the dev server injects
     // inline styles that it would block
     {

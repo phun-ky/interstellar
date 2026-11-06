@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, test } from 'node:test';
 
-const SITE_URL = 'https://phun-ky.net/site-interstellar/';
+// The build fills in the site's address from vite.config.mjs; the built
+// values are checked in tests/e2e/metadata.spec.ts
+const SITE_URL = '%SITE_URL%';
 const html = readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
 
 /** The `content` of a `<meta property="…">` tag, or `null`. */
@@ -19,11 +21,11 @@ describe('index.html metadata', () => {
     assert.doesNotMatch(html, /localhost|127\.0\.0\.1/);
   });
 
-  test('og:url is the deployed site', () => {
+  test('og:url is the site URL', () => {
     assert.equal(metaProperty('og:url'), SITE_URL);
   });
 
-  test('og:image is served from the deployed site', () => {
+  test('og:image is served from the site', () => {
     const image = metaProperty('og:image');
 
     assert.ok(image?.startsWith(SITE_URL), `og:image is ${image}`);
@@ -40,7 +42,7 @@ describe('index.html metadata', () => {
     assert.deepEqual(external, []);
   });
 
-  test('the canonical URL is the deployed site', () => {
+  test('the canonical URL is the site URL', () => {
     const canonical = html
       .match(/<link[^>]*rel="canonical"[^>]*>/s)?.[0]
       ?.match(/href="([^"]*)"/)?.[1];
