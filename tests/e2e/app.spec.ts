@@ -130,6 +130,34 @@ test('Moons and Comets add and remove their bodies', async ({ page }) => {
   await expect.poll(drawn).not.toContain('1p-halley');
 });
 
+test('Asteroids adds and removes the asteroids without the belts', async ({
+  page
+}) => {
+  const drawn = () => readApp(page, (app) => Object.keys(app.NEAREST_BODIES));
+
+  await openApp(page);
+  // Zoomed in far enough for the solar system's small bodies
+  await lockOn(page, 'mars');
+  await expect(page.locator('#toggleAsteroidBelts')).not.toBeChecked();
+  expect(await drawn()).not.toContain('4-vesta');
+
+  await toggle(page, 'toggleAsteroids');
+  await expect.poll(drawn).toContain('4-vesta');
+  await toggle(page, 'toggleAsteroids');
+  await expect.poll(drawn).not.toContain('4-vesta');
+});
+
+test('locking on an asteroid leaves the belts off', async ({ page }) => {
+  await openApp(page);
+  await lockOn(page, '4-vesta');
+
+  await expect(page.locator('#toggleAsteroids')).toBeChecked();
+  await expect(page.locator('#toggleAsteroidBelts')).not.toBeChecked();
+  await expect
+    .poll(() => readApp(page, (app) => Object.keys(app.NEAREST_BODIES)))
+    .toContain('4-vesta');
+});
+
 test('the arrows setting limits arrows to the nearest N objects', async ({
   page
 }) => {

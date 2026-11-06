@@ -12,7 +12,7 @@ import {
 import {
   SCALE,
   SIMULATION_DATE,
-  THRESHOLD_ASTEROID_BELT_RENDER,
+  THRESHOLD_ASTEROID_RENDER,
   THRESHOLD_COMET_RENDER,
   THRESHOLD_MOON_RENDER,
   THRESHOLD_PLANET_RENDER
@@ -116,10 +116,7 @@ const App = async (): Promise<void> => {
         updatePositions(COMETS, timeStep);
       }
 
-      if (
-        SCALE.value > THRESHOLD_ASTEROID_BELT_RENDER &&
-        OPTIONS_UI.asteroidBelts
-      ) {
+      if (SCALE.value > THRESHOLD_ASTEROID_RENDER && OPTIONS_UI.asteroids) {
         updatePositions(ASTEROIDS, timeStep);
       }
 

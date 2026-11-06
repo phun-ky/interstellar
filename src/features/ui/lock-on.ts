@@ -37,7 +37,7 @@ const ZOOM_DURATION_MS = 700;
 const LAYERS_BY_KIND: Record<string, string[]> = {
   moon: ['toggleMoons'],
   comet: ['toggleComets'],
-  asteroid: ['toggleAsteroidBelts', 'toggleAsteroids']
+  asteroid: ['toggleAsteroids']
 };
 
 let zoomAnimation: number | null = null;
