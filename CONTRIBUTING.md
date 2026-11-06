@@ -226,7 +226,9 @@ turns on the repository's Git hooks (see [Commits](#commits)).
   % of branches or 95 % of functions. Add tests with the code they cover.
 - **End-to-end tests** in `tests/e2e/` drive the built site in Chrome with
   Playwright: the controls, the keyboard, touch, the narrow screen layout, axe
-  accessibility checks, the Content Security Policy, links and metadata.
+  accessibility checks, the Content Security Policy, links and metadata. They
+  also fail when the build ships a file nothing asks for: remove an asset with
+  the code that used it.
 - **Performance budgets** in `tests/performance/` load the map and the 404 page
   on a throttled phone and fail when the bytes per resource type, LCP, CLS or
   INP go over budget. Raise a budget only on purpose, with the reason and the

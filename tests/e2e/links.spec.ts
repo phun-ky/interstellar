@@ -1,3 +1,6 @@
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
 import AxeBuilder from '@axe-core/playwright';
 import {
   type APIRequestContext,
@@ -7,6 +10,9 @@ import {
 } from '@playwright/test';
 
 import { recordFrames } from './helpers';
+
+/** The built site, as the tests serve it. */
+const DIST = join(import.meta.dirname, '../../dist');
 
 /** The built pages, relative to the base URL. */
 const PAGES = ['./', '404.html'];
@@ -67,17 +73,55 @@ const urlsInBrowserConfig = async (
   );
 };
 
-test('every internal link and asset in the built pages resolves', async ({
-  page,
-  request,
-  baseURL
-}) => {
-  const urls = new Set<string>();
+/** The social card and other images named in `<meta>` tags, on the site's own origin. */
+const metaImagesOn = async (page: Page): Promise<string[]> => {
+  const contents = await page.evaluate(() =>
+    [
+      ...document.querySelectorAll(
+        'meta[property="og:image"], meta[name="twitter:image"]'
+      )
+    ].map((meta) => meta.getAttribute('content') ?? '')
+  );
+
+  // They name the live site; the same path on the test server is the same file
+  return contents.map(
+    (content) =>
+      new URL(new URL(content).pathname.replace(/^\//, ''), SERVER_ROOT).href
+  );
+};
+
+/** The source map a script names in its `sourceMappingURL` comment, resolved. */
+const sourceMapOf = async (
+  request: APIRequestContext,
+  script: string
+): Promise<string[]> => {
+  const js = await (await request.get(script)).text();
+  const map = js.match(/\/\/# sourceMappingURL=(\S+)\s*$/)?.[1];
+
+  return map ? [new URL(map, script).href] : [];
+};
+
+/** The test server's root, where the site's path starts. */
+const SERVER_ROOT = 'http://127.0.0.1:3000/';
+
+/**
+ * Every file the built site asks for: the pages, what they link and load, what
+ * their stylesheets, scripts and manifest load in turn, the social card, and
+ * the images in `browserconfig.xml`, which browsers ask for by convention.
+ */
+const reachableUrls = async (
+  page: Page,
+  request: APIRequestContext,
+  baseURL: string
+): Promise<Set<string>> => {
+  const urls = new Set<string>([new URL('browserconfig.xml', baseURL).href]);
 
   for (const path of PAGES) {
     await page.goto(path);
+    urls.add(page.url());
 
     for (const url of await linksOn(page)) urls.add(url);
+    for (const url of await metaImagesOn(page)) urls.add(url);
   }
 
   for (const url of [...urls]) {
@@ -85,6 +129,8 @@ test('every internal link and asset in the built pages resolves', async ({
 
     if (pathname.endsWith('.css')) {
       for (const asset of await urlsInStylesheet(request, url)) urls.add(asset);
+    } else if (pathname.endsWith('.js')) {
+      for (const asset of await sourceMapOf(request, url)) urls.add(asset);
     } else if (pathname.endsWith('manifest.json')) {
       for (const asset of await urlsInManifest(request, url)) urls.add(asset);
     }
@@ -97,6 +143,23 @@ test('every internal link and asset in the built pages resolves', async ({
     urls.add(url);
   }
 
+  return urls;
+};
+
+/** Every file in the build, relative to `dist/`. */
+const builtFiles = (dir = DIST, prefix = ''): string[] =>
+  readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
+    entry.isDirectory()
+      ? builtFiles(join(dir, entry.name), `${prefix}${entry.name}/`)
+      : [`${prefix}${entry.name}`]
+  );
+
+test('every internal link and asset in the built pages resolves', async ({
+  page,
+  request,
+  baseURL
+}) => {
+  const urls = await reachableUrls(page, request, baseURL ?? '');
   const broken: string[] = [];
 
   for (const url of urls) {
@@ -110,6 +173,21 @@ test('every internal link and asset in the built pages resolves', async ({
   // The fonts, the manifest icons and the pages themselves, at the least
   expect(urls.size).toBeGreaterThan(20);
   expect(broken).toEqual([]);
+});
+
+test('the build ships no file the site never asks for', async ({
+  page,
+  request,
+  baseURL
+}) => {
+  const base = baseURL ?? '';
+  const asked = new Set(
+    [...(await reachableUrls(page, request, base))].map((url) =>
+      decodeURIComponent(url.slice(base.length) || 'index.html')
+    )
+  );
+
+  expect(builtFiles().filter((file) => !asked.has(file))).toEqual([]);
 });
 
 test.describe('an unknown path', () => {
