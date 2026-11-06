@@ -28,10 +28,9 @@ const banner = `/**
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */`;
-
 /**
  * Where the site is published: the canonical URL, the social card and the
- * sitemap all start here. Its path must match `base`.
+ * sitemap all start here, and `base` is its path.
  */
 const SITE_URL = 'https://phun-ky.net/site-interstellar/';
 
