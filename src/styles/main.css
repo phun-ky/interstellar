@@ -73,13 +73,15 @@ body:has(#toggleStarfield:checked) {
   background-image: none;
 }
 
+/* Below the header from the first paint, where setupCanvas() puts it, so the
+   canvas does not shift when the script runs */
 canvas {
   position: fixed;
-  top: 0;
+  top: var(--int-header-height);
   left: 0;
   display: block;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - var(--int-header-height));
 }
 
 .sr-only {
