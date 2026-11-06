@@ -59,7 +59,7 @@ export const generateStarfield = (
     const star = {
       x: starX,
       y: starY,
-      brightness: Math.random() * 0.5 + 0.5, // Vary brightness
+      brightness: Math.random() * 0.25 + 0.25, // Vary brightness
       size: Math.random() * 1, // Small size variations
       parallaxFactor: 0.01 + Math.random() * 4.5 // Much subtler effect
     };

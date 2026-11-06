@@ -15,6 +15,7 @@ import {
   MAX_PLANET_SIZE,
   MAX_STAR_SIZE,
   THRESHOLD_ASTEROID_BELT_RENDER,
+  THRESHOLD_ASTEROID_RENDER,
   THRESHOLD_COMET_LABEL,
   THRESHOLD_COMET_RENDER,
   THRESHOLD_MOON_RENDER,
@@ -222,37 +223,36 @@ export const draw = async (props: DrawPropsType) => {
           scale,
           asteroidBelts: ASTEROID_BELTS
         });
+      }
 
-        if (OPTIONS_UI.asteroids) {
-          // Asteroids:
-          drawOrbits({
+      // Asteroids are a layer of their own, drawn with or without the belts
+      if (scale.value > THRESHOLD_ASTEROID_RENDER && OPTIONS_UI.asteroids) {
+        drawOrbits({
+          celestialBodies: asteroids,
+          toggled: OPTIONS_UI.trajectory,
+          space,
+          referenceX: sunReferenceX,
+          referenceY: sunReferenceY,
+          scale
+        });
+
+        drawCelestialBodies({
+          space,
+          referenceX: sunReferenceX,
+          referenceY: sunReferenceY,
+          scale,
+          celestialBodies: asteroids,
+          maxSize: MAX_PLANET_SIZE
+        });
+
+        if (scale.value > THRESHOLD_PLANET_RENDER && OPTIONS_UI.labels) {
+          drawLabels({
             celestialBodies: asteroids,
-            toggled: OPTIONS_UI.trajectory,
             space,
-            referenceX: sunReferenceX,
-            referenceY: sunReferenceY,
-            scale
-          });
-
-          // Draw asteroids
-          drawCelestialBodies({
-            space,
-            referenceX: sunReferenceX,
-            referenceY: sunReferenceY,
             scale,
-            celestialBodies: asteroids,
-            maxSize: MAX_PLANET_SIZE
+            referenceX: sunReferenceX,
+            referenceY: sunReferenceY
           });
-
-          if (scale.value > THRESHOLD_PLANET_RENDER && OPTIONS_UI.labels) {
-            drawLabels({
-              celestialBodies: asteroids,
-              space,
-              scale,
-              referenceX: sunReferenceX,
-              referenceY: sunReferenceY
-            });
-          }
         }
       }
 

@@ -53,15 +53,15 @@ export const generateStarfieldBitmap = async (
     const starSize = Math.max(star.size * Math.min(scale.value, 1), 1);
 
     if (star.parallaxFactor > 4.51) {
-      space.fillStyle = 'rgb(255,255,255)'; // Brightest, closest stars
+      space.fillStyle = 'rgba(255,255,255,0.9)'; // Brightest, closest stars
     } else if (star.parallaxFactor > 3.51) {
-      space.fillStyle = 'rgb(220,220,255)'; // Slightly bluish-white
+      space.fillStyle = 'rgba(220,220,255,0.7)'; // Slightly bluish-white
     } else if (star.parallaxFactor > 2.51) {
-      space.fillStyle = 'rgb(200,200,255)'; // Light blue
+      space.fillStyle = 'rgba(200,200,255,0.5)'; // Light blue
     } else if (star.parallaxFactor > 1.51) {
-      space.fillStyle = 'rgb(170,170,255)'; // Deeper blue
+      space.fillStyle = 'rgba(170,170,255,0.3)'; // Deeper blue
     } else {
-      space.fillStyle = 'rgb(150,150,255)'; // Faintest, furthest away
+      space.fillStyle = 'rgba(150,150,255,0.1)'; // Faintest, furthest away
     }
 
     space.beginPath();
