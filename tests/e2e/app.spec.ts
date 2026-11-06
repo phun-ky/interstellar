@@ -158,6 +158,19 @@ test('locking on an asteroid leaves the belts off', async ({ page }) => {
     .toContain('4-vesta');
 });
 
+test('Starfield hides the background grid', async ({ page }) => {
+  const background = () =>
+    page.evaluate(() => getComputedStyle(document.body).backgroundImage);
+
+  await openApp(page);
+  expect(await background()).toContain('linear-gradient');
+
+  await toggle(page, 'toggleStarfield');
+  expect(await background()).toBe('none');
+  await toggle(page, 'toggleStarfield');
+  expect(await background()).toContain('linear-gradient');
+});
+
 test('the arrows setting limits arrows to the nearest N objects', async ({
   page
 }) => {

@@ -68,6 +68,11 @@ body {
   background-size: 32px 32px;
 }
 
+/* The starfield replaces the grid */
+body:has(#toggleStarfield:checked) {
+  background-image: none;
+}
+
 canvas {
   position: fixed;
   top: 0;
